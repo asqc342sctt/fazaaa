@@ -1,0 +1,16 @@
+# Fazza Play - Robots.txt
+User-agent: *
+Allow: /
+Allow: /game/
+Allow: /images/
+Allow: /css/
+Allow: /js/
+
+# Disallow admin and private areas
+Disallow: /api/
+Disallow: /.netlify/
+Disallow: /.wrangler/
+Disallow: /functions/
+
+# Sitemap location
+Sitemap: https://fazzaplay.com/sitemap.xml

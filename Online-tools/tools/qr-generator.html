@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>QR Code Generator - Free Online Tool | مولد QR Code أونلاين مجاناً</title>
+    <meta name="description" content="Generate QR codes instantly for any text or URL. Free online QR code generator tool with customizable design. | إنشاء رموز QR Code مجاناً.">
+    <meta name="keywords" content="QR code generator, generate QR code, QR code maker, free online tool, QR code creator, مولد QR, QR Code, إنشاء QR, أدوات أونلاين">
+    <meta name="author" content="FazzaPlay">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="googlebot" content="index, follow">
+    <meta name="bingbot" content="index, follow">
+    <link rel="canonical" href="https://fazzaplay.com/tools/qr-generator">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="tools.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8571192174854530"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo"><span>FazzaPlay</span></div>
+                <div class="nav-menu">
+                    <a href="../index.html#tools" class="nav-link">الأدوات</a>
+                    <a href="../index.html#about" class="nav-link">حول</a>
+                </div>
+                <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+            </div>
+        </nav>
+    </header>
+    <!-- إعلان قبل الفوتر -->
+    <div class="fazza-ad-unit">
+        <script type="text/javascript">atOptions = { 'key' : 'abae43c3093c7f7459553dac34caad9a', 'format' : 'iframe', 'height' : 90, 'width' : 320, 'params' : {} };</script>
+        <script type="text/javascript" src="https://charmingpoliteinjunction.com/abae43c3093c7f7459553dac34caad9a/invoke.js"></script>
+    </div>
+
+
+    <main class="tool-page tool-qr-generator">
+        <section class="tool-hero">
+            <div class="container">
+                <h1>QR Code Generator</h1>
+                <p>Create professional QR codes for any text or URL and download instantly.</p>
+            </div>
+        </section>
+
+        <section class="tool-content container">
+            <h2><i class="fas fa-qrcode"></i> QR Code Generator</h2>
+            <div class="tool-interface">
+                <div class="settings-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;align-items:end;">
+                    <div class="setting-group" style="grid-column:1/-1;">
+                        <label>Text or URL:</label>
+                        <input type="text" id="qrText" placeholder="Enter text or paste a URL...">
+                    </div>
+                    <div class="setting-group">
+                        <label>Size (px):</label>
+                        <input type="number" id="qrSize" value="300" min="120" max="1000">
+                    </div>
+                    <div class="setting-group">
+                        <label>Margin:</label>
+                        <input type="number" id="qrMargin" value="2" min="0" max="20">
+                    </div>
+                    <div class="setting-group">
+                        <label>Foreground:</label>
+                        <input type="color" id="qrColor" value="#000000">
+                    </div>
+                    <div class="setting-group">
+                        <label>Background:</label>
+                        <input type="color" id="qrBg" value="#ffffff">
+                    </div>
+                </div>
+                <div class="action-buttons" style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;">
+                    <button class="generate-btn" onclick="generateQR()"><i class="fas fa-qrcode"></i> Generate</button>
+                    <button class="copy-btn" id="copyQrLinkBtn"><i class="fas fa-link"></i> Copy Link</button>
+                    <button class="download-btn" id="downloadQrBtn"><i class="fas fa-download"></i> Download PNG</button>
+                    <button class="reset-btn" id="resetQrBtn"><i class="fas fa-redo"></i> Reset</button>
+                </div>
+                <div class="result-area" id="qrResult" style="display:none;margin-top:12px;">
+                    <div class="card" style="padding:12px;text-align:center;">
+                        <img id="qrImage" alt="QR code" style="max-width:100%;height:auto;">
+                        <div style="margin-top:8px;word-break:break-all"><a id="qrLink" href="#" target="_blank"></a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- إعلان قبل الفوتر -->
+    <div class="fazza-ad-unit">
+        <script type="text/javascript">atOptions = { 'key' : 'abae43c3093c7f7459553dac34caad9a', 'format' : 'iframe', 'height' : 90, 'width' : 320, 'params' : {} };</script>
+        <script type="text/javascript" src="https://charmingpoliteinjunction.com/abae43c3093c7f7459553dac34caad9a/invoke.js"></script>
+    </div>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 FazzaPlay</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof initializeToolEvents === 'function') {
+                initializeToolEvents('qr-generator');
+            }
+        });
+    </script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.querySelector('.nav-menu');
+        if (navToggle && navMenu) {
+            navToggle.addEventListener('click', () => {
+                const isVisible = navMenu.style.display === 'flex';
+                navMenu.style.display = isVisible ? 'none' : 'flex';
+            });
+        }
+    });
+    </script>
+</body>
+</html>
+

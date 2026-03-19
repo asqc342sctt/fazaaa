@@ -1,0 +1,254 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحميل NBA 2K Mobile | بناء فريق MyTeam والمواسم الاحترافية - Fazza Play</title>
+    
+    <meta name="description" content="حمّل NBA 2K Mobile: خض تجربة كرة سلة واقعية ثلاثية الأبعاد. ابنِ فريق أحلامك (MyTeam) من نجوم NBA الحاليين والأساطير، وتنافس في مباريات 5 ضد 5 عبر الأنماط اليومية والموسمية.">
+    <meta name="keywords" content="NBA 2K Mobile, MyTeam, 2K Sports, لعبة كرة سلة، نجوم NBA، دوري كرة السلة، ألعاب رياضية، 5 ضد 5">
+    <meta name="author" content="Fazza Play">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="NBA 2K Mobile: دليل بناء فريق الأحلام MyTeam وتكتيكات اللعب">
+    <meta property="og:description" content="مراجعة شاملة لآليات اللعبة، وكيفية جمع بطاقات اللاعبين وتطويرهم، والمشاركة في التحديات الموسمية والأحداث الأسبوعية.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fazzaplay.com/mobile-games/details/nba-2k-mobile.html">
+    <meta property="og:image" content="../../images/mobile-games/nba-2k-mobile-cover.jpg"> 
+    <link rel="canonical" href="https://fazzaplay.com/mobile-games/details/nba-2k-mobile.html">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* نظام ألوان مستوحى من دوري NBA (الأزرق، الأحمر، والأبيض/الرمادي) */
+        :root {
+            --dark-bg: #121212; 
+            --main-card-bg: #1A1A1A;
+            --text-color: #FAFAFA;
+            --highlight-color: #0077C0; /* أزرق السلة */
+            --secondary-color: #E30022; /* أحمر الإثارة */
+            --border-color: #383838; 
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-color);
+            font-family: 'Tajawal', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #000;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h1 a {
+            color: var(--highlight-color);
+            text-decoration: none;
+            font-size: 2rem;
+            text-shadow: 0 0 5px rgba(0, 119, 192, 0.7);
+        }
+        .game-detail-container {
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 3rem;
+            background-color: var(--main-card-bg);
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+            border: 3px solid var(--secondary-color); 
+        }
+        .game-detail-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .game-detail-header img {
+            width: 100%;
+            max-width: 450px; 
+            height: auto;
+            object-fit: cover;
+            border-radius: 15px; 
+            border: 6px solid var(--highlight-color);
+            box-shadow: 0 0 25px rgba(0, 119, 192, 0.7);
+        }
+        .game-detail-header h1 {
+            font-size: 4rem;
+            margin-top: 1.5rem;
+            color: var(--highlight-color);
+            text-shadow: 2px 2px 10px rgba(0, 119, 192, 0.8);
+        }
+        .game-detail-content h2 {
+            font-size: 2.5rem;
+            margin-top: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary-color);
+            border-bottom: 3px solid var(--highlight-color);
+            padding-bottom: 0.8rem;
+        }
+        .game-detail-content h3 {
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            color: var(--text-color);
+            border-right: 5px solid var(--secondary-color);
+            padding-right: 15px;
+        }
+        .game-detail-content p, .game-detail-content ul, .game-detail-content li, .game-detail-content table {
+            font-size: 1.2rem;
+            line-height: 2.1;
+            text-align: justify;
+        }
+        .game-detail-content ul {
+            list-style: none;
+            padding-right: 0;
+        }
+        .game-detail-content li {
+            margin-bottom: 1rem;
+            padding-right: 2.5rem;
+            position: relative;
+            background-color: #252525;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+        }
+        .game-detail-content li::before {
+            content: '\25C6'; /* رمز ماسي بسيط */
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--highlight-color);
+            font-size: 1.3rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table th, table td {
+            padding: 15px;
+            border: 1px solid var(--border-color);
+            text-align: right;
+        }
+        table th {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+        }
+        table tr:nth-child(even) {
+            background-color: #252525;
+        }
+        .buttons-container {
+            text-align: center;
+            margin-top: 5rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid var(--border-color);
+        }
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 15px;
+            padding: 20px 45px;
+            background-color: var(--highlight-color);
+            color: var(--dark-bg);
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 1.4rem;
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+            box-shadow: 0 8px 25px rgba(0, 119, 192, 0.7);
+        }
+        .action-btn:hover {
+            background-color: #005A99;
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 119, 192, 1);
+        }
+        .back-btn {
+            background-color: #444;
+            color: var(--text-color);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+            padding: 17px 35px;
+            font-size: 1.2rem;
+        }
+        .back-btn:hover {
+            background-color: #555;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+        }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8571192174854530"
+     crossorigin="anonymous"></script>
+</head>
+<body> <header><h1><a href="../../index.html">Fazza Play</a></h1></header>
+    <main>
+        <div class="game-detail-container">
+            <div class="game-detail-header">
+                <img src="../../images/mobile-games/nba-2k-mobile-cover.jpg" alt="غلاف NBA 2K Mobile">
+                <h1>NBA 2K Mobile Basketball</h1>
+                <p style="color: var(--secondary-color); font-size: 1.3rem; margin-top: 10px;">محاكاة كرة السلة 5 ضد 5 وبناء فريق MyTeam</p>
+            </div>
+
+            <div class="game-detail-content">
+                
+                <h2>نظام MyTeam: اجمع الأساطير وكون فريقك</h2>
+                <p>
+                    تعتبر NBA 2K Mobile واحدة من أكثر ألعاب كرة السلة واقعية على الأجهزة المحمولة. وهي مبنية على نمط **MyTeam** الشهير، حيث يكون هدفك هو جمع بطاقات اللاعبين من مختلف المستويات (من النجوم الحاليين إلى أساطير NBA)، ودمجهم في قائمة فريقك للارتقاء بتقييمه الإجمالي (Power Rating).
+                </p>
+                
+                <h3>1. آليات اللعب والمنافسة</h3>
+                <ul>
+                    <li>**مباريات 5 ضد 5:** خُض تجربة محاكاة كاملة لمباريات كرة السلة بخمسة لاعبين ضد خمسة، مع تحكم متقدم في التسديد، والمراوغة، والدفاع.</li>
+                    <li>**المواسم والتحديات:** شارك في المواسم التنافسية للارتقاء بالدوري والفوز بأفضل المكافآت، بالإضافة إلى التحديات اليومية والأسبوعية للحصول على بطاقات حصرية.</li>
+                    <li>**التطوير والترقية:** استخدم الموارد المكتسبة لترقية مستوى نجومك، وتعزيز مهاراتهم الفردية (كالتسديد الثلاثي أو قوة الهجوم)، مما يرفع من قوة فريقك الإجمالية.</li>
+                    <li>**التحكم السلس:** توفير خيارات تحكم مرنة تسمح للاعبين المبتدئين والمحترفين بالاستمتاع بآليات اللعب السريعة على شاشة اللمس.</li>
+                </ul>
+
+                <h2>متطلبات التشغيل (لتجربة بصرية مثالية)</h2>
+                <p>
+                    نظرًا لجودة الرسوميات وتفاصيل اللاعبين الواقعية، تتطلب NBA 2K Mobile مواصفات تقنية قوية:
+                </p>
+                <table style="width: 100%; margin-top: 20px;">
+                    <thead>
+                        <tr style="background-color: var(--secondary-color); color: var(--text-color);">
+                            <th>الميزة</th>
+                            <th>التفاصيل التقنية (موصى بها)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>نظام التشغيل (Android)</td>
+                            <td>Android 8.0 (Oreo) أو أحدث</td>
+                        </tr>
+                        <tr>
+                            <td>نظام التشغيل (iOS)</td>
+                            <td>iOS 13.0 أو أحدث</td>
+                        </tr>
+                        <tr>
+                            <td>الذاكرة العشوائية (RAM)</td>
+                            <td>4 GB كحد أدنى</td>
+                        </tr>
+                        <tr>
+                            <td>مساحة التخزين</td>
+                            <td>3.5 GB+ (للملفات الأساسية والبيانات الموسمية)</td>
+                        </tr>
+                        <tr>
+                            <td>الاتصال</td>
+                            <td>يتطلب اتصال إنترنت مستقر للعب والتحديثات</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="buttons-container">
+                <a href="https://play.google.com/store/apps/details?id=com.t2ksports.nba2kmobile" class="action-btn" target="_blank" rel="noopener noreferrer">احصل عليها للأندرويد</a>
+                <a href="https://apps.apple.com/us/app/nba-2k-mobile-basketball/id1456179625" class="action-btn" target="_blank" rel="noopener noreferrer">احصل عليها للآيفون</a>
+                <a href="../index.html" class="action-btn back-btn">العودة لقائمة الألعاب</a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Fazza Play. جميع الحقوق محفوظة. | <a href="/privacy-policy.html" style="color: var(--highlight-color); text-decoration: none;">سياسة الخصوصية</a> | <a href="/terms-of-use.html" style="color: var(--highlight-color); text-decoration: none;">شروط الاستخدام</a></p>
+        </div>
+    </footer>
+ <script src="ads-fazza.js"></script>
+</body>
+     
+
+</html>

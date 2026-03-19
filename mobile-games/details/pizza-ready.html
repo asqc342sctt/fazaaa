@@ -1,0 +1,336 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="دليل لعبة Pizza Ready الشامل: استراتيجيات لزيادة الأرباح، شرح التحديثات، ورابط التحميل الرسمي. استخدم حاسبة الأرباح لتطوير مطعمك.">
+    <meta name="keywords" content="Pizza Ready, دليل لعبة بيتزا ريدي, شفرات Pizza Ready, تحميل لعبة محاكاة البيتزا, إدارة مطاعم">
+    <title>Pizza Ready: الدليل الشامل + حاسبة الأرباح | Fazza Play</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #ffc107;
+            --primary-dark: #d39e00;
+            --bg-dark: #121212;
+            --card-bg: #1e1e1e;
+            --text-light: #e0e0e0;
+            --glass: rgba(30, 30, 30, 0.85);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            background-image: radial-gradient(circle at 10% 20%, rgba(255, 193, 7, 0.05) 0%, transparent 20%);
+            line-height: 1.6;
+        }
+
+        /* Header Style */
+        header {
+            background: var(--card-bg);
+            padding: 1rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Layout Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* Content Cards */
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        h1 { font-size: 2.5rem; color: #fff; margin-bottom: 0.5rem; }
+        h2 { color: var(--primary); margin-bottom: 1rem; border-right: 4px solid var(--primary); padding-right: 15px; }
+        
+        .game-header {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .game-icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 20px;
+            object-fit: cover;
+            box-shadow: 0 0 20px rgba(255, 193, 7, 0.3);
+        }
+
+        /* Feature List */
+        .features-list { list-style: none; }
+        .features-list li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .features-list i { color: var(--primary); }
+
+        /* --- THE VALUE ADD: ROI Calculator --- */
+        .calculator-box {
+            background: linear-gradient(145deg, #252525, #1a1a1a);
+            border: 1px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+        .calc-input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background: #333;
+            border: 1px solid #444;
+            color: #fff;
+            border-radius: 5px;
+            font-family: 'Cairo';
+        }
+        .calc-result {
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(255, 193, 7, 0.1);
+            color: var(--primary);
+            font-weight: bold;
+            border-radius: 8px;
+            display: none;
+        }
+
+        /* Buttons */
+        .btn-main {
+            display: inline-block;
+            width: 100%;
+            padding: 15px;
+            background: var(--primary);
+            color: #000;
+            font-weight: 900;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 193, 7, 0.4);
+            margin-top: 10px;
+        }
+        .btn-main:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 193, 7, 0.6);
+        }
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid #444;
+            color: #ccc;
+        }
+
+        /* Table */
+        table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+        th, td { padding: 12px; border-bottom: 1px solid #333; text-align: right; }
+        th { color: var(--primary); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 1.8rem; }
+            .game-header { justify-content: center; text-align: center; }
+        }
+    </style>
+    
+    </head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="../../index.html" class="logo">
+                <i class="fas fa-gamepad"></i> Fazza Play
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div style="margin-top: 20px; font-size: 0.9rem; color: #888;">
+            <span>الرئيسية</span> > <span>ألعاب المحاكاة</span> > <span style="color:var(--primary)">Pizza Ready</span>
+        </div>
+
+        <div class="main-grid">
+            <main>
+                <article class="card">
+                    <div class="game-header">
+                        <img src="../../images/mobile-games/Pizza Ready.jpg" alt="Pizza Ready Icon" class="game-icon" onerror="this.src='https://placehold.co/120x120/1e1e1e/ffc107?text=Pizza'">
+                        <div>
+                            <h1>Pizza Ready - إمبراطورية البيتزا</h1>
+                            <div style="color: #ffc107; margin-bottom: 10px;">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                <span style="color: #888; font-size: 0.8rem;">(4.8 تقييم اللاعبين)</span>
+                            </div>
+                            <p>هل تحلم بإدارة أكبر سلسلة مطاعم بيتزا؟ ابدأ من الصفر وكن التايكون القادم.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <div style="text-align: center; margin: 20px 0; background: #181818; padding: 20px; color: #444; border-radius: 8px;">
+                    -- مساحة إعلانية --
+                </div>
+
+                <section class="card">
+                    <h2><i class="fas fa-info-circle"></i> دليل المدير الناجح</h2>
+                    <p>لعبة <strong>Pizza Ready</strong> ليست مجرد لعبة طبخ عادية، هي محاكاة اقتصادية (Idle Tycoon) تتطلب ذكاء في توزيع الموارد. إليك أهم الاستراتيجيات التي لن يخبرك بها أحد:</p>
+                    <br>
+                    <ul class="features-list">
+                        <li>
+                            <i class="fas fa-bolt"></i>
+                            <div>
+                                <strong>قاعدة الـ 70% للتوظيف:</strong> لا تقم بملء المطعم بالموظفين فوراً. استثمر 70% من أرباحك في ترقية سرعة "الكاشير" قبل تعيين طباخين جدد.
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-motorcycle"></i>
+                            <div>
+                                <strong>توسيع خدمة التوصيل (Drive-thru):</strong> هذا هو منجم الذهب الحقيقي. الزبائن في السيارات يدفعون أسرع ولا يشغلون طاولات.
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-level-up-alt"></i>
+                            <div>
+                                <strong>الموارد البشرية (HR):</strong> قم بترقية مهارة "السرعة" للموظفين قبل مهارة "سعة الحمل". السرعة تعني خدمة أسرع ودوران مال أعلى.
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="card">
+                    <h2><i class="fas fa-mobile-alt"></i> متطلبات التشغيل</h2>
+                    <table>
+                        <tr>
+                            <th>النظام</th>
+                            <td>Android 6.0+ / iOS 12.0+</td>
+                        </tr>
+                        <tr>
+                            <th>المساحة المطلوبة</th>
+                            <td>حوالي 150 ميجابايت</td>
+                        </tr>
+                        <tr>
+                            <th>الإنترنت</th>
+                            <td>يمكن اللعب أوفلاين (بدون نت)</td>
+                        </tr>
+                        <tr>
+                            <th>الشركة المطورة</th>
+                            <td>Supercent Inc.</td>
+                        </tr>
+                    </table>
+                </section>
+
+                <section class="card">
+                    <h2>أسئلة شائعة</h2>
+                    <details style="margin-bottom: 10px; cursor: pointer;">
+                        <summary style="font-weight: bold; padding: 10px; background: rgba(255,255,255,0.05); border-radius: 5px;">كيف يمكنني إزالة الإعلانات؟</summary>
+                        <p style="padding: 10px; font-size: 0.9rem;">يوجد خيار "No Ads" داخل اللعبة للشراء، وهو استثمار جيد إذا كنت تخطط للعب لفترات طويلة.</p>
+                    </details>
+                    <details style="margin-bottom: 10px; cursor: pointer;">
+                        <summary style="font-weight: bold; padding: 10px; background: rgba(255,255,255,0.05); border-radius: 5px;">هل تعمل اللعبة بدون إنترنت؟</summary>
+                        <p style="padding: 10px; font-size: 0.9rem;">نعم، Pizza Ready هي لعبة هجينة وتدعم اللعب بدون اتصال، لكنك ستحتاج الإنترنت لمضاعفة المكافآت.</p>
+                    </details>
+                </section>
+
+            </main>
+
+            <aside>
+                <div class="card" style="position: sticky; top: 100px; text-align: center; border: 2px solid var(--primary);">
+                    <h3 style="margin-bottom: 15px;">ابدأ إمبراطوريتك الآن</h3>
+                    <p style="font-size: 0.9rem; margin-bottom: 15px;">النسخة الرسمية - التحديث الأخير</p>
+                    
+                    <a href="https://play.google.com/store/apps/details?id=io.supercent.pizzaidle&hl=en-US" class="btn-main" target="_blank" rel="nofollow">
+                        <i class="fab fa-google-play"></i> تحميل من Google Play
+                    </a>
+                    <a href="../index.html" class="btn-main btn-secondary" style="margin-top: 10px;">
+                        تصفح باقي الألعاب
+                    </a>
+                </div>
+
+                <div class="calculator-box" style="margin-top: 2rem;">
+                    <h3 style="color: var(--primary); margin-bottom: 10px;"><i class="fas fa-calculator"></i> حاسبة الأرباح التقديرية</h3>
+                    <p style="font-size: 0.8rem; margin-bottom: 15px;">احسب أرباحك التقريبية أثناء غيابك عن اللعبة.</p>
+                    
+                    <label style="font-size: 0.8rem; display:block; text-align: right;">عدد الطاولات المفتوحة:</label>
+                    <input type="number" id="tables" class="calc-input" placeholder="مثلاً: 4">
+                    
+                    <label style="font-size: 0.8rem; display:block; text-align: right;">مستوى الكاشير (1-10):</label>
+                    <input type="number" id="level" class="calc-input" placeholder="مثلاً: 5">
+
+                    <button onclick="calculateProfit()" class="btn-main" style="font-size: 0.9rem; padding: 10px;">احسب الأرباح / ساعة</button>
+                    
+                    <div id="result" class="calc-result"></div>
+                </div>
+
+                <div style="text-align: center; margin-top: 20px; min-height: 250px; background: #181818; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #444;">
+                    -- إعلان جانبي --
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <footer style="background: #000; padding: 2rem 0; margin-top: 3rem; text-align: center; font-size: 0.9rem; color: #666;">
+        <div class="container">
+            <p>&copy; 2025 Fazza Play. جميع الحقوق محفوظة.</p>
+            <p style="margin-top: 10px; font-size: 0.8rem;">
+                إخلاء مسؤولية: نحن نوفر شروحات وأدوات للمعجبين. روابط التحميل تحولك للمتجر الرسمي مباشرة.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function calculateProfit() {
+            // منطق بسيط للمحاكاة (ليس دقيق 100% ولكن يعطي انطباع جيد)
+            const tables = document.getElementById('tables').value || 0;
+            const level = document.getElementById('level').value || 1;
+            
+            if(tables < 0 || level < 0) return;
+
+            // معادلة وهمية: (عدد الطاولات * 500) * (المستوى * 1.5)
+            const profitPerHour = Math.floor((tables * 500) * (level * 1.2));
+            
+            const resultDiv = document.getElementById('result');
+            resultDiv.style.display = 'block';
+            resultDiv.innerHTML = `أرباحك المتوقعة: <br> <span style="font-size: 1.4rem;">$${profitPerHour.toLocaleString()}</span> / ساعة`;
+        }
+
+        // إزالة الحماية المزعجة (جوجل يفضل تجربة المستخدم المفتوحة)
+        // تم إزالة أكواد منع النسخ لتوافق أفضل مع SEO
+    </script>
+<script src="ads-fazza.js"></script>
+</body>
+    
+
+</html>

@@ -1,0 +1,25 @@
+# Security Headers
+/*
+  X-Frame-Options: SAMEORIGIN
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer-when-downgrade
+  X-Robots-Tag: index, follow
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+# Cache Headers
+/css/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/js/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+*.html
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# Mobile optimization
+/mobile-games/*
+  Cache-Control: public, max-age=1800, must-revalidate

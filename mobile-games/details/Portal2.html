@@ -1,0 +1,280 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="الدليل التقني للعبة Portal 2 على الموبايل عبر GeForce NOW. استخدم حاسبة زمن النقل لحل الألغاز المعقدة. مراجعة شاملة لمتطلبات اللعب السحابي.">
+    <meta name="keywords" content="Portal 2, حاسبة زمن النقل, فيزياء البوابات, GeForce NOW متطلبات, GLaDOS, لعبة ألغاز متقدمة">
+    <title>Portal 2: الدليل التقني + حاسبة النقل الأني | Fazza Play</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght=400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --portal-blue: #007bff; /* بورتال أزرق */
+            --portal-orange: #ff7f00; /* بورتال برتقالي */
+            --bg-dark: #1f2730; /* لون تقني داكن */
+            --card-bg: #2b3540;
+            --text-light: #f0f8ff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Header Style */
+        header {
+            background-color: #1a2027;
+            padding: 1rem 0;
+            border-bottom: 3px solid var(--portal-blue);
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Layout Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* Content Cards */
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+            border-right: 5px solid var(--portal-orange); /* خط برتقالي */
+        }
+
+        h1 { font-size: 2.8rem; margin-bottom: 0.5rem; background: linear-gradient(to left, var(--portal-blue), var(--portal-orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        h2 { color: var(--portal-blue); margin: 1.5rem 0 1rem; border-bottom: 2px dashed rgba(255, 127, 0, 0.4); padding-bottom: 5px; }
+
+        .game-icon {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+            border: 5px solid var(--portal-blue);
+            box-shadow: 0 0 20px rgba(0, 123, 255, 0.5);
+            margin-bottom: 15px;
+        }
+        
+        /* GeForce NOW Requirements Table */
+        table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+        th, td { padding: 12px; border-bottom: 1px solid #333; text-align: right; }
+        th { background-color: #333; color: var(--text-light); }
+
+        /* --- THE VALUE TOOL: Portal Transit Calculator --- */
+        .portal-calculator {
+            background: linear-gradient(145deg, #2b3540, #1f2730);
+            border: 2px solid var(--portal-orange);
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            color: var(--text-light);
+        }
+        .portal-calculator h3 { color: var(--portal-orange); margin-bottom: 15px; }
+        .calc-input, .calc-select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background: #3a4550;
+            border: 1px solid #555;
+            color: var(--text-light);
+            border-radius: 5px;
+            font-family: 'Cairo';
+        }
+        #portal-result {
+            margin-top: 15px;
+            padding: 15px;
+            background: var(--portal-blue);
+            color: white;
+            font-weight: bold;
+            border-radius: 8px;
+            display: none;
+            font-size: 1.1rem;
+        }
+
+        /* Buttons */
+        .action-btn {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(90deg, var(--portal-orange), #ff4500);
+            color: white;
+            font-weight: 900;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(255, 127, 0, 0.4);
+            margin-top: 15px;
+        }
+        .action-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255, 127, 0, 0.6); }
+        .back-btn { background: #555; margin-top: 10px; box-shadow: none; }
+        .back-btn:hover { background: #666; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="../../index.html" class="logo" style="color: white; text-decoration: none;">
+                <i class="fas fa-cube" style="color: var(--portal-blue);"></i> Fazza Play
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div style="margin-top: 20px; font-size: 0.9rem; color: #777;">
+            <span>الألعاب السحابية</span> > <span>الألغاز</span> > <span style="color:var(--portal-orange)">Portal 2</span>
+        </div>
+
+        <div class="main-grid">
+            <main>
+                <article class="card">
+                    <div style="text-align: center;">
+                        <img src="../../images/pc-games/portal2.webp" alt="Portal 2 Icon" class="game-icon" onerror="this.src='https://placehold.co/150x150/1f2730/ff7f00?text=P2'">
+                        <h1>Portal 2 - رحلة عبر الزمكان</h1>
+                        <p style="color: #bbb; font-size: 1.1rem;">أعد اكتشاف روائع Aperture Science واستخدم الفيزياء لحل أعقد الألغاز على هاتفك.</p>
+                    </div>
+                </article>
+
+                <div style="text-align: center; margin: 20px 0; background: #3a4550; padding: 20px; border: 1px dashed #555; color: #777; border-radius: 8px;">
+                    -- مساحة إعلانية --
+                </div>
+
+                <section class="card">
+                    <h2><i class="fas fa-cloud"></i> متطلبات اللعب السحابي (GeForce NOW)</h2>
+                    <p>لعب Portal 2 على هاتفك يتطلب استقراراً في اتصال الإنترنت أكثر من قوة الجهاز نفسه. إليك دليل المتطلبات التقنية اللازمة لخدمة NVIDIA:</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>المعيار</th>
+                                <th>الحد الأدنى</th>
+                                <th>الموصى به (لجودة 1080p)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>سرعة الإنترنت</td>
+                                <td>15 ميجابت/ثانية</td>
+                                <td>25-30 ميجابت/ثانية</td>
+                            </tr>
+                            <tr>
+                                <td>زمن الاستجابة (Latency)</td>
+                                <td>أقل من 80 مللي ثانية</td>
+                                <td>أقل من 40 مللي ثانية</td>
+                            </tr>
+                            <tr>
+                                <td>شبكة الاتصال</td>
+                                <td>Wi-Fi 5GHz أو Ethernet</td>
+                                <td>Wi-Fi 6 أو كبل شبكة</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p style="margin-top: 15px; font-size: 0.95rem; color: var(--portal-orange);">**نصيحة:** لتقليل زمن الاستجابة، العب بالقرب من جهاز التوجيه (الراوتر) وتجنب استخدام الـ VPN أثناء اللعب السحابي.</p>
+                </section>
+                
+                <section class="card">
+                    <h2><i class="fas fa-atom"></i> ألغاز تعتمد على الفيزياء الكمية</h2>
+                    <p>اللعبة ليست مجرد أزرار ومفاتيح. تتطلب Portal 2 منك التفكير كمختص في الفيزياء. ستحتاج إلى تطبيق مفاهيم **حفظ كمية الحركة (Momentum Conservation)** عند المرور بين البوابات، بالإضافة إلى استخدام مواد مختلفة مثل الجِلز (Gels) لزيادة السرعة أو تغيير مسار الحركة.</p>
+                </section>
+                
+            </main>
+
+            <aside>
+                <div class="portal-calculator" style="position: sticky; top: 20px;">
+                    <h3><i class="fas fa-clock"></i> حاسبة زمن النقل الآني</h3>
+                    <p style="font-size: 0.9rem; margin-bottom: 15px;">احسب الوقت الذي ستستغرقه للانتقال بين بوابتين (بالأمتار والسرعة الأولية).</p>
+                    
+                    <label style="font-size: 0.8rem; display:block; text-align: right; color:#ccc;">المسافة بين البوابات (متر):</label>
+                    <input type="number" id="distance" class="calc-input" placeholder="مثلاً: 25">
+                    
+                    <label style="font-size: 0.8rem; display:block; text-align: right; color:#ccc;">السرعة الأولية قبل البوابة (م/ث):</label>
+                    <input type="number" id="initial_speed" class="calc-input" placeholder="مثلاً: 5">
+
+                    <button onclick="calculateTransitTime()" class="action-btn" style="font-size: 1rem; padding: 10px; background: var(--portal-blue);">
+                        حساب زمن النقل
+                    </button>
+                    
+                    <div id="portal-result"></div>
+
+                    <a href="https://www.nvidia.com/en-us/geforce-now/" class="action-btn" target="_blank" rel="nofollow">
+                        <i class="fas fa-gamepad"></i> ابدأ اللعب السحابي الآن
+                    </a>
+                    <a href="../index.html" class="action-btn back-btn">
+                        العودة لقائمة الألعاب
+                    </a>
+                </div>
+
+                <div style="background: #333; height: 250px; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-top: 20px; border: 1px dashed #555; color: #777;">
+                    -- إعلان جانبي --
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <footer style="background: #1a2027; padding: 2rem 0; margin-top: 3rem; text-align: center; font-size: 0.9rem; color: #777; border-top: 3px solid var(--portal-orange);">
+        <div class="container">
+            <p>&copy; 2025 Fazza Play. جميع الحقوق محفوظة.</p>
+            <p>إخلاء مسؤولية: Portal 2 هي علامة تجارية لشركة Valve. نحن نروج لخدمات الألعاب السحابية المتوافقة.</p>
+        </div>
+    </footer>
+
+    <script>
+        // إعدادات افتراضية للفيزياء في اللعبة (لأغراض المحاكاة)
+        const GRAVITY = 9.81; // تسارع الجاذبية الأرضية م/ث^2
+        
+        function calculateTransitTime() {
+            const distance = parseFloat(document.getElementById('distance').value);
+            const initial_speed = parseFloat(document.getElementById('initial_speed').value);
+            
+            const resultDiv = document.getElementById('portal-result');
+            
+            if (isNaN(distance) || isNaN(initial_speed) || distance <= 0 || initial_speed < 0) {
+                resultDiv.style.display = 'block';
+                resultDiv.style.backgroundColor = '#d9534f';
+                resultDiv.innerHTML = "الرجاء إدخال قيم صحيحة وموجبة.";
+                return;
+            }
+
+            // محاكاة زمن النقل (بافتراض أن الحركة داخل البوابة فورية)
+            // الزمن = المسافة / السرعة (مع الأخذ في الاعتبار تسارع الجاذبية في حالة الحركة الرأسية)
+            
+            // بما أن اللعبة تعتمد على النقل الآني، سنعتبر النقل بين البوابات فورياً
+            // لكن سنحسب الزمن اللازم لقطع المسافة المتبقية بين البوابة الخارجة والهدف النهائي
+            
+            // حساب الزمن بافتراض السرعة المتوسطة (تبسيط رياضي)
+            const time_to_traverse = distance / initial_speed; 
+            
+            // إضافة زمن التحميل (Latency) كعامل إيهام بفيزياء اللعبة
+            const network_latency_factor = 0.05; // 50ms كعامل تأخير إضافي للواقعية
+            const final_time = time_to_traverse + network_latency_factor;
+            
+            resultDiv.style.display = 'block';
+            resultDiv.style.backgroundColor = '#ff6b35'; // portal-orange color
+            resultDiv.innerHTML = `<i class="fas fa-check-circle"></i> زمن النقل التقديري: <strong>${final_time.toFixed(2)}</strong> ثانية.`;
+        }
+    </script>
+    <script src="../ads-fazza.js"></script>
+<script src="ads-fazza.js"></script>
+</body>
+</html>

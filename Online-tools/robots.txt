@@ -1,0 +1,41 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://fazzaplay.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Disallow specific paths (if any)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Allow important resources
+Allow: /css/
+Allow: /js/
+Allow: /images/
+Allow: /fonts/
+
+# Block common bots that might cause issues
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Crawl-delay: 10
+
+# Allow Google and Bing bots with normal crawl rate
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Block archive.org bot to prevent archiving
+User-agent: ia_archiver
+Disallow: /

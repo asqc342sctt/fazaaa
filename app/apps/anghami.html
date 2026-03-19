@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحميل Anghami آخر إصدار مجانًا | Fazza Play</title>
+    <meta name="description" content="قم بتنزيل أحدث نسخة من تطبيق Anghami مجانًا. استمع إلى ملايين الأغاني العربية والأجنبية.">
+    <meta name="keywords" content="Anghami, تحميل Anghami, تنزيل Anghami, أغاني عربية, موسيقى, Fazza Play">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../dark-mode.css">
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8571192174854530"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+        <header>
+        <div class="container">
+            <a href="../index.html" class="logo-link"><h1 class="logo"><span>Play</span><span>Fazza</span></h1></a>
+            <nav><a href="../index.html" class="back-btn">العودة للرئيسية</a></nav>
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox" title="Toggle Dark Mode">
+                    <input type="checkbox" id="checkbox" />
+                    <div class="slider round"></div>
+                    <span class="visually-hidden">Toggle Dark Mode</span>
+                </label>
+                <span class="theme-label">الوضع الليلي</span>
+            </div>
+        </div>
+    </header>
+    <main class="app-page-main">
+        <div class="container">
+            <article class="app-details">
+                <div class="app-header">
+                    <img src="https://th.bing.com/th/id/OIP.UnOUcJXXXnzaI3k_cwCazAHaHG?w=162&h=180&c=7&r=0&o=7&pid=1.7&rm=3" alt="شعار تطبيق Anghami" class="app-icon">
+                    <div class="app-title-group">
+                        <h1>تحميل تطبيق Anghami</h1>
+
+                    </div>
+                </div>
+                <section class="app-description">
+                    <h2>نبذة عن التطبيق</h2>
+                    <p>أنغامي هو أول منصة استماع موسيقى قانونية في الشرق الأوسط وشمال أفريقيا، حيث يمنحك وصولاً إلى أكبر مكتبة من الأغاني العربية والعالمية. اكتشف موسيقى جديدة، وأنشئ قوائم تشغيل خاصة بك، واستمتع بأغانيك المفضلة في أي وقت ومكان.</p>
+                </section>
+                <section class="app-download-section">
+                    <h2>تحميل مباشر</h2>
+                    <a href="https://www.anghami.com/" class="download-button-large" target="_blank" rel="noopener noreferrer">تحميل Anghami الآن</a>
+                </section>
+            </article>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Fazza Play. كل الحقوق محفوظة.</p>
+                <div class="social-links">
+                    <a href="https://youtube.com/@salem.r?si=eYhTBwPo7gSqV_V2" target="_blank" rel="noopener noreferrer" title="قناتنا على يوتيوب">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/YouTube_social_red_circle_%282017%29.svg" alt="YouTube">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+
+        // Function to set the theme based on a boolean
+        function setDarkMode(isDark) {
+            if (isDark) {
+                document.body.classList.add('dark-mode');
+                toggleSwitch.checked = true;
+            } else {
+                document.body.classList.remove('dark-mode');
+                toggleSwitch.checked = false;
+            }
+        }
+
+        // Function to handle the theme switch
+        function switchTheme(e) {
+            const isChecked = e.target.checked;
+            localStorage.setItem('theme', isChecked ? 'dark' : 'light');
+            setDarkMode(isChecked);
+        }
+
+        // Event listener for the toggle switch
+        toggleSwitch.addEventListener('change', switchTheme, false);
+
+        // Apply the theme on initial load
+        (function () {
+            const currentTheme = localStorage.getItem('theme');
+            if (currentTheme === 'dark') {
+                setDarkMode(true);
+            }
+        })();
+    </script>
+<script src="ads-fazza.js"></script>
+</body>
+</html>

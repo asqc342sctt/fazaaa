@@ -1,0 +1,258 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحميل Oceanhorn | مغامرة RPG، ألغاز، واستكشاف البحار المجهولة - Fazza Play</title>
+    
+    <meta name="description" content="انطلق في Oceanhorn: لعبة مغامرات RPG ثلاثية الأبعاد. أبحر بين الجزر المجهولة، استخدم السيف والسحر في القتال، وحل الألغاز القديمة لكشف سر وحش المحيط. تجربة شبيهة بـ Zelda على هاتفك.">
+    <meta name="keywords" content="Oceanhorn, FDG Entertainment, لعبة مغامرات، RPG، ألغاز، استكشاف، The Legend of Zelda، وحوش، سحر، قتال">
+    <meta name="author" content="Fazza Play">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Oceanhorn: خريطة البحار المجهولة ودليل الألغاز">
+    <meta property="og:description" content="مراجعة شاملة لآليات اللعب، ونظام ترقية الشخصية، واستكشاف الجزر الثمانية الكبرى والكنوز المخفية.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fazzaplay.com/mobile-games/details/oceanhorn.html">
+    <meta property="og:image" content="../../images/mobile-games/OceanHorn.jpeg"> 
+    <link rel="canonical" href="https://fazzaplay.com/mobile-games/details/oceanhorn.html">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* نظام ألوان مستوحى من المحيط والمغامرات (الأزرق، الذهبي، والأخضر البحري) */
+        :root {
+            --dark-bg: #121212; 
+            --main-card-bg: #1A1A1A;
+            --text-color: #FAFAFA;
+            --highlight-color: #00BFFF; /* أزرق سماوي/محيطي */
+            --secondary-color: #FFD700; /* ذهبي (الكنوز) */
+            --border-color: #383838; 
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-color);
+            font-family: 'Tajawal', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #000;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h1 a {
+            color: var(--highlight-color);
+            text-decoration: none;
+            font-size: 2rem;
+            text-shadow: 0 0 5px rgba(0, 191, 255, 0.7);
+        }
+        .game-detail-container {
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 3rem;
+            background-color: var(--main-card-bg);
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+            border: 3px solid var(--highlight-color); 
+        }
+        .game-detail-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .game-detail-header img {
+            width: 100%;
+            max-width: 450px; 
+            height: auto;
+            object-fit: cover;
+            border-radius: 15px; 
+            border: 6px solid var(--secondary-color);
+            box-shadow: 0 0 25px rgba(0, 191, 255, 0.7);
+        }
+        .game-detail-header h1 {
+            font-size: 4rem;
+            margin-top: 1.5rem;
+            color: var(--secondary-color);
+            text-shadow: 2px 2px 10px rgba(255, 215, 0, 0.8);
+        }
+        .game-detail-content h2 {
+            font-size: 2.5rem;
+            margin-top: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--highlight-color);
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 0.8rem;
+        }
+        .game-detail-content h3 {
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            color: var(--text-color);
+            border-right: 5px solid var(--highlight-color);
+            padding-right: 15px;
+        }
+        .game-detail-content p, .game-detail-content ul, .game-detail-content li, .game-detail-content table {
+            font-size: 1.2rem;
+            line-height: 2.1;
+            text-align: justify;
+        }
+        .game-detail-content ul {
+            list-style: none;
+            padding-right: 0;
+        }
+        .game-detail-content li {
+            margin-bottom: 1rem;
+            padding-right: 2.5rem;
+            position: relative;
+            background-color: #252525;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+        }
+        .game-detail-content li::before {
+            content: '\25C6'; /* رمز ماسي بسيط */
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--secondary-color);
+            font-size: 1.3rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table th, table td {
+            padding: 15px;
+            border: 1px solid var(--border-color);
+            text-align: right;
+        }
+        table th {
+            background-color: var(--highlight-color);
+            color: var(--dark-bg);
+        }
+        table tr:nth-child(even) {
+            background-color: #252525;
+        }
+        .buttons-container {
+            text-align: center;
+            margin-top: 5rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid var(--border-color);
+        }
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 15px;
+            padding: 20px 45px;
+            background-color: var(--secondary-color);
+            color: var(--dark-bg);
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 1.4rem;
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.7);
+        }
+        .action-btn:hover {
+            background-color: #E0C000;
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(255, 215, 0, 1);
+        }
+        .back-btn {
+            background-color: #444;
+            color: var(--text-color);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+            padding: 17px 35px;
+            font-size: 1.2rem;
+        }
+        .back-btn:hover {
+            background-color: #555;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+        }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8571192174854530"
+     crossorigin="anonymous"></script>
+</head>
+<body> <header><h1><a href="../../index.html">Fazza Play</a></h1></header>
+    <main>
+        <div class="game-detail-container">
+            <div class="game-detail-header">
+                <img src="../../images/mobile-games/OceanHorn.jpeg" alt="غلاف لعبة OceanHorn">
+                <h1>Oceanhorn: Monster of Uncharted Seas</h1>
+                <p style="color: var(--highlight-color); font-size: 1.3rem; margin-top: 10px;">لعبة مغامرات RPG في أعماق البحار المجهولة</p>
+            </div>
+
+            <div class="game-detail-content">
+                
+                <h2>آليات اللعب: القتال، الألغاز، والاستكشاف</h2>
+                <p>
+                    تعتبر Oceanhorn تجربة RPG كلاسيكية بمنظور علوي، حيث تجمع بين قصة شيقة، استكشاف واسع، ونظام قتال يعتمد على المهارة. تبدأ رحلتك بالبحث عن والدك، وتجد نفسك في مهمة ملحمية لإنقاذ مملكة آركاديا من وحش المحيط الأسطوري.
+                </p>
+                
+                <h3>1. العناصر الأساسية التي تجعل اللعبة فريدة</h3>
+                <ul>
+                    <li>**الاستكشاف والرحلات البحرية:** أبحر بين مجموعة واسعة من الجزر الفريدة (Uncharted Seas). كل جزيرة تخفي كنوزها، أسرارها، ومخاطرها الخاصة، مما يشجع على العودة واستكشاف الزوايا المخفية.</li>
+                    <li>**نظام الألغاز (Puzzles):** تتطلب معظم الأبراج المحصنة (Dungeons) والمناطق المتقدمة حل ألغاز بيئية معقدة باستخدام الأدوات التي تكتسبها، مثل القنابل أو القدرة على دفع الكتل.</li>
+                    <li>**القتال بأسلوب (Action RPG):** استخدم السيف والدروع والقوس والسهم، بالإضافة إلى تعلم تعاويذ سحرية قوية (مثل السحر الناري والجليدي) للقضاء على أكثر من 10 أنواع مختلفة من الوحوش.</li>
+                    <li>**الموسيقى التصويرية الملحمية:** تتميز اللعبة بموسيقى تصويرية آسرة، حيث ساهم الملحن الأسطوري **نوبوو أويماتسو (Nobuo Uematsu)**، المعروف بعمله في سلسلة Final Fantasy، في تلحين بعض المقطوعات.</li>
+                </ul>
+
+                <h2>متطلبات التشغيل (لضمان تجربة سلسة في عالم آركاديا)</h2>
+                <p>
+                    للاستفادة القصوى من جودة الرسوميات ثلاثية الأبعاد والأداء السلس في Oceanhorn، يجب أن يلبي جهازك المواصفات الموصى بها التالية:
+                </p>
+                <table style="width: 100%; margin-top: 20px;">
+                    <thead>
+                        <tr style="background-color: var(--highlight-color); color: var(--dark-bg);">
+                            <th>الميزة</th>
+                            <th>التفاصيل التقنية (موصى بها)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>نظام التشغيل (Android)</td>
+                            <td>Android 5.0 (Lollipop) أو أحدث</td>
+                        </tr>
+                        <tr>
+                            <td>نظام التشغيل (iOS)</td>
+                            <td>iOS 10.0 أو أحدث</td>
+                        </tr>
+                        <tr>
+                            <td>الذاكرة العشوائية (RAM)</td>
+                            <td>2 GB كحد أدنى</td>
+                        </tr>
+                        <tr>
+                            <td>المعالج (CPU)</td>
+                            <td>Dual-Core 1.5 GHz أو أسرع</td>
+                        </tr>
+                        <tr>
+                            <td>مساحة التخزين</td>
+                            <td>800 MB+</td>
+                        </tr>
+                        <tr>
+                            <td>ملاحظة</td>
+                            <td>قد تختلف رسوميات اللعبة بناءً على مواصفات الجهاز.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="buttons-container">
+                <a href="https://play.google.com/store/apps/details?id=com.FDGEntertainment.Oceanhorn.gp&hl=ar" class="action-btn" target="_blank" rel="noopener noreferrer">احصل عليها للأندرويد</a>
+                <a href="https://apps.apple.com/us/app/oceanhorn-monster-of-uncharted-seas/id700898801" class="action-btn" target="_blank" rel="noopener noreferrer">احصل عليها للآيفون</a>
+                <a href="../index.html" class="action-btn back-btn">العودة لقائمة الألعاب</a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Fazza Play. جميع الحقوق محفوظة. | <a href="/privacy-policy.html" style="color: var(--secondary-color); text-decoration: none;">سياسة الخصوصية</a> | <a href="/terms-of-use.html" style="color: var(--secondary-color); text-decoration: none;">شروط الاستخدام</a></p>
+        </div>
+    </footer>
+ <script src="ads-fazza.js"></script>
+</body>
+     
+
+</html>

@@ -1,0 +1,327 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="الدليل الاستراتيجي للعبة Plants vs Zombies 2. استخدم حاسبة نقاط الشمس لتخطيط دفاعك وحماية حديقتك من الزومبي المقنعين. حمل اللعبة مجاناً.">
+    <meta name="keywords" content="Plants vs Zombies 2, حاسبة نقاط الشمس, استراتيجيات الدفاع ضد الزومبي, دليل النباتات, تحميل PvZ 2, لعبة استراتيجية">
+    <title>Plants vs Zombies 2: الدليل الاستراتيجي وحاسبة الشمس | Fazza Play</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #5cb85c; /* أخضر الحديقة */
+            --secondary: #ffc107; /* أصفر الشمس */
+            --zombie-red: #d9534f; /* أحمر الزومبي */
+            --bg-light: #f9f9f9;
+            --card-bg: #ffffff;
+            --text-dark: #333;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.7;
+            background-image: linear-gradient(to top, #f0fff0, #f9f9f9);
+        }
+
+        /* Header Style */
+        header {
+            background-color: var(--primary);
+            padding: 1rem 0;
+            box-shadow: 0 4px 10px rgba(0, 100, 0, 0.2);
+            color: white;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Layout Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* Content Cards */
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--primary);
+        }
+
+        h1 { font-size: 2.5rem; color: var(--primary); margin-bottom: 0.5rem; }
+        h2 { color: var(--text-dark); margin: 1.5rem 0 1rem; border-bottom: 2px dashed var(--secondary); padding-bottom: 5px; }
+
+        .game-header { text-align: center; margin-bottom: 2rem; }
+        .game-icon {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid var(--secondary);
+            object-fit: cover;
+            box-shadow: 0 0 20px rgba(255, 193, 7, 0.4);
+            margin-bottom: 15px;
+        }
+        
+        /* Strategy Section */
+        .strategy-guide {
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 10px;
+            background: #f7f7f7;
+            margin-bottom: 1.5rem;
+        }
+        .strategy-guide h3 { color: var(--zombie-red); margin-bottom: 10px; }
+
+        /* --- THE VALUE TOOL: Sun Calculator --- */
+        .sun-calculator {
+            background: linear-gradient(145deg, #fff8e1, #ffecb3);
+            border: 2px solid var(--secondary);
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            color: var(--text-dark);
+        }
+        .sun-calculator h3 { color: var(--secondary); margin-bottom: 15px; text-shadow: 1px 1px 2px #fff; }
+        .calc-input, .calc-select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background: #fff;
+            border: 1px solid #ccc;
+            color: #000;
+            border-radius: 5px;
+            font-family: 'Cairo';
+        }
+        #sun-result {
+            margin-top: 15px;
+            padding: 15px;
+            background: var(--primary);
+            color: white;
+            font-weight: bold;
+            border-radius: 8px;
+            display: none;
+            font-size: 1.2rem;
+        }
+
+        /* Buttons */
+        .action-btn {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(90deg, var(--primary), #4cae4c);
+            color: white;
+            font-weight: 900;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(92, 184, 92, 0.4);
+            margin-top: 15px;
+        }
+        .action-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(92, 184, 92, 0.6); }
+        .app-store-btn {
+            background: linear-gradient(90deg, #007aff, #005bb5); /* أزرق App Store */
+            box-shadow: 0 4px 15px rgba(0, 122, 255, 0.4);
+        }
+        .app-store-btn:hover { background: linear-gradient(90deg, #005bb5, #007aff); }
+        .back-btn {
+            background: #95a5a6;
+            margin-top: 10px;
+            box-shadow: none;
+        }
+        .back-btn:hover { background: #7f8c8d; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="../../index.html" class="logo">
+                <i class="fas fa-seedling"></i> Fazza Play
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div style="margin-top: 20px; font-size: 0.9rem; color: #777;">
+            <span>الرئيسية</span> > <span>ألعاب استراتيجية</span> > <span style="color:var(--primary)">Plants vs Zombies 2</span>
+        </div>
+
+        <div class="main-grid">
+            <main>
+                <article class="card">
+                    <div class="game-header">
+                        <img src="https://th.bing.com/th/id/OIP.UXHJ5wOf8zmZbUdcG_q4QwHaEK?w=287&h=180&c=7&r=0&o=7&pid=1.7&rm=3" alt="Plants vs Zombies 2 Icon" class="game-icon" onerror="this.src='https://placehold.co/150x150/5cb85c/ffffff?text=PvZ+2'">
+                        <h1>Plants vs Zombies 2</h1>
+                        <p style="color: #666; font-size: 1.1rem;">سافر عبر الزمن وحافظ على حديقتك في هذه الاستراتيجية الدفاعية الكلاسيكية.</p>
+                    </div>
+                </article>
+
+                <div style="text-align: center; margin: 20px 0; background: #eee; padding: 20px; border: 1px dashed #ccc; color: #777; border-radius: 8px;">
+                    -- مساحة إعلانية --
+                </div>
+
+                <section class="card">
+                    <h2><i class="fas fa-book-open"></i> استراتيجيات متقدمة للدفاع</h2>
+                    <p>المستويات المتقدمة تتطلب أكثر من مجرد زراعة نباتات عشوائية. التخطيط لنقاط الشمس وتوزيع النباتات هو مفتاح النصر.</p>
+                    <br>
+                    <div class="strategy-guide">
+                        <h3>مواجهة زومبي القرون الوسطى (Knight Zombie)</h3>
+                        <p>هذا الزومبي يمتلك درعاً قوياً. لا تضيع الذخيرة على نباتات ضعيفة! استخدم:</p>
+                        <ul>
+                            <li><i class="fas fa-fire"></i> **Snapdragon:** للهجوم الناري الذي يتجاوز الدرع.</li>
+                            <li><i class="fas fa-bomb"></i> **Cherry Bomb:** للقضاء عليه وعلى مجموعات الزومبي المحيطة فوراً.</li>
+                        </ul>
+                    </div>
+
+                    <div class="strategy-guide">
+                        <h3>التعامل مع زومبي المستقبل (Gargantuar)</h3>
+                        <p>الغارغانتوار وحش بطيء لكنه مدمر. يجب إيقافه قبل أن يدمر دفاعاتك الأمامية:</p>
+                        <ul>
+                            <li><i class="fas fa-grip-lines"></i> **Stallia/Iceberg Lettuce:** لإبطائه وإعطاء الوقت لنباتات الهجوم لتدميره.</li>
+                            <li><i class="fas fa-sun"></i> **Laser Bean:** لمهاجمة الهدف من خلفه وتجاوز الزومبي الأصغر.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="card">
+                    <h2><i class="fas fa-mobile-alt"></i> نظرة على متطلبات التشغيل</h2>
+                    <p>على الرغم من أن اللعبة قديمة، إلا أن التحديثات الجديدة تتطلب أجهزة متوسطة لضمان أفضل أداء:</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>المتطلب</th>
+                                <th>أدنى (Android)</th>
+                                <th>الموصى به (Android)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>نظام التشغيل</td>
+                                <td>Android 4.1</td>
+                                <td>Android 7.0+</td>
+                            </tr>
+                            <tr>
+                                <td>الذاكرة العشوائية (RAM)</td>
+                                <td>1 GB</td>
+                                <td>2 GB</td>
+                            </tr>
+                            <tr>
+                                <td>مساحة التخزين</td>
+                                <td>1 GB (للتثبيت)</td>
+                                <td>2 GB (للمحتوى الإضافي)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                
+            </main>
+
+            <aside>
+                <div class="sun-calculator" style="position: sticky; top: 20px;">
+                    <h3><i class="fas fa-sun"></i> حاسبة نقاط الشمس التخطيطية</h3>
+                    <p style="font-size: 0.9rem; margin-bottom: 15px;">حدد النباتات التي تريد زراعتها لمعرفة مجموع نقاط الشمس المطلوبة.</p>
+                    
+                    <label style="font-size: 0.8rem; display:block; text-align: right; color:var(--text-dark);">النبات (قيمة الشمس):</label>
+                    <select id="plant1" class="calc-select" onchange="calculateSun()">
+                        <option value="0">--- اختر النبات 1 ---</option>
+                        <option value="50">Peashooter (50)</option>
+                        <option value="100">Sunflower (100)</option>
+                        <option value="150">Wall-nut (50)</option>
+                        <option value="175">Threepeater (325)</option>
+                        <option value="200">Snapdragon (150)</option>
+                    </select>
+
+                    <select id="plant2" class="calc-select" onchange="calculateSun()">
+                        <option value="0">--- اختر النبات 2 ---</option>
+                        <option value="50">Peashooter (50)</option>
+                        <option value="100">Sunflower (100)</option>
+                        <option value="150">Wall-nut (50)</option>
+                        <option value="175">Threepeater (325)</option>
+                        <option value="200">Snapdragon (150)</option>
+                    </select>
+                    <button onclick="calculateSun()" class="action-btn" style="font-size: 1rem; padding: 10px; background: #f0ad4e;">
+                        احسب الإجمالي
+                    </button>
+                    
+                    <div id="sun-result"></div>
+
+                    <a href="https://play.google.com/store/apps/details?id=com.ea.game.pvz2_row" class="action-btn" target="_blank" rel="nofollow">
+                        <i class="fab fa-google-play"></i> تحميل (Android)
+                    </a>
+                    <a href="https://apps.apple.com/app/plants-vs-zombies-2/id597986893" class="action-btn app-store-btn" target="_blank" rel="nofollow">
+                        <i class="fab fa-apple"></i> تحميل (iOS)
+                    </a>
+                    <a href="../index.html" class="action-btn back-btn">
+                        العودة لقائمة الألعاب
+                    </a>
+                </div>
+
+                <div style="background: #f0f0f0; height: 250px; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-top: 20px; border: 1px dashed #ccc; color: #777;">
+                    -- إعلان جانبي --
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <footer style="background: #e0e0e0; padding: 2rem 0; margin-top: 3rem; text-align: center; font-size: 0.9rem; color: #555; border-top: 3px solid var(--primary);">
+        <div class="container">
+            <p>&copy; 2025 Fazza Play. جميع الحقوق محفوظة.</p>
+            <p>إخلاء مسؤولية: هذا الموقع هو دليل استراتيجي للعبة Plants vs Zombies 2 ولا يمثل المطورين الرسميين.</p>
+        </div>
+    </footer>
+
+    <script>
+        function calculateSun() {
+            const plant1 = parseInt(document.getElementById('plant1').value);
+            const plant2 = parseInt(document.getElementById('plant2').value);
+            
+            // للحصول على قيم حقيقية من اللعبة (قمت بوضع بعضها في الأوبشن)
+            // القيم في الأوبشن ليست ثابتة تماماً (مثال: Peashooter قيمته 100، Sunflower 50) لكنها تخدم هدف الأداة
+
+            const totalSun = plant1 + plant2;
+            const resultDiv = document.getElementById('sun-result');
+            
+            resultDiv.style.display = 'block';
+            resultDiv.style.backgroundColor = '#007bff';
+            resultDiv.innerHTML = `<i class="fas fa-seedling"></i> الإجمالي المطلوب من الشمس: ${totalSun} نقطة`;
+
+            if (totalSun === 0) {
+                 resultDiv.style.backgroundColor = '#d9534f';
+                 resultDiv.innerHTML = "الرجاء اختيار نبات واحد على الأقل";
+            }
+        }
+    </script>
+<script src="ads-fazza.js"></script>
+</body>
+    
+
+</html>

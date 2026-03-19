@@ -1,0 +1,85 @@
+functionsDirectory = "C:\\Users\\Work\\OneDrive\\Desktop\\fazaa-play\\netlify\\functions"
+functionsDirectoryOrigin = "default"
+plugins = []
+
+[build]
+publish = "C:\\Users\\Work\\OneDrive\\Desktop\\fazaa-play"
+publishOrigin = "default"
+functions = "C:\\Users\\Work\\OneDrive\\Desktop\\fazaa-play\\netlify\\functions"
+
+[build.environment]
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]
+
+[functions]
+
+[functions."*"]
+
+[[headers]]
+for = "/*"
+
+[headers.values]
+X-Frame-Options = "SAMEORIGIN"
+X-XSS-Protection = "1; mode=block"
+X-Content-Type-Options = "nosniff"
+Referrer-Policy = "no-referrer-when-downgrade"
+X-Robots-Tag = "index, follow"
+Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+[[headers]]
+for = "/css/*"
+
+[headers.values]
+Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+for = "/js/*"
+
+[headers.values]
+Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+for = "/images/*"
+
+[headers.values]
+Cache-Control = "public, max-age=31536000, immutable, public, max-age=3600, must-revalidate"
+
+[[headers]]
+for = "/mobile-games/*"
+
+[headers.values]
+Cache-Control = "public, max-age=1800, must-revalidate"
+
+[[redirects]]
+from = "/api/download"
+to = "/.netlify/functions/download"
+status = 200.0
+force = false
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200.0
+force = false
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]

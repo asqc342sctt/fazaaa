@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لعبة النقر السريع 🎯</title>
+    <meta name="description" content="لعبة بسيطة وممتعة لاختبار سرعة رد فعلك. اضغط على الدوائر لكسب النقاط!">
+    <meta name="keywords" content="لعبة نقر، لعبة سرعة، لعبة HTML، لعبة بسيطة، لعبة احترافية">
+    <meta name="author" content="Fazza Play (AI)">
+    <style>
+        /* الخطوط الأساسية والتصميم العام */
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #4CAF50; /* أخضر */
+            --secondary-color: #2196F3; /* أزرق */
+            --accent-color: #FFC107; /* أصفر ذهبي */
+            --background-color: #1a1a2e; /* أزرق داكن جداً */
+            --text-color: #e0e0e0; /* رمادي فاتح */
+            --shadow-light: rgba(0, 0, 0, 0.2);
+            --shadow-dark: rgba(0, 0, 0, 0.4);
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow: hidden; /* لمنع ظهور شريط التمرير عند تحرك الدوائر */
+            text-align: center;
+            flex-direction: column;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* حاوية اللعبة الرئيسية */
+        .game-container {
+            background-color: #2c2c47;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px var(--shadow-dark), 0 5px 15px var(--shadow-light);
+            width: 100%;
+            max-width: 600px;
+            box-sizing: border-box;
+            position: relative;
+            z-index: 10;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px var(--shadow-dark);
+        }
+
+        .info-bar {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 25px;
+            font-size: 1.2em;
+            font-weight: bold;
+            background-color: #3a3a5e;
+            padding: 10px 15px;
+            border-radius: 10px;
+            box-shadow: inset 0 2px 5px var(--shadow-dark);
+        }
+
+        .info-bar span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .game-area {
+            position: relative;
+            width: 100%;
+            height: 350px; /* ارتفاع ثابت لمنطقة اللعب */
+            border: 2px dashed var(--primary-color);
+            border-radius: 10px;
+            margin-bottom: 25px;
+            overflow: hidden; /* لضمان عدم خروج الدوائر عن المنطقة */
+            background-color: #22223b;
+            box-shadow: inset 0 0 10px var(--shadow-dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5em;
+            color: var(--text-color);
+        }
+
+        .circle {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.2s ease-out, background-color 0.1s ease-in-out;
+            box-shadow: 0 4px 10px var(--shadow-dark);
+        }
+
+        .circle:hover {
+            transform: scale(1.1);
+            background-color: #3b9ff3; /* لون أفتح عند التحويم */
+        }
+
+        .circle.hit {
+            background-color: var(--primary-color);
+            transform: scale(0.8);
+            opacity: 0;
+        }
+
+        .start-button, .restart-button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.4em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px var(--shadow-dark);
+        }
+
+        .start-button:hover, .restart-button:hover {
+            background-color: #5cb85c;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 20px var(--shadow-dark);
+        }
+
+        .start-button:active, .restart-button:active {
+            transform: translateY(0);
+            box-shadow: 0 3px 10px var(--shadow-dark);
+        }
+
+        .message {
+            font-size: 1.8em;
+            color: var(--accent-color);
+            margin-top: 20px;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .best-score {
+            margin-top: 20px;
+            font-size: 1.1em;
+            color: var(--text-color);
+            background-color: #3a3a5e;
+            padding: 10px 15px;
+            border-radius: 10px;
+            box-shadow: inset 0 2px 5px var(--shadow-dark);
+        }
+
+        /* رسوم متحركة خلفية بسيطة */
+        .background-circles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .background-circles li {
+            position: absolute;
+            display: block;
+            list-style: none;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            animation: animate 25s linear infinite;
+            bottom: -150px;
+        }
+
+        .background-circles li:nth-child(1) { left: 25%; width: 80px; height: 80px; animation-delay: 0s; }
+        .background-circles li:nth-child(2) { left: 10%; width: 20px; height: 20px; animation-delay: 2s; animation-duration: 12s; }
+        .background-circles li:nth-child(3) { left: 70%; width: 20px; height: 20px; animation-delay: 4s; }
+        .background-circles li:nth-child(4) { left: 40%; width: 60px; height: 60px; animation-delay: 0s; animation-duration: 18s; }
+        .background-circles li:nth-child(5) { left: 65%; width: 20px; height: 20px; animation-delay: 0s; }
+        .background-circles li:nth-child(6) { left: 75%; width: 110px; height: 110px; animation-delay: 3s; }
+        .background-circles li:nth-child(7) { left: 35%; width: 150px; height: 150px; animation-delay: 7s; }
+        .background-circles li:nth-child(8) { left: 50%; width: 25px; height: 25px; animation-delay: 15s; animation-duration: 45s; }
+        .background-circles li:nth-child(9) { left: 20%; width: 15px; height: 15px; animation-delay: 2s; animation-duration: 35s; }
+        .background-circles li:nth-child(10) { left: 85%; width: 150px; height: 150px; animation-delay: 0s; animation-duration: 11s; }
+
+        @keyframes animate {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; border-radius: 0; }
+            100% { transform: translateY(-1000px) rotate(720deg); opacity: 0; border-radius: 50%; }
+        }
+
+        /* استجابة الشاشات الصغيرة */
+        @media (max-width: 600px) {
+            h1 { font-size: 2em; }
+            .info-bar { flex-direction: column; gap: 10px; }
+            .game-area { height: 250px; }
+            .circle { width: 50px; height: 50px; }
+            .start-button, .restart-button { padding: 12px 25px; font-size: 1.2em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>لعبة النقر السريع 🎯</h1>
+        
+        <div class="info-bar">
+            <span><i class="fas fa-hand-pointer"></i> النقاط: <span id="score">0</span></span>
+            <span><i class="fas fa-clock"></i> الوقت: <span id="timer">30</span> ثانية</span>
+        </div>
+
+        <div class="game-area" id="game-area">
+            انقر على "ابدأ اللعبة" للبدء!
+        </div>
+
+        <button class="start-button" id="start-button">ابدأ اللعبة</button>
+        <button class="restart-button" id="restart-button" style="display: none;">أعد اللعب</button>
+
+        <p class="message" id="message" style="display: none;"></p>
+        <p class="best-score" id="best-score">أفضل نتيجة: 0</p>
+    </div>
+
+    <ul class="background-circles">
+        <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+    </ul>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+
+    <script>
+        const gameArea = document.getElementById('game-area');
+        const scoreSpan = document.getElementById('score');
+        const timerSpan = document.getElementById('timer');
+        const startButton = document.getElementById('start-button');
+        const restartButton = document.getElementById('restart-button');
+        const messageDisplay = document.getElementById('message');
+        const bestScoreDisplay = document.getElementById('best-score');
+
+        let score = 0;
+        let timer = 30;
+        let gameInterval;
+        let circleTimeout;
+        let isGameRunning = false;
+        let bestScore = localStorage.getItem('bestScore') ? parseInt(localStorage.getItem('bestScore')) : 0;
+
+        bestScoreDisplay.textContent = `أفضل نتيجة: ${bestScore}`;
+
+        function startGame() {
+            score = 0;
+            timer = 30;
+            isGameRunning = true;
+            scoreSpan.textContent = score;
+            timerSpan.textContent = timer;
+            gameArea.innerHTML = '';
+            messageDisplay.style.display = 'none';
+            startButton.style.display = 'none';
+            restartButton.style.display = 'none';
+
+            gameInterval = setInterval(() => {
+                timer--;
+                timerSpan.textContent = timer;
+                if (timer <= 0) {
+                    endGame();
+                }
+            }, 1000);
+
+            createCircle();
+        }
+
+        function endGame() {
+            isGameRunning = false;
+            clearInterval(gameInterval);
+            clearTimeout(circleTimeout);
+            gameArea.innerHTML = 'انتهى الوقت!';
+            messageDisplay.textContent = `نتيجتك النهائية: ${score}`;
+            messageDisplay.style.display = 'block';
+            restartButton.style.display = 'block';
+
+            if (score > bestScore) {
+                bestScore = score;
+                localStorage.setItem('bestScore', bestScore);
+                bestScoreDisplay.textContent = `أفضل نتيجة: ${bestScore} (جديدة!)`;
+            } else {
+                bestScoreDisplay.textContent = `أفضل نتيجة: ${bestScore}`;
+            }
+        }
+
+        function createCircle() {
+            if (!isGameRunning) return;
+
+            // إزالة أي دائرة موجودة قبل إنشاء واحدة جديدة
+            const existingCircle = document.querySelector('.circle');
+            if (existingCircle) {
+                existingCircle.remove();
+            }
+
+            const circle = document.createElement('div');
+            circle.classList.add('circle');
+
+            const gameAreaRect = gameArea.getBoundingClientRect();
+            const circleSize = 60; // يجب أن تتوافق مع CSS
+
+            // حساب أقصى إحداثيات ممكنة لضمان بقاء الدائرة داخل gameArea
+            const maxX = gameAreaRect.width - circleSize;
+            const maxY = gameAreaRect.height - circleSize;
+
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+
+            circle.style.left = `${randomX}px`;
+            circle.style.top = `${randomY}px`;
+
+            circle.addEventListener('click', () => {
+                if (isGameRunning) {
+                    score++;
+                    scoreSpan.textContent = score;
+                    circle.classList.add('hit'); // لتشغيل رسوم الإخفاء
+                    clearTimeout(circleTimeout); // لإيقاف مؤقت الإزالة إذا تم النقر عليها
+                    setTimeout(() => { // إزالة الدائرة بعد رسوم الإخفاء
+                        circle.remove();
+                        createCircle();
+                    }, 200);
+                }
+            });
+
+            gameArea.appendChild(circle);
+
+            // إزالة الدائرة تلقائيًا إذا لم يتم النقر عليها في الوقت المناسب
+            circleTimeout = setTimeout(() => {
+                if (isGameRunning && circle.parentNode === gameArea) { // التأكد من أن الدائرة لا تزال موجودة
+                    circle.remove();
+                    createCircle(); // إنشاء دائرة جديدة
+                }
+            }, Math.random() * 1500 + 800); // تظهر الدائرة بين 0.8 إلى 2.3 ثانية
+        }
+
+        startButton.addEventListener('click', startGame);
+        restartButton.addEventListener('click', startGame);
+
+        // تحميل ايقونات Font Awesome
+        // هذا السطر مهم ليتم عرض الايقونات بشكل صحيح
+        document.head.appendChild(document.createElement('link')).rel = 'stylesheet';
+        document.head.lastChild.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css';
+    </script>
+</body>
+</html>

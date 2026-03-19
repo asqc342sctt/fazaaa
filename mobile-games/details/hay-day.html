@@ -1,0 +1,376 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>تحميل Hay Day للأندرويد والآيفون | لعبة المزرعة والاستراتيجية من Supercell - Fazza Play</title>
+    <meta name="description" content="حمّل Hay Day: لعبة إدارة المزرعة الشهيرة من Supercell. ازرع المحاصيل، تاجر بالمنتجات، وقم ببناء وتخصيص مزرعتك الخاصة. مجانية للعب.">
+    <meta name="keywords" content="Hay Day, لعبة مزرعة، Supercell, ألعاب استراتيجية، إدارة المزرعة، ألعاب الموبايل، العاب بناء">
+    <meta name="author" content="Fazza Play">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://fazzaplay.com/mobile-games/details/hay-day.html">
+
+    <meta property="og:title" content="Hay Day: ابدأ حياة المزرعة الهادئة وقم بالتجارة">
+    <meta property="og:description" content="لعبة استراتيجية اجتماعية لإنشاء وإدارة وتوسيع مزرعتك بأسلوب مريح ومسلي.">
+    <meta property="og:type" content="website">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700&family=Tajawal:wght@500;700;800&display=swap">
+
+    <style>
+        /* ----------------------------------
+        1. Variables
+        ---------------------------------- */
+        :root {
+            /* ألوان Hay Day (الأخضر والأصفر والطبيعة) */
+            --font-primary: 'Noto Sans Arabic', 'Tajawal', sans-serif;
+            --font-heading: 'Tajawal', sans-serif;
+            --color-dark-bg: #121212;
+            --color-card-bg: #1e1e1e;
+            --color-primary-accent: #6aa84f; /* أخضر المزرعة */
+            --color-secondary-accent: #ffc107; /* أصفر الشمس / التبن */
+            --color-secondary-action: #444;
+            --color-text-light: #e0e0e0;
+            --color-text-medium: #cccccc;
+        }
+
+        /* ----------------------------------
+        2. Base Styling
+        ---------------------------------- */
+        body {
+            background-color: var(--color-dark-bg);
+            color: var(--color-text-light);
+            font-family: var(--font-primary);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* ----------------------------------
+        3. Main Container
+        ---------------------------------- */
+        .game-detail-container {
+            max-width: 900px;
+            margin: 2.5rem auto;
+            padding: 2.5rem;
+            background-color: var(--color-card-bg);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.7);
+        }
+
+        /* ----------------------------------
+        4. Header
+        ---------------------------------- */
+        .game-detail-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #333;
+        }
+
+        .game-detail-header img {
+            max-width: 150px;
+            height: auto;
+            border-radius: 15px;
+            border: 5px solid var(--color-primary-accent);
+            box-shadow: 0 0 15px rgba(106, 168, 79, 0.5);
+        }
+
+        .game-detail-header h1 {
+            font-size: 3.2rem;
+            margin-top: 1.5rem;
+            color: var(--color-secondary-accent);
+            font-family: var(--font-heading);
+            font-weight: 800;
+        }
+
+        /* ----------------------------------
+        5. Content & Typography
+        ---------------------------------- */
+        .game-detail-content h2 {
+            font-size: 2rem;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--color-primary-accent);
+            padding-bottom: 0.5rem;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .game-detail-content h2 i {
+             color: var(--color-secondary-accent);
+        }
+
+        .game-detail-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--color-text-light);
+            text-align: justify;
+        }
+
+        .game-detail-content strong {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            color: var(--color-secondary-accent);
+        }
+        
+        /* قائمة الميزات */
+        .game-detail-content ul {
+            list-style: none;
+            padding-right: 0;
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 0;
+        }
+
+        .game-detail-content li {
+            margin-bottom: 0.75rem;
+            padding-right: 1.5rem;
+            position: relative;
+            font-weight: 400;
+            color: var(--color-text-medium);
+            width: 50%;
+        }
+
+        .game-detail-content li::before {
+            content: '\f52e'; /* أيقونة حزمة التبن */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 0;
+            top: 0;
+            color: var(--color-primary-accent);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .game-detail-content li { width: 100%; }
+        }
+
+        /* جدول المواصفات الفني */
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: #252525;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .specs-table th, .specs-table td {
+            padding: 15px;
+            text-align: right;
+            border-bottom: 1px solid #333;
+            font-family: var(--font-primary);
+            font-size: 1.05rem;
+        }
+        .specs-table th {
+            background-color: #333;
+            color: var(--color-secondary-accent);
+            width: 40%;
+            font-weight: 600;
+        }
+        .specs-table tr:last-child td {
+            border-bottom: none;
+        }
+
+
+        /* ----------------------------------
+        6. Buttons
+        ---------------------------------- */
+        .buttons-container {
+            text-align: center;
+            margin-top: 4rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 25px;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            border: none;
+            min-width: 220px;
+            justify-content: center;
+        }
+        
+        .primary-btn {
+             background-color: var(--color-primary-accent); 
+             box-shadow: 0 4px 10px rgba(106, 168, 79, 0.4);
+        }
+
+        .primary-btn:hover {
+            background-color: #5b9243;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(106, 168, 79, 0.6);
+        }
+        
+        .back-btn {
+            background-color: var(--color-secondary-action);
+            color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .back-btn:hover {
+            background-color: #555;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6);
+        }
+        
+        /* ----------------------------------
+        7. Footer Style (ضروري لأدسنس)
+        ---------------------------------- */
+        footer {
+            background-color: #1a1a1a;
+            color: #888;
+            padding: 1rem 0;
+            text-align: center;
+            margin-top: 3rem;
+            border-top: 1px solid #333;
+        }
+        .footer-nav {
+             margin-bottom: 10px;
+        }
+        .footer-nav a {
+            color: #888;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        .footer-nav a:hover {
+            color: var(--color-primary-accent);
+        }
+        footer p {
+            margin-top: 10px;
+            font-size: 0.85rem;
+        }
+    </style>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8571192174854530"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <h1><a href="../../index.html">Fazza Play</a></h1>
+    </header>
+    <main>
+        <div class="game-detail-container">
+            <div class="game-detail-header">
+                <img src="https://th.bing.com/th/id/OIP.JZErUoSPWS3nfMx-vatFLAHaHa?w=213&h=213&c=7&r=0&o=7&pid=1.7&rm=3" alt="غلاف لعبة Hay Day">
+                <h1>Hay Day</h1>
+            </div>
+
+            <div class="game-detail-content">
+                
+                <h2><i class="fas fa-seedling"></i> نبذة عن اللعبة وحياة المزرعة السعيدة</h2>
+                
+                <p>
+                    انضم إلى عالم **Hay Day** الهادئ والجميل، وهي لعبة استراتيجية متميزة في إدارة المزارع، تم تطويرها بواسطة العملاق الفنلندي **Supercell**، وهو نفس الاستوديو الذي أنتج Clash of Clans و Brawl Stars. تبدأ مغامرتك بقطعة أرض صغيرة، ويجب عليك زراعة المحاصيل المختلفة، تربية الحيوانات، وتطوير الآلات والمصانع لإنتاج سلع متنوعة.
+                </p>
+                <p>
+                    لا يقتصر الأمر على الزراعة فحسب؛ حيث تقدم Hay Day نظاماً اقتصادياً واجتماعياً عميقاً. يمكنك التجارة مع جيرانك وأصدقائك عبر **متجر المزرعة**، وبيع منتجاتك عبر الشاحنة أو القارب، بالإضافة إلى استكشاف أماكن جديدة مثل المدينة والبحيرة. اللعبة مثالية للاعبين الذين يبحثون عن تجربة مريحة وممتعة مع عمق استراتيجي في البناء والإدارة.
+                </p>
+
+                <h2><i class="fas fa-tractor"></i> المميزات الأساسية وعناصر اللعب</h2>
+                
+                <ul>
+                    <li>**بناء وتوسيع المزرعة:** تطوير أرضك من مزرعة صغيرة إلى إمبراطورية زراعية ضخمة.</li>
+                    <li>**سلسلة إنتاج متكاملة:** زراعة، حصاد، وتصنيع المنتجات في مصانع مختلفة (الخبز، السكر، الألبان، إلخ).</li>
+                    <li>**نظام تجارة مفتوح:** بيع وشراء المنتجات من وإلى اللاعبين حول العالم.</li>
+                    <li>**مناطق لعب إضافية:** استكشف المدينة والبحيرة لصيد الأسماك واستقبال الزوار.</li>
+                    <li>**رسومات كرتونية جميلة:** تصميم مبهج ومرضي للعين مناسب لجميع الأعمار.</li>
+                    <li>**التعاون الاجتماعي:** انضم إلى الأحياء (Neighborhoods) للدردشة والمساعدة وتبادل المواد.</li>
+                </ul>
+
+                <h2><i class="fas fa-mobile-alt"></i> المواصفات الفنية ومتطلبات التشغيل</h2>
+                
+                <table class="specs-table">
+                    <thead>
+                        <tr>
+                            <th>الخاصية</th>
+                            <th>المعلومة</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>المطور / الناشر</th>
+                            <td>Supercell</td>
+                        </tr>
+                        <tr>
+                            <th>النوع</th>
+                            <td>استراتيجية، إدارة، محاكاة مزرعة</td>
+                        </tr>
+                        <tr>
+                            <th>نظام التشغيل (Android)</th>
+                            <td>Android 4.1 أو أحدث</td>
+                        </tr>
+                        <tr>
+                            <th>نظام التشغيل (iOS)</th>
+                            <td>iOS 9.0 أو أحدث</td>
+                        </tr>
+                        <tr>
+                            <th>المساحة المطلوبة</th>
+                            <td>حوالي 300MB (مع تحديثات إضافية)</td>
+                        </tr>
+                        <tr>
+                            <th>نموذج اللعب</th>
+                            <td>مجانية للعب (Free-to-Play) مع مشتريات اختيارية</td>
+                        </tr>
+                        <tr>
+                            <th>متطلبات إضافية</th>
+                            <td>اتصال دائم بالإنترنت مطلوب للعب</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="buttons-container">
+                <a href="https://play.google.com/store/apps/details?id=com.supercell.hayday" class="action-btn primary-btn" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-google-play"></i> احصل عليها للأندرويد
+                </a>
+                <a href="https://apps.apple.com/us/app/hay-day/id506627515" class="action-btn primary-btn" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-apple"></i> احصل عليها للآيفون
+                </a>
+                <a href="../index.html" class="action-btn back-btn">
+                    <i class="fas fa-arrow-right"></i> العودة لقائمة الألعاب
+                </a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <nav class="footer-nav">
+                <a href="../../about.html">عن الموقع</a>
+                <a href="../../privacy.html">سياسة الخصوصية</a>
+                <a href="../../terms.html">شروط الاستخدام</a>
+                <a href="../../contact.html">اتصل بنا</a>
+                <a href="../../cookies.html">سياسة الكوكيز</a>
+            </nav>
+            <p>&copy; 2025 Fazza Play. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+    
+         
+
+ <script src="ads-fazza.js"></script>
+</body>
+</html>

@@ -1,0 +1,359 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>تحليل Clash Royale: استراتيجيات بناء التشكيلات (Decks) واللعب التنافسي | Fazza Play</title>
+    <meta name="description" content="دليل شامل لـ Clash Royale: تحليل آليات اللعب في الوقت الفعلي، أفضل استراتيجيات بناء التشكيلات (Cycle, Beatdown, Siege)، وكيفية إدارة الإكسير لتحقيق الانتصارات في الساحات التنافسية.">
+    <meta name="keywords" content="Clash Royale Strategy, Deck Building, Cycle Deck, Beatdown, Supercell, Real-Time Strategy, Elixir Management, Competitive Gaming">
+    
+    <meta property="og:title" content="Clash Royale: دليل الخبراء لآليات الإكسير وبناء التشكيلات">
+    <meta property="og:description" content="قاتل بذكاء في Clash Royale! استراتيجيات متقدمة لإتقان إدارة الإكسير والسيطرة على ساحة المعركة.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fazzaplay.com/mobile-games/details/clash-royale.html">
+    <link rel="canonical" href="https://fazzaplay.com/mobile-games/details/clash-royale.html">
+
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* الألوان المستوحاة من Clash Royale (الذهب والأحمر والأزرق) */
+        :root {
+            --primary-color: #e74c3c; /* أحمر قتالي */
+            --accent-color: #f1c40f; /* ذهبي/مكافآت */
+            --secondary-color: #3498db; /* أزرق الإكسير */
+            --bg-dark: #171d22;
+            --bg-card: #2c3e50;
+            --text-main: #f0f0f0;
+            --text-secondary: #bdc3c7;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.8;
+        }
+
+        /* الهيدر والمحتوى الأساسي */
+        header { background-color: #202b33; border-bottom: 3px solid var(--primary-color); }
+        header h1 a { color: var(--accent-color); font-size: 2.2rem; }
+        
+        .article-container {
+            max-width: 950px;
+            margin: 2.5rem auto;
+            padding: 0 15px;
+        }
+
+        .content-box {
+            background-color: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+            margin-bottom: 2rem;
+            border: 1px solid #3d5165;
+        }
+
+        .game-detail-header {
+            background: linear-gradient(135deg, #a00000 0%, #d32f2f 100%);
+            padding: 2.5rem;
+            border-radius: 15px;
+            margin-bottom: 3rem;
+            box-shadow: 0 6px 30px rgba(160, 0, 0, 0.7);
+        }
+
+        .game-detail-header img {
+            width: 150px; 
+            height: 150px;
+            border-radius: 50%;
+            border: 8px solid var(--accent-color); 
+            box-shadow: 0 0 20px rgba(241, 196, 15, 0.8);
+        }
+
+        h1.main-title {
+            color: #ffffff;
+            font-size: 3rem;
+            margin-top: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            padding-right: 15px;
+            border-right: 4px solid var(--accent-color);
+            background: rgba(231, 76, 60, 0.1);
+            border-radius: 5px;
+            padding: 10px;
+        }
+        
+        h3 {
+            color: var(--secondary-color);
+            font-size: 1.6rem;
+            margin: 2rem 0 1rem;
+            border-bottom: 2px dashed #444;
+            padding-bottom: 0.5rem;
+        }
+
+        p {
+            color: var(--text-secondary);
+            font-size: 1.15rem;
+            text-align: justify;
+        }
+        
+        /* قائمة الميزات الفنية */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-list li {
+            position: relative;
+            padding: 10px 0 10px 30px;
+            margin-bottom: 10px;
+            border-bottom: 1px dashed #444;
+        }
+        .feature-list li strong {
+            color: var(--accent-color);
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        .feature-list li::before {
+            content: '\f058'; /* Checkmark icon */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 0;
+            top: 10px;
+            color: var(--primary-color);
+        }
+
+        /* جدول المواصفات */
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: #253343;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .specs-table th, .specs-table td {
+            padding: 12px;
+            text-align: right;
+            border-bottom: 1px solid #3d4a5c;
+        }
+        .specs-table th {
+            background-color: #3d4a5c;
+            color: var(--accent-color);
+            width: 35%;
+        }
+
+        /* منطقة التحميل */
+        .download-area {
+            text-align: center;
+            padding: 3rem 1.5rem;
+            background: linear-gradient(145deg, #101010, #202020);
+            border-radius: 20px;
+            margin-top: 3rem;
+            border: 2px solid var(--accent-color);
+            box-shadow: 0 0 20px rgba(241, 196, 15, 0.3);
+        }
+
+        .btn-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 2rem;
+        }
+
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 35px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #fff;
+            background-color: var(--primary-color);
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+            transition: all 0.3s;
+            min-width: 220px;
+        }
+        
+        .action-btn:hover {
+            transform: scale(1.05) translateY(-2px);
+            background-color: #c0392b;
+        }
+
+        .back-btn {
+            background-color: #555;
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+        .back-btn:hover {
+            background-color: #444;
+        }
+    </style>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8571192174854530"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    
+    <header>
+        <div class="container">
+            <h1><a href="../../index.html">Fazza Play</a></h1>
+        </div>
+    </header>
+
+    <main class="article-container">
+        <article class="content-box">
+            <div class="game-detail-header">
+                <img src="https://th.bing.com/th/id/OIP.rn9nGFRaadhyrN0-7sQaEwHaHa?w=174&h=180&c=7&r=0&o=7&pid=1.7&rm=3" alt="غلاف لعبة Clash Royale">
+                <h1 class="main-title">Clash Royale: تحليل إدارة الإكسير واستراتيجيات الفوز</h1>
+            </div>
+            
+            <p><strong>Clash Royale</strong> ليست مجرد لعبة قتال عشوائية؛ إنها معركة استراتيجية تعتمد على اتخاذ القرار في أجزاء من الثانية وإدارة موردك الأكثر أهمية: <span style="color: var(--secondary-color); font-weight: bold;">الإكسير (Elixir)</span>. تجمع اللعبة بين الدفاع عن الأبراج (Tower Defense) وألعاب البطاقات القابلة للجمع (CCG) والمعارك في الوقت الفعلي (RTS)، مما يجعلها تحدياً عقلياً فريداً من نوعه.</p>
+            <p>للتفوق في الساحات التنافسية، يجب إتقان ثلاثة مبادئ أساسية: **إدارة الإكسير، بناء التشكيلة (Deck)، والتوقيت (Timing)**. هذا الدليل يوفر لك رؤية احترافية لآليات اللعب المتقدمة.</p>
+
+            <div style="margin: 30px 0; text-align: center; border: 1px dashed var(--accent-color); padding: 20px;">
+                <span style="color: #666;">مساحة إعلانية مقترحة - (يجب أن تكون بعيدة عن أزرار التحميل)</span>
+            </div>
+
+            <h2><i class="fas fa-magic"></i> المبدأ الأول: إدارة الإكسير والقيمة (Elixir Advantage)</h2>
+            <p>الانتصار في Clash Royale غالباً ما يتم تحديده من خلال **ميزة الإكسير**. وهي القدرة على تدمير وحدة للخصم باستخدام إكسير أقل مما أنفقه الخصم عليها. مفتاح اللاعبين المحترفين هو البحث دائماً عن تبادلات تحقق ميزة الإكسير.</p>
+            
+            <h3>آليات إدارة الإكسير المتقدمة:</h3>
+            <ul class="feature-list">
+                <li>
+                    <strong>العلاج المضاد (Counter-Push):</strong>
+                    استخدام وحدات الدفاع التي نجحت في صد هجوم الخصم لتبدأ هجومك المضاد. هذا يحول الدفاع الناجح إلى هجوم فوري دون إنفاق إكسير إضافي كبير.
+                </li>
+                <li>
+                    <strong>الوضع في الخلف (Deep Placement):</strong>
+                    وضع الوحدات التي تولد الإكسير ببطء (مثل Golem أو Pekka) خلف برج الملك للسماح بشحن الإكسير بالكامل أثناء سيرها للأمام.
+                </li>
+                <li>
+                    <strong>الإنفاق الصفري (Zero-Cost Defense):</strong>
+                    استخدام تعويذة "Log" أو "Zap" لصد وحدات ضعيفة بتكلفة منخفضة، أو استخدام "Ice Spirit" لتجميد الهجوم بتكلفة 1 إكسير فقط.
+                </li>
+            </ul>
+
+            <h2><i class="fas fa-cubes"></i> المبدأ الثاني: تصنيفات بناء التشكيلات (Deck Archetypes)</h2>
+            <p>يوجد ثلاثة أنواع رئيسية للتشكيلات، ولكل منها أسلوب لعب مختلف يتطلب إتقاناً فريداً:</p>
+
+            <table class="specs-table">
+                <thead>
+                    <tr>
+                        <th>تصنيف التشكيلة</th>
+                        <th>المفهوم الأساسي</th>
+                        <th>متوسط الإكسير</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="color: var(--primary-color); font-weight: bold;">تشكيلات الدورة السريعة (Cycle Decks)</td>
+                        <td>تهدف إلى تدوير البطاقات بسرعة للوصول إلى وحدة الهجوم الرئيسية مراراً وتكراراً، مع دفاع منخفض التكلفة.</td>
+                        <td>2.6 - 3.2</td>
+                    </tr>
+                    <tr>
+                        <td style="color: var(--accent-color); font-weight: bold;">تشكيلات الدفع الثقيل (Beatdown Decks)</td>
+                        <td>تعتمد على وحدات دبابات ضخمة (مثل Golem أو Giant) لإنشاء هجوم ساحق في الدقيقة الأخيرة (Double Elixir).</td>
+                        <td>4.0 - 5.0+</td>
+                    </tr>
+                    <tr>
+                        <td style="color: var(--secondary-color); font-weight: bold;">تشكيلات الحصار (Siege Decks)</td>
+                        <td>تستخدم مبانٍ هجومية (مثل Mortar أو X-Bow) تهاجم من منتصف الساحة، وتعتمد على الدفاع الصارم عن هذه المباني.</td>
+                        <td>3.0 - 3.8</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2><i class="fas fa-hand-fist"></i> المبدأ الثالث: إتقان البطاقات والتوقيت</h2>
+            <p>يتطلب إتقان Clash Royale حفظ نقاط الضعف والقوة (Counters) لكل بطاقة وتطبيقها بتوقيت مثالي. يجب أن تعرف بالضبط متى تضع بطاقتك لتجنب سحبها من قبل برج الخصم أو تدميرها بواسطة تعويذة مضادة.</p>
+            
+            <ul class="feature-list">
+                <li>
+                    <strong>الوضع المضاد للتجميد (Freeze Immunity):</strong>
+                    إتقان وضع بطاقاتك بعد قنبلة الـ "Graveyard" مباشرةً لضمان عدم تمكن الخصم من تجميد دفاعك.
+                </li>
+                <li>
+                    <strong>تقسيم الهجوم (Split Push):</strong>
+                    إرسال هجومين متوازيين على كلا الجسرين لإجبار الخصم على تقسيم دفاعاته وإفراغ مخزون الإكسير لديه.
+                </li>
+                <li>
+                    <strong>إيقاف السحب (Pulling):</strong>
+                    استخدام مبانٍ دفاعية (مثل Tombstone) لسحب القوات الضخمة ذات الأهداف الأرضية بعيداً عن البرج الرئيسي نحو المنتصف لتصبح تحت نيران البرجين.
+                </li>
+            </ul>
+
+            <hr>
+
+            <h2><i class="fas fa-info-circle"></i> معلومات ومتطلبات التشغيل</h2>
+
+            <table class="specs-table">
+                <tr>
+                    <th>المطور</th>
+                    <td>Supercell</td>
+                </tr>
+                <tr>
+                    <th>تاريخ الإصدار الأولي</th>
+                    <td>2016</td>
+                </tr>
+                <tr>
+                    <th>نوع اللعبة</th>
+                    <td>استراتيجية الوقت الفعلي (RTS) / CCG</td>
+                </tr>
+                <tr>
+                    <th>نظام التشغيل الأدنى (Android)</th>
+                    <td>Android 5.0 أو أحدث</td>
+                </tr>
+                <tr>
+                    <th>نظام التشغيل الأدنى (iOS)</th>
+                    <td>iOS 11.0 أو أحدث</td>
+                </tr>
+                <tr>
+                    <th>الوضع المطلوب</th>
+                    <td>اتصال دائم بالإنترنت مطلوب</td>
+                </tr>
+            </table>
+
+        </article>
+
+        <div class="download-area">
+            <h2 style="margin-top: 0; border: none; font-size: 1.8rem; justify-content: center; background: none; color: var(--text-main);">
+                <i class="fas fa-download"></i> حمّل Clash Royale وابدأ القتال!
+            </h2>
+            <p style="color: var(--text-secondary);">حان وقت إتقان استراتيجيات الإكسير وبناء التشكيلات الفائزة:</p>
+            
+            <div class="buttons-container">
+                <a href="https://play.google.com/store/apps/details?id=com.supercell.clashroyale" class="action-btn" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-google-play"></i> احصل عليها (Android)
+                </a>
+                <a href="https://apps.apple.com/us/app/clash-royale/id1053012308" class="action-btn" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-apple"></i> احصل عليها (iOS)
+                </a>
+                <a href="../index.html" class="action-btn back-btn"><i class="fas fa-arrow-right"></i> العودة إلى القائمة</a>
+            </div>
+        </div>
+
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Fazza Play جميع الحقوق محفوظة</p>
+        </div>
+    </footer>
+    
+         
+
+<script src="ads-fazza.js"></script>
+</body>
+</html>

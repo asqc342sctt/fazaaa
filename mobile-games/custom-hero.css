@@ -1,0 +1,426 @@
+/*=====================================================================
+  [1] CSS Variables (Colors, Fonts, Spacing)
+=====================================================================*/
+:root {
+    /* Colors - Green/Teal theme for Fazza Play */
+    --color-primary: #22c55e;        /* Emerald 500 */
+    --color-secondary: #14b8a6;      /* Teal 500 */
+    --color-accent: #ff7a18;         /* Orange/CTA primary */
+    --color-cta-light: #ffb347;
+    --color-background-dark: #05070e; /* Darkest background */
+    --color-surface-card: #090a14;   /* Hero card background base */
+    --color-text-light: #fff;
+    --color-text-dimmed: rgba(255, 255, 255, 0.85);
+background-color: rgb(8, 72, 109);
+    /* Spacing */
+    --spacing-xs: 0.5rem;   /* 8px */
+    --spacing-sm: 0.75rem;  /* 12px */
+    --spacing-md: 1rem;     /* 16px */
+    --spacing-lg: 1.5rem;   /* 24px */
+    --spacing-xl: 2rem;     /* 32px */
+
+    /* Borders & Shadows */
+    --border-color-light: rgba(255, 255, 255, 0.08);
+    --shadow-base: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+/*=====================================================================
+  [2] Global / Utility Classes
+=====================================================================*/
+.container-full-width {
+    width: min(1200px, 100% - 32px);
+    margin: 0 auto;
+}
+
+/*=====================================================================
+  [3] Header / Navigation Styles (mobile-games-header)
+=====================================================================*/
+.mobile-games-header {
+    /* Sticky Properties */
+    position: sticky;
+    top: 0;
+    z-index: 1300;
+
+    /* Appearance */
+    background: rgba(var(--color-background-dark), 0.95);
+    border-bottom: 1px solid var(--border-color-light);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    padding: var(--spacing-sm) 0;
+}
+
+.mobile-games-header .header-inner {
+    /* Inherits .container-full-width properties */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-md);
+}
+
+/* 3.1 Logo Styling */
+.header-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--color-text-light);
+    font-weight: 700;
+    font-size: var(--spacing-md);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.logo-mark {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    font-size: var(--spacing-md);
+}
+.header-logo .logo-text span:first-child {
+    color: #6ee7b7; /* Lighter shade of teal/green */
+}
+.header-logo .logo-text span:last-child {
+    color: var(--color-text-light);
+}
+
+/* 3.2 Main Navigation Links */
+.header-nav {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+}
+.header-nav .nav-link {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px; /* Pill shape */
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+.header-nav .nav-link:hover,
+.header-nav .nav-link.active {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--color-primary);
+}
+
+/* 3.3 Header Actions (Buttons) */
+.header-actions {
+    display: flex;
+    gap: var(--spacing-xs);
+}
+.header-actions a {
+    border-radius: 999px;
+    padding: 0.45rem 1.2rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+.header-actions a:hover {
+    transform: translateY(-1px);
+}
+
+.header-cta {
+    /* Primary CTA Button (Green Gradient) */
+    background: linear-gradient(135deg, var(--color-primary), #16a34a);
+    color: var(--color-text-light);
+    box-shadow: 0 10px 25px rgba(22, 163, 74, 0.35);
+}
+.header-secondary {
+    /* Secondary Button (Ghost/Outline) */
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--color-text-light);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.header-tertiary {
+     /* Tertiary/Alternative Button (Slightly darker ghost) */
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--color-text-light);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+/* 3.4 Mobile Menu / Burger Icon */
+.header-burger {
+    display: none; /* Hidden on Desktop */
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: rgba(255, 255, 255, 0.05);
+    cursor: pointer;
+    position: relative;
+    padding: 0;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    align-items: center;
+}
+.header-burger span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--color-text-light);
+}
+
+.header-mobile-menu {
+    display: none;
+    flex-direction: column;
+    background: rgba(12, 14, 24, 0.98);
+    border-top: 1px solid var(--border-color-light);
+    padding: var(--spacing-md) var(--spacing-lg) 1.25rem;
+    gap: var(--spacing-sm);
+    width: 100%;
+}
+.header-mobile-menu.is-open {
+    display: flex;
+}
+.header-mobile-menu .header-nav {
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+.header-mobile-menu .header-actions {
+    flex-direction: column;
+}
+
+
+/*=====================================================================
+  [4] Hero Banner Section (Main Content)
+=====================================================================*/
+.hero-banner {
+    /* Inherits .container-full-width properties */
+    margin: 1.25rem auto 2rem;
+    border-radius: 28px;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+
+    /* Background & Layout */
+    background: linear-gradient(135deg, rgba(9, 10, 20, 0.9), rgba(18, 37, 78, 0.95));
+    color: var(--color-text-light);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-xl);
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 30px 50px rgba(0, 0, 0, 0.45);
+}
+
+/* 4.1 Text Content */
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    letter-spacing: 0.2px;
+    background: rgba(255, 255, 255, 0.1);
+}
+.hero-banner-content h1 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    margin-bottom: 0.6rem;
+    line-height: 1.2;
+}
+.hero-banner-content p {
+    font-size: var(--spacing-md);
+    opacity: 0.85;
+    margin-bottom: var(--spacing-md);
+}
+
+/* 4.2 Call to Action Buttons */
+.hero-cta {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+    margin-bottom: var(--spacing-md);
+}
+.hero-cta .btn {
+    border-radius: 999px;
+    padding: 0.95rem 1.8rem;
+    font-weight: 700;
+    font-size: var(--spacing-md);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+    border: 1px solid transparent;
+    letter-spacing: 0.4px;
+}
+.hero-cta .btn.primary {
+    /* Orange Gradient (Main CTA) */
+    background: linear-gradient(135deg, var(--color-accent), var(--color-cta-light), #ffd873);
+    color: #111;
+    box-shadow: 0 15px 30px rgba(255, 155, 0, 0.45);
+    filter: drop-shadow(0 10px 25px rgba(255, 123, 24, 0.3));
+}
+.hero-cta .btn.secondary {
+    /* Outline/Secondary CTA */
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+    color: var(--color-text-light);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+.hero-cta .btn:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+}
+.hero-cta .btn:focus-visible {
+    outline: 2px solid rgba(34, 197, 94, 0.9);
+    outline-offset: 4px;
+}
+
+/* 4.3 Stats Bar */
+.hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--spacing-md);
+    margin-top: 0.25rem;
+}
+
+.hero-stats > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.hero-stats > div:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.hero-stats strong {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    margin-bottom: 0.25rem;
+}
+
+.hero-stats span {
+    display: block;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    color: var(--color-text-dimmed);
+}
+
+/* 4.4 Visual Component (Phone Mockup) */
+.hero-banner-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.device-frame {
+    width: 240px;
+    height: 520px;
+    border-radius: 40px;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.01));
+    padding: 12px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+.device-frame img {
+    width: 100%;
+    height: 100%;
+    border-radius: 28px;
+    object-fit: cover;
+}
+.glow {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.6;
+    pointer-events: none;
+}
+.glow-top {
+    top: -40px;
+    right: -60px;
+    background: radial-gradient(circle, rgba(136, 18, 255, 0.6), transparent 70%); /* Purple glow */
+}
+.glow-bottom {
+    bottom: -40px;
+    left: -40px;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.6), transparent 70%); /* Teal glow */
+}
+
+
+/*=====================================================================
+  [5] Page Content Intro & SEO
+=====================================================================*/
+.page-intro {
+    width: min(1000px, 100% - 32px);
+    margin: 0 auto 2rem;
+    text-align: right; /* RTL Alignment */
+}
+.page-intro h2 {
+    font-size: var(--spacing-xl);
+    margin-bottom: var(--spacing-xs);
+}
+.seo-content {
+    width: min(1100px, 100% - 32px);
+    margin: 0 auto 2rem;
+}
+#gamesGrid {
+    /* Offset for sticky header */
+    scroll-margin-top: 96px; 
+}
+
+
+/*=====================================================================
+  [6] Media Queries (Responsiveness)
+=====================================================================*/
+@media (max-width: 992px) {
+    /* Tablet/Small Desktop */
+    .header-nav,
+    .header-actions:not(.mobile) {
+        display: none;
+    }
+    .header-burger {
+        display: flex;
+    }
+    .hero-banner {
+        /* Stack content columns */
+        grid-template-columns: 1fr;
+    }
+    .header-mobile-menu {
+        /* Display menu below header */
+        position: relative;
+    }
+}
+
+@media (max-width: 640px) {
+    /* Mobile Devices */
+    .hero-banner {
+        padding: 1.25rem;
+    }
+    .hero-banner-visual {
+        /* Align visual to the right (RTL context) or left for better viewing on small screens */
+        justify-content: flex-start;
+    }
+    .hero-stats {
+        /* Two stats per row */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    /* Very small screens */
+    .hero-stats {
+        /* One stat per row for better readability */
+        grid-template-columns: 1fr;
+    }
+}

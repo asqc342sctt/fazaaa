@@ -1,0 +1,57 @@
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer-when-downgrade"
+    X-Robots-Tag = "index, follow"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/mobile-games/*"
+  [headers.values]
+    Cache-Control = "public, max-age=1800, must-revalidate"
+
+# Redirect API calls to Netlify Functions
+[[redirects]]
+  from = "/api/download"
+  to = "/.netlify/functions/download"
+  status = 200
+
+# SEO-friendly game URLs - redirect /game/game-name to game.html with proper slug
+[[redirects]]
+  from = "/game/:slug"
+  to = "/game.html?slug=:slug"
+  status = 200
+
+# Fallback for old game.html?id=123 format (for backwards compatibility)
+[[redirects]]
+  from = "/game.html"
+  to = "/game.html"
+  status = 200
+
+# Catch-all redirect to index
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

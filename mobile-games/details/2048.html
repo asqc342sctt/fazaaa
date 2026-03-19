@@ -1,0 +1,284 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔢 دليل الإتقان: التحليل الرياضي والاستراتيجي للوصول إلى 2048 وما بعدها - Fazza Play</title>
+    <meta name="description" content="تعلم الاستراتيجية المثالية لقاعدة الزاوية (Corner Rule) في لعبة 2048. دليل مفصل يفهمك الرياضيات والمنطق وراء دمج الأرقام لتحقيق أعلى النقاط. محتوى احترافي ومُحلل.">
+    <meta name="keywords" content="2048, لعبة 2048, تحميل 2048, استراتيجية 2048, الرياضيات في الألغاز, Gabriele Cirulli, لعبة ألغاز منطقية">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <style>
+        /* Base Styles - Dark Puzzle Theme */
+        body {
+            background-color: #161616; /* Deep dark gray */
+            color: #f0f0f0;
+            font-family: 'Tajawal', Arial, sans-serif;
+            line-height: 1.8;
+        }
+
+        /* Game Detail Container */
+        .game-detail-container {
+            max-width: 950px;
+            margin: 2.5rem auto;
+            padding: 3rem;
+            background-color: #242424; /* Darker tile background */
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            border-top: 5px solid #ffc107; /* Yellow highlight */
+        }
+
+        /* Header Styles */
+        .game-detail-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 1.5rem;
+            background: #2e2e2e;
+            border-radius: 12px;
+        }
+
+        .game-detail-header img {
+            max-width: 100%;
+            width: 150px;
+            border-radius: 10px;
+            border: 4px solid #ffc107;
+            box-shadow: 0 0 15px rgba(255, 193, 7, 0.4);
+        }
+
+        .game-detail-header h1 {
+            font-size: 3.5rem;
+            margin-top: 1.5rem;
+            color: #ffc107; /* Highlight color */
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Content Headings - Tiered Structure */
+        .game-detail-content h2,
+        .article-section h2 {
+            font-size: 2.2rem;
+            margin: 3.5rem 0 1.2rem;
+            border-bottom: 3px solid #ff9800; /* Orange separator */
+            padding-bottom: 0.6rem;
+            color: #ffffff;
+            position: relative;
+        }
+
+        .article-section h3 {
+            color: #ffc107; /* Yellow for strategic points */
+            font-size: 1.8rem;
+            margin: 2.5rem 0 1rem;
+            position: relative;
+            padding-right: 15px;
+        }
+        
+        .article-section h3::before {
+            content: '⧈'; /* Square for tiles */
+            position: absolute;
+            right: 0;
+            color: #ff9800;
+            font-size: 1em;
+        }
+
+        /* Paragraphs and Lists */
+        .game-detail-content p, 
+        .game-detail-content ul,
+        .article-section p,
+        .article-section ul {
+            font-size: 1.2rem;
+            line-height: 2.0;
+            margin-bottom: 1.8rem;
+            text-align: justify;
+        }
+        
+        .article-section li {
+            margin-bottom: 0.9rem;
+            padding-right: 2rem;
+            position: relative;
+        }
+        
+        .article-section li::before {
+            content: '⟡'; /* Diamond bullet */
+            color: #ffc107;
+            font-size: 1em;
+            position: absolute;
+            right: 0;
+            top: 5px;
+        }
+
+        /* Buttons */
+        .buttons-container {
+            text-align: center;
+            margin: 4rem 0 2rem;
+            padding-top: 2rem;
+            border-top: 1px dashed #444;
+        }
+
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0.75rem;
+            padding: 14px 30px;
+            background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%); /* Gold/Orange Gradient */
+            color: #161616;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 4px 15px rgba(255, 193, 7, 0.5);
+            min-width: 220px;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(255, 193, 7, 0.7);
+        }
+
+        .back-btn {
+            background: linear-gradient(135deg, #444 0%, #222 100%);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-btn:hover {
+            background: linear-gradient(135deg, #555 0%, #333 100%);
+        }
+        
+        /* Table for Math Analysis */
+        .math-table {
+            width: 80%;
+            margin: 2.5rem auto;
+            border-collapse: collapse;
+            background: #333;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .math-table th {
+            background-color: #ff9800;
+            color: #161616;
+            padding: 12px;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        .math-table td {
+            padding: 10px;
+            border-bottom: 1px solid #444;
+            text-align: center;
+            color: #ffc107;
+            font-weight: bold;
+        }
+        
+        .math-table tr:nth-child(even) {
+            background-color: #2e2e2e;
+        }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8571192174854530"
+        crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <h1><a href="../../index.html">Fazza Play</a></h1>
+    </header>
+    <main>
+        <div class="game-detail-container">
+            <div class="game-detail-header">
+                <img src="../../images/mobile-games/2048.webp" alt="2048 - لعبة الألغاز الرقمية">
+                <h1>2048: دليل الإتقان الرياضي</h1>
+            </div>
+
+            <div class="game-detail-content article-section">
+                <h2>مقدمة في الجبر والمنطق: ما وراء الأرقام</h2>
+                <p>
+                    لعبة 2048 التي صممها جابرييل سيرولي عام 2014، هي مثال مبهر لكيفية تحويل مفهوم رياضي بسيط (قوى العدد 2) إلى لغز مُسبب للإدمان. لا يقتصر نجاح اللعبة على الحظ، بل يعتمد بالكامل على **التفكير الرياضي المنهجي** وتطبيق استراتيجية حاسمة تهدف إلى التحكم في عشوائية ظهور البلاطات الجديدة. هدف هذا الدليل هو تحويلك من لاعب عادي إلى محترف يتقن فن التلاعب باللوحة 4x4.
+                </p>
+
+                <hr>
+
+                <h2>⧈ الفصل الأول: الاستراتيجية الذهبية (The Corner Rule)</h2>
+                <p>
+                    النجاح في 2048 يتلخص في تطبيق استراتيجية واحدة رئيسية تعرف بـ **"قاعدة الزاوية المحفوظة"** أو **"قاعدة الأفعى (Snake Pattern)"**. هذه القاعدة هي أساس أي محاولة للوصول إلى 2048 أو حتى البلاطات الأكبر مثل 4096 و 8192.
+                </p>
+
+                <h3>مبدأ قاعدة الزاوية المحفوظة:</h3>
+                <ol>
+                    <li>**تثبيت القيمة الأكبر:** يجب أن تضع البلاطة ذات القيمة الأكبر في زاوية واحدة من اللوحة (عادةً الزاوية السفلية اليمنى أو اليسرى) وتتعهد **بعدم تحريكها أبداً** من تلك الزاوية.</li>
+                    <li>**تجنب الانزلاق:** إذا اخترت الزاوية السفلية اليمنى، فإن الحركة الوحيدة الممنوعة هي **الضرب للأعلى**. يجب أن تقتصر حركاتك على **اليمين، والأسفل، واليسار**.</li>
+                    <li>**بناء السلسلة الهرمية:** قم ببناء سلسلة متناقصة من البلاطات مرتبة بشكل متجاور (مثلاً: 1024، 512، 256، 128) إما في الصف السفلي أو في العمود المجاور للزاوية. هذا يضمن أن يكون دمج الأرقام الصغرى ممكناً دون تحريك البلاطة الأكبر.</li>
+                </ol>
+                <p>
+                    **القيمة المضافة:** تمنحك هذه الاستراتيجية سيطرة قصوى على مكان ظهور البلاطات الجديدة، حيث أن البلاطات الجديدة (2 أو 4) ستظهر في الأماكن الفارغة التي تُنشئها في الجزء العلوي من اللوحة، بعيداً عن منطقتك الحرجة.
+                </p>
+                
+                <hr>
+
+                <h2>📈 الفصل الثاني: الرياضيات وراء اللوحة (قوى العدد 2)</h2>
+                <p>
+                    لعبة 2048 هي في جوهرها استعراض لمفهوم النمو الأسي. كل بلاطة تمثل قوة للرقم 2 ($2^n$). لفهم اللعبة بعمق، يجب أن تفهم العلاقة بين القيمة والنقاط.
+                </p>
+
+                <h3>تحليل نمو البلاطات:</h3>
+                <table class="math-table">
+                    <thead>
+                        <tr>
+                            <th>قيمة البلاطة</th>
+                            <th>كقوة للعدد 2 ($2^n$)</th>
+                            <th>عدد مرات الدمج المطلوبة (من 2)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>32</td><td>$2^5$</td><td>5 دمج</td></tr>
+                        <tr><td>128</td><td>$2^7$</td><td>7 دمج</td></tr>
+                        <tr><td>512</td><td>$2^9$</td><td>9 دمج</td></tr>
+                        <tr><td>2048</td><td>$2^{11}$</td><td>11 دمج متتالٍ</td></tr>
+                    </tbody>
+                </table>
+                
+                <p>
+                    هذا التحليل الرياضي يؤكد أن كل بلاطة تدمجها يجب أن تكون جزءاً من سلسلة تؤدي في النهاية إلى الـ 2048. إن فشل دمج بلاطة ذات قيمة صغيرة يعني أنك تحتاج لـ **دمج إضافي** في المستقبل، مما يستهلك مساحة ثمينة على اللوحة.
+                </p>
+
+                <hr>
+
+                <h2>🧠 الفصل الثالث: إدارة الفوضى والتحكم في العشوائية</h2>
+                <p>
+                    التحدي الأكبر في اللعبة هو ظهور البلاطات العشوائية ذات القيمة 2 أو 4. اللاعب المحترف لا يحاول قمع العشوائية، بل يحاول **توجيهها** إلى مناطق يمكن السيطرة عليها.
+                </p>
+
+                <h3>نصائح للمناورة المتقدمة:</h3>
+                <ul>
+                    <li>**تنظيف الحافة:** عندما تمتلئ اللوحة، استخدم الضربات الجانبية (يمين/يسار) المتكررة لإنشاء فراغات جديدة على الحواف، وتجنب ترك البلاطات الصغيرة في المنتصف.</li>
+                    <li>**التخطيط للأمام (Look Ahead):** قبل كل حركة، اسأل نفسك: "ما هي الأسوأ الأماكن التي يمكن أن تظهر فيها البلاطة الجديدة، وهل ستفشل استراتيجية الزاوية إذا حدث ذلك؟"</li>
+                    <li>**استخدام البلاطة 4 بذكاء:** ظهور بلاطة 4 بدلاً من 2 هو مكافأة. استخدمها فوراً لدمجها مع بلاطة 4 أخرى أو بلاطة 2 موجودة لتقليل الفوضى وزيادة التقدم.</li>
+                </ul>
+
+                <hr>
+
+                <h2>✅ الخلاصة والقيمة الحقيقية للمحتوى</h2>
+                <p>
+                    لعبة 2048، على بساطتها الظاهرة، هي أداة تدريب قوية للعقل. القيمة الحقيقية التي نقدمها لك في هذا الدليل هي <span style="color: #ff9800; font-weight: bold;">الخبرة المنهجية</span> في تطبيق استراتيجية 'الزاوية' وفهم عميق للنمو الأسي وراء كل حركة. باستخدام هذا التحليل، لن تلعب بالحظ، بل بالمنطق والرياضيات.
+                </p>
+            </div>
+            <div class="buttons-container">
+                <a href="https://play.google.com/store/apps/details?id=com.gabrielecirulli.app2048" class="action-btn" target="_blank" rel="noopener noreferrer">احصل عليها (Android)</a>
+                <a href="https://apps.apple.com/us/app/2048-by-gabriele-cirulli/id868076805" class="action-btn" target="_blank" rel="noopener noreferrer">احصل عليها (iOS)</a>
+                <a href="../index.html" class="action-btn back-btn">العودة لقائمة الألعاب</a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Fazza Play. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    
+    <script src="../ads-fazza.js"></script>
+<script src="ads-fazza.js"></script>
+</body>
+</html>

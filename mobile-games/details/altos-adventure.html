@@ -1,0 +1,295 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏔️ تحليل Alto's Adventure: دليل الفن، الكومبو، وشخصيات التزلج - Fazza Play</title>
+    <meta name="description" content="اكتشف العمق الفني والتقني وراء Alto's Adventure. دليل شامل للحركات البهلوانية، نظام الكومبو، وتقنية الجريج (Grinding) لجمع أعلى النقاط.">
+    <meta name="keywords" content="Alto's Adventure, تحميل Alto's Adventure, استراتيجيات Alto's Adventure, تحليل فني للألعاب، Endless Runner Guide, Snowman">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <style>
+        /* Base Styles - Snow/Sky Theme */
+        body {
+            background: linear-gradient(to top, #e0f7fa, #ffffff); /* Light Blue to White Gradient */
+            color: #333333; /* Dark Gray Text */
+            font-family: 'Tajawal', Arial, sans-serif;
+            line-height: 1.8;
+        }
+
+        /* Container - Clean & Minimalist */
+        .game-detail-container {
+            max-width: 950px;
+            margin: 3rem auto;
+            padding: 4rem;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Soft Shadow */
+            border: 1px solid #cfd8dc; /* Light Border */
+        }
+
+        /* Header Styles - Calm & Focused */
+        .game-detail-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background-color: #eceff1; /* Very Light Gray Header */
+            border-radius: 10px;
+        }
+
+        .game-detail-header img {
+            max-width: 100%;
+            width: 180px;
+            border-radius: 50%; /* Circular Image to reflect the simple art style */
+            border: 4px solid #00acc1; /* Teal Accent */
+            box-shadow: 0 0 15px rgba(0, 172, 193, 0.4);
+        }
+
+        .game-detail-header h1 {
+            font-size: 3.5rem;
+            margin-top: 1.5rem;
+            color: #263238; /* Dark Blue Title */
+            text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Content Headings - Simple & Clean */
+        .game-detail-content h2,
+        .article-section h2 {
+            font-size: 2.5rem;
+            margin: 3.5rem 0 1.2rem;
+            border-bottom: 3px solid #00bcd4; /* Cyan Separator */
+            padding-bottom: 0.8rem;
+            color: #00838f; /* Dark Teal */
+            position: relative;
+        }
+
+        .article-section h3 {
+            color: #00acc1; 
+            font-size: 1.8rem;
+            margin: 2.5rem 0 1rem;
+            position: relative;
+            padding-right: 15px;
+        }
+        
+        .article-section h3::before {
+            content: '❄️'; /* Snowflake Symbol */
+            position: absolute;
+            right: 0;
+            color: #00acc1;
+            font-size: 1em;
+        }
+
+        /* Paragraphs and Lists */
+        .game-detail-content p, 
+        .article-section p {
+            font-size: 1.2rem;
+            line-height: 2.0;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+        
+        .article-section li {
+            font-size: 1.15rem;
+            margin-bottom: 0.8rem;
+            padding-right: 2.5rem;
+            position: relative;
+        }
+        
+        .article-section li::before {
+            content: '◖'; /* Half Moon/Wave Symbol */
+            color: #00bcd4;
+            font-weight: bold;
+            font-size: 1.1em;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        /* Quote for Philosophical Analysis */
+        .art-philosophy {
+            margin: 3rem 0;
+            padding: 2rem;
+            border-right: 5px solid #00bcd4;
+            background-color: #f5f5f5;
+            color: #546e7a;
+            font-style: italic;
+            border-radius: 8px;
+        }
+        .art-philosophy p {
+             font-size: 1.25rem;
+             line-height: 1.8;
+        }
+        
+        /* Table Style (Characters) */
+        .char-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 3rem 0;
+            background: #e0f7fa; /* Pale Cyan background */
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .char-table th {
+            background-color: #00acc1;
+            color: #ffffff;
+            font-weight: 700;
+            padding: 15px;
+            text-align: right;
+        }
+
+        .char-table td {
+            padding: 12px;
+            border-bottom: 1px solid #b2ebf2;
+            text-align: right;
+        }
+        
+        .char-table tr:hover {
+            background-color: #b2ebf2;
+        }
+
+        /* Buttons - High Contrast for Call to Action */
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0.75rem;
+            padding: 16px 35px;
+            background: linear-gradient(135deg, #00acc1 0%, #00838f 100%); /* Teal Gradient */
+            color: #ffffff;
+            font-weight: 900;
+            font-size: 1.3rem;
+            box-shadow: 0 6px 20px rgba(0, 172, 193, 0.5);
+            border-radius: 5px;
+            min-width: 200px;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(135deg, #4dd0e1 0%, #00acc1 100%);
+        }
+
+        .back-btn {
+            background: linear-gradient(135deg, #78909c 0%, #546e7a 100%);
+            color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8571192174854530"
+        crossorigin="anonymous"></script>
+</head>
+<body>
+    <header><h1><a href="../../index.html">Fazza Play</a></h1></header>
+    <main>
+        <div class="game-detail-container">
+            <div class="game-detail-header">
+                <img src="../../images/mobile-games/alto's adventure.png" alt="Alto's Adventure">
+                <h1>Alto's Adventure: سيمفونية الثلج والسماء</h1>
+            </div>
+
+            <div class="game-detail-content article-section">
+                
+                <h2>1. ما وراء الركض اللانهائي: فلسفة الـ "Zen"</h2>
+                <p>
+                    Alto's Adventure هي أكثر من مجرد لعبة "ركض لا نهائي" (Endless Runner)؛ إنها تجربة **"Zen"** مصممة لتوفير الهدوء البصري والسمعي. تميزت اللعبة بإهمالها لتعقيدات الألعاب الأخرى، وتركيزها على عنصرين أساسيين: البساطة الجمالية والإيقاع المريح. هذه الفلسفة الفنية هي ما منح اللعبة جوائز عالمية.
+                </p>
+
+                <h3>❄️ جمالية بكسلات الإضاءة الديناميكية:</h3>
+                <p>
+                    التغيرات الديناميكية في الطقس ودورات الليل والنهار (Day/Night Cycles) ليست مجرد مؤثرات بصرية. إنها عناصر لعب تزيد من تحدي الرؤية وتغير من مزاج الجولة. الانزلاق في ضوء الفجر الذهبي يختلف تماماً عن التزلج عبر عاصفة ثلجية مظلمة.
+                </p>
+                
+                <blockquote class="art-philosophy">
+                    <p>
+                        **تحليل فني:** "يكمن سحر Alto's Adventure في كيفية استخدامها لـ **التصوير الظلي (Silhouette)**. الشخصيات والعقبات تبدو كظلال بسيطة على خلفية ذات طبقات لونية معقدة. هذا يقلل من الضوضاء البصرية، ويسمح للعقل بالتركيز فقط على الإيقاع والتدفق."
+                    </p>
+                </blockquote>
+                
+                <hr>
+
+                <h2>2. دليل الإتقان: سلسلة الكومبو والحركات البهلوانية</h2>
+                <p>
+                    لتحقيق أعلى النقاط واستكمال الأهداف الصعبة في Alto's Adventure، يجب على اللاعب إتقان فن ربط الحركات البهلوانية في سلسلة كومبو واحدة. **الحركة الواحدة لا تكفي**؛ يجب دمجها مع بيئة اللعب.
+                </p>
+
+                <h3>استراتيجية ربط الحركات (Combo Chaining):</h3>
+                <ol>
+                    <li>◖ **القفز الدقيق (Timing Jumps):** استخدم القفزة لتنفيذ الحركة (Flip) فوق الصخور أو الفجوات، واحرص على الهبوط على منحدر (Slope) مباشرة لزيادة السرعة وبدء الكومبو.</li>
+                    <li>◖ **تقنية الجريج (Grinding Mastery):** يجب استخدام الـ Grinding (التزحلق على الحبال أو أسقف القرى) بين كل حركة بهلوانية لتفادي إنهاء الكومبو. كل حركة Grinding ناجحة تزيد من مكافأة النقاط.</li>
+                    <li>◖ **الوشاح (Wingsuit):** عند فتح الوشاح، يمكن استخدامه للحفاظ على سلسلة الكومبو في الهواء لفترة أطول، مما يضاعف النقاط المكتسبة قبل الهبوط.</li>
+                </ol>
+
+                <p>
+                    **نصيحة الخبراء:** التركيز على إكمال ثلاثة أهداف في وقت واحد هو أسرع طريقة للوصول إلى المستوى الأعلى وفتح الشخصيات الجديدة.
+                </p>
+
+                <hr>
+
+                <h2>3. دليل الشخصيات: المهارات الفريدة لكل بطل</h2>
+                <p>
+                    كل شخصية تفتحها في اللعبة لا تغير المظهر فحسب، بل تغير طريقة اللعب والتعامل مع الكومبو. اختيار الشخصية المناسبة للمهمة المطلوبة أمر بالغ الأهمية.
+                </p>
+
+                <table class="char-table">
+                    <thead>
+                        <tr>
+                            <th>الشخصية</th>
+                            <th>الميزة الرئيسية</th>
+                            <th>أسلوب اللعب المناسب</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>**Alto (ألتو)**</td>
+                            <td>متوازن، أفضل للدوران (Backflips)</td>
+                            <td>مثالي للمبتدئين وللتدريب على الكومبو الأساسي.</td>
+                        </tr>
+                        <tr>
+                            <td>**Maya (مايا)**</td>
+                            <td>أسرع في الدوران (Tricks)، لكن بطيئة في الهبوط</td>
+                            <td>ممتازة لإكمال تحديات "نقطة واحدة" و "حركة واحدة"</td>
+                        </tr>
+                        <tr>
+                            <td>**Paz (باز)**</td>
+                            <td>هبوط ثقيل (Smash Landing)، لا يفقد السرعة عند الهبوط</td>
+                            <td>الأفضل لجمع العملات والاستمرار في الركض لأطول مسافة ممكنة.</td>
+                        </tr>
+                        <tr>
+                            <td>**Izel (إيزيل)**</td>
+                            <td>تفتح الوشاح (Wingsuit) بشكل أسرع</td>
+                            <td>ملكة الكومبو الطويل، لا غنى عنها لتحقيق أعلى النقاط.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>
+                    **وجهة نظر شخصية:** أنا أفضل استخدام **Paz** في المراحل الأولى لتجاوز مسافات طويلة بسرعة، ثم التحول إلى **Izel** لربط حركات بهلوانية معقدة باستخدام الوشاح في المراحل المتقدمة.
+                </p>
+
+                <hr>
+
+                <h2>🚀 الخلاصة: التجربة لا تنتهي</h2>
+                <p>
+                    Alto's Adventure تقدم توازناً فريداً بين الهدوء والتحفيز التنافسي. من خلال فهم فلسفتها الفنية وتقنيات الكومبو المتقدمة، ستكتشف طبقات جديدة من المتعة والإتقان في هذه المغامرة التي لا نهاية لها.
+                </p>
+                
+            </div>
+            
+            <div class="buttons-container">
+                <a href="https://play.google.com/store/apps/details?id=com.noodlecake.altosadventure" class="action-btn" target="_blank" rel="noopener noreferrer">📲 تحميل اللعبة (Android)</a>
+                <a href="https://apps.apple.com/us/app/altos-adventure/id950812012" class="action-btn" target="_blank" rel="noopener noreferrer">📲 تحميل اللعبة (iOS)</a>
+                <a href="../index.html" class="action-btn back-btn">العودة لقائمة الألعاب</a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Fazza Play. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    
+<script src="ads-fazza.js"></script>
+</body>
+</html>

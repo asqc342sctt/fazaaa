@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>من سيصبح مليونير - تجربة احترافية | Fazza Play</title>
+    
+    <link rel="stylesheet" href="../../css/arabic-fonts.css">
+    
+    <style>
+        :root {
+            --bg-dark: #050a18;
+            --panel-bg: #0d152b;
+            --neon-blue: #00d2ff;
+            --neon-purple: #9d50bb;
+            --gold: #ffcc00;
+            --correct: #2ecc71;
+            --wrong: #e74c3c;
+        }
+
+        body {
+            background: radial-gradient(circle at center, #1b2735 0%, #050a18 100%);
+            color: white;
+            font-family: 'Cairo', sans-serif; /* تأكد من ربط الخط في موقعك */
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        header { padding: 20px; text-align: center; }
+        header h1 a { color: var(--gold); text-decoration: none; font-size: 2rem; text-shadow: 0 0 10px rgba(255,204,0,0.5); }
+
+        .game-wrapper {
+            width: 90%;
+            max-width: 900px;
+            background: var(--panel-bg);
+            border: 2px solid #1e2a4a;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* شريط التقدم وعداد الوقت */
+        .game-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .timer-circle {
+            width: 70px;
+            height: 70px;
+            border: 4px solid var(--neon-blue);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            box-shadow: 0 0 15px var(--neon-blue);
+        }
+
+        .prize-box {
+            text-align: left;
+            font-size: 1.2rem;
+            color: var(--gold);
+        }
+
+        /* منطقة السؤال */
+        .question-section {
+            background: linear-gradient(90deg, transparent, rgba(0,210,255,0.1), transparent);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(0,210,255,0.2);
+            text-align: center;
+        }
+
+        .question-section h2 { font-size: 1.8rem; line-height: 1.5; margin: 0; }
+
+        /* خيارات الإجابة */
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .opt-btn {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid #34495e;
+            padding: 20px;
+            border-radius: 50px;
+            color: white;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            text-align: right;
+            padding-right: 40px;
+        }
+
+        .opt-btn:hover {
+            background: var(--neon-blue);
+            color: black;
+            transform: scale(1.02);
+            box-shadow: 0 0 20px var(--neon-blue);
+        }
+
+        .opt-btn.correct { background: var(--correct) !important; color: white; border-color: white; }
+        .opt-btn.wrong { background: var(--wrong) !important; color: white; }
+
+        /* وسائل المساعدة */
+        .lifelines {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+
+        .life-btn {
+            background: none;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .life-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+
+        /* شاشات البداية والنهاية */
+        .overlay {
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        .action-btn {
+            background: var(--gold);
+            color: black;
+            padding: 15px 45px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255,204,0,0.4);
+        }
+
+        .hidden { display: none; }
+
+        @media (max-width: 768px) {
+            .options-grid { grid-template-columns: 1fr; }
+            .question-section h2 { font-size: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1><a href="../../index.html">Fazza Play</a></h1>
+</header>
+
+<div class="game-wrapper">
+    <div id="start-screen" class="overlay">
+        <h2 style="font-size: 2.5rem; color: var(--gold);">مستعد للتحدي؟</h2>
+        <p>أجب على 10 أسئلة لتصل إلى المليون</p>
+        <button class="action-btn" onclick="initGame()">ابدأ المسابقة</button>
+    </div>
+
+    <div id="game-screen" class="hidden">
+        <div class="game-header">
+            <div class="timer-circle" id="timer">30</div>
+            <div class="prize-box">المستوى: <span id="current-prize">$0</span></div>
+        </div>
+
+        <div class="question-section">
+            <h2 id="question-text">جاري تحميل السؤال...</h2>
+        </div>
+
+        <div class="options-grid">
+            <button class="opt-btn" onclick="handleChoice(0)" id="opt0"></button>
+            <button class="opt-btn" onclick="handleChoice(1)" id="opt1"></button>
+            <button class="opt-btn" onclick="handleChoice(2)" id="opt2"></button>
+            <button class="opt-btn" onclick="handleChoice(3)" id="opt3"></button>
+        </div>
+
+        <div class="lifelines">
+            <button class="life-btn" id="help-50" onclick="use5050()">حذف إجابتين (50:50)</button>
+        </div>
+    </div>
+
+    <div id="end-screen" class="overlay hidden">
+        <h2 id="end-title">انتهت اللعبة!</h2>
+        <p id="end-subtitle">لقد ربحت مبلغ:</p>
+        <h1 id="final-amount" style="color: var(--gold); font-size: 3rem;">$0</h1>
+        <button class="action-btn" onclick="location.reload()">لعب مرة أخرى</button>
+    </div>
+</div>
+
+<script>
+    const quizData = [
+        { q: "ما هي اللعبة التي اشتهرت بعبارة 'Winner Winner Chicken Dinner'؟", a: ["PUBG", "Free Fire", "Fortnite", "Apex Legends"], c: 0 },
+        { q: "كم عدد أزرار الاتجاهات (D-Pad) في ذراع تحكم البلايستيشن؟", a: ["2", "4", "6", "8"], c: 1 },
+        { q: "أي شركة أنتجت سلسلة ألعاب Assassin's Creed؟", a: ["EA", "Activision", "Ubisoft", "Rockstar"], c: 2 },
+        { q: "ما هو اسم بطل سلسلة Halo؟", a: ["Master Chief", "Doom Slayer", "Marcus Fenix", "Kratos"], c: 0 },
+        { q: "ما هي أعلى رتبة في لعبة League of Legends؟", a: ["Diamond", "Master", "Challenger", "Grandmaster"], c: 2 }
+        // أضف المزيد هنا...
+    ];
+
+    let currentIdx = 0;
+    let timer;
+    let timeLeft = 30;
+    let prizeLevels = [1000, 5000, 10000, 50000, 100000, 250000, 500000, 1000000];
+    let isClickable = true;
+
+    function initGame() {
+        document.getElementById('start-screen').classList.add('hidden');
+        document.getElementById('game-screen').classList.remove('hidden');
+        showQuestion();
+    }
+
+    function showQuestion() {
+        isClickable = true;
+        timeLeft = 30;
+        document.getElementById('timer').innerText = timeLeft;
+        startTimer();
+
+        const q = quizData[currentIdx];
+        document.getElementById('question-text').innerText = q.q;
+        
+        for(let i=0; i<4; i++) {
+            const btn = document.getElementById(`opt${i}`);
+            btn.innerText = q.a[i];
+            btn.className = 'opt-btn';
+            btn.style.visibility = 'visible';
+        }
+    }
+
+    function startTimer() {
+        clearInterval(timer);
+        timer = setInterval(() => {
+            timeLeft--;
+            document.getElementById('timer').innerText = timeLeft;
+            if(timeLeft <= 0) {
+                clearInterval(timer);
+                gameOver(false);
+            }
+        }, 1000);
+    }
+
+    function handleChoice(idx) {
+        if(!isClickable) return;
+        isClickable = false;
+        clearInterval(timer);
+
+        const correctIdx = quizData[currentIdx].c;
+        const btn = document.getElementById(`opt${idx}`);
+
+        if(idx === correctIdx) {
+            btn.classList.add('correct');
+            document.getElementById('current-prize').innerText = "$" + prizeLevels[currentIdx].toLocaleString();
+            setTimeout(() => {
+                currentIdx++;
+                if(currentIdx < quizData.length) showQuestion();
+                else gameOver(true);
+            }, 1500);
+        } else {
+            btn.classList.add('wrong');
+            document.getElementById(`opt${correctIdx}`).classList.add('correct');
+            setTimeout(() => gameOver(false), 1500);
+        }
+    }
+
+    function use5050() {
+        const correctIdx = quizData[currentIdx].c;
+        let removed = 0;
+        for(let i=0; i<4; i++) {
+            if(i !== correctIdx && removed < 2) {
+                document.getElementById(`opt${i}`).style.visibility = 'hidden';
+                removed++;
+            }
+        }
+        document.getElementById('help-50').disabled = true;
+    }
+
+    function gameOver(win) {
+        document.getElementById('game-screen').classList.add('hidden');
+        document.getElementById('end-screen').classList.remove('hidden');
+        if(win) {
+            document.getElementById('end-title').innerText = "عبقري! لقد وصلت للمليون";
+            document.getElementById('final-amount').innerText = "$1,000,000";
+        } else {
+            const finalWin = currentIdx > 0 ? prizeLevels[currentIdx-1] : 0;
+            document.getElementById('final-amount').innerText = "$" + finalWin.toLocaleString();
+        }
+    }
+</script>
+
+<script src="ads-fazza.js"></script>
+</body>
+</html>

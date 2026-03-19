@@ -1,0 +1,254 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحميل Madden NFL 24 Mobile | بناء فريق Ultimate Team والتنافس - Fazza Play</title>
+    
+    <meta name="description" content="خُض تجربة كرة القدم الأمريكية الحقيقية مع Madden NFL Mobile. قم ببناء فريق Ultimate Team الخاص بك من أساطير ونجوم NFL، وتنافس في وضع Head-to-Head والأحداث المباشرة (Live Events) للفوز بـ Super Bowl.">
+    <meta name="keywords" content="Madden NFL 24 Mobile, Madden Ultimate Team, NFL, EA SPORTS, كرة قدم أمريكية، رياضة، بناء فريق، Head-to-Head، Super Bowl">
+    <meta name="author" content="Fazza Play">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Madden NFL 24 Mobile: دليل بناء فريق الأحلام (Ultimate Team)">
+    <meta property="og:description" content="مراجعة شاملة لآليات اللعبة، وكيفية جمع بطاقات اللاعبين، والمشاركة في التحديات الموسمية والأحداث الأسبوعية.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fazzaplay.com/mobile-games/details/madden-nfl-24-mobile.html">
+    <meta property="og:image" content="../../images/mobile-games/n NFL 24 Mobile Football.png">
+    <link rel="canonical" href="https://fazzaplay.com/mobile-games/details/madden-nfl-24-mobile.html">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* نظام ألوان مستوحى من الملعب وكرة القدم الأمريكية (الأخضر والذهبي) */
+        :root {
+            --dark-bg: #121212; 
+            --main-card-bg: #1A1A1A;
+            --text-color: #FAFAFA;
+            --highlight-color: #FFB300; /* ذهبي (لون الجائزة) */
+            --secondary-color: #00A651; /* أخضر الملعب */
+            --border-color: #383838; 
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-color);
+            font-family: 'Tajawal', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #000;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h1 a {
+            color: var(--highlight-color);
+            text-decoration: none;
+            font-size: 2rem;
+            text-shadow: 0 0 5px rgba(255, 179, 0, 0.7);
+        }
+        .game-detail-container {
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 3rem;
+            background-color: var(--main-card-bg);
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+            border: 3px solid var(--secondary-color); 
+        }
+        .game-detail-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .game-detail-header img {
+            width: 100%;
+            max-width: 450px; 
+            height: auto;
+            object-fit: cover;
+            border-radius: 15px; 
+            border: 6px solid var(--highlight-color);
+            box-shadow: 0 0 25px rgba(0, 166, 81, 0.7);
+        }
+        .game-detail-header h1 {
+            font-size: 4rem;
+            margin-top: 1.5rem;
+            color: var(--highlight-color);
+            text-shadow: 2px 2px 10px rgba(255, 179, 0, 0.8);
+        }
+        .game-detail-content h2 {
+            font-size: 2.5rem;
+            margin-top: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary-color);
+            border-bottom: 3px solid var(--highlight-color);
+            padding-bottom: 0.8rem;
+        }
+        .game-detail-content h3 {
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            color: var(--text-color);
+            border-right: 5px solid var(--highlight-color);
+            padding-right: 15px;
+        }
+        .game-detail-content p, .game-detail-content ul, .game-detail-content li, .game-detail-content table {
+            font-size: 1.2rem;
+            line-height: 2.1;
+            text-align: justify;
+        }
+        .game-detail-content ul {
+            list-style: none;
+            padding-right: 0;
+        }
+        .game-detail-content li {
+            margin-bottom: 1rem;
+            padding-right: 2.5rem;
+            position: relative;
+            background-color: #252525;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+        }
+        .game-detail-content li::before {
+            content: '\25C6'; /* رمز ماسي بسيط */
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--secondary-color);
+            font-size: 1.3rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table th, table td {
+            padding: 15px;
+            border: 1px solid var(--border-color);
+            text-align: right;
+        }
+        table th {
+            background-color: var(--highlight-color);
+            color: var(--dark-bg);
+        }
+        table tr:nth-child(even) {
+            background-color: #252525;
+        }
+        .buttons-container {
+            text-align: center;
+            margin-top: 5rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid var(--border-color);
+        }
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 15px;
+            padding: 20px 45px;
+            background-color: var(--highlight-color);
+            color: var(--dark-bg);
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 1.4rem;
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+            box-shadow: 0 8px 25px rgba(255, 179, 0, 0.7);
+        }
+        .action-btn:hover {
+            background-color: #E0A800;
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(255, 179, 0, 1);
+        }
+        .back-btn {
+            background-color: #444;
+            color: var(--text-color);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+            padding: 17px 35px;
+            font-size: 1.2rem;
+        }
+        .back-btn:hover {
+            background-color: #555;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+        }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8571192174854530"
+     crossorigin="anonymous"></script>
+</head>
+<body> <header><h1><a href="../../index.html">Fazza Play</a></h1></header>
+    <main>
+        <div class="game-detail-container">
+            <div class="game-detail-header">
+                <img src="../../images/mobile-games/n NFL 24 Mobile Football.png" alt="غلاف Madden NFL 24 Mobile Football">
+                <h1>Madden NFL Mobile Football</h1>
+                <p style="color: var(--secondary-color); font-size: 1.3rem; margin-top: 10px;">بناء فريق Ultimate Team والمنافسة في مواسم NFL</p>
+            </div>
+
+            <div class="game-detail-content">
+                
+                <h2>نظام Ultimate Team: جمع البطاقات وبناء الإرث</h2>
+                <p>
+                    تعتبر Madden NFL Mobile تجربة "ألتميت تيم" (Ultimate Team) متكاملة على الهاتف المحمول. تبدأ رحلتك ببناء قائمة فريقك من خلال جمع بطاقات اللاعبين الحقيقية المرخصة من دوري كرة القدم الأمريكية (NFL)، وتطويرهم لزيادة تقييمهم الإجمالي (OVR).
+                </p>
+                
+                <h3>1. آليات اللعب الرئيسية</h3>
+                <ul>
+                    <li>**تجميع البطاقات (Kard Collection):** احصل على حزم البطاقات (Packs)، واستبدل اللاعبين المكررين، وقم بترقية نجومك المفضلين لفتح قدرات جديدة.</li>
+                    <li>**الأحداث المباشرة (Live Events):** شارك في التحديات اليومية والأسبوعية المرتبطة بأحداث موسم NFL الحقيقي للحصول على عملات ومكافآت نادرة وبطاقات لاعبين موسمية.</li>
+                    <li>**نمط المواجهة (Head-to-Head):** تنافس في مباريات هجوم ودفاع غير متزامنة ضد لاعبين آخرين حول العالم، وتسلَّق لوحة الصدارة لكسب جوائز أعلى.</li>
+                </ul>
+
+                <h2>متطلبات التشغيل (لجودة رسوميات عالية)</h2>
+                <p>
+                    كونها لعبة رياضية ثلاثية الأبعاد ذات رسوميات عالية من EA SPORTS، تتطلب Madden NFL Mobile مواصفات تقنية قوية لضمان معدل إطارات (Frame Rate) سلس:
+                </p>
+                <table style="width: 100%; margin-top: 20px;">
+                    <thead>
+                        <tr style="background-color: var(--highlight-color); color: var(--dark-bg);">
+                            <th>الميزة</th>
+                            <th>التفاصيل التقنية (موصى بها)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>نظام التشغيل (Android)</td>
+                            <td>Android 8.0 (Oreo) أو أحدث</td>
+                        </tr>
+                        <tr>
+                            <td>نظام التشغيل (iOS)</td>
+                            <td>iOS 13.0 أو أحدث</td>
+                        </tr>
+                        <tr>
+                            <td>الذاكرة العشوائية (RAM)</td>
+                            <td>4 GB كحد أدنى</td>
+                        </tr>
+                        <tr>
+                            <td>مساحة التخزين</td>
+                            <td>3 GB+ (قابل للزيادة مع التحديثات الموسمية)</td>
+                        </tr>
+                        <tr>
+                            <td>الاتصال</td>
+                            <td>يتطلب اتصال إنترنت مستقر</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="font-size: 1rem; color: var(--secondary-color); margin-top: 15px;">*ملاحظة: اللعبة يتم تحديثها سنوياً، ويُنصح بضمان توفر مساحة كافية للتحديثات الموسمية الكبيرة.</p>
+            </div>
+
+            <div class="buttons-container">
+                <a href="https://play.google.com/store/apps/details?id=com.ea.gp.maddennfl24mobile" class="action-btn" target="_blank" rel="noopener noreferrer">احصل عليها للأندرويد</a>
+                <a href="https://apps.apple.com/us/app/madden-nfl-mobile-football/id927692794" class="action-btn" target="_blank" rel="noopener noreferrer">احصل عليها للآيفون</a>
+                <a href="../index.html" class="action-btn back-btn">العودة لقائمة الألعاب</a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Fazza Play. جميع الحقوق محفوظة. | <a href="/privacy-policy.html" style="color: var(--highlight-color); text-decoration: none;">سياسة الخصوصية</a> | <a href="/terms-of-use.html" style="color: var(--highlight-color); text-decoration: none;">شروط الاستخدام</a></p>
+        </div>
+    </footer>
+ <script src="ads-fazza.js"></script>
+</body>
+     
+
+</html>

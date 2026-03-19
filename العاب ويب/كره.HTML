@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚡ الكرة السريعة: اختبار رد الفعل والدقة</title>
+    <meta name="description" content="لعبة 'الكرة السريعة' لاختبار سرعة رد الفعل والدقة البصرية. انقر على الهدف النيون قبل أن يختفي! تتزايد الصعوبة مع تقدم اللعب.">
+    <meta name="keywords" content="لعبة رد الفعل، اختبار السرعة، دقة، نيون، ألعاب HTML احترافية، Catch the Ball">
+    <meta name="author" content="Fazza Play (AI)">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* الخطوط والألوان الأساسية (ثيمة النيون/الظلام) */
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Orbitron:wght@500&display=swap');
+
+        :root {
+            --neon-green: #39ff14; /* لون النيون الأساسي */
+            --neon-blue: #00ffff; /* لون النيون الثانوي */
+            --dark-background: #0d0d1a; /* خلفية داكنة جداً */
+            --panel-background: #1a1a38; /* خلفية لوحة التحكم */
+            --text-color: #e0e0e0;
+            --font-display: 'Orbitron', sans-serif; /* خط رقمي للعدادات */
+            --font-arabic: 'Cairo', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-arabic);
+            background-color: var(--dark-background);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            direction: rtl;
+        }
+
+        /* حاوية اللعبة الرئيسية */
+        .game-container {
+            background-color: var(--panel-background);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.1);
+            border: 3px solid var(--neon-blue);
+            width: 100%;
+            max-width: 900px;
+            box-sizing: border-box;
+            z-index: 10;
+        }
+
+        h1 {
+            color: var(--neon-green);
+            margin-bottom: 25px;
+            font-family: var(--font-display);
+            font-size: 3em;
+            text-shadow: 0 0 10px var(--neon-green), 0 0 20px var(--neon-green);
+            text-align: center;
+        }
+
+        /* منطقة اللعب */
+        .game-area {
+            position: relative;
+            width: 100%;
+            height: 450px;
+            background-color: #0d0d1a;
+            border-radius: 10px;
+            border: 2px solid var(--neon-blue);
+            box-shadow: inset 0 0 15px rgba(0, 255, 255, 0.5);
+            margin-bottom: 20px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5em;
+            font-family: var(--font-arabic);
+        }
+
+        /* الهدف المتحرك (الكرة) */
+        .target {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: var(--neon-green);
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 8px var(--neon-green), 0 0 15px var(--neon-green);
+            transition: width 0.3s ease, height 0.3s ease, transform 0.1s ease;
+        }
+
+        .target:hover {
+            transform: scale(1.1);
+        }
+        
+        /* مؤشر النتيجة والتوقيت */
+        .score-panel {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: #2c2c54;
+            border-radius: 10px;
+        }
+
+        .score-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 15px;
+            min-width: 120px;
+        }
+
+        .score-value {
+            font-family: var(--font-display);
+            font-size: 2.2em;
+            color: var(--neon-blue);
+            text-shadow: 0 0 5px var(--neon-blue);
+            line-height: 1.2;
+        }
+
+        .score-label {
+            font-size: 0.9em;
+            color: var(--text-color);
+            margin-top: 5px;
+        }
+        
+        /* زر البدء/إعادة التشغيل */
+        .action-button {
+            background-color: var(--neon-green);
+            color: #000;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.5em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 15px var(--neon-green);
+            display: block;
+            margin: 0 auto;
+        }
+
+        .action-button:hover {
+            background-color: #6eff3b;
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px var(--neon-green);
+        }
+
+        /* رسالة النهاية */
+        .message {
+            font-size: 1.8em;
+            color: var(--neon-blue);
+            font-family: var(--font-display);
+            text-shadow: 0 0 5px var(--neon-blue);
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        /* استجابة الشاشات الصغيرة */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2em; }
+            .game-area { height: 350px; }
+            .score-panel { gap: 15px; }
+            .score-value { font-size: 1.8em; }
+            .action-button { font-size: 1.2em; padding: 12px 30px; }
+            .score-item { min-width: 100px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>⚡ الكرة السريعة</h1>
+
+        <div class="score-panel">
+            <div class="score-item">
+                <span id="hits-count" class="score-value">0</span>
+                <span class="score-label">النقرات الصحيحة</span>
+            </div>
+            <div class="score-item">
+                <span id="reaction-time" class="score-value">--</span>
+                <span class="score-label">وقت رد الفعل (مللي ثانية)</span>
+            </div>
+            <div class="score-item">
+                <span id="misses-count" class="score-value">0</span>
+                <span class="score-label">الإخفاقات</span>
+            </div>
+        </div>
+
+        <div class="game-area" id="game-area">
+            انقر على زر البدأ لبدء اختبار رد فعلك!
+        </div>
+
+        <button class="action-button" id="start-button">ابدأ اللعبة</button>
+        
+        <p class="message" id="game-message" style="display: none;"></p>
+    </div>
+
+    <script>
+        const gameArea = document.getElementById('game-area');
+        const startButton = document.getElementById('start-button');
+        const hitsCountSpan = document.getElementById('hits-count');
+        const missesCountSpan = document.getElementById('misses-count');
+        const reactionTimeSpan = document.getElementById('reaction-time');
+        const gameMessage = document.getElementById('game-message');
+
+        let isGameRunning = false;
+        let hits = 0;
+        let misses = 0;
+        let targetSize = 40;
+        let currentTarget = null;
+        let targetSpawnTimeout;
+        let timeSinceSpawn;
+        let reactionTimes = [];
+        let spawnDelay = 2000; // وقت الظهور الأولي بالمللي ثانية (يقل تدريجياً)
+        let maxLifeTime = 1500; // الحد الأقصى لبقاء الهدف قبل أن يختفي تلقائياً
+
+        // 1. حساب متوسط وقت رد الفعل
+        function getAverageReactionTime() {
+            if (reactionTimes.length === 0) return 0;
+            const sum = reactionTimes.reduce((a, b) => a + b, 0);
+            return Math.round(sum / reactionTimes.length);
+        }
+
+        // 2. تحديث لوحة النتائج
+        function updateStats() {
+            hitsCountSpan.textContent = hits;
+            missesCountSpan.textContent = misses;
+            reactionTimeSpan.textContent = reactionTimes.length > 0 ? getAverageReactionTime() : '--';
+        }
+
+        // 3. إنشاء الهدف (الكرة) في موقع عشوائي
+        function createTarget() {
+            if (!isGameRunning) return;
+
+            // إزالة الهدف القديم إذا كان موجوداً (حدث إخفاق في النقر)
+            if (currentTarget) {
+                currentTarget.remove();
+                misses++; // يعتبر عدم النقر في الوقت المحدد إخفاقاً
+                updateStats();
+            }
+
+            // زيادة صعوبة اللعب
+            spawnDelay = Math.max(500, spawnDelay * 0.98); // تقليل وقت الانتظار
+            maxLifeTime = Math.max(700, maxLifeTime * 0.99); // تقليل عمر الهدف
+
+            currentTarget = document.createElement('div');
+            currentTarget.classList.add('target');
+            currentTarget.style.width = `${targetSize}px`;
+            currentTarget.style.height = `${targetSize}px`;
+
+            const gameAreaRect = gameArea.getBoundingClientRect();
+            
+            // حساب نطاق الحركة (يجب أن يبقى نصف الكرة داخل الحدود)
+            const padding = targetSize / 2;
+            const maxX = gameAreaRect.width - targetSize;
+            const maxY = gameAreaRect.height - targetSize;
+
+            // تحديد موقع عشوائي
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+
+            currentTarget.style.left = `${randomX}px`;
+            currentTarget.style.top = `${randomY}px`;
+
+            // تسجيل وقت الظهور
+            timeSinceSpawn = Date.now();
+
+            currentTarget.addEventListener('click', handleTargetHit);
+            gameArea.appendChild(currentTarget);
+            
+            // تعيين مؤقت لحياة الهدف (يختفي تلقائياً)
+            targetSpawnTimeout = setTimeout(createTarget, maxLifeTime);
+        }
+        
+        // 4. معالجة النقر الصحيح على الهدف
+        function handleTargetHit(event) {
+            event.stopPropagation(); // منع النقر على منطقة اللعب بالكامل
+
+            if (!isGameRunning) return;
+
+            // حساب وقت رد الفعل
+            const reaction = Date.now() - timeSinceSpawn;
+            reactionTimes.push(reaction);
+            
+            // إيقاف مؤقت الإخفاء
+            clearTimeout(targetSpawnTimeout);
+
+            // تحديث الإحصائيات
+            hits++;
+            updateStats();
+
+            // إزالة الهدف وبدء هدف جديد
+            if (currentTarget) {
+                currentTarget.remove();
+                currentTarget = null;
+            }
+
+            // انتظار مدة قصيرة قبل ظهور الهدف التالي (بناءً على الصعوبة)
+            setTimeout(createTarget, spawnDelay);
+        }
+
+        // 5. معالجة النقر الخاطئ على منطقة اللعب
+        function handleMissClick() {
+            if (!isGameRunning) return;
+            misses++;
+            updateStats();
+        }
+
+        // 6. تهيئة اللعبة وبدئها
+        function startGame() {
+            isGameRunning = true;
+            hits = 0;
+            misses = 0;
+            spawnDelay = 2000; 
+            maxLifeTime = 1500;
+            reactionTimes = [];
+            targetSize = 40;
+            currentTarget = null;
+            
+            updateStats();
+            gameArea.innerHTML = '';
+            gameMessage.style.display = 'none';
+            startButton.textContent = 'أعد اللعب';
+            
+            // إضافة مستمع النقر الخاطئ
+            gameArea.addEventListener('click', handleMissClick);
+            
+            createTarget();
+        }
+
+        // 7. إنهاء اللعبة
+        function endGame() {
+            isGameRunning = false;
+            if (currentTarget) currentTarget.remove();
+            clearTimeout(targetSpawnTimeout);
+            
+            gameMessage.textContent = `انتهى الاختبار! متوسط رد فعلك هو ${getAverageReactionTime()} مللي ثانية.`;
+            gameMessage.style.display = 'block';
+            startButton.textContent = 'ابدأ من جديد';
+            gameArea.removeEventListener('click', handleMissClick);
+        }
+
+        // 8. ربط زر البدء/إعادة التشغيل
+        startButton.addEventListener('click', startGame);
+
+        // يمكن إضافة زر لإيقاف اللعبة بعد عدد معين من النقرات (مثلاً 20 نقرة)
+        // أو بعد عدد معين من الإخفاقات (مثلاً 5 إخفاقات) لإنهاء الجولة.
+        // لنقوم بإنهاء اللعبة بعد 15 إخفاقاً.
+
+        setInterval(() => {
+            if (isGameRunning && misses >= 15) {
+                endGame();
+            }
+        }, 500);
+        
+    </script>
+</body>
+</html>

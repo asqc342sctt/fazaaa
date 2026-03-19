@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>FazzaPlay | تحميل فيديوهات تيك توك</title>
+	<meta name="description" content="FazzaPlay - أسهل طريقة لتحميل فيديوهات تيك توك بدون علامة مائية وبواجهة عربية منظمة." />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="/styles.css" />
+	<link rel="icon" href="/logo.svg" />
+</head>
+<body oncontextmenu="return false;" onkeydown="return disableShortcuts(event)" onmousedown="return disableInspect(event)">
+	<header class="header">
+		<div class="container header__inner">
+			<div class="branding">
+				<img src="/logo.svg" alt="FazzaPlay" class="logo" />
+				<h1 class="site-name">FazzaPlay</h1>
+			</div>
+			<nav class="nav">
+				<a href="#features">المميزات</a>
+				<a href="#how">طريقة الاستخدام</a>
+				<a href="#faq">الأسئلة الشائعة</a>
+			</nav>
+		</div>
+	</header>
+
+	<main class="main container">
+		<section class="hero">
+			<h2>حمّل فيديوهات تيك توك بسهولة وبدون علامة مائية</h2>
+			<p>أدخل رابط الفيديو، اضغط تنزيل، واستمتع بالجودة العالية. سريع، آمن، ومباشر.</p>
+			<form id="downloadForm" class="download-form" novalidate>
+				<label for="tiktokUrl" class="label">رابط فيديو تيك توك</label>
+				<div class="input-group">
+					<input id="tiktokUrl" name="tiktokUrl" type="url" placeholder="https://www.tiktok.com/@username/video/123..." required />
+					<button id="downloadBtn" type="submit">تنزيل الآن</button>
+				</div>
+				<p class="hint">يدعم روابط تيك توك القصيرة والطويلة.</p>
+			</form>
+			<div id="result" class="result hidden"></div>
+		</section>
+
+		<section id="features" class="features">
+			<h3>لماذا FazzaPlay؟</h3>
+			<div class="cards">
+				<div class="card">
+					<h4>بدون علامة مائية</h4>
+					<p>تنزيل مباشر للفيديو بجودة عالية وبدون شعار.</p>
+				</div>
+				<div class="card">
+					<h4>سريع وآمن</h4>
+					<p>خوادم آمنة واتصال مشفّر لحماية بياناتك.</p>
+				</div>
+				<div class="card">
+					<h4>واجهة عربية</h4>
+					<p>تصميم RTL مريح وسهل الاستخدام على كل الأجهزة.</p>
+				</div>
+			</div>
+		</section>
+
+		<section id="how" class="how">
+			<h3>طريقة الاستخدام</h3>
+			<ol>
+				<li>افتح تطبيق تيك توك وانسخ رابط الفيديو.</li>
+				<li>الصقه في الحقل بالأعلى ثم اضغط "تنزيل الآن".</li>
+				<li>اختر الجودة المناسبة واضغط تنزيل.</li>
+			</ol>
+		</section>
+
+		<section id="faq" class="faq">
+			<h3>الأسئلة الشائعة</h3>
+			<details>
+				<summary>هل الخدمة مجانية؟</summary>
+				<p>نعم، يمكنك تنزيل الفيديوهات مجاناً. قد توجد حدود معدل بسيطة لحماية الخدمة.</p>
+			</details>
+			<details>
+				<summary>هل يتم حفظ روابط أو ملفات المستخدم؟</summary>
+				<p>لا. نحن لا نخزن أي فيديوهات على خوادمنا، العملية تتم عبر واجهة موثوقة وتُعاد الروابط مباشرة لك.</p>
+			</details>
+		</section>
+	</main>
+
+	<footer class="footer">
+		<div class="container">
+			<p>© <span id="year"></span> FazzaPlay. جميع الحقوق محفوظة.</p>
+		</div>
+	</footer>
+
+	<script src="/main.js" defer></script>
+    <script src="js/protect.js"></script>
+  </body>
+</html>
+
+

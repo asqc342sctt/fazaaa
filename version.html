@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>معلومات الإصدار - Fazza Play</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="version.css">
+    <script src="js/version-checker.js"></script>
+</head>
+<body>
+    <!-- Status Messages -->
+    <div id="statusMessage" class="status-message"></div>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <span>🎮</span>
+            </div>
+            <h1 class="title">معلومات الإصدار</h1>
+            <p class="subtitle">معلومات مفصلة عن إصدارات موقع Fazza Play</p>
+        </div>
+
+        <!-- Version Card -->
+        <div class="version-card">
+            <div class="current-version">
+                <span class="version-number" id="currentVersion">1.0.0</span>
+                <span class="version-date" id="lastUpdated">تحميل التاريخ...</span>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button class="btn btn-primary" onclick="checkForUpdates()">
+                    <span class="loading" id="updateLoading"></span>
+                    🔄 التحقق من التحديثات
+                </button>
+                <button class="btn btn-secondary" onclick="forceReload()">
+                    🔄 إعادة تحميل الصفحة
+                </button>
+                <a href="index.html" class="btn btn-secondary">
+                    🏠 العودة للموقع
+                </a>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="features-grid" id="featuresGrid">
+                <!-- Features will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Changelog -->
+        <div class="changelog">
+            <h2 class="changelog-title">📋 سجل التغييرات</h2>
+            <div id="changelogContainer">
+                <!-- Changelog will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Back Link -->
+        <div class="back-link">
+            <a href="index.html">
+                <span>←</span>
+                العودة للصفحة الرئيسية
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Initialize version system on page load
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                // Initialize the version checker (not embedded mode for full functionality)
+                await window.versionChecker.init();
+
+                // Make functions globally available for button clicks
+                window.checkForUpdates = () => window.versionChecker.checkForUpdates();
+                window.forceReload = () => window.versionChecker.forceReload();
+
+            } catch (error) {
+                console.error('Failed to initialize version system:', error);
+                showStatusMessage('خطأ في تحميل نظام الإصدار', 'error');
+            }
+        });
+
+        // Fallback status message function
+        function showStatusMessage(message, type = 'info') {
+            const statusElement = document.getElementById('statusMessage');
+            if (statusElement) {
+                statusElement.textContent = message;
+                statusElement.className = `status-message ${type} show`;
+                setTimeout(() => statusElement.classList.remove('show'), 5000);
+            }
+        }
+    </script>
+</body>
+</html>

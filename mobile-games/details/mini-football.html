@@ -1,0 +1,255 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>âš½ï¸  تحميل Mini Football | ملك الأركيد وتخصيص الفرق التنافسية - Fazza Play</title>
+    
+    <meta name="description" content="حمّل Mini Football من Miniclip. استمتع بمباريات كرة قدم سريعة الوتيرة بأسلوب أركيد. تنافس في 5 دوريات فريدة، وقم بترقية اللاعبين وتخصيص ملابس وشعارات فريقك للمنافسة العالمية (Online PvP).">
+    <meta name="keywords" content="Mini Football تحميل, Miniclip, كرة قدم أركيد, Online PvP, بناء فريق, ترقية اللاعبين, دوريات تنافسية, ألعاب رياضية سريعة">
+    <meta name="author" content="Fazza Play">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Mini Football: تحليل ميكانيكا الأركيد السريعة ونظام إدارة الفريق">
+    <meta property="og:description" content="مراجعة لأسلوب اللعب الأساسي الذي يجمع بين سهولة التحكم ومتعة الترقية والمنافسة في الدوريات العالمية.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fazzaplay.com/mobile-games/details/mini-football.html">
+    <link rel="canonical" href="https://fazzaplay.com/mobile-games/details/mini-football.html">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../../css/style.css"> 
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <style>
+        /* نظام ألوان رياضي وحيوي */
+        :root {
+            --dark-bg: #1A1A1A; 
+            --main-card-bg: #282828;
+            --text-color: #EFEFEF;
+            --highlight-color: #00A86B; /* لون العشب الأخضر */
+            --secondary-color: #FF6F00; /* لون الحماس والكرة */
+            --border-color: #444;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-color);
+            font-family: 'Tajawal', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #111;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h1 a {
+            color: var(--highlight-color);
+            text-decoration: none;
+            font-size: 2rem;
+            text-shadow: 0 0 5px rgba(0, 168, 107, 0.5);
+        }
+        .game-detail-container {
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 3rem;
+            background-color: var(--main-card-bg);
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+            border: 3px solid var(--secondary-color); 
+        }
+        .game-detail-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .game-detail-header img {
+            width: 180px; 
+            height: 180px;
+            object-fit: cover;
+            border-radius: 50%; 
+            border: 6px solid var(--highlight-color);
+            box-shadow: 0 0 20px rgba(0, 168, 107, 0.7);
+        }
+        .game-detail-header h1 {
+            font-size: 4rem;
+            margin-top: 1.5rem;
+            color: var(--secondary-color);
+            text-shadow: 1px 1px 7px rgba(255, 111, 0, 0.8);
+        }
+        .game-detail-content h2 {
+            font-size: 2.5rem;
+            margin-top: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--highlight-color);
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 0.8rem;
+        }
+        .game-detail-content h3 {
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            color: var(--text-color);
+            border-right: 5px solid var(--highlight-color);
+            padding-right: 15px;
+        }
+        .game-detail-content p, .game-detail-content ul, .game-detail-content li {
+            font-size: 1.2rem;
+            line-height: 2.1;
+            text-align: justify;
+        }
+        .game-detail-content ul {
+            list-style: none;
+            padding-right: 0;
+        }
+        .game-detail-content li {
+            margin-bottom: 1rem;
+            padding-right: 2.5rem;
+            position: relative;
+            background-color: #333;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+        }
+        .game-detail-content li::before {
+            content: 'âš½ï¸ '; /* رمز كرة القدم */
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--secondary-color);
+            font-size: 1.3rem;
+        }
+        .buttons-container {
+            text-align: center;
+            margin-top: 5rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid var(--border-color);
+        }
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 15px;
+            padding: 20px 45px;
+            background-color: var(--secondary-color);
+            color: var(--dark-bg);
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 1.4rem;
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+            box-shadow: 0 8px 25px rgba(255, 111, 0, 0.5);
+        }
+        .action-btn:hover {
+            background-color: #E65100;
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(255, 111, 0, 0.9);
+        }
+        .back-btn {
+            background-color: var(--highlight-color);
+            color: var(--dark-bg);
+            box-shadow: 0 6px 20px rgba(0, 168, 107, 0.5);
+            padding: 17px 35px;
+            font-size: 1.2rem;
+        }
+        .back-btn:hover {
+            background-color: #008955;
+            box-shadow: 0 10px 25px rgba(0, 168, 107, 0.8);
+        }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8571192174854530"
+     crossorigin="anonymous"></script>
+</head>
+<body> <header>
+        <h1><a href="../../index.html">Fazza Play</a></h1>
+    </header>
+    <main>
+        <div class="game-detail-container">
+            <div class="game-detail-header">
+                <img src="../../images/mobile-games/Mini Footbal.png" alt="أيقونة لعبة Mini Football">
+                <h1>Mini Football: كرة قدم بأسلوب الأركيد والتخصيص</h1>
+            </div>
+
+            <div class="game-detail-content">
+                
+                <h2>ðŸš€ نبذة عن اللعبة: السرعة والتحكم البسيط</h2>
+                <p>
+                    تختلف **Mini Football** عن محاكيات كرة القدم التقليدية (كـ FIFA أو PES) بتركيزها على مباريات **سريعة الوتيرة** و**آليات تحكم مبسطة** (One-Finger Control). هذه اللعبة من تطوير Miniclip، وهي مثالية للاعبين الذين يفضلون الإثارة المباشرة وتجنب التعقيد التكتيكي العميق. الأهداف الرئيسية هي:
+                </p>
+                <ul>
+                    <li>**التحكم البديهي:** تمرير، تسديد، وتمرير بضغطة زر واحدة، مما يجعل اللعبة سهلة التعلم ولكن يصعب إتقانها.</li>
+                    <li>**متعة الأركيد:** التركيز على الإيقاع السريع والتسجيل المتكرر للأهداف المذهلة.</li>
+                </ul>
+
+                <h2>âš½ï¸  نظام التنافس وبناء الفريق (Team Management)</h2>
+                
+                <h3>1. الدوريات التنافسية الخمسة</h3>
+                <p>
+                    تعتمد اللعبة على نظام تقدم تنافسي متدرج. يبدأ اللاعب من الدوريات السفلى ويسعى للترقية من خلال الفوز بالمباريات ضد لاعبين آخرين (Online PvP). هذا النظام يوفر قيمة تنافسية عالية:
+                </p>
+                <ul>
+                    <li>**التحدي المستمر:** التنافس في 5 دوريات فريدة، كل منها يقدم مكافآت وتحديات أصعب.</li>
+                    <li>**تذاكر المباريات:** يتطلب دخول المباريات في الدوريات الأعلى تذاكر أو عملات افتراضية، مما يضيف عنصراً للمخاطرة والمكافأة.</li>
+                </ul>
+                
+                <h3>2. ترقية وتخصيص الفريق</h3>
+                <p>
+                    يتجاوز اللعب في Mini Football مجرد المباريات؛ إنه يتعلق ببناء هوية فريقك وترقية قدرات اللاعبين:
+                </p>
+                <ul>
+                    <li>**تخصيص الهوية:** القدرة على تصميم شعار الفريق، اختيار الألوان، وتخصيص الزي الرسمي للاعبين، وحتى تصميم احتفالات خاصة بالفوز.</li>
+                    <li>**نظام الترقية (Upgrade System):** جمع بطاقات اللاعبين والعملات لترقية إحصائياتهم (السرعة، التسديد، الدفاع)، مما يؤثر بشكل مباشر على أداء الفريق في الملعب.</li>
+                </ul>
+
+                <h2>ðŸŒ متطلبات التشغيل (لعبة خفيفة ومحسنة)</h2>
+                <p>
+                    تم تحسين Mini Football لتوفر أداءً سلساً حتى على الأجهزة المتوسطة:
+                </p>
+                <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+                    <thead>
+                        <tr style="background-color: #333;">
+                            <th style="padding: 10px; border: 1px solid var(--border-color); color: var(--secondary-color);">الميزة</th>
+                            <th style="padding: 10px; border: 1px solid var(--border-color); color: var(--secondary-color);">المتطلب الأدنى</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background-color: #333;">
+                            <td style="padding: 10px; border: 1px solid var(--border-color);">نظام التشغيل (Android)</td>
+                            <td style="padding: 10px; border: 1px solid var(--border-color);">Android 4.4 أو أحدث</td>
+                        </tr>
+                        <tr style="background-color: #282828;">
+                            <td style="padding: 10px; border: 1px solid var(--border-color);">نظام التشغيل (iOS)</td>
+                            <td style="padding: 10px; border: 1px solid var(--border-color);">iOS 10.0 أو أحدث</td>
+                        </tr>
+                        <tr style="background-color: #333;">
+                            <td style="padding: 10px; border: 1px solid var(--border-color);">المساحة التخزينية</td>
+                            <td style="padding: 10px; border: 1px solid var(--border-color);">أقل من 300MB</td>
+                        </tr>
+                        <tr style="background-color: #282828;">
+                            <td style="padding: 10px; border: 1px solid var(--border-color);">الذاكرة العشوائية (RAM)</td>
+                            <td style="padding: 10px; border: 1px solid var(--border-color);">1GB يفضل</td>
+                        </tr>
+                        <tr style="background-color: #333;">
+                            <td style="padding: 10px; border: 1px solid var(--border-color);">السعر</td>
+                            <td style="padding: 10px; border: 1px solid var(--border-color);">مجانية مع عمليات شراء داخل التطبيق (Free-to-Play)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="buttons-container">
+                <a href="https://play.google.com/store/apps/details?id=com.miniclip.minifootball" class="action-btn" target="_blank" rel="noopener noreferrer">ðŸ“± احصل على Mini Football للأندرويد</a>
+                <a href="https://apps.apple.com/us/app/mini-football-mobile-soccer/id1504936495" class="action-btn back-btn" target="_blank" rel="noopener noreferrer">ðŸ“± احصل على Mini Football للآيفون</a>
+                <a href="../index.html" class="action-btn back-btn" style="background-color: #555; color: #fff; box-shadow: none;">â¬… العودة لقائمة الألعاب</a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Fazza Play. جميع الحقوق محفوظة. | <a href="/privacy-policy.html" style="color: var(--secondary-color); text-decoration: none;">سياسة الخصوصية</a> | <a href="/terms-of-use.html" style="color: var(--secondary-color); text-decoration: none;">شروط الاستخدام</a></p>
+        </div>
+    </footer>
+ <script src="ads-fazza.js"></script>
+</body>
+     
+
+</html>

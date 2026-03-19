@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>محول الوحدات - تحويل الطول والوزن والحرارة مجاناً | FazzaPlay</title>
+    <meta name="description" content="محول وحدات مجاني ومتكامل. حول بين وحدات الطول، الوزن، الحرارة، المساحة، الحجم والسرعة بدقة عالية وبشكل فوري.">
+    <meta name="keywords" content="محول وحدات، تحويل الطول، تحويل الوزن، تحويل الحرارة، محول مجاني، unit converter، وحدات قياس">
+    <meta name="author" content="FazzaPlay">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://fazzaplay.com/tools/unit-converter">
+    <meta property="og:title" content="محول الوحدات - FazzaPlay">
+    <meta property="og:description" content="حول بين وحدات الطول والوزن والحرارة والمساحة والحجم بسهولة وسرعة مجاناً.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fazzaplay.com/tools/unit-converter">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="tools.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"محول الوحدات","description":"تحويل وحدات الطول والوزن والحرارة والمساحة مجاناً","url":"https://fazzaplay.com/tools/unit-converter","applicationCategory":"UtilitiesApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+    </script>
+    <style>
+        .category-tabs { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:24px; }
+        .tab-btn { padding:8px 18px; border:2px solid #667eea; background:transparent; color:#667eea; border-radius:25px; cursor:pointer; font-family:'Cairo',sans-serif; font-size:0.9rem; transition:all 0.2s; }
+        .tab-btn.active,.tab-btn:hover { background:#667eea; color:#fff; }
+        .converter-card { background:#fff; border-radius:16px; padding:28px; box-shadow:0 4px 20px rgba(0,0,0,0.08); }
+        .conv-row { display:grid; grid-template-columns:1fr auto 1fr; gap:12px; align-items:end; margin-bottom:16px; }
+        .conv-group label { display:block; font-size:0.85rem; color:#666; margin-bottom:6px; font-weight:600; }
+        .conv-group input { width:100%; padding:12px 14px; border:2px solid #e5e7eb; border-radius:10px; font-size:1.1rem; font-family:'Cairo',sans-serif; outline:none; transition:border-color 0.2s; }
+        .conv-group input:focus { border-color:#667eea; }
+        .conv-group select { width:100%; padding:10px 14px; border:2px solid #e5e7eb; border-radius:10px; font-family:'Cairo',sans-serif; font-size:0.95rem; background:#fff; outline:none; cursor:pointer; }
+        .swap-btn { background:linear-gradient(135deg,#667eea,#764ba2); color:#fff; border:none; width:44px; height:44px; border-radius:50%; cursor:pointer; font-size:1.1rem; display:flex; align-items:center; justify-content:center; align-self:flex-end; margin-bottom:2px; transition:transform 0.2s; }
+        .swap-btn:hover { transform:rotate(180deg); }
+        .result-box { background:linear-gradient(135deg,#f0f4ff,#f8f0ff); border:1px solid #d1d5ff; border-radius:12px; padding:20px; text-align:center; margin-top:20px; }
+        .result-box .result-value { font-size:2rem; font-weight:700; color:#667eea; }
+        .result-box .result-label { color:#888; font-size:0.9rem; margin-top:4px; }
+        .quick-table { width:100%; border-collapse:collapse; margin-top:24px; }
+        .quick-table th { background:#667eea; color:#fff; padding:10px 14px; text-align:right; font-weight:600; }
+        .quick-table td { padding:9px 14px; border-bottom:1px solid #f0f0f0; color:#444; }
+        .quick-table tr:hover td { background:#f8f9ff; }
+        @media(max-width:600px){ .conv-row { grid-template-columns:1fr; } .swap-btn { width:100%; border-radius:8px; height:38px; } }
+    </style>
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8571192174854530" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="header">
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo"><span>FazzaPlay</span></div>
+            <div class="nav-menu">
+                <a href="../index.html" class="nav-link">الرئيسية</a>
+                <a href="../index.html#tools" class="nav-link">الأدوات</a>
+            </div>
+            <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+</header>
+
+<main class="tool-page" style="margin-top:80px;">
+    <section class="tool-hero" style="background:linear-gradient(135deg,#11998e,#38ef7d);padding:50px 0;">
+        <div class="container">
+            <h1 style="color:#fff;font-size:2rem;margin-bottom:0.5rem;"><i class="fas fa-ruler-combined"></i> محول الوحدات</h1>
+            <p style="color:rgba(255,255,255,0.9);">حول بين جميع وحدات القياس بدقة عالية وفورية — مجاناً وبدون تسجيل</p>
+            <ul class="tool-highlights">
+                <li><i class="fas fa-bolt"></i> نتائج فورية</li>
+                <li><i class="fas fa-table"></i> جداول مرجعية</li>
+                <li><i class="fas fa-mobile-alt"></i> يعمل على جميع الأجهزة</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="tool-content container">
+        <div class="category-tabs" id="categoryTabs">
+            <button class="tab-btn active" data-cat="length">📏 الطول</button>
+            <button class="tab-btn" data-cat="weight">⚖️ الوزن</button>
+            <button class="tab-btn" data-cat="temp">🌡️ الحرارة</button>
+            <button class="tab-btn" data-cat="area">📐 المساحة</button>
+            <button class="tab-btn" data-cat="volume">💧 الحجم</button>
+            <button class="tab-btn" data-cat="speed">🚀 السرعة</button>
+        </div>
+
+        <div class="converter-card">
+            <div class="conv-row">
+                <div class="conv-group">
+                    <label>القيمة</label>
+                    <input type="number" id="fromValue" placeholder="أدخل القيمة" value="1">
+                    <label style="margin-top:8px;">من</label>
+                    <select id="fromUnit"></select>
+                </div>
+                <button class="swap-btn" id="swapBtn" title="تبديل"><i class="fas fa-exchange-alt"></i></button>
+                <div class="conv-group">
+                    <label>النتيجة</label>
+                    <input type="number" id="toValue" placeholder="النتيجة" readonly>
+                    <label style="margin-top:8px;">إلى</label>
+                    <select id="toUnit"></select>
+                </div>
+            </div>
+
+            <div class="result-box" id="resultBox">
+                <div class="result-value" id="resultBig">1</div>
+                <div class="result-label" id="resultLabel">متر = 1 متر</div>
+            </div>
+
+            <table class="quick-table" id="quickTable">
+                <thead><tr><th>وحدة التحويل</th><th>النتيجة</th></tr></thead>
+                <tbody id="quickTableBody"></tbody>
+            </table>
+        </div>
+
+        <article class="tool-article">
+            <h2>عن محول الوحدات</h2>
+            <p>يتيح لك هذا المحول تحويل القيم بين مختلف وحدات القياس العالمية بسرعة ودقة. يدعم تحويلات الطول (متر، كيلومتر، ميل، قدم...)، الوزن (كيلوغرام، رطل، أوقية...)، الحرارة (مئوية، فهرنهايت، كلفن)، المساحة، الحجم، والسرعة.</p>
+        </article>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-bottom"><p>&copy; 2025 FazzaPlay. جميع الحقوق محفوظة.</p></div>
+    </div>
+</footer>
+
+<script src="../script.js"></script>
+<script>
+const categories = {
+    length: {
+        name: 'الطول',
+        units: {
+            'متر': 1, 'كيلومتر': 1000, 'سنتيمتر': 0.01, 'مليمتر': 0.001,
+            'ميل': 1609.34, 'ياردة': 0.9144, 'قدم': 0.3048, 'بوصة': 0.0254,
+            'نانومتر': 1e-9, 'ميكرومتر': 1e-6, 'ميل بحري': 1852
+        }
+    },
+    weight: {
+        name: 'الوزن',
+        units: {
+            'كيلوغرام': 1, 'غرام': 0.001, 'مليغرام': 1e-6,
+            'طن متري': 1000, 'رطل': 0.453592, 'أوقية': 0.0283495,
+            'كاراة': 0.0002, 'حبة': 0.0000648
+        }
+    },
+    temp: {
+        name: 'الحرارة', special: true,
+        units: { 'مئوية °C': 'C', 'فهرنهايت °F': 'F', 'كلفن K': 'K', 'رانكن °R': 'R' }
+    },
+    area: {
+        name: 'المساحة',
+        units: {
+            'متر مربع': 1, 'كيلومتر مربع': 1e6, 'سنتيمتر مربع': 0.0001,
+            'هكتار': 10000, 'فدان': 4046.86, 'قدم مربعة': 0.092903,
+            'ياردة مربعة': 0.836127, 'ميل مربع': 2.59e6
+        }
+    },
+    volume: {
+        name: 'الحجم',
+        units: {
+            'لتر': 1, 'مليلتر': 0.001, 'متر مكعب': 1000,
+            'سنتيمتر مكعب': 0.001, 'جالون أمريكي': 3.78541,
+            'جالون بريطاني': 4.54609, 'كوب': 0.236588,
+            'بنت أمريكي': 0.473176, 'أوقية سائلة': 0.0295735
+        }
+    },
+    speed: {
+        name: 'السرعة',
+        units: {
+            'متر/ثانية': 1, 'كيلومتر/ساعة': 0.277778, 'ميل/ساعة': 0.44704,
+            'عقدة': 0.514444, 'قدم/ثانية': 0.3048, 'ماخ': 340.29
+        }
+    }
+};
+
+let currentCat = 'length';
+
+function convertTemp(val, from, to) {
+    let celsius;
+    if (from === 'C') celsius = val;
+    else if (from === 'F') celsius = (val - 32) * 5/9;
+    else if (from === 'K') celsius = val - 273.15;
+    else if (from === 'R') celsius = (val - 491.67) * 5/9;
+    if (to === 'C') return celsius;
+    if (to === 'F') return celsius * 9/5 + 32;
+    if (to === 'K') return celsius + 273.15;
+    if (to === 'R') return celsius * 9/5 + 491.67;
+    return celsius;
+}
+
+function loadCategory(cat) {
+    currentCat = cat;
+    const c = categories[cat];
+    const fromSel = document.getElementById('fromUnit');
+    const toSel = document.getElementById('toUnit');
+    const unitNames = Object.keys(c.units);
+    fromSel.innerHTML = unitNames.map((u,i) => `<option value="${u}" ${i===0?'selected':''}>${u}</option>`).join('');
+    toSel.innerHTML = unitNames.map((u,i) => `<option value="${u}" ${i===1?'selected':''}>${u}</option>`).join('');
+    convert();
+}
+
+function convert() {
+    const cat = categories[currentCat];
+    const fromVal = parseFloat(document.getElementById('fromValue').value);
+    if (isNaN(fromVal)) return;
+    const fromUnit = document.getElementById('fromUnit').value;
+    const toUnit = document.getElementById('toUnit').value;
+    let result;
+    if (cat.special) {
+        result = convertTemp(fromVal, cat.units[fromUnit], cat.units[toUnit]);
+    } else {
+        const toBase = fromVal * cat.units[fromUnit];
+        result = toBase / cat.units[toUnit];
+    }
+    const formatted = Math.abs(result) >= 0.001 && Math.abs(result) < 1e9
+        ? parseFloat(result.toPrecision(8)).toString()
+        : result.toExponential(4);
+    document.getElementById('toValue').value = formatted;
+    document.getElementById('resultBig').textContent = formatted;
+    document.getElementById('resultLabel').textContent = `${fromVal} ${fromUnit} = ${formatted} ${toUnit}`;
+    updateQuickTable(fromVal, fromUnit, cat);
+}
+
+function updateQuickTable(val, fromUnit, cat) {
+    const tbody = document.getElementById('quickTableBody');
+    const units = Object.keys(cat.units);
+    tbody.innerHTML = units.map(u => {
+        let res;
+        if (cat.special) res = convertTemp(val, cat.units[fromUnit], cat.units[u]);
+        else res = (val * cat.units[fromUnit]) / cat.units[u];
+        const fmt = Math.abs(res) >= 0.0001 && Math.abs(res) < 1e10 ? parseFloat(res.toPrecision(6)).toString() : res.toExponential(3);
+        const isActive = u === document.getElementById('toUnit').value;
+        return `<tr style="${isActive?'background:#f0f4ff;font-weight:700;':''}"><td>${fromUnit} → ${u}</td><td>${fmt}</td></tr>`;
+    }).join('');
+}
+
+// Event listeners
+document.getElementById('fromValue').addEventListener('input', convert);
+document.getElementById('fromUnit').addEventListener('change', convert);
+document.getElementById('toUnit').addEventListener('change', convert);
+document.getElementById('swapBtn').addEventListener('click', () => {
+    const fs = document.getElementById('fromUnit'), ts = document.getElementById('toUnit');
+    const fv = fs.value, tv = ts.value;
+    fs.value = tv; ts.value = fv;
+    const fval = document.getElementById('fromValue').value;
+    const tval = document.getElementById('toValue').value;
+    document.getElementById('fromValue').value = tval;
+    convert();
+});
+document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        loadCategory(btn.dataset.cat);
+    });
+});
+
+loadCategory('length');
+</script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.querySelector('.nav-menu');
+        if (navToggle && navMenu) {
+            navToggle.addEventListener('click', () => {
+                const isVisible = navMenu.style.display === 'flex';
+                navMenu.style.display = isVisible ? 'none' : 'flex';
+            });
+        }
+    });
+    </script>
+</body>
+</html>

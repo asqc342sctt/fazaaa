@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✅ Neo Galaxy Wars | نسخة مضمونة التشغيل</title>
+    <style>
+        /* CSS: ثيمة الفضاء والنيون */
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Cairo:wght@400&display=swap');
+
+        :root {
+            --bg-color: #00011f; /* فضاء عميق */
+            --player-color: #39ff14; /* سفينة اللاعب (أخضر نيون) */
+            --enemy-color: #ff33cc; /* سفينة العدو (وردي ماجنتا) */
+            --bullet-color: #00ffff; /* قذيفة (سماوي نيون) */
+            --score-color: #FFD700; /* ذهبي */
+            --font-display: 'Orbitron', sans-serif;
+            --font-arabic: 'Cairo', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-arabic);
+            background-color: var(--bg-color);
+            color: var(--score-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            user-select: none;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-family: var(--font-display);
+            font-size: 2.2em;
+            text-shadow: 0 0 10px var(--player-color);
+            margin-bottom: 15px;
+        }
+
+        #game-container {
+            border: 4px solid var(--enemy-color);
+            box-shadow: 0 0 30px var(--enemy-color);
+            background-color: rgba(0, 0, 0, 0.8);
+            position: relative;
+            overflow: hidden;
+        }
+
+        canvas {
+            display: block;
+        }
+
+        /* لوحة البدء والنهاية */
+        #menu-panel {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            background: rgba(13, 17, 23, 0.95);
+            padding: 40px 60px;
+            border-radius: 15px;
+            border: 3px solid var(--player-color);
+            z-index: 10;
+            box-shadow: 0 0 30px rgba(57, 255, 20, 0.5);
+            min-width: 300px;
+        }
+
+        #menu-panel h2 {
+            color: var(--score-color);
+            font-family: var(--font-display);
+            margin-top: 0;
+        }
+
+        #menu-panel button {
+            background-color: var(--player-color);
+            color: #000;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.3s;
+            margin-top: 20px;
+        }
+
+        #score-display {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-family: var(--font-display);
+            font-size: 1.5em;
+            color: var(--score-color);
+            text-shadow: 0 0 5px var(--score-color);
+        }
+    </style>
+</head>
+<body>
+    <h1>🚀 Neo Galaxy Wars | إنقاذ المجرة (نسخة مستقرة)</h1>
+
+    <div id="game-container">
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        <div id="score-display">النقاط: 0</div>
+        
+        <div id="menu-panel">
+            <h2 id="panel-title">استعد للمعركة</h2>
+            <p id="panel-message">تحكم بسفينة الفضاء بالماوس. اضغط بالماوس لإطلاق النار. دمر الأعداء قبل أن يصلوا إليك!</p>
+            <p>أفضل نتيجة: <span id="high-score">0</span></p>
+            <button id="start-button">ابدأ اللعبة</button>
+        </div>
+    </div>
+
+    <div style="display: none;">
+        <audio id="shoot-sound" src="https://www.soundjay.com/military/grenade-launcher-01.mp3" preload="auto"></audio>
+        <audio id="explosion-sound" src="https://www.soundjay.com/explosions/explosion-02.mp3" preload="auto"></audio>
+        <audio id="gameover-sound" src="https://www.soundjay.com/misc/bell-ring-04.mp3" preload="auto"></audio>
+    </div>
+
+    <script>
+        // *** 1. الإعدادات والثوابت الأساسية ***
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const W = canvas.width;
+        const H = canvas.height;
+
+        const PLAYER_SPEED = 650; 
+        const BULLET_SPEED = 700; 
+        const ENEMY_SPEED_MIN_BASE = 80;
+        const ENEMY_SPEED_MAX_BASE = 200;
+        const FIRE_RATE = 0.2; 
+        const ENEMY_SPAWN_INTERVAL_BASE = 1.5; 
+        const DIFFICULTY_SCORE_THRESHOLD = 500; 
+        const DIFFICULTY_FACTOR_INCREMENT = 0.15; 
+
+        // الألوان
+        const PLAYER_COLOR = getComputedStyle(document.documentElement).getPropertyValue('--player-color').trim();
+        const ENEMY_COLOR = getComputedStyle(document.documentElement).getPropertyValue('--enemy-color').trim();
+        const BULLET_COLOR = getComputedStyle(document.documentElement).getPropertyValue('--bullet-color').trim();
+        
+        // حالة اللعبة
+        let gameState = {
+            isRunning: false,
+            lastTime: 0,
+            deltaTime: 0,
+            gameLoop: null,
+            score: 0,
+            highScore: localStorage.getItem('highScore') ? parseInt(localStorage.getItem('highScore')) : 0,
+            lastShotTime: 0,
+            timeSinceLastEnemy: 0,
+            difficultyFactor: 1.0
+        };
+
+        // الكيانات
+        let player = {};
+        let bullets = [];
+        let enemies = [];
+        let stars = [];
+
+        // العناصر
+        const elements = {
+            menuPanel: document.getElementById('menu-panel'),
+            startButton: document.getElementById('start-button'),
+            scoreDisplay: document.getElementById('score-display'),
+            panelTitle: document.getElementById('panel-title'),
+            panelMessage: document.getElementById('panel-message'),
+            highScoreSpan: document.getElementById('high-score'),
+            soundShoot: document.getElementById('shoot-sound'),
+            soundExplosion: document.getElementById('explosion-sound'),
+            soundGameOver: document.getElementById('gameover-sound')
+        };
+
+        // وظيفة مساعدة لإدارة الأصوات
+        function playSound(soundElement) {
+            try {
+                const soundClone = soundElement.cloneNode();
+                soundClone.currentTime = 0;
+                soundClone.volume = 0.5;
+                // يجب أن يتم استدعاء .play() بعد تفاعل المستخدم
+                soundClone.play().catch(e => {
+                    // console.warn("Audio playback blocked, likely due to no user interaction:", e);
+                });
+            } catch (e) {
+                // console.warn("Could not play sound:", e);
+            }
+        }
+
+        // *** 2. تعريف وتحديث النجوم (الخلفية المتحركة) ***
+        
+        function initStars(count) {
+            stars = [];
+            for (let i = 0; i < count; i++) {
+                stars.push({
+                    x: Math.random() * W,
+                    y: Math.random() * H,
+                    size: Math.random() * 3 + 1,
+                    speed: Math.random() * 50 + 50 
+                });
+            }
+        }
+
+        function updateStars() {
+            stars.forEach(s => {
+                // النجوم تتحرك فقط عند بدء اللعبة
+                if (gameState.isRunning) { 
+                    s.y += s.speed * gameState.deltaTime;
+                }
+                
+                if (s.y > H) {
+                    s.y = 0;
+                    s.x = Math.random() * W;
+                }
+            });
+        }
+
+        function drawStarfield() {
+            ctx.fillStyle = 'black';
+            ctx.fillRect(0, 0, W, H);
+            
+            ctx.fillStyle = 'white';
+            stars.forEach(s => {
+                ctx.fillRect(s.x, s.y, s.size, s.size);
+            });
+        }
+
+        // *** 3. تعريف الكيانات وتوليد الأعداء مع الصعوبة ***
+
+        function createPlayer() {
+            player = {
+                x: W / 2,
+                y: H - 50,
+                radius: 20,
+                color: PLAYER_COLOR,
+                isShooting: false,
+                targetX: W / 2
+            };
+        }
+
+        function createEnemy() {
+            const size = Math.random() * 15 + 15;
+            
+            const minSpeed = ENEMY_SPEED_MIN_BASE * gameState.difficultyFactor;
+            const maxSpeed = ENEMY_SPEED_MAX_BASE * gameState.difficultyFactor;
+            const speed = Math.random() * (maxSpeed - minSpeed) + minSpeed;
+            
+            enemies.push({
+                x: Math.random() * (W - size * 2) + size,
+                y: -size,
+                radius: size,
+                color: ENEMY_COLOR,
+                speed: speed,
+                health: Math.ceil(size / 10)
+            });
+        }
+
+        function createBullet() {
+            if (gameState.lastShotTime + FIRE_RATE > Date.now() / 1000) return;
+
+            bullets.push({
+                x: player.x,
+                y: player.y - player.radius,
+                radius: 4,
+                color: BULLET_COLOR,
+                speedY: -BULLET_SPEED
+            });
+
+            gameState.lastShotTime = Date.now() / 1000;
+            playSound(elements.soundShoot);
+        }
+
+        // *** 4. تحديث ومنطق اللعبة ***
+
+        function updatePlayer() {
+            const dx = player.targetX - player.x;
+            const moveStep = PLAYER_SPEED * gameState.deltaTime;
+            
+            if (Math.abs(dx) > 1) { 
+                player.x += Math.sign(dx) * Math.min(Math.abs(dx), moveStep);
+            }
+
+            player.x = Math.max(player.radius, Math.min(player.x, W - player.radius));
+            
+            if (player.isShooting) {
+                createBullet();
+            }
+        }
+
+        function updateBullets() {
+            for (let i = bullets.length - 1; i >= 0; i--) {
+                const b = bullets[i];
+                b.y += b.speedY * gameState.deltaTime;
+
+                if (b.y < -b.radius) {
+                    bullets.splice(i, 1);
+                }
+            }
+        }
+
+        function updateEnemies() {
+            let gameOver = false;
+            for (let i = enemies.length - 1; i >= 0; i--) {
+                const e = enemies[i];
+                e.y += e.speed * gameState.deltaTime;
+
+                // 1. فحص نهاية اللعبة
+                if (e.y + e.radius > player.y - player.radius) {
+                    gameOver = true;
+                    break;
+                }
+
+                // 2. فحص الاصطدام مع القذائف
+                for (let j = bullets.length - 1; j >= 0; j--) {
+                    const b = bullets[j];
+                    const distance = Math.sqrt((e.x - b.x) ** 2 + (e.y - b.y) ** 2);
+
+                    if (distance < e.radius + b.radius) {
+                        e.health -= 1;
+                        bullets.splice(j, 1);
+                        
+                        if (e.health <= 0) {
+                            enemies.splice(i, 1);
+                            gameState.score += 10;
+                            elements.scoreDisplay.textContent = `النقاط: ${gameState.score}`;
+                            playSound(elements.soundExplosion);
+                            
+                            // فحص زيادة مستوى الصعوبة
+                            if (gameState.score > 0 && gameState.score % DIFFICULTY_SCORE_THRESHOLD === 0) {
+                                increaseDifficulty();
+                            }
+                            break;
+                        }
+                    }
+                }
+            }
+            
+            if (gameOver) {
+                endGame();
+            }
+        }
+
+        function updateSpawn() {
+            gameState.timeSinceLastEnemy += gameState.deltaTime;
+            
+            const currentSpawnInterval = ENEMY_SPAWN_INTERVAL_BASE / gameState.difficultyFactor;
+
+            if (gameState.timeSinceLastEnemy >= currentSpawnInterval) {
+                createEnemy();
+                gameState.timeSinceLastEnemy = 0;
+            }
+        }
+        
+        function increaseDifficulty() {
+            gameState.difficultyFactor += DIFFICULTY_FACTOR_INCREMENT;
+            // console.log(`صعوبة جديدة: ${gameState.difficultyFactor.toFixed(2)}`);
+        }
+
+
+        function update() {
+            updateStars();
+            updateSpawn();
+            updatePlayer();
+            updateBullets();
+            updateEnemies();
+        }
+
+        // *** 5. الحلقة الرئيسية وإدارة المراحل ***
+
+        function loop(timestamp) {
+            // هذا الجزء هو الدعامة الأساسية لـ deltaTime، ويعمل دائماً
+            if (!gameState.lastTime) gameState.lastTime = timestamp;
+            gameState.deltaTime = (timestamp - gameState.lastTime) / 1000;
+            gameState.lastTime = timestamp;
+
+            // تحديث اللعبة يحدث فقط عندما تكون isRunning = true
+            if (gameState.isRunning) {
+                update();
+            } else {
+                // تحديث النجوم خارج حلقة اللعب لعمل الحركة في شاشة البداية
+                updateStars();
+            }
+            draw();
+            
+            // طلب إطار الرسم التالي يستمر دائماً
+            gameState.gameLoop = requestAnimationFrame(loop);
+        }
+
+        function startGame() {
+            // التحقق من أننا لسنا في وضع التشغيل بالفعل
+            if (gameState.isRunning) return;
+
+            // إعادة تعيين الحالة
+            gameState.isRunning = true;
+            gameState.score = 0;
+            gameState.difficultyFactor = 1.0; 
+            gameState.lastShotTime = 0;
+            gameState.timeSinceLastEnemy = 0;
+            
+            bullets = [];
+            enemies = [];
+            createPlayer();
+            
+            elements.menuPanel.style.display = 'none';
+            elements.scoreDisplay.textContent = `النقاط: 0`;
+
+            // في هذه النسخة، حلقة loop تبدأ مرة واحدة في init
+            // ولا يتم إيقافها أبداً، فقط يتغير متغير isRunning
+        }
+
+        function endGame() {
+            playSound(elements.soundGameOver);
+            gameState.isRunning = false;
+
+            if (gameState.score > gameState.highScore) {
+                gameState.highScore = gameState.score;
+                localStorage.setItem('highScore', gameState.highScore);
+            }
+            
+            elements.panelTitle.textContent = 'انتهت اللعبة!';
+            elements.panelMessage.innerHTML = `نتيجة الجولة: ${gameState.score}<br>أعلى نتيجة: ${gameState.highScore}`;
+            elements.highScoreSpan.textContent = gameState.highScore;
+            elements.startButton.textContent = 'إعادة المحاولة';
+            elements.menuPanel.style.display = 'block';
+        }
+        
+        // ... (وظائف الرسم والتحكم هي نفسها) ...
+        function drawEntity(entity, color) {
+            ctx.fillStyle = color;
+            ctx.shadowColor = color;
+            ctx.shadowBlur = 10;
+            ctx.beginPath();
+            ctx.arc(entity.x, entity.y, entity.radius, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.shadowBlur = 0;
+        }
+
+        function draw() {
+            drawStarfield();
+
+            if (player.radius) {
+                drawEntity(player, player.color);
+            }
+
+            bullets.forEach(b => drawEntity(b, b.color));
+
+            enemies.forEach(e => {
+                const threatColor = e.health < 1 ? '#ff0000' : ENEMY_COLOR;
+                drawEntity(e, threatColor);
+            });
+        }
+
+
+        // *** 6. معالجة أحداث المستخدم ***
+        
+        canvas.addEventListener('mousemove', function(event) {
+            if (!gameState.isRunning) return;
+            let rect = canvas.getBoundingClientRect();
+            player.targetX = event.clientX - rect.left;
+        });
+
+        canvas.addEventListener('mousedown', function() {
+            if (gameState.isRunning) {
+                player.isShooting = true;
+                createBullet();
+            }
+        });
+
+        canvas.addEventListener('mouseup', function() {
+            if (gameState.isRunning) {
+                player.isShooting = false;
+            }
+        });
+        
+        // **التهيئة (تبدأ حلقة الرسم هنا)**
+        function init() {
+            elements.startButton.addEventListener('click', startGame);
+            elements.highScoreSpan.textContent = gameState.highScore;
+            
+            initStars(100); 
+            createPlayer(); 
+            // حلقة الرسم تبدأ هنا مرة واحدة فقط لضمان تحديث الخلفية دائماً
+            loop(performance.now()); 
+        }
+
+        init();
+    </script>
+</body>
+</html>

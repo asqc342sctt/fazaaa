@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>مولد Hash - توليد MD5 SHA-1 SHA-256 مجاناً | FazzaPlay</title>
+    <meta name="description" content="مولد Hash مجاني يعمل في المتصفح. ولّد MD5, SHA-1, SHA-256, SHA-512 لأي نص أو ملف بشكل فوري وآمن دون رفع بياناتك لأي خادم.">
+    <meta name="keywords" content="مولد hash، MD5، SHA-256، SHA-1، SHA-512، تشفير، hash generator، checksum، تحقق من الملفات">
+    <meta name="author" content="FazzaPlay">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://fazzaplay.com/tools/hash-generator">
+    <meta property="og:title" content="مولد Hash - MD5, SHA-256 - FazzaPlay">
+    <meta property="og:description" content="ولّد MD5, SHA-1, SHA-256, SHA-512 لأي نص أو ملف بشكل فوري ومجاني.">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="tools.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .hash-input-box { background:#fff; border-radius:12px; border:1px solid #e5e7eb; padding:20px; margin-bottom:20px; }
+        .hash-textarea { width:100%; min-height:120px; padding:12px; border:2px solid #e5e7eb; border-radius:10px; outline:none; font-size:0.95rem; line-height:1.6; resize:vertical; transition:border-color 0.2s; font-family:'Cairo',sans-serif; direction:ltr; }
+        .hash-textarea:focus { border-color:#667eea; }
+        .hash-results { display:grid; gap:12px; }
+        .hash-row { background:#fff; border-radius:12px; border:1px solid #e5e7eb; overflow:hidden; }
+        .hash-row-header { display:flex; justify-content:space-between; align-items:center; padding:12px 16px; background:linear-gradient(135deg,#667eea,#764ba2); color:#fff; }
+        .hash-name { font-weight:700; font-size:0.95rem; }
+        .hash-bits { font-size:0.75rem; opacity:0.8; }
+        .hash-value { padding:12px 16px; font-family:'Courier New',monospace; font-size:0.85rem; color:#333; word-break:break-all; direction:ltr; letter-spacing:0.5px; line-height:1.8; }
+        .hash-actions { display:flex; gap:8px; padding:8px 16px; border-top:1px solid #f0f0f0; background:#fafafa; }
+        .hash-copy-btn { padding:5px 14px; background:#667eea; color:#fff; border:none; border-radius:6px; cursor:pointer; font-size:0.8rem; font-family:'Cairo',sans-serif; transition:background 0.2s; }
+        .hash-copy-btn:hover { background:#5a6fd6; }
+        .hash-verify-btn { padding:5px 14px; background:transparent; color:#667eea; border:1px solid #667eea; border-radius:6px; cursor:pointer; font-size:0.8rem; font-family:'Cairo',sans-serif; }
+        .file-upload-area { border:2px dashed #d1d5db; border-radius:12px; padding:30px; text-align:center; cursor:pointer; transition:all 0.2s; background:#fafafa; margin-top:12px; }
+        .file-upload-area:hover { border-color:#667eea; background:#f0f4ff; }
+        .tab-selector { display:flex; gap:0; background:#f0f0f0; border-radius:10px; padding:4px; margin-bottom:16px; }
+        .tab-selector button { flex:1; padding:9px; border:none; background:transparent; cursor:pointer; border-radius:8px; font-family:'Cairo',sans-serif; font-size:0.9rem; transition:all 0.2s; color:#666; }
+        .tab-selector button.active { background:#667eea; color:#fff; font-weight:600; }
+        .verify-panel { background:#f8f9fa; border:1px solid #e5e7eb; border-radius:10px; padding:16px; margin-top:16px; display:none; }
+        .verify-input { width:100%; padding:10px 12px; border:2px solid #e5e7eb; border-radius:8px; outline:none; font-family:'Courier New',monospace; font-size:0.85rem; direction:ltr; }
+        .match-badge { display:inline-block; padding:4px 12px; border-radius:20px; font-size:0.85rem; font-weight:600; margin-top:8px; }
+        .match-yes { background:#dcfce7; color:#166534; }
+        .match-no { background:#fee2e2; color:#991b1b; }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8571192174854530" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="header">
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo"><span>FazzaPlay</span></div>
+            <div class="nav-menu">
+                <a href="../index.html" class="nav-link">الرئيسية</a>
+                <a href="../index.html#tools" class="nav-link">الأدوات</a>
+            </div>
+            <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+</header>
+
+<main class="tool-page" style="margin-top:80px;">
+    <section class="tool-hero" style="background:linear-gradient(135deg,#4e54c8,#8f94fb);padding:50px 0;">
+        <div class="container">
+            <h1 style="color:#fff;font-size:2rem;margin-bottom:0.5rem;"><i class="fas fa-hashtag"></i> مولد Hash</h1>
+            <p style="color:rgba(255,255,255,0.9);">ولّد MD5, SHA-1, SHA-256, SHA-512 لأي نص أو ملف — يعمل محلياً في المتصفح، بياناتك آمنة</p>
+            <ul class="tool-highlights">
+                <li><i class="fas fa-lock"></i> خصوصية تامة (محلي)</li>
+                <li><i class="fas fa-layer-group"></i> 4 خوارزميات دفعة واحدة</li>
+                <li><i class="fas fa-file"></i> دعم الملفات</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="tool-content container">
+        <div class="tab-selector">
+            <button class="active" id="tabText">نص</button>
+            <button id="tabFile">ملف</button>
+            <button id="tabVerify">تحقق</button>
+        </div>
+
+        <div class="hash-input-box" id="textPanel">
+            <label style="font-weight:600;color:#444;margin-bottom:8px;display:block;"><i class="fas fa-keyboard"></i> أدخل النص</label>
+            <textarea class="hash-textarea" id="hashInput" placeholder="اكتب أو الصق النص هنا..."></textarea>
+            <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap;">
+                <button class="generate-btn" id="generateBtn"><i class="fas fa-magic"></i> توليد Hash</button>
+                <button class="reset-btn" id="clearBtn"><i class="fas fa-times"></i> مسح</button>
+            </div>
+        </div>
+
+        <div class="hash-input-box" id="filePanel" style="display:none;">
+            <label style="font-weight:600;color:#444;margin-bottom:8px;display:block;"><i class="fas fa-file"></i> رفع ملف</label>
+            <div class="file-upload-area" id="fileDropArea">
+                <i class="fas fa-cloud-upload-alt" style="font-size:2rem;color:#667eea;margin-bottom:8px;"></i>
+                <p>اسحب الملف هنا أو اضغط للاختيار</p>
+                <small style="color:#888;">يدعم جميع أنواع الملفات حتى 100MB</small>
+                <input type="file" id="fileInput" style="display:none;">
+            </div>
+            <div id="fileInfo" style="display:none;padding:12px;background:#f0f4ff;border-radius:8px;margin-top:12px;font-size:0.9rem;">
+                <i class="fas fa-file"></i> <span id="fileInfoName"></span>
+            </div>
+        </div>
+
+        <div class="hash-input-box" id="verifyPanel" style="display:none;">
+            <label style="font-weight:600;color:#444;margin-bottom:8px;display:block;"><i class="fas fa-check-double"></i> التحقق من Hash</label>
+            <textarea class="hash-textarea" style="min-height:80px;" id="verifyInput" placeholder="أدخل النص المراد التحقق منه..."></textarea>
+            <div style="margin-top:12px;">
+                <label style="font-size:0.9rem;color:#666;margin-bottom:6px;display:block;">Hash المرجعي:</label>
+                <input class="verify-input" id="referenceHash" placeholder="الصق Hash للمقارنة هنا...">
+                <select id="verifyAlgo" style="margin-top:8px;padding:8px 12px;border:1px solid #ddd;border-radius:8px;font-family:'Cairo',sans-serif;outline:none;">
+                    <option value="SHA-256">SHA-256</option>
+                    <option value="SHA-1">SHA-1</option>
+                    <option value="SHA-512">SHA-512</option>
+                </select>
+                <button class="generate-btn" id="verifyBtn" style="margin-top:10px;"><i class="fas fa-check"></i> تحقق</button>
+                <div id="verifyResult" style="margin-top:10px;"></div>
+            </div>
+        </div>
+
+        <div class="hash-results" id="hashResults"></div>
+
+        <article class="tool-article">
+            <h2>ما هو Hash وكيف يُستخدم؟</h2>
+            <p>الـ Hash هو تحويل رياضي يحوّل أي بيانات إلى سلسلة ثابتة الطول. يُستخدم في التحقق من سلامة الملفات، تأمين كلمات المرور، التوقيعات الرقمية، والتحقق من تكامل البيانات. أشهر الخوارزميات هي MD5 (128 بت)، SHA-1 (160 بت)، SHA-256 (256 بت)، وSHA-512 (512 بت).</p>
+        </article>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-bottom"><p>&copy; 2025 FazzaPlay. جميع الحقوق محفوظة.</p></div>
+    </div>
+</footer>
+
+<script src="../script.js"></script>
+<script>
+const algorithms = [
+    { name: 'MD5', key: 'MD5-CUSTOM', bits: '128-bit' },
+    { name: 'SHA-1', key: 'SHA-1', bits: '160-bit' },
+    { name: 'SHA-256', key: 'SHA-256', bits: '256-bit' },
+    { name: 'SHA-512', key: 'SHA-512', bits: '512-bit' }
+];
+
+// MD5 implementation (pure JS, no SubtleCrypto)
+function md5(inputStr) {
+    function safeAdd(x,y){ const lsw=(x&0xFFFF)+(y&0xFFFF); return (((x>>16)+(y>>16)+(lsw>>16))<<16)|(lsw&0xFFFF); }
+    function bitRotate(num,cnt){ return (num<<cnt)|(num>>>(32-cnt)); }
+    function md5cmn(q,a,b,x,s,t){ return safeAdd(bitRotate(safeAdd(safeAdd(a,q),safeAdd(x,t)),s),b); }
+    function md5ff(a,b,c,d,x,s,t){ return md5cmn((b&c)|((~b)&d),a,b,x,s,t); }
+    function md5gg(a,b,c,d,x,s,t){ return md5cmn((b&d)|(c&(~d)),a,b,x,s,t); }
+    function md5hh(a,b,c,d,x,s,t){ return md5cmn(b^c^d,a,b,x,s,t); }
+    function md5ii(a,b,c,d,x,s,t){ return md5cmn(c^(b|(~d)),a,b,x,s,t); }
+    function str2binl(str){ const bin=[]; for(let i=0;i<str.length*8;i+=8) bin[i>>5]|=(str.charCodeAt(i/8)&255)<<(i%32); return bin; }
+    function rstr2hex(input){ const hexTab='0123456789abcdef'; let out=''; for(let i=0;i<input.length;i++){ const x=input.charCodeAt(i); out+=hexTab.charAt((x>>>4)&0x0f)+hexTab.charAt(x&0x0f); } return out; }
+    function binl2rstr(input){ let str=''; for(let i=0;i<input.length*32;i+=8) str+=String.fromCharCode((input[i>>5]>>>i%32)&255); return str; }
+    function binlMD5(x,len){
+        x[len>>5]|=0x80<<(len%32); x[(((len+64)>>>9)<<4)+14]=len;
+        let a=1732584193,b=-271733879,c=-1732584194,d=271733878;
+        for(let i=0;i<x.length;i+=16){
+            const [oa,ob,oc,od]=[a,b,c,d];
+            a=md5ff(a,b,c,d,x[i],7,-680876936); d=md5ff(d,a,b,c,x[i+1],12,-389564586); c=md5ff(c,d,a,b,x[i+2],17,606105819); b=md5ff(b,c,d,a,x[i+3],22,-1044525330);
+            a=md5ff(a,b,c,d,x[i+4],7,-176418897); d=md5ff(d,a,b,c,x[i+5],12,1200080426); c=md5ff(c,d,a,b,x[i+6],17,-1473231341); b=md5ff(b,c,d,a,x[i+7],22,-45705983);
+            a=md5ff(a,b,c,d,x[i+8],7,1770035416); d=md5ff(d,a,b,c,x[i+9],12,-1958414417); c=md5ff(c,d,a,b,x[i+10],17,-42063); b=md5ff(b,c,d,a,x[i+11],22,-1990404162);
+            a=md5ff(a,b,c,d,x[i+12],7,1804603682); d=md5ff(d,a,b,c,x[i+13],12,-40341101); c=md5ff(c,d,a,b,x[i+14],17,-1502002290); b=md5ff(b,c,d,a,x[i+15],22,1236535329);
+            a=md5gg(a,b,c,d,x[i+1],5,-165796510); d=md5gg(d,a,b,c,x[i+6],9,-1069501632); c=md5gg(c,d,a,b,x[i+11],14,643717713); b=md5gg(b,c,d,a,x[i],20,-373897302);
+            a=md5gg(a,b,c,d,x[i+5],5,-701558691); d=md5gg(d,a,b,c,x[i+10],9,38016083); c=md5gg(c,d,a,b,x[i+15],14,-660478335); b=md5gg(b,c,d,a,x[i+4],20,-405537848);
+            a=md5gg(a,b,c,d,x[i+9],5,568446438); d=md5gg(d,a,b,c,x[i+14],9,-1019803690); c=md5gg(c,d,a,b,x[i+3],14,-187363961); b=md5gg(b,c,d,a,x[i+8],20,1163531501);
+            a=md5gg(a,b,c,d,x[i+13],5,-1444681467); d=md5gg(d,a,b,c,x[i+2],9,-51403784); c=md5gg(c,d,a,b,x[i+7],14,1735328473); b=md5gg(b,c,d,a,x[i+12],20,-1926607734);
+            a=md5hh(a,b,c,d,x[i+5],4,-378558); d=md5hh(d,a,b,c,x[i+8],11,-2022574463); c=md5hh(c,d,a,b,x[i+11],16,1839030562); b=md5hh(b,c,d,a,x[i+14],23,-35309556);
+            a=md5hh(a,b,c,d,x[i+1],4,-1530992060); d=md5hh(d,a,b,c,x[i+4],11,1272893353); c=md5hh(c,d,a,b,x[i+7],16,-155497632); b=md5hh(b,c,d,a,x[i+10],23,-1094730640);
+            a=md5hh(a,b,c,d,x[i+13],4,681279174); d=md5hh(d,a,b,c,x[i],11,-358537222); c=md5hh(c,d,a,b,x[i+3],16,-722521979); b=md5hh(b,c,d,a,x[i+6],23,76029189);
+            a=md5hh(a,b,c,d,x[i+9],4,-640364487); d=md5hh(d,a,b,c,x[i+12],11,-421815835); c=md5hh(c,d,a,b,x[i+15],16,530742520); b=md5hh(b,c,d,a,x[i+2],23,-995338651);
+            a=md5ii(a,b,c,d,x[i],6,-198630844); d=md5ii(d,a,b,c,x[i+7],10,1126891415); c=md5ii(c,d,a,b,x[i+14],15,-1416354905); b=md5ii(b,c,d,a,x[i+5],21,-57434055);
+            a=md5ii(a,b,c,d,x[i+12],6,1700485571); d=md5ii(d,a,b,c,x[i+3],10,-1894986606); c=md5ii(c,d,a,b,x[i+10],15,-1051523); b=md5ii(b,c,d,a,x[i+1],21,-2054922799);
+            a=md5ii(a,b,c,d,x[i+8],6,1873313359); d=md5ii(d,a,b,c,x[i+15],10,-30611744); c=md5ii(c,d,a,b,x[i+6],15,-1560198380); b=md5ii(b,c,d,a,x[i+13],21,1309151649);
+            a=md5ii(a,b,c,d,x[i+4],6,-145523070); d=md5ii(d,a,b,c,x[i+11],10,-1120210379); c=md5ii(c,d,a,b,x[i+2],15,718787259); b=md5ii(b,c,d,a,x[i+9],21,-343485551);
+            a=safeAdd(a,oa); b=safeAdd(b,ob); c=safeAdd(c,oc); d=safeAdd(d,od);
+        }
+        return [a,b,c,d];
+    }
+    return rstr2hex(binl2rstr(binlMD5(str2binl(unescape(encodeURIComponent(inputStr))), inputStr.length*8)));
+}
+
+async function hashText(text) {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(text);
+    const results = {};
+    results['MD5'] = md5(text);
+    for (const algo of ['SHA-1','SHA-256','SHA-512']) {
+        const buf = await crypto.subtle.digest(algo, data);
+        results[algo] = Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+    }
+    return results;
+}
+
+async function hashBuffer(buffer) {
+    const results = {};
+    // For MD5, we need text - convert buffer to string
+    const text = new TextDecoder().decode(buffer);
+    results['MD5'] = md5(text);
+    for (const algo of ['SHA-1','SHA-256','SHA-512']) {
+        const buf = await crypto.subtle.digest(algo, buffer);
+        results[algo] = Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+    }
+    return results;
+}
+
+function displayResults(hashes) {
+    const container = document.getElementById('hashResults');
+    const algoNames = [['MD5','128-bit'],['SHA-1','160-bit'],['SHA-256','256-bit'],['SHA-512','512-bit']];
+    const algoKeys = {MD5:'MD5', 'SHA-1':'SHA-1', 'SHA-256':'SHA-256', 'SHA-512':'SHA-512'};
+    container.innerHTML = algoNames.map(([name, bits]) => {
+        const val = hashes[name] || '';
+        return `<div class="hash-row">
+            <div class="hash-row-header"><span class="hash-name"><i class="fas fa-lock"></i> ${name}</span><span class="hash-bits">${bits}</span></div>
+            <div class="hash-value" id="hash-${name}">${val}</div>
+            <div class="hash-actions">
+                <button class="hash-copy-btn" onclick="copyHash('${name}')"><i class="fas fa-copy"></i> نسخ</button>
+            </div>
+        </div>`;
+    }).join('');
+    window._currentHashes = hashes;
+}
+
+function copyHash(name) {
+    const val = document.getElementById('hash-' + name)?.textContent;
+    if (val) navigator.clipboard.writeText(val).then(() => { try { showNotification && showNotification('تم نسخ ' + name, 'success'); } catch(e){} });
+}
+
+document.getElementById('generateBtn').addEventListener('click', async () => {
+    const text = document.getElementById('hashInput').value;
+    if (!text) { try { showNotification && showNotification('أدخل نصاً أولاً', 'warning'); } catch(e){} return; }
+    const hashes = await hashText(text);
+    displayResults(hashes);
+    try { showNotification && showNotification('تم توليد الـ Hash بنجاح!', 'success'); } catch(e) {}
+});
+
+document.getElementById('hashInput').addEventListener('input', async function() {
+    if (this.value) {
+        const hashes = await hashText(this.value);
+        displayResults(hashes);
+    }
+});
+
+document.getElementById('clearBtn').addEventListener('click', () => {
+    document.getElementById('hashInput').value = '';
+    document.getElementById('hashResults').innerHTML = '';
+});
+
+// File handling
+const fileDropArea = document.getElementById('fileDropArea');
+const fileInput = document.getElementById('fileInput');
+fileDropArea.addEventListener('click', () => fileInput.click());
+fileDropArea.addEventListener('dragover', e => { e.preventDefault(); fileDropArea.style.borderColor='#667eea'; });
+fileDropArea.addEventListener('dragleave', () => fileDropArea.style.borderColor='');
+fileDropArea.addEventListener('drop', async e => {
+    e.preventDefault(); fileDropArea.style.borderColor='';
+    const file = e.dataTransfer.files[0];
+    if (file) processFile(file);
+});
+fileInput.addEventListener('change', e => { if (e.target.files[0]) processFile(e.target.files[0]); });
+
+async function processFile(file) {
+    const info = document.getElementById('fileInfo');
+    info.style.display = 'block';
+    document.getElementById('fileInfoName').textContent = `${file.name} (${(file.size/1024).toFixed(1)} KB)`;
+    try { showNotification && showNotification('جاري معالجة الملف...', 'info'); } catch(e){}
+    const buffer = await file.arrayBuffer();
+    const hashes = await hashBuffer(buffer);
+    displayResults(hashes);
+    try { showNotification && showNotification('تم توليد الـ Hash!', 'success'); } catch(e){}
+}
+
+// Tabs
+document.getElementById('tabText').addEventListener('click', () => {
+    document.getElementById('textPanel').style.display='block';
+    document.getElementById('filePanel').style.display='none';
+    document.getElementById('verifyPanel').style.display='none';
+    document.querySelectorAll('.tab-selector button').forEach((b,i) => b.classList.toggle('active', i===0));
+});
+document.getElementById('tabFile').addEventListener('click', () => {
+    document.getElementById('textPanel').style.display='none';
+    document.getElementById('filePanel').style.display='block';
+    document.getElementById('verifyPanel').style.display='none';
+    document.querySelectorAll('.tab-selector button').forEach((b,i) => b.classList.toggle('active', i===1));
+});
+document.getElementById('tabVerify').addEventListener('click', () => {
+    document.getElementById('textPanel').style.display='none';
+    document.getElementById('filePanel').style.display='none';
+    document.getElementById('verifyPanel').style.display='block';
+    document.querySelectorAll('.tab-selector button').forEach((b,i) => b.classList.toggle('active', i===2));
+});
+
+document.getElementById('verifyBtn').addEventListener('click', async () => {
+    const text = document.getElementById('verifyInput').value;
+    const refHash = document.getElementById('referenceHash').value.trim().toLowerCase();
+    const algo = document.getElementById('verifyAlgo').value;
+    if (!text || !refHash) { try { showNotification && showNotification('أدخل النص والـ Hash المرجعي', 'warning'); } catch(e){} return; }
+    const hashes = await hashText(text);
+    const computed = hashes[algo];
+    const isMatch = computed === refHash;
+    const resultDiv = document.getElementById('verifyResult');
+    resultDiv.innerHTML = `<div class="match-badge ${isMatch ? 'match-yes' : 'match-no'}">
+        <i class="fas fa-${isMatch ? 'check' : 'times'}"></i> ${isMatch ? 'تطابق ✓ - الـ Hash صحيح' : 'لا يتطابق ✗ - الـ Hash مختلف'}
+    </div><br><small style="color:#666;font-family:monospace;direction:ltr;word-break:break-all;">محسوب: ${computed}</small>`;
+});
+</script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.querySelector('.nav-menu');
+        if (navToggle && navMenu) {
+            navToggle.addEventListener('click', () => {
+                const isVisible = navMenu.style.display === 'flex';
+                navMenu.style.display = isVisible ? 'none' : 'flex';
+            });
+        }
+    });
+    </script>
+</body>
+</html>

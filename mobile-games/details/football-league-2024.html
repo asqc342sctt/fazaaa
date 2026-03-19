@@ -1,0 +1,372 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>تحميل Football League 2024 للأندرويد | محاكاة كرة قدم واقعية - Fazza Play</title>
+    <meta name="description" content="حمّل Football League 2024: لعبة كرة قدم بذكاء اصطناعي متقدم، رسوم واقعية، وأكثر من 40,000 لاعب. قم ببناء فريقك ونافس في الدوريات العالمية الآن.">
+    <meta name="keywords" content="Football League 2024, لعبة كرة قدم, ألعاب رياضية, محاكاة كرة قدم, ألعاب أندرويد, Fazza Play, دوريات عالمية">
+    <meta name="author" content="Fazza Play">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://fazzaplay.com/mobile-games/details/football-league-2024.html"> 
+
+    <meta property="og:title" content="Football League 2024: انغمس في عالم كرة القدم الواقعي">
+    <meta property="og:description" content="لعبة محاكاة كرة قدم متقدمة لأجهزة الموبايل مع تحديثات موسمية شاملة. حملها واستمتع.">
+    <meta property="og:type" content="website">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700&family=Tajawal:wght@500;700;800&display=swap">
+
+    <style>
+        /* ----------------------------------
+        1. Variables
+        ---------------------------------- */
+        :root {
+            /* ألوان كرة القدم (الأخضر والأبيض) */
+            --color-dark-bg: #121212;
+            --color-card-bg: #1e1e1e;
+            --color-primary-accent: #11ab56; /* لون أخضر رياضي */
+            --color-secondary-accent: #ffffff; 
+            --color-secondary-action: #444; 
+            --color-text-light: #e0e0e0;
+            --color-text-medium: #cccccc;
+            
+            --font-primary: 'Noto Sans Arabic', 'Tajawal', sans-serif;
+            --font-heading: 'Tajawal', sans-serif;
+        }
+
+        /* ----------------------------------
+        2. Base Styling
+        ---------------------------------- */
+        body {
+            background-color: var(--color-dark-bg);
+            color: var(--color-text-light);
+            font-family: var(--font-primary);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* ----------------------------------
+        3. Main Container
+        ---------------------------------- */
+        .game-detail-container {
+            max-width: 900px;
+            margin: 2.5rem auto;
+            padding: 2.5rem;
+            background-color: var(--color-card-bg);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.7);
+        }
+
+        /* ----------------------------------
+        4. Header
+        ---------------------------------- */
+        .game-detail-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #333;
+        }
+
+        .game-detail-header img {
+            max-width: 150px;
+            height: auto;
+            border-radius: 15px;
+            border: 5px solid var(--color-primary-accent);
+            box-shadow: 0 0 15px rgba(17, 171, 86, 0.5);
+        }
+
+        .game-detail-header h1 {
+            font-size: 3.2rem;
+            margin-top: 1.5rem;
+            color: var(--color-primary-accent);
+            font-family: var(--font-heading);
+            font-weight: 800;
+        }
+
+        /* ----------------------------------
+        5. Content & Typography
+        ---------------------------------- */
+        .game-detail-content h2 {
+            font-size: 2rem;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--color-primary-accent);
+            padding-bottom: 0.5rem;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .game-detail-content h2 i {
+             color: var(--color-primary-accent);
+        }
+
+        .game-detail-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--color-text-light);
+            text-align: justify;
+        }
+
+        .game-detail-content strong {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            color: var(--color-primary-accent);
+        }
+        
+        /* قائمة الميزات */
+        .game-detail-content ul {
+            list-style: none;
+            padding-right: 0;
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 0;
+        }
+
+        .game-detail-content li {
+            margin-bottom: 0.75rem;
+            padding-right: 1.5rem;
+            position: relative;
+            font-weight: 400;
+            color: var(--color-text-medium);
+            width: 100%; /* عمود واحد */
+        }
+
+        .game-detail-content li::before {
+            content: '\f058'; /* أيقونة Check Circle */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 0;
+            top: 0;
+            color: var(--color-primary-accent);
+            font-size: 0.9rem;
+        }
+
+        /* جدول المواصفات الفني */
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: #252525;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .specs-table th, .specs-table td {
+            padding: 15px;
+            text-align: right;
+            border-bottom: 1px solid #333;
+            font-family: var(--font-primary);
+            font-size: 1.05rem;
+        }
+        .specs-table th {
+            background-color: #333;
+            color: var(--color-primary-accent);
+            width: 40%;
+            font-weight: 600;
+        }
+        .specs-table tr:last-child td {
+            border-bottom: none;
+        }
+
+
+        /* ----------------------------------
+        6. Buttons
+        ---------------------------------- */
+        .buttons-container {
+            text-align: center;
+            margin-top: 4rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 25px;
+            background-color: var(--color-primary-accent);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            border: none;
+            min-width: 220px;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(17, 171, 86, 0.4);
+        }
+
+        .action-btn:hover {
+            background-color: #0d8a45;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(17, 171, 86, 0.6);
+        }
+        
+        .back-btn {
+            background-color: var(--color-secondary-action);
+            color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .back-btn:hover {
+            background-color: #555;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6);
+        }
+        
+        /* ----------------------------------
+        7. Footer Style (ضروري لأدسنس)
+        ---------------------------------- */
+        footer {
+            background-color: #1a1a1a;
+            color: #888;
+            padding: 1rem 0;
+            text-align: center;
+            margin-top: 3rem;
+            border-top: 1px solid #333;
+        }
+        .footer-nav {
+             margin-bottom: 10px;
+        }
+        .footer-nav a {
+            color: #888;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        .footer-nav a:hover {
+            color: var(--color-primary-accent);
+        }
+        footer p {
+            margin-top: 10px;
+            font-size: 0.85rem;
+        }
+
+        /* ----------------------------------
+        8. Responsiveness
+        ---------------------------------- */
+        @media (max-width: 768px) {
+            .game-detail-container { margin: 1rem 0.5rem; padding: 1.5rem; }
+            .game-detail-header h1 { font-size: 2.5rem; }
+            .game-detail-content h2 { font-size: 1.8rem; }
+            .action-btn { min-width: 90%; }
+        }
+    </style>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8571192174854530"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <h1><a href="../../index.html">Fazza Play</a></h1>
+    </header>
+    <main>
+        <div class="game-detail-container">
+            <div class="game-detail-header">
+                <img src="../../images/mobile-games/Football League 2024.webp" alt="غلاف لعبة Football League 2024">
+                <h1>Football League 2024</h1>
+            </div>
+
+            <div class="game-detail-content">
+                
+                <h2><i class="fas fa-futbol"></i> نظرة عامة وتجربة محاكاة كرة القدم</h2>
+                
+                <p>
+                    عش تجربة كرة قدم غامرة وواقعية مع **Football League 2024**! تقدم اللعبة محاكاة ديناميكية تجمع بين **الرسوم المتحركة الواقعية للاعبين** والذكاء الاصطناعي المتقدم الذي يتحدى مهاراتك. استمتع بأجواء الملاعب المذهلة، والتعليق متعدد اللغات، وآخر الأزياء والتصاميم. قم ببناء فريق أحلامك من بين أكثر من 40,000 لاعب و1,000 نادٍ، وطبق تكتيكاتك المخصصة لقيادتهم نحو الفوز في مختلف الدوريات والبطولات العالمية، بما في ذلك **كأس أبطال أوروبا المحدث**. مع واجهة سهلة الاستخدام وأدوات تحكم قابلة للتخصيص، انغمس في عالم كرة القدم وأثبت أنك المدير الأفضل.
+                </p>
+
+                <h2><i class="fas fa-list-check"></i> المميزات الرئيسية وطرق اللعب</h2>
+                
+                <ul>
+                    <li><strong>ذكاء اصطناعي متقدم:</strong> يقدم تحديًا حقيقياً وتفاعلاً واقعياً في الملعب.</li>
+                    <li><strong>تنوع هائل:</strong> أكثر من 40,000 لاعب و1,000 نادٍ يمكنك الاختيار من بينها.</li>
+                    <li><strong>أوضاع لعب متعددة:</strong> منافسات في الدوريات والكؤوس والتحديات العالمية.</li>
+                    <li><strong>رسومات ثلاثية الأبعاد:</strong> بيئات ملاعب واقعية وتفاصيل ممتازة للاعبين.</li>
+                    <li><strong>تطوير الفريق:</strong> نظام إدارة شامل لتطوير وتدريب اللاعبين.</li>
+                    <li><strong>تجربة صوتية فريدة:</strong> تعليق رياضي حماسي بعدة لغات لخلق أجواء المباراة الحقيقية.</li>
+                </ul>
+
+                <h2><i class="fas fa-mobile-alt"></i> متطلبات تشغيل اللعبة (تقديرية)</h2>
+                
+                <table class="specs-table">
+                    <thead>
+                        <tr>
+                            <th>الخاصية</th>
+                            <th>المعلومة</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>المطور / الناشر</th>
+                            <td>Mood Up Games (أو حسب المطور الرسمي)</td>
+                        </tr>
+                        <tr>
+                            <th>النوع</th>
+                            <td>رياضة، محاكاة كرة قدم</td>
+                        </tr>
+                        <tr>
+                            <th>نظام التشغيل (Android)</th>
+                            <td>Android 5.1 أو أحدث</td>
+                        </tr>
+                        <tr>
+                            <th>الذاكرة العشوائية (RAM)</th>
+                            <td>2GB على الأقل</td>
+                        </tr>
+                        <tr>
+                            <th>المساحة المطلوبة</th>
+                            <td>600MB - 1GB</td>
+                        </tr>
+                        <tr>
+                            <th>نموذج اللعب</th>
+                            <td>مجانية للعب (Free-to-Play)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="buttons-container">
+                <a href="https://play.google.com/store/apps/details?id=com.football.soccer.league" class="action-btn" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-google-play"></i> احصل عليها للأندرويد
+                </a>
+                <a href="../index.html" class="action-btn back-btn">
+                    <i class="fas fa-arrow-right"></i> العودة لقائمة الألعاب
+                </a>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <nav class="footer-nav">
+                <a href="../../about.html">عن الموقع</a>
+                <a href="../../privacy.html">سياسة الخصوصية</a>
+                <a href="../../terms.html">شروط الاستخدام</a>
+                <a href="../../contact.html">اتصل بنا</a>
+                <a href="../../cookies.html">سياسة الكوكيز</a>
+            </nav>
+            <p>&copy; 2025 Fazza Play. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    
+         
+
+ <script src="ads-fazza.js"></script>
+</body>
+</html>

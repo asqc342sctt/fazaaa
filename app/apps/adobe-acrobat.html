@@ -1,0 +1,654 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adobe Acrobat - دليلك الشامل لإدارة ملفات PDF | Fazza Play</title>
+    <meta name="description" content="دليل شامل لاستخدام Adobe Acrobat - أفضل تطبيق لإدارة ملفات PDF. نصائح، حيل، دروس تفصيلية، وحلول للمشاكل الشائعة.">
+    <meta name="keywords" content="Adobe Acrobat, أدوبي أكروبات, PDF, ملفات PDF, تحرير PDF, توقيع إلكتروني, تحويل PDF, إدارة مستندات">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8571192174854530" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #3498db, #e74c3c);
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        header h1 a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.8rem;
+        }
+
+        main {
+            padding: 2rem 0;
+        }
+
+        .app-header {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        .app-title-group h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .app-version {
+            color: #7f8c8d;
+            font-size: 1rem;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .stars {
+            color: #f39c12;
+            font-size: 1.2rem;
+        }
+
+        .content-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .content-section h2 {
+            color: #e74c3c;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #e74c3c;
+        }
+
+        .content-section h3 {
+            color: #3498db;
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        ul, ol {
+            margin-right: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.8rem;
+            line-height: 1.8;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .use-case {
+            background: #ecf0f1;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            border-right: 4px solid #3498db;
+        }
+
+        .use-case h4 {
+            color: #2c3e50;
+            margin-bottom: 0.8rem;
+        }
+
+        .tip-box {
+            background: #fff3cd;
+            border-right: 4px solid #ffc107;
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .tip-box strong {
+            color: #856404;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1rem;
+            text-align: right;
+            border: 1px solid #ddd;
+        }
+
+        .comparison-table th {
+            background: #3498db;
+            color: white;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .faq-item {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            background: #3498db;
+            color: white;
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            padding: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .download-button-large {
+            display: inline-block;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            box-shadow: 0 5px 20px rgba(231, 76, 60, 0.4);
+            transition: all 0.3s;
+        }
+
+        .download-button-large:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.5);
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: #95a5a6;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+
+        .back-btn:hover {
+            background: #7f8c8d;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+
+        .footer-nav a {
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-nav a:hover {
+            color: #3498db;
+        }
+
+        .social-links {
+            margin: 1rem 0;
+        }
+
+        .social-links img {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s;
+        }
+
+        .social-links img:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .app-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .app-title-group h1 {
+                font-size: 1.8rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-table {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="../index.html">Fazza Play</a></h1>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="app-header">
+                <img src="https://th.bing.com/th?q=Adobe+Acrobat+logo+icon&w=120&h=120&c=1&rs=1&qlt=90&cb=1&pid=InlineBlock&mkt=ar-EG&cc=EG&setlang=ar&adlt=strict&t=1&mw=247" alt="Adobe Acrobat" class="app-icon">
+                <div class="app-title-group">
+                    <h1>Adobe Acrobat</h1>
+                    <p class="app-version">أحدث إصدار 2024</p>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span>4.8/5 (أكثر من مليون تقييم)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>📋 نظرة عامة</h2>
+                <p style="font-size: 1.1rem; line-height: 1.8;">Adobe Acrobat هو المعيار الذهبي في إدارة ملفات PDF على مستوى العالم. يستخدمه أكثر من 300 مليون شخص حول العالم لإنشاء وتحرير وتوقيع ملفات PDF بشكل احترافي. سواء كنت طالباً، موظفاً، أو صاحب عمل، فإن Adobe Acrobat يوفر لك جميع الأدوات التي تحتاجها للتعامل مع المستندات الرقمية.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>✨ المميزات الاحترافية</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>📝 تحرير احترافي</h4>
+                        <p>تحرير النصوص، الصور، والروابط مباشرة داخل PDF كما لو كنت تستخدم برنامج معالجة نصوص.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>✍️ التوقيع الإلكتروني</h4>
+                        <p>توقيع المستندات رقمياً بشكل قانوني وآمن، مع إمكانية طلب التوقيعات من الآخرين.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🔄 التحويل الذكي</h4>
+                        <p>تحويل PDF إلى Word، Excel، PowerPoint والعكس مع الحفاظ على التنسيق الأصلي.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🔒 الأمان المتقدم</h4>
+                        <p>حماية ملفاتك بكلمات مرور قوية، تشفير 256-bit، وضبط صلاحيات الوصول.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🤝 التعاون السحابي</h4>
+                        <p>مشاركة الملفات والتعاون عليها في الوقت الفعلي مع فريقك عبر السحابة.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>📱 الوصول من أي مكان</h4>
+                        <p>استخدم Adobe Acrobat على الكمبيوتر، الموبايل، أو التابلت مع مزامنة تلقائية.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>💼 حالات الاستخدام الواقعية</h2>
+                
+                <div class="use-case">
+                    <h4>1. للطلاب والباحثين:</h4>
+                    <p>• تنظيم المراجع العلمية والكتب الإلكترونية</p>
+                    <p>• إضافة تعليقات وملاحظات ملونة على المحاضرات</p>
+                    <p>• تحويل الملاحظات المكتوبة بخط اليد إلى PDF منظم</p>
+                    <p>• دمج عدة مصادر في ملف واحد للبحث</p>
+                </div>
+
+                <div class="use-case">
+                    <h4>2. لأصحاب الأعمال والمحترفين:</h4>
+                    <p>• توقيع العقود والاتفاقيات إلكترونياً بدون طباعة</p>
+                    <p>• إنشاء نماذج قابلة للتعبئة للعملاء</p>
+                    <p>• حماية الوثائق السرية بكلمات مرور</p>
+                    <p>• تحويل التقارير المالية إلى Excel للتحليل</p>
+                </div>
+
+                <div class="use-case">
+                    <h4>3. للاستخدام الشخصي:</h4>
+                    <p>• تنظيم الفواتير والوثائق الشخصية</p>
+                    <p>• ضغط ملفات PDF الكبيرة لإرسالها عبر البريد</p>
+                    <p>• تحويل صور المستندات إلى PDF قابل للبحث (OCR)</p>
+                    <p>• إزالة الصفحات غير المرغوبة من المستندات</p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>🎯 دليل الاستخدام خطوة بخطوة</h2>
+                
+                <h3>إنشاء ملف PDF من الصفر:</h3>
+                <ol>
+                    <li>افتح Adobe Acrobat واختر "إنشاء PDF"</li>
+                    <li>اختر المصدر: ملف، صور، ماسح ضوئي، أو صفحة ويب</li>
+                    <li>حدد الملفات المطلوبة وانقر "إنشاء"</li>
+                    <li>احفظ الملف في الموقع المناسب</li>
+                </ol>
+
+                <h3>تحرير نص داخل PDF:</h3>
+                <ol>
+                    <li>افتح ملف PDF المطلوب</li>
+                    <li>انقر على أداة "تحرير PDF" من القائمة اليمنى</li>
+                    <li>اختر النص الذي تريد تعديله</li>
+                    <li>قم بالتعديل المطلوب (حجم الخط، اللون، المحاذاة)</li>
+                    <li>احفظ التغييرات</li>
+                </ol>
+
+                <h3>إضافة توقيع إلكتروني:</h3>
+                <ol>
+                    <li>افتح المستند المطلوب توقيعه</li>
+                    <li>اختر "تعبئة وتوقيع" من الأدوات</li>
+                    <li>انقر على "توقيع" ثم "إضافة توقيع"</li>
+                    <li>ارسم توقيعك أو اكتبه أو حمّل صورة له</li>
+                    <li>ضع التوقيع في المكان المناسب واحفظ</li>
+                </ol>
+
+                <div class="tip-box">
+                    <strong>💡 نصيحة احترافية:</strong> استخدم اختصار Ctrl+E لفتح أداة التحرير بسرعة، واختصار Ctrl+Shift+E لتحويل الملف إلى صيغ أخرى.
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>🔥 نصائح وحيل متقدمة</h2>
+                
+                <h3>1. تحسين حجم الملف:</h3>
+                <p>استخدم خاصية "تحسين PDF" لتقليل حجم الملفات الكبيرة بنسبة تصل إلى 80% دون فقدان الجودة. مثالي لإرسال الملفات عبر البريد الإلكتروني.</p>
+
+                <h3>2. OCR للنصوص المصورة:</h3>
+                <p>حوّل الصور الممسوحة ضوئياً إلى نصوص قابلة للبحث والتحرير باستخدام تقنية التعرف الضوئي على الحروف (OCR). يدعم اللغة العربية بدقة عالية.</p>
+
+                <h3>3. الدمج الذكي:</h3>
+                <p>عند دمج عدة ملفات PDF، رتبها بالترتيب الصحيح باستخدام خاصية السحب والإفلات، وأضف علامات مرجعية للتنقل السريع.</p>
+
+                <h3>4. النماذج التفاعلية:</h3>
+                <p>حوّل أي PDF إلى نموذج تفاعلي بإضافة حقول نصية، أزرار اختيار، وقوائم منسدلة. مثالي للاستبيانات والطلبات.</p>
+
+                <h3>5. حماية متقدمة:</h3>
+                <p>لا تكتفي بكلمة المرور، استخدم أيضاً صلاحيات الطباعة والنسخ والتعديل لحماية محتواك بشكل كامل.</p>
+
+                <div class="tip-box">
+                    <strong>⚡ حيلة سريعة:</strong> استخدم Action Wizard لأتمتة المهام المتكررة مثل إضافة علامة مائية لعدة ملفات دفعة واحدة.
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>⚖️ مقارنة الإصدارات</h2>
+                <table class="comparison-table">
+                    <tr>
+                        <th>الميزة</th>
+                        <th>Reader (مجاني)</th>
+                        <th>Standard</th>
+                        <th>Pro</th>
+                    </tr>
+                    <tr>
+                        <td>قراءة PDF</td>
+                        <td>✅</td>
+                        <td>✅</td>
+                        <td>✅</td>
+                    </tr>
+                    <tr>
+                        <td>إضافة تعليقات</td>
+                        <td>✅</td>
+                        <td>✅</td>
+                        <td>✅</td>
+                    </tr>
+                    <tr>
+                        <td>التوقيع الإلكتروني</td>
+                        <td>محدود</td>
+                        <td>✅</td>
+                        <td>✅</td>
+                    </tr>
+                    <tr>
+                        <td>تحرير النصوص</td>
+                        <td>❌</td>
+                        <td>✅</td>
+                        <td>✅</td>
+                    </tr>
+                    <tr>
+                        <td>تحويل إلى Word/Excel</td>
+                        <td>❌</td>
+                        <td>✅</td>
+                        <td>✅</td>
+                    </tr>
+                    <tr>
+                        <td>OCR (التعرف على النصوص)</td>
+                        <td>❌</td>
+                        <td>❌</td>
+                        <td>✅</td>
+                    </tr>
+                    <tr>
+                        <td>مقارنة المستندات</td>
+                        <td>❌</td>
+                        <td>❌</td>
+                        <td>✅</td>
+                    </tr>
+                    <tr>
+                        <td>تحرير ملفات ممسوحة</td>
+                        <td>❌</td>
+                        <td>❌</td>
+                        <td>✅</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="content-section">
+                <h2>❓ الأسئلة الشائعة</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        هل يمكنني استخدام Adobe Acrobat بدون اتصال بالإنترنت؟
+                    </div>
+                    <div class="faq-answer">
+                        نعم، معظم ميزات Adobe Acrobat تعمل بدون إنترنت. ستحتاج للاتصال فقط عند المزامنة مع السحابة أو إرسال المستندات للتوقيع الإلكتروني.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        ما الفرق بين Adobe Acrobat و Adobe Reader؟
+                    </div>
+                    <div class="faq-answer">
+                        Adobe Reader مجاني ويسمح فقط بقراءة وطباعة ملفات PDF. بينما Adobe Acrobat يتيح لك إنشاء وتحرير وتحويل وتوقيع ملفات PDF باحترافية كاملة.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        هل التوقيع الإلكتروني في Adobe Acrobat قانوني؟
+                    </div>
+                    <div class="faq-answer">
+                        نعم، التوقيعات الإلكترونية في Adobe Acrobat معترف بها قانونياً في معظم الدول بما فيها الدول العربية، وتلتزم بالمعايير الدولية مثل eIDAS و ESIGN.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        كم مساحة التخزين السحابي المتوفرة؟
+                    </div>
+                    <div class="faq-answer">
+                        تحصل على 100 جيجابايت من التخزين السحابي مع اشتراك Adobe Acrobat Pro، يمكنك استخدامها لحفظ ومزامنة ملفاتك عبر جميع أجهزتك.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        هل يدعم Adobe Acrobat اللغة العربية بالكامل؟
+                    </div>
+                    <div class="faq-answer">
+                        نعم بالتأكيد! يدعم Adobe Acrobat اللغة العربية في الواجهة، التحرير، والتعرف الضوئي على الحروف (OCR)، مع دعم كامل للكتابة من اليمين إلى اليسار.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        كيف أستعيد ملف PDF تالف؟
+                    </div>
+                    <div class="faq-answer">
+                        استخدم ميزة "إصلاح PDF" في Adobe Acrobat. افتح القائمة Tools > Advanced > Repair Document. في معظم الحالات يمكن استعادة الملفات التالفة جزئياً.
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>🔐 نصائح الأمان والخصوصية</h2>
+                <ul>
+                    <li><strong>استخدم كلمات مرور قوية:</strong> اختر كلمات مرور من 12 حرف على الأقل تجمع بين الأحرف والأرقام والرموز</li>
+                    <li><strong>فعّل التشفير:</strong> استخدم تشفير AES 256-bit للملفات الحساسة جداً</li>
+                    <li><strong>أزل البيانات الحساسة:</strong> استخدم أداة Redact لإزالة المعلومات السرية نهائياً من المستندات</li>
+                    <li><strong>راجع الأذونات:</strong> تحقق من صلاحيات كل ملف قبل مشاركته (طباعة، نسخ، تعديل)</li>
+                    <li><strong>احذف الـ Metadata:</strong> أزل البيانات الوصفية التي قد تحتوي على معلومات شخصية</li>
+                </ul>
+
+                <div class="tip-box">
+                    <strong>🔒 تحذير أمني:</strong> لا تشارك كلمات المرور عبر البريد الإلكتروني. استخدم وسائل اتصال آمنة ومشفرة.
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>📊 إحصائيات ومعلومات</h2>
+                <ul>
+                    <li>✅ أكثر من <strong>300 مليون مستخدم</strong> حول العالم</li>
+                    <li>✅ يُستخدم في <strong>90% من الشركات العالمية</strong></li>
+                    <li>✅ يوفر في المتوسط <strong>5 ساعات أسبوعياً</strong> من وقت العمل</li>
+                    <li>✅ يقلل استهلاك الورق بنسبة <strong>80%</strong> في المكاتب</li>
+                    <li>✅ متوفر بأكثر من <strong>30 لغة</strong> عالمية</li>
+                    <li>✅ معتمد من قبل <strong>الحكومات والبنوك</strong> للوثائق الرسمية</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>🆚 البدائل المتاحة</h2>
+                <p>بينما Adobe Acrobat هو المعيار الصناعي، إليك بعض البدائل:</p>
+                <ul>
+                    <li><strong>Foxit PDF Editor:</strong> بديل أخف وأسرع، لكن بميزات أقل</li>
+                    <li><strong>PDFelement:</strong> خيار جيد بسعر أقل، مناسب للاستخدام الشخصي</li>
+                    <li><strong>Nitro PDF:</strong> قوي في التحويل والتحرير، لكن الواجهة معقدة</li>
+                    <li><strong>PDF-XChange Editor:</strong> مجاني جزئياً، خيار ممتاز للميزانية المحدودة</li>
+                </ul>
+                <p><strong>لماذا Adobe Acrobat الأفضل؟</strong> تكامل كامل مع برامج Adobe الأخرى، دعم فني ممتاز، تحديثات منتظمة، ومعايير أمان عالمية.</p>
+            </div>
+
+            <div class="content-section" style="text-align: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                <h2 style="color: white; border: none;">📥 ابدأ الآن مع Adobe Acrobat</h2>
+                <p style="font-size: 1.1rem; margin-bottom: 2rem;">انضم لملايين المستخدمين حول العالم وحوّل طريقة تعاملك مع ملفات PDF</p>
+                <a href="https://acrobat.adobe.com/" class="download-button-large" target="_blank" rel="noopener noreferrer">
+                    🚀 جرّب Adobe Acrobat مجاناً لمدة 7 أيام
+                </a>
+                <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.9;">✓ بدون الحاجة لبطاقة ائتمان | ✓ إلغاء في أي وقت</p>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="../index.html" class="back-btn">⬅️ العودة للصفحة الرئيسية</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3 style="margin: 0; font-size: 1.5rem; background: linear-gradient(135deg, #3498db, #e74c3c); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Fazza Play</h3>
+                    <p style="margin: 0.5rem 0 0 0; color: #95a5a6; font-size: 0.9rem;">منصة التطبيقات والألعاب العربية الأولى</p>
+                </div>
+                
+                <nav class="footer-nav">
+                    <a href="../about.html">عن الموقع</a>
+                    <a href="../privacy.html">سياسة الخصوصية</a>
+                    <a href="../terms.html">شروط الاستخدام</a>
+                    <a href="../contact.html">اتصل بنا</a>
+                    <a href="../cookies.html">سياسة الكوكيز</a>
+                </nav>
+                
+                <div class="social-links">
+                    <a href="https://youtube.com/@salem.r?si=eYhTBwPo7gSqV_V2" target="_blank" rel="noopener noreferrer" title="قناتنا على يوتيوب">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/YouTube_social_red_circle_%282017%29.svg" alt="YouTube">
+                    </a>
+                </div>
+                
+                <p>&copy; 2024 Fazza Play. كل الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+<script src="ads-fazza.js"></script>
+</body>
+</html>

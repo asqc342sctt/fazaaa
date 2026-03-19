@@ -1,0 +1,44 @@
+{
+  "name": "Fazza Play - منصة الألعاب العربية الرائدة",
+  "short_name": "فازا بلاي",
+  "description": "تحميل ألعاب PC والموبايل مجاناً. مكتبة ضخمة بأحدث الألعاب مع روابط مباشرة آمنة.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#030812",
+  "theme_color": "#00c8ff",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "ar",
+  "dir": "rtl",
+  "categories": ["games", "entertainment", "utilities"],
+  "icons": [
+    {
+      "src": "images/logo.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/logo.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "ألعاب PC",
+      "short_name": "PC",
+      "description": "ألعاب الكمبيوتر",
+      "url": "/pc-games/index.html",
+      "icons": [{ "src": "images/logo.svg", "sizes": "96x96" }]
+    },
+    {
+      "name": "ألعاب الموبايل",
+      "short_name": "موبايل",
+      "description": "ألعاب الهاتف",
+      "url": "/mobile-games/index.html",
+      "icons": [{ "src": "images/logo.svg", "sizes": "96x96" }]
+    }
+  ]
+}

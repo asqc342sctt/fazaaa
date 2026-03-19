@@ -1,0 +1,7 @@
+name = "salem"
+compatibility_date = "2024-01-01"
+
+pages_build_output_dir = "."  # <--- ده الصياغة الصحيحة
+
+[vars]
+# Add environment variables if needed, e.g., RAPIDAPI_KEY

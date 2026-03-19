@@ -1,0 +1,324 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚨 دليل Among Us الشامل: استراتيجيات المحتالين وطاقم السفينة وتحليل الخرائط - Fazza Play</title>
+    <meta name="description" content="دليل الخبراء للعبة Among Us: تعلم استراتيجيات المحتال (Impostor) وكيفية التحقيق بفعالية كعضو طاقم (Crewmate). تحليل مفصل للخرائط والأدوار الجديدة.">
+    <meta name="keywords" content="Among Us, تحميل Among Us, استراتيجيات Among Us, دليل Impostor, أدوار Among Us, Innersloth, social deduction">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <style>
+        /* Base Styles - Dark Space Theme */
+        body {
+            background-color: #0d0d0d; /* Deep Space Black */
+            color: #e6e6e6; /* Light Gray Text */
+            font-family: 'Tajawal', Arial, sans-serif;
+            line-height: 1.8;
+        }
+
+        /* Container - Space Console Frame */
+        .game-detail-container {
+            max-width: 1100px;
+            margin: 3rem auto;
+            padding: 4.5rem;
+            background-color: #1a1a1a; /* Darker Console Panel */
+            border-radius: 5px;
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.2), 0 0 25px rgba(0, 0, 255, 0.2); /* Red/Blue Glow */
+            border: 3px solid #333;
+        }
+
+        /* Header Styles - Emergency Meeting */
+        .game-detail-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 2rem;
+            background-color: #2c2c2c;
+            border-radius: 8px;
+            border-left: 8px solid #ff0000; /* Impostor Red Line */
+            border-right: 8px solid #0000ff; /* Crewmate Blue Line */
+        }
+
+        .game-detail-header img {
+            max-width: 100%;
+            width: 200px;
+            border-radius: 50%; /* Rounded Icon */
+            border: 4px solid #fff;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+
+        .game-detail-header h1 {
+            font-size: 4.5rem;
+            margin-top: 1.5rem;
+            color: #ffffff;
+            text-shadow: 0 0 10px #ff0000, 0 0 10px #0000ff; /* Dual Glow */
+        }
+
+        /* Content Headings - System Alerts */
+        .game-detail-content h2,
+        .article-section h2 {
+            font-size: 3rem;
+            margin: 4rem 0 1.5rem;
+            border-bottom: 3px solid #ff0000;
+            padding-bottom: 1rem;
+            color: #ffffff;
+            position: relative;
+        }
+
+        .article-section h3 {
+            color: #00bfff; /* Deep Sky Blue for Subheadings */
+            font-size: 2.2rem;
+            margin: 2.5rem 0 1.2rem;
+            position: relative;
+            padding-right: 25px;
+        }
+        
+        .article-section h3::before {
+            content: '⚙️'; 
+            position: absolute;
+            right: 0;
+            color: #ff0000;
+            font-size: 1em;
+        }
+
+        /* Paragraphs and Lists */
+        .game-detail-content p, 
+        .article-section p {
+            font-size: 1.25rem;
+            line-height: 2.1;
+            margin-bottom: 2rem;
+            text-align: justify;
+        }
+        
+        .article-section li {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            padding-right: 2.5rem;
+            position: relative;
+        }
+        
+        .article-section li::before {
+            content: '🔺'; /* Triangle Symbol */
+            color: #00bfff;
+            font-size: 1em;
+            position: absolute;
+            right: 0;
+            top: 5px;
+        }
+
+        /* Role Cards - Crewmate and Impostor analysis */
+        .role-cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 30px;
+            margin: 4rem 0;
+        }
+
+        .role-card {
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            border: 2px solid;
+        }
+
+        .role-card.impostor {
+            background-color: #331a1a; /* Dark Reddish background */
+            border-color: #ff3333;
+        }
+
+        .role-card.crewmate {
+            background-color: #1a1a33; /* Dark Bluish background */
+            border-color: #3333ff;
+        }
+
+        .role-card h4 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #fff;
+            text-align: center;
+        }
+        
+        .role-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .role-card li {
+            padding: 8px 0;
+            border-bottom: 1px dotted rgba(255, 255, 255, 0.2);
+            font-size: 1.1rem;
+        }
+        
+        /* Expert Analysis Block */
+        .expert-analysis {
+            margin: 3rem 0;
+            padding: 2rem;
+            border-right: 5px solid #00bfff;
+            background-color: #282828; 
+            color: #d1eaff; 
+            font-style: italic;
+            border-radius: 8px;
+        }
+        .expert-analysis p {
+             font-size: 1.3rem;
+             line-height: 1.8;
+        }
+
+        /* Buttons - High Contrast */
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0.75rem;
+            padding: 18px 40px;
+            background: linear-gradient(135deg, #00bfff 0%, #007bff 100%); /* Blue Gradient */
+            color: #ffffff;
+            font-weight: 900;
+            font-size: 1.4rem;
+            box-shadow: 0 8px 30px rgba(0, 191, 255, 0.5);
+            border-radius: 8px;
+            min-width: 220px;
+        }
+
+        .action-btn:hover {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #33ccff 0%, #00bfff 100%);
+        }
+
+        .back-btn {
+            background: linear-gradient(135deg, #5c5c5c 0%, #333 100%);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8571192174854530"
+        crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <h1><a href="../../index.html">Fazza Play</a></h1>
+    </header>
+    <main>
+        <div class="game-detail-container">
+            <div class="game-detail-header">
+                <img src="../../images/mobile-games/Among Us.webp" alt="Among Us - لعبة الاستنتاج الاجتماعي">
+                <h1>Among Us: قواعد النجاة والخيانة</h1>
+            </div>
+
+            <div class="game-detail-content article-section">
+                
+                <h2>1. تحليل اللعبة: الإثارة في الاستنتاج الاجتماعي</h2>
+                <p>
+                    تعتبر Among Us من الألعاب القليلة التي تعتمد بشكل كامل على **الذكاء الاجتماعي، الخداع، والتحليل اللحظي**. إنها ليست مجرد لعبة قتل، بل هي دراسة لسلوك الأفراد تحت الضغط. الفوز يتطلب فهماً عميقاً لعلم النفس البشري وقدرة فائقة على الكذب أو الكشف عن الكذب.
+                </p>
+
+                <h3>⚙️ الأدوار الجديدة: إضافة عمق استراتيجي</h3>
+                <p>
+                    أدوار العالم (Scientist)، المهندس (Engineer)، الملاك الحارس (Guardian Angel)، والمتقلب (Shapeshifter) أضافت تعقيداً مذهلاً للميتا. لم يعد الأمر يقتصر على "من رأيت يقتل"، بل أصبح يتعلق بـ "من يملك القدرة على الرؤية أو الهرب أو الحماية".
+                </p>
+
+                <hr>
+
+                <h2>2. دليل الأدوار المتقدمة: كيف تفوز في كل دور؟</h2>
+                
+                <div class="role-cards-container">
+                    <div class="role-card crewmate">
+                        <h4>زميل الطاقم (Crewmate) - دور المحقق</h4>
+                        <ul>
+                            <li>🔺 **المهام أولاً:** يجب إنهاء المهام بأسرع وقت لتقليل وقت سيطرة المحتالين. المهام الطويلة (مثل Wiring) هي فرصتك لإظهار براءتك.</li>
+                            <li>🔺 **ملاحظة المسار:** تتبع مسارات اللاعبين الآخرين. إذا رأيت شخصاً يخرج من فتحة تهوية (Vent)، أو يقضي وقتاً طويلاً بجوار جثة، سجّل ملاحظتك.</li>
+                            <li>🔺 **المهام البصرية (Visual Tasks):** استخدم المهام البصرية لإثبات البراءة (إذا كانت مفعلة). إظهار مهمة واحدة تبرئك تماماً للآخرين.</li>
+                            <li>🔺 **إدارة النقاش:** كن هادئاً ومنطقياً في الاجتماعات. لا تصرخ أو تتهم دون دليل، بل اطرح أسئلة دقيقة (أين كنت؟ من كان معك؟).</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="role-card impostor">
+                        <h4>المحتال (Impostor) - دور المُنَفِّذ</h4>
+                        <ul>
+                            <li>🔺 **فن التخريب:** استخدم التخريب (Sabotage) ليس للقتل فقط، بل للتحكم في حركة اللاعبين أو سحبهم بعيداً عن الجثث. (Oxygen/Reactor) هي أفضل خيارات التخريب.</li>
+                            <li>🔺 **التمويه بالمهام الوهمية:** قف على المهام الشائعة (Common Tasks) وافعل "تمثيل المهمة" بدقة. الأهم هو عدم الإفراط في التمثيل.</li>
+                            <li>🔺 **استخدام فتحات التهوية (Vents):** استخدمها للتنقل السريع والهرب من مسرح الجريمة، لكن تأكد دائماً من عدم وجود كاميرات أو رؤية شاهد لك.</li>
+                            <li>🔺 **بناء الأعذار (Alibis):** اعمل كمجموعة مع محتال آخر في بداية الجولة، ثم افترقا. إذا تم اتهام شريكك، دافع عنه بشكل طبيعي ثم تخل عنه إذا لزم الأمر.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <hr>
+                
+                <h2>3. تحليل الخرائط: النقاط الساخنة واستراتيجيات الحركة</h2>
+                <p>
+                    الفوز في Among Us يعتمد بشكل كبير على معرفة تفاصيل كل خريطة، والتعرف على النقاط التي يكثر فيها القتل (Hotspots)، ومسارات التهوية.
+                </p>
+
+                <h3>⚙️ خريطة The Skeld (السفينة الأساسية):</h3>
+                <ul>
+                    <li>🔺 **النقاط الساخنة:** الكهرباء (Electrical) والطب (Medbay) هما أخطر الأماكن لكثرة المهام الطويلة وسهولة الهروب من الفتحات.</li>
+                    <li>🔺 **أفضل المهام للمراقبة:** مهمة المدافع (Shields) والكاميرات (Security Cameras).</li>
+                </ul>
+
+                <h3>⚙️ خريطة Polus (القاعدة الثلجية):</h3>
+                <ul>
+                    <li>🔺 **ميزة فريدة:** وجود مجسات حرارة (Vitals) في المكتب تمكنك من متابعة حالة اللاعبين.</li>
+                    <li>🔺 **الخطر:** الخريطة واسعة وتوجد فيها فتحات تهوية كثيرة، مما يجعل القتل في أماكن معزولة (مثل المطبخ) أمراً سهلاً على المحتالين.</li>
+                </ul>
+
+                <blockquote class="expert-analysis">
+                    <p>
+                        **تحليل الخبراء (طابع بشري):** "الخطأ الأكبر الذي يرتكبه اللاعبون هو التركيز على إكمال المهام بدلاً من الملاحظة. تذكر، أنت تستطيع أن تخسر الجولة إذا لم تكمل المهام، لكنك ستخسرها بالتأكيد إذا لم تكتشف المحتال. انظر حولك!"
+                    </p>
+                </blockquote>
+                
+                <hr>
+
+                <h2>4. معلومات إضافية ومتطلبات التشغيل</h2>
+                
+                <p>
+                    تتميز اللعبة بدعمها الكامل للعب المشترك عبر المنصات (Cross-Platform)، مما يعني أن لاعبي الهاتف والكمبيوتر الشخصي ووحدات التحكم يمكنهم الانضمام إلى نفس الجولة، مما يضمن أكبر عدد ممكن من اللاعبين.
+                </p>
+                
+                <div class="role-cards-container">
+                    <div class="role-card crewmate">
+                        <h4>متطلبات التشغيل (الأجهزة المحمولة)</h4>
+                        <ul>
+                            <li>🔺 **نظام التشغيل (Android):** 6.0 أو أحدث.</li>
+                            <li>🔺 **نظام التشغيل (iOS):** 13.0 أو أحدث.</li>
+                            <li>🔺 **المساحة المطلوبة:** أقل من 300 ميجابايت.</li>
+                        </ul>
+                    </div>
+                    <div class="role-card impostor">
+                        <h4>تفاصيل النشر</h4>
+                        <ul>
+                            <li>🔺 **المطور:** Innersloth</li>
+                            <li>🔺 **الناشر:** Innersloth</li>
+                            <li>🔺 **تاريخ الإصدار:** 15 يونيو 2018</li>
+                            <li>🔺 **النوع:** جماعية، استنتاج اجتماعي</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="buttons-container">
+                <a href="https://play.google.com/store/apps/details?id=com.innersloth.spacemafia" class="action-btn" target="_blank" rel="noopener noreferrer">احصل عليها (Android)</a>
+                <a href="https://apps.apple.com/us/app/among-us/id1351168404" class="action-btn" target="_blank" rel="noopener noreferrer">احصل عليها (iOS)</a>
+                <a href="../index.html" class="action-btn back-btn">العودة لقائمة الألعاب</a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <nav class="footer-nav">
+                <a href="../../about.html" data-translate="footer_about">عن الموقع</a>
+                <a href="../../privacy.html" data-translate="footer_privacy">سياسة الخصوصية</a>
+                <a href="../../terms.html" data-translate="footer_terms">شروط الاستخدام</a>
+                <a href="../../contact.html" data-translate="footer_contact">اتصل بنا</a>
+                <a href="../../cookies.html" data-translate="footer_cookies">سياسة الكوكيز</a>
+            </nav>
+            <p data-translate="footer_copyright">&copy; 2024 Fazza Play. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+    
+    <script src="../ads-fazza.js"></script>
+<script src="ads-fazza.js"></script>
+</body>
+</html>

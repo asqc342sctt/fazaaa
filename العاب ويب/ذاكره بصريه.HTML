@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌟 اختبار الذاكرة البصرية الاحترافي</title>
+    <meta name="description" content="لعبة مطابقة البطاقات (Memory Match) المتقدمة. تقييم النجوم، أحجام شبكة متنوعة، وتأثيرات بصرية مذهلة!">
+    <meta name="keywords" content="لعبة ذاكرة متقدمة، مطابقة بطاقات، ألعاب HTML احترافية، اختبار السرعة والذاكرة">
+    <meta name="author" content="Fazza Play (AI)">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* الخطوط والألوان الأساسية */
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
+
+        :root {
+            --primary-color: #e91e63; /* وردي/بنفسجي جذاب */
+            --secondary-color: #00bcd4; /* سماوي */
+            --accent-color: #FFEB3B; /* أصفر / ذهبي للنجوم */
+            --background-color: #1a0f3d; /* بنفسجي غامق جداً */
+            --card-back-color: #3b2075; /* خلفية البطاقة */
+            --grid-bg-color: #2c1a53; /* خلفية شبكة اللعب */
+            --text-color: #f0f0f0;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            direction: rtl;
+        }
+
+        /* حاوية اللعبة الرئيسية */
+        .game-container {
+            background-color: var(--grid-bg-color);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+            width: 100%;
+            max-width: 800px; /* زيادة العرض للشبكات الأكبر */
+            box-sizing: border-box;
+            z-index: 10;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            margin-bottom: 25px;
+            font-size: 2.8em;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+            text-align: center;
+        }
+
+        /* شريط المعلومات والتحكم */
+        .controls {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 30px;
+            background-color: #4c3088;
+            padding: 15px 20px;
+            border-radius: 12px;
+            box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.4);
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .controls span i {
+            color: var(--secondary-color);
+            margin-left: 10px;
+        }
+
+        /* شبكة البطاقات (تعديل ديناميكي في JS) */
+        .grid {
+            display: grid;
+            grid-gap: 15px;
+            perspective: 1000px;
+        }
+        
+        /* أحجام الشبكة المتنوعة */
+        .grid-4x4 { grid-template-columns: repeat(4, 1fr); }
+        .grid-4x5 { grid-template-columns: repeat(5, 1fr); } /* 20 بطاقة */
+        .grid-6x6 { grid-template-columns: repeat(6, 1fr); } /* 36 بطاقة */
+
+
+        /* البطاقة الواحدة */
+        .card {
+            height: 100px; 
+            cursor: pointer;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+        
+        .card.flipped {
+            transform: rotateY(180deg);
+        }
+        
+        /* 🌟 تأثير المطابقة المطور (احترافي) 🌟 */
+        .card.matched {
+            pointer-events: none;
+            /* رسوم متحركة للنجاح مع توهج */
+            animation: match-success 0.8s ease-out forwards;
+        }
+
+        @keyframes match-success {
+            0% { transform: rotateY(180deg) scale(1); opacity: 1; box-shadow: 0 0 15px var(--accent-color); }
+            50% { transform: rotateY(180deg) scale(1.1); opacity: 1; box-shadow: 0 0 30px var(--accent-color); }
+            100% { transform: rotateY(180deg) scale(0.9); opacity: 0; }
+        }
+
+        /* وجه البطاقة (الأمامي والخلفي) */
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden; 
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3em;
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: 3px solid transparent;
+        }
+
+        /* الوجه الخلفي */
+        .card-back {
+            background: linear-gradient(135deg, var(--primary-color), #880e4f);
+            font-size: 1.5em;
+            border-color: var(--accent-color);
+        }
+
+        /* الوجه الأمامي */
+        .card-front {
+            background-color: var(--secondary-color);
+            transform: rotateY(180deg);
+        }
+
+        /* زر إعادة التشغيل */
+        .restart-button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .restart-button:hover {
+            background-color: #c2185b;
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        /* رسالة نهاية اللعبة (Modal) */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            backdrop-filter: blur(8px);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+
+        .overlay.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal {
+            background: var(--grid-bg-color);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 0 40px var(--secondary-color);
+            transform: scale(0.8);
+            transition: transform 0.4s ease;
+            max-width: 90%;
+        }
+
+        .overlay.visible .modal {
+            transform: scale(1);
+        }
+
+        .modal h2 {
+            color: var(--accent-color);
+            font-size: 3em;
+            margin-bottom: 10px;
+            font-weight: 900;
+        }
+
+        .modal p {
+            font-size: 1.4em;
+            margin: 15px 0;
+        }
+
+        /* تقييم النجوم */
+        .star-rating {
+            margin: 20px 0;
+            font-size: 2.5em;
+            color: #ccc;
+        }
+        .star-rating .fa-star {
+            color: var(--accent-color);
+            transition: transform 0.3s ease-out;
+        }
+
+        /* استجابة الشاشات الصغيرة */
+        @media (max-width: 768px) {
+            .game-container { max-width: 95%; padding: 20px; }
+            h1 { font-size: 2em; }
+            .controls { flex-wrap: wrap; gap: 10px; font-size: 1em; }
+            .card { height: 80px; }
+            .card-face { font-size: 2em; }
+            .restart-button { margin-top: 10px; }
+        }
+        @media (max-width: 450px) {
+            .card { height: 60px; }
+            .card-face { font-size: 1.5em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>🌟 اختبار الذاكرة الاحترافي</h1>
+
+        <div class="controls">
+            <span>
+                <i class="fas fa-layer-group"></i> 
+                المستوى: 
+                <select id="difficulty-select" style="padding: 5px; border-radius: 5px; background: #555; color: white;">
+                    <option value="16">سهل (4x4)</option>
+                    <option value="20">متوسط (4x5)</option>
+                    <option value="30">صعب (5x6)</option>
+                </select>
+            </span>
+            <span><i class="fas fa-redo-alt"></i> الحركات: <span id="moves">0</span></span>
+            <span><i class="fas fa-clock"></i> الوقت: <span id="timer">0:00</span></span>
+            <button class="restart-button" id="restart-button"><i class="fas fa-sync-alt"></i> إعادة التشغيل</button>
+        </div>
+
+        <div class="grid" id="game-grid">
+            </div>
+    </div>
+
+    <div class="overlay" id="finish-modal">
+        <div class="modal">
+            <h2>🏆 لقد أنجزت المهمة!</h2>
+            
+            <div class="star-rating" id="rating-stars">
+                </div>
+
+            <p>أنهيت اللعبة في <span id="final-time"></span></p>
+            <p>بعد <span id="final-moves"></span> حركات.</p>
+            <button class="restart-button" id="modal-restart-button"><i class="fas fa-sync-alt"></i> تحدٍ جديد</button>
+        </div>
+    </div>
+
+    <script>
+        // مجموعة كبيرة من الأيقونات لضمان التغيير في كل مرة
+        const ALL_ICONS = [
+            'fa-star', 'fa-heart', 'fa-trophy', 'fa-bell', 'fa-bicycle', 
+            'fa-camera', 'fa-cogs', 'fa-leaf', 'fa-sun', 'fa-moon', 
+            'fa-cloud', 'fa-snowman', 'fa-code', 'fa-gem', 'fa-crown',
+            'fa-palette', 'fa-wrench', 'fa-lightbulb', 'fa-anchor', 'fa-flask',
+            'fa-puzzle-piece', 'fa-shield-alt', 'fa-fire-alt', 'fa-bolt', 'fa-rocket'
+        ];
+        
+        const difficultySelect = document.getElementById('difficulty-select');
+        const gameGrid = document.getElementById('game-grid');
+        const movesSpan = document.getElementById('moves');
+        const timerSpan = document.getElementById('timer');
+        const restartButton = document.getElementById('restart-button');
+        const modalRestartButton = document.getElementById('modal-restart-button');
+        const finishModal = document.getElementById('finish-modal');
+        const finalTimeSpan = document.getElementById('final-time');
+        const finalMovesSpan = document.getElementById('final-moves');
+        const ratingStarsDiv = document.getElementById('rating-stars');
+
+        let openedCards = [];
+        let matchedPairs = 0;
+        let moves = 0;
+        let startTime;
+        let timerInterval;
+        let isProcessing = false;
+        let totalCards = 16; // القيمة الافتراضية 4x4
+        let cardsArray = [];
+        let timeInSeconds = 0;
+
+        // 1. خلط المصفوفة (Fisher-Yates Shuffle)
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        // 2. اختيار مجموعة الأيقونات وإعداد الشبكة
+        function setupGrid() {
+            totalCards = parseInt(difficultySelect.value);
+            const numPairs = totalCards / 2;
+
+            // اختيار عدد الأيقونات المطلوبة بشكل عشوائي من المجموعة الكبيرة
+            const shuffledIcons = shuffle([...ALL_ICONS]).slice(0, numPairs);
+            
+            // إنشاء مصفوفة البطاقات النهائية (مكررة)
+            cardsArray = shuffle([...shuffledIcons, ...shuffledIcons]);
+
+            // تحديد فئة CSS للشبكة بناءً على عدد البطاقات
+            gameGrid.className = 'grid';
+            if (totalCards === 16) {
+                gameGrid.classList.add('grid-4x4'); // 4x4
+            } else if (totalCards === 20) {
+                gameGrid.classList.add('grid-4x5'); // 4x5
+            } else if (totalCards === 30) {
+                gameGrid.classList.add('grid-6x5'); // 5x6
+            }
+        }
+
+        // 3. تهيئة اللعبة
+        function initializeGame() {
+            setupGrid(); // إعادة إعداد حجم الشبكة ومجموعة الأيقونات
+            gameGrid.innerHTML = '';
+            openedCards = [];
+            matchedPairs = 0;
+            moves = 0;
+            timeInSeconds = 0;
+            movesSpan.textContent = 0;
+            timerSpan.textContent = '0:00';
+            finishModal.classList.remove('visible');
+
+            if (timerInterval) {
+                clearInterval(timerInterval);
+                startTime = null;
+            }
+
+            for (let i = 0; i < totalCards; i++) {
+                const card = document.createElement('div');
+                card.classList.add('card');
+                card.dataset.icon = cardsArray[i];
+                card.addEventListener('click', handleCardClick);
+
+                const cardBack = document.createElement('div');
+                cardBack.classList.add('card-face', 'card-back');
+                cardBack.innerHTML = `<i class="fas fa-puzzle-piece"></i>`; // أيقونة لغز مميزة
+
+                const cardFront = document.createElement('div');
+                cardFront.classList.add('card-face', 'card-front');
+                cardFront.innerHTML = `<i class="fas ${cardsArray[i]}"></i>`;
+
+                card.appendChild(cardBack);
+                card.appendChild(cardFront);
+                gameGrid.appendChild(card);
+            }
+        }
+
+        // 4. بدء العداد الزمني
+        function startTimer() {
+            if (startTime) return;
+
+            startTime = Date.now();
+            timerInterval = setInterval(() => {
+                timeInSeconds = Math.floor((Date.now() - startTime) / 1000);
+                const minutes = Math.floor(timeInSeconds / 60);
+                const seconds = timeInSeconds % 60;
+                timerSpan.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+            }, 1000);
+        }
+
+        // 5. معالجة نقرة البطاقة
+        function handleCardClick(event) {
+            const clickedCard = event.currentTarget;
+
+            if (isProcessing || clickedCard.classList.contains('flipped') || clickedCard.classList.contains('matched')) {
+                return;
+            }
+
+            startTimer();
+            clickedCard.classList.add('flipped');
+            openedCards.push(clickedCard);
+
+            if (openedCards.length === 2) {
+                moves++;
+                movesSpan.textContent = moves;
+                isProcessing = true; // قفل النقر
+                checkForMatch();
+            }
+        }
+
+        // 6. التحقق من المطابقة
+        function checkForMatch() {
+            const [card1, card2] = openedCards;
+            const isMatch = card1.dataset.icon === card2.dataset.icon;
+
+            if (isMatch) {
+                handleMatch(card1, card2);
+            } else {
+                handleMismatch(card1, card2);
+            }
+        }
+
+        // 7. التعامل مع المطابقة
+        function handleMatch(card1, card2) {
+            // يتم تطبيق تأثير match-success في CSS ثم اختفاء البطاقات
+            card1.classList.add('matched');
+            card2.classList.add('matched');
+            
+            matchedPairs++;
+            openedCards = [];
+            isProcessing = false;
+
+            if (matchedPairs === totalCards / 2) {
+                setTimeout(finishGame, 800); // الانتظار حتى انتهاء رسوم المتحركة
+            }
+        }
+
+        // 8. التعامل مع عدم المطابقة
+        function handleMismatch(card1, card2) {
+            setTimeout(() => {
+                card1.classList.remove('flipped');
+                card2.classList.remove('flipped');
+                openedCards = [];
+                isProcessing = false;
+            }, 1200); // ترك البطاقات مفتوحة لمدة أطول (1.2 ثانية)
+        }
+
+        // 9. تقييم الأداء بالنجوم
+        function calculateRating() {
+            const numPairs = totalCards / 2;
+            let rating = 3; // البداية بثلاث نجوم
+
+            // حساب المعيار المثالي لعدد الحركات (يعتمد على عدد الأزواج)
+            const perfectMoves = numPairs; 
+            const graceMoves = numPairs * 0.5; // سماحية 50% فوق المثالي
+
+            // المعايير الزمنية (تقديرات، يمكن تعديلها)
+            const timeThresholds = {
+                16: { star3: 35, star2: 55 }, // 4x4
+                20: { star3: 50, star2: 75 }, // 4x5
+                30: { star3: 80, star2: 120 } // 5x6
+            };
+            const thresholds = timeThresholds[totalCards] || { star3: 40, star2: 60 };
+
+            // تقييم الحركات
+            if (moves > perfectMoves + graceMoves) {
+                rating--;
+            }
+
+            // تقييم الوقت
+            if (timeInSeconds > thresholds.star3) {
+                rating--;
+            }
+            if (timeInSeconds > thresholds.star2) {
+                rating = 1;
+            }
+            
+            if (rating < 1) rating = 1;
+
+            return rating;
+        }
+
+        // 10. إنهاء اللعبة وعرض النتائج
+        function finishGame() {
+            clearInterval(timerInterval);
+            const finalTime = timerSpan.textContent;
+            const starRating = calculateRating();
+
+            finalTimeSpan.textContent = finalTime;
+            finalMovesSpan.textContent = moves;
+            
+            // عرض النجوم
+            let starsHTML = '';
+            for (let i = 1; i <= 3; i++) {
+                if (i <= starRating) {
+                    starsHTML += `<i class="fas fa-star" style="color: var(--accent-color); animation: bounce 0.5s ease-out;"></i> `;
+                } else {
+                    starsHTML += `<i class="far fa-star"></i> `;
+                }
+            }
+            ratingStarsDiv.innerHTML = starsHTML;
+
+            finishModal.classList.add('visible');
+        }
+        
+        // ربط الأحداث
+        restartButton.addEventListener('click', initializeGame);
+        modalRestartButton.addEventListener('click', initializeGame);
+        difficultySelect.addEventListener('change', initializeGame);
+
+        // البدء عند تحميل الصفحة
+        initializeGame();
+    </script>
+</body>
+</html>

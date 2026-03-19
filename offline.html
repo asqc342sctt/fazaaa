@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لا يوجد اتصال بالإنترنت - Fazza Play</title>
+    <meta name="description" content="أنت غير متصل بالإنترنت. تحقق من اتصالك وحاول مرة أخرى.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', 'Tajawal', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+        }
+
+        .offline-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .offline-icon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 30px;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+        }
+
+        .offline-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .offline-message {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .connection-status {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: #dc3545;
+            border-radius: 50%;
+            margin-left: 10px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .retry-button {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .retry-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .retry-button:active {
+            transform: translateY(0);
+        }
+
+        .offline-features {
+            margin-top: 30px;
+            text-align: right;
+        }
+
+        .offline-features h3 {
+            color: #495057;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            color: #6c757d;
+        }
+
+        .feature-list li {
+            margin-bottom: 8px;
+            padding-right: 20px;
+            position: relative;
+        }
+
+        .feature-list li:before {
+            content: "✓";
+            position: absolute;
+            right: 0;
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .footer-note {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #adb5bd;
+            border-top: 1px solid #e9ecef;
+            padding-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .offline-container {
+                padding: 30px 20px;
+                margin: 20px;
+            }
+
+            .offline-title {
+                font-size: 2rem;
+            }
+
+            .offline-icon {
+                width: 100px;
+                height: 100px;
+                font-size: 50px;
+            }
+        }
+
+        .loading {
+            display: none;
+        }
+
+        .loading.show {
+            display: inline-block;
+        }
+
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ffffff;
+            border-top: 2px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8571192174854530"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="offline-container">
+        <div class="offline-icon">
+            📶
+        </div>
+        
+        <h1 class="offline-title">لا يوجد اتصال بالإنترنت</h1>
+        
+        <p class="offline-message">
+            يبدو أن اتصالك بالإنترنت قد انقطع. تحقق من اتصالك بالواي فاي أو البيانات الخلوية وحاول مرة أخرى.
+        </p>
+
+        <div class="connection-status">
+            <span>حالة الاتصال:</span>
+            <span class="status-indicator"></span>
+            <span>غير متصل</span>
+        </div>
+
+        <button class="retry-button" onclick="retryConnection()">
+            <span class="button-text">إعادة المحاولة</span>
+            <span class="loading">
+                <div class="spinner"></div>
+            </span>
+        </button>
+
+        <div class="offline-features">
+            <h3>ماذا يمكنك فعله؟</h3>
+            <ul class="feature-list">
+                <li>تحقق من اتصالك بالواي فاي</li>
+                <li>أعد تشغيل الراوتر</li>
+                <li>تحقق من بيانات الهاتف</li>
+                <li>أعد تحميل الصفحة</li>
+            </ul>
+        </div>
+
+        <div class="footer-note">
+            <strong>Fazza Play</strong> - موقع تحميل الألعاب والتطبيقات
+        </div>
+    </div>
+
+    <script>
+        function retryConnection() {
+            const button = document.querySelector('.retry-button');
+            const buttonText = button.querySelector('.button-text');
+            const loading = button.querySelector('.loading');
+            
+            // إظهار حالة التحميل
+            buttonText.textContent = 'جاري التحقق...';
+            loading.classList.add('show');
+            button.disabled = true;
+
+            // محاولة إعادة الاتصال
+            setTimeout(() => {
+                if (navigator.onLine) {
+                    // إذا عاد الاتصال
+                    window.location.reload();
+                } else {
+                    // إذا لم يعد الاتصال
+                    buttonText.textContent = 'فشل الاتصال';
+                    loading.classList.remove('show');
+                    button.disabled = false;
+                    
+                    // إعادة تعيين الزر بعد ثانيتين
+                    setTimeout(() => {
+                        buttonText.textContent = 'إعادة المحاولة';
+                        button.disabled = false;
+                    }, 2000);
+                }
+            }, 2000);
+        }
+
+        // مراقبة حالة الاتصال
+        window.addEventListener('online', function() {
+            window.location.reload();
+        });
+
+        window.addEventListener('offline', function() {
+            // تحديث حالة الاتصال
+            const statusIndicator = document.querySelector('.status-indicator');
+            const statusText = document.querySelector('.connection-status span:last-child');
+            
+            if (statusIndicator && statusText) {
+                statusIndicator.style.background = '#dc3545';
+                statusText.textContent = 'غير متصل';
+            }
+        });
+
+        // محاولة إعادة الاتصال تلقائياً كل 30 ثانية
+        setInterval(() => {
+            if (navigator.onLine) {
+                window.location.reload();
+            }
+        }, 30000);
+    </script>
+        
+
+    
+  <script src="ads-fazza.js"></script>
+</body>
+</html>

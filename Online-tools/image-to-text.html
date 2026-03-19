@@ -1,0 +1,338 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Image to Text (OCR) | Free Online Tool</title>
+    <meta name="description" content="Extract editable text from images right in your browser using OCR. Fast, private, and free.">
+    <meta name="keywords" content="OCR, Image to Text, extract text from image, Tesseract.js, online OCR">
+    <link rel="canonical" href="https://fazzaplay.com/tools/image-to-text">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="tools.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8571192174854530"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo"><span>FazzaPlay</span></div>
+                <div class="nav-menu">
+                    <a href="../index.html#tools" class="nav-link">Tools</a>
+                    <a href="../index.html#about" class="nav-link">About</a>
+                </div>
+                <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+            </div>
+        </nav>
+    </header>
+    <!-- إعلان قبل الفوتر -->
+    <div class="fazza-ad-unit">
+        <script type="text/javascript">atOptions = { 'key' : 'abae43c3093c7f7459553dac34caad9a', 'format' : 'iframe', 'height' : 90, 'width' : 320, 'params' : {} };</script>
+        <script type="text/javascript" src="https://charmingpoliteinjunction.com/abae43c3093c7f7459553dac34caad9a/invoke.js"></script>
+    </div>
+
+    <main class="tool-page tool-ocr">
+        <section class="tool-hero">
+            <div class="container">
+                <h1>Image to Text (OCR)</h1>
+                <p>Extract editable text from any image quickly — no uploads, all in your browser.</p>
+                <ul class="tool-highlights">
+                    <li><i class="fas fa-lock"></i> Fully private (runs locally in your browser)</li>
+                    <li><i class="fas fa-language"></i> Accurate English OCR</li>
+                    <li><i class="fas fa-bolt"></i> Fast results with high accuracy</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="tool-content container">
+            <h2><i class="fas fa-file-image"></i> Extract Text from Image</h2>
+            <div class="tool-interface">
+                <div class="upload-section">
+                    <div id="uploadArea" class="upload-area">
+                        <div class="upload-content">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Drag & drop an image here or click to choose</p>
+                            <small>Supported: JPG, PNG, WEBP, BMP, TIFF</small>
+                        </div>
+                        <input type="file" id="imageFile" class="file-input" accept="image/*">
+                    </div>
+
+                    <div class="image-preview" id="imagePreview" style="display:none;">
+                        <img id="previewImg" alt="Preview image">
+                        <div class="preview-info">
+                            <p><i class="fas fa-file-image"></i> <span id="fileName">—</span> (filename)</p>
+                            <p><i class="fas fa-weight-hanging"></i> <span id="fileSize">—</span> (size)</p>
+                            <p><i class="fas fa-expand-arrows-alt"></i> <span id="fileDimensions">—</span> (dimensions)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <div class="action-buttons">
+                        <button id="startOcrBtn" class="generate-btn" disabled>
+                            <i class="fas fa-magic"></i>
+                            Start OCR
+                        </button>
+                        <button id="resetOcrBtn" class="reset-btn">
+                            <i class="fas fa-redo"></i>
+                            Reset
+                        </button>
+                    </div>
+
+                    <div class="processing-status" id="processingStatus" style="display:none;">
+                        <div class="status-content">
+                            <div class="spinner"></div>
+                            <p id="processingText">Initializing OCR engine...</p>
+                            <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-area" id="ocrResult" style="display:none;">
+                    <div class="card" style="padding:12px">
+                        <h3 style="margin-bottom:10px"><i class="fas fa-align-left"></i> Extracted Text</h3>
+                        <textarea id="extractedText" style="width:100%; min-height:200px; resize:vertical"></textarea>
+                        <div class="result-actions" style="margin-top:12px">
+                            <button id="copyTextBtn" class="copy-btn"><i class="fas fa-copy"></i> Copy Text</button>
+                            <button id="downloadTextBtn" class="download-btn"><i class="fas fa-download"></i> Download as TXT</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    <!-- إعلان قبل الفوتر -->
+    <div class="fazza-ad-unit">
+        <script type="text/javascript">atOptions = { 'key' : 'abae43c3093c7f7459553dac34caad9a', 'format' : 'iframe', 'height' : 90, 'width' : 320, 'params' : {} };</script>
+        <script type="text/javascript" src="https://charmingpoliteinjunction.com/abae43c3093c7f7459553dac34caad9a/invoke.js"></script>
+    </div>
+
+            <article class="tool-article">
+                <h2>Tips for Better Accuracy</h2>
+                <ul>
+                    <li>Use clear, high-contrast images.</li>
+                    <li>Crop to the text region when possible.</li>
+                    <li>Avoid skew and heavy blur.</li>
+                </ul>
+            </article>
+
+            <article class="tool-article">
+                <h2>What is Image to Text (OCR)?</h2>
+                <p>
+                    OCR (Optical Character Recognition) is the technology that converts text within images into editable, searchable text.
+                    This tool runs entirely in your browser using modern WebAssembly-based OCR, so your files never leave your device.
+                </p>
+
+                <h3>How it Works</h3>
+                <ol>
+                    <li>Upload or drag & drop an image with text.</li>
+                    <li>Our in-browser OCR engine analyzes the image.</li>
+                    <li>You get selectable, copyable text you can edit or download as TXT.</li>
+                </ol>
+
+                <h3>Main Features</h3>
+                <ul>
+                    <li><strong>Private by design</strong>: Processing happens locally in your browser.</li>
+                    <li><strong>Fast</strong>: Optimized OCR engine for quick results.</li>
+                    <li><strong>Simple</strong>: One-click extraction with a clean interface.</li>
+                    <li><strong>Download</strong>: Save results as a TXT file instantly.</li>
+                </ul>
+
+                <h3>Supported Formats</h3>
+                <p>JPG, PNG, WEBP, BMP, and TIFF images are supported.</p>
+
+                <h3>Great For</h3>
+                <ul>
+                    <li>Notes, receipts, invoices, and printed documents</li>
+                    <li>Screenshots of text (web pages, chats, slides)</li>
+                    <li>Quick digitization of small text blocks</li>
+                </ul>
+
+                <h3>Privacy</h3>
+                <p>
+                    Your images are never uploaded to a server. All processing is performed locally in your browser for maximum privacy and security.
+                </p>
+
+                <h3>FAQ</h3>
+                <p><strong>Q: Does it support handwriting?</strong><br>
+                A: Handwriting recognition quality varies and is not guaranteed. Printed text works best.</p>
+                <p><strong>Q: Can I use it offline?</strong><br>
+                A: After the first load, many browsers cache the OCR engine. Subsequent uses may work with limited connectivity.</p>
+            </article>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 FazzaPlay</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js"></script>
+    <script>
+        // تهيئة الرفع والسحب والإفلات
+        (function(){
+            const uploadArea = document.getElementById('uploadArea');
+            const fileInput = document.getElementById('imageFile');
+            const preview = document.getElementById('imagePreview');
+            const previewImg = document.getElementById('previewImg');
+            const fileName = document.getElementById('fileName');
+            const fileSize = document.getElementById('fileSize');
+            const fileDimensions = document.getElementById('fileDimensions');
+            const startBtn = document.getElementById('startOcrBtn');
+            const resetBtn = document.getElementById('resetOcrBtn');
+            const statusBox = document.getElementById('processingStatus');
+            const progressFill = document.getElementById('progressFill');
+            const processingText = document.getElementById('processingText');
+            const resultArea = document.getElementById('ocrResult');
+            const extractedText = document.getElementById('extractedText');
+            const copyBtn = document.getElementById('copyTextBtn');
+            const downloadBtn = document.getElementById('downloadTextBtn');
+            const ocrLang = document.getElementById('ocrLang');
+            const psmMode = document.getElementById('psmMode');
+
+            let selectedFile = null;
+            let ocrWorker = null; // نعيد استخدام العامل بين الجلسات لتقليل التحميل
+            const DEFAULT_LANG = 'eng';
+            const DEFAULT_PSM = '6';
+            let picking = false; // لمنع فتح نافذة الاختيار مرتين
+
+            function formatSize(bytes) {
+                if (bytes === 0) return '0 Bytes';
+                const k = 1024; const sizes = ['Bytes','KB','MB','GB'];
+                const i = Math.floor(Math.log(bytes)/Math.log(k));
+                return (bytes/Math.pow(k,i)).toFixed(2) + ' ' + sizes[i];
+            }
+
+            function show(msg, type){ try { if (typeof showNotification === 'function') showNotification(msg, type||'info'); } catch(e) {}}
+
+            function onFileSelected(file){
+                if (!file || !file.type.startsWith('image/')) { show('Please select a valid image file','warning'); return; }
+                selectedFile = file;
+                const reader = new FileReader();
+                reader.onload = function(e){
+                    const img = new Image();
+                    img.onload = function(){
+                        previewImg.src = e.target.result;
+                        if (fileName) fileName.textContent = file.name;
+                        if (fileSize) fileSize.textContent = formatSize(file.size);
+                        if (fileDimensions) fileDimensions.textContent = `${this.width} × ${this.height} px`;
+                        preview.style.display = 'block';
+                        startBtn.disabled = false;
+                        resultArea.style.display = 'none';
+                        show('Image uploaded ✓','success');
+                    };
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+
+            uploadArea.addEventListener('click', (e) => {
+                // إذا ضغط المستخدم على input نفسه، لا تفتح ثانية
+                if (e.target === fileInput) return;
+                if (selectedFile || picking) return;
+                picking = true;
+                fileInput.click();
+            });
+            // منع الفتح المزدوج عند النقر على الـ input مباشرة
+            fileInput.addEventListener('click', (e) => {
+                picking = true;
+                e.stopPropagation();
+            });
+            uploadArea.addEventListener('dragover', (e) => { e.preventDefault(); uploadArea.classList.add('dragover'); });
+            uploadArea.addEventListener('dragleave', (e) => { e.preventDefault(); uploadArea.classList.remove('dragover'); });
+            uploadArea.addEventListener('drop', (e) => {
+                e.preventDefault(); uploadArea.classList.remove('dragover');
+                if (e.dataTransfer.files && e.dataTransfer.files[0]) onFileSelected(e.dataTransfer.files[0]);
+            });
+            fileInput.addEventListener('change', (e) => {
+                if (e.target.files && e.target.files[0]) {
+                    onFileSelected(e.target.files[0]);
+                    // لا نمسح القيمة هنا لتجنب إعادة فتح نافذة الاختيار تلقائياً في بعض المتصفحات
+                    // إعادة ضبط حالة الاختيار فور انتهاء الاختيار
+                    setTimeout(() => { picking = false; }, 0);
+                }
+            });
+
+            startBtn.addEventListener('click', async function(){
+                if (!selectedFile) { show('Please choose an image first','warning'); return; }
+                startBtn.disabled = true; extractedText.value = '';
+                statusBox.style.display = 'block'; progressFill.style.width = '0%'; processingText.textContent = 'Initializing OCR engine...';
+                try {
+                    const imageUrl = URL.createObjectURL(selectedFile);
+
+                    // إنشاء/تهيئة العامل بشكل صحيح وفق Tesseract v4
+                    if (!ocrWorker) {
+                        ocrWorker = await Tesseract.createWorker({
+                            logger: (m) => {
+                                if (m.progress != null) {
+                                    const p = Math.round(m.progress * 100);
+                                    progressFill.style.width = p + '%';
+                                }
+                                if (m.status) {
+                                    processingText.textContent = (m.status === 'recognizing text') ? 'Recognizing text...' : 'Initializing...';
+                                }
+                            }
+                        });
+                        await ocrWorker.load();
+                    }
+                    // تحميل وتهيئة اللغة الافتراضية وإعداد PSM ثابت
+                    await ocrWorker.loadLanguage(DEFAULT_LANG);
+                    await ocrWorker.initialize(DEFAULT_LANG);
+                    await ocrWorker.setParameters({ tessedit_pageseg_mode: DEFAULT_PSM });
+
+                    const { data: { text } } = await ocrWorker.recognize(imageUrl);
+                    extractedText.value = text || '';
+
+                    // تحرير الموارد الخاصة بالصورة
+                    URL.revokeObjectURL(imageUrl);
+
+                    // إنهاء جلسة اللغة الحالية فقط (نبقي العامل محملاً لإعادة الاستخدام)
+                    await ocrWorker.terminate();
+                    ocrWorker = null; // نعيد إنشاءه عند الحاجة لتفادي حالات عالقة
+
+                    statusBox.style.display = 'none';
+                    resultArea.style.display = 'block';
+                    show('Text extracted successfully','success');
+                } catch (err) {
+                    console.error(err);
+                    statusBox.style.display = 'none';
+                    startBtn.disabled = false;
+                    show('OCR error: ' + (err && err.message ? err.message : ''),'error');
+                } finally {
+                    startBtn.disabled = false;
+                }
+            });
+
+            copyBtn.addEventListener('click', function(){
+                if (!extractedText.value.trim()) { show('No text to copy','warning'); return; }
+                navigator.clipboard.writeText(extractedText.value).then(() => show('Text copied','success'));
+            });
+
+            downloadBtn.addEventListener('click', function(){
+                if (!extractedText.value.trim()) { show('No text to download','warning'); return; }
+                const blob = new Blob([extractedText.value], { type: 'text/plain;charset=utf-8' });
+                const a = document.createElement('a');
+                a.href = URL.createObjectURL(blob);
+                a.download = 'ocr-text-' + Date.now() + '.txt';
+                document.body.appendChild(a); a.click(); document.body.removeChild(a);
+                URL.revokeObjectURL(a.href);
+            });
+
+            resetBtn.addEventListener('click', function(){
+                selectedFile = null; fileInput.value = '';
+                preview.style.display = 'none';
+                resultArea.style.display = 'none';
+                startBtn.disabled = true;
+                progressFill.style.width = '0%';
+                show('Reset done','info');
+            });
+        })();
+    </script>
+<script src="ads-fazza.js"></script>
+</body>
+</html>
+
+

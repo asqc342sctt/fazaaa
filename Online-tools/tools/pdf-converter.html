@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>PDF Converter - Free Online Tool | محول PDF أونلاين مجاناً</title>
+    <meta name="description" content="Convert text and files to PDF instantly. Free online PDF converter tool. Create PDF documents from text, images, and more. | تحويل النصوص والملفات إلى PDF مجاناً.">
+    <meta name="keywords" content="PDF converter, convert to PDF, create PDF, PDF generator, free online tool, محول PDF, نص إلى PDF, HTML إلى PDF, أدوات أونلاين">
+    <meta name="author" content="FazzaPlay">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="googlebot" content="index, follow">
+    <meta name="bingbot" content="index, follow">
+    <link rel="canonical" href="https://fazzaplay.com/tools/pdf-converter">
+    <meta property="og:title" content="PDF Converter - Free Online Tool | محول PDF أونلاين مجاناً">
+    <meta property="og:description" content="Convert text and files to PDF instantly. Free online PDF converter tool. Create PDF documents from text, images, and more. | تحويل النصوص والملفات إلى PDF مجاناً.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fazzaplay.com/tools/pdf-converter">
+    <meta property="og:image" content="https://fazzaplay.com/images/pdf-converter-preview.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="PDF Converter Tool">
+    <meta property="og:locale" content="ar_AR">
+    <meta property="og:locale:alternate" content="en_US">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="tools.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8571192174854530"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo"><span>FazzaPlay</span></div>
+                <div class="nav-menu">
+                    <a href="../index.html#tools" class="nav-link">الأدوات</a>
+                    <a href="../index.html#about" class="nav-link">حول</a>
+                </div>
+                <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+            </div>
+        </nav>
+    </header>
+    <!-- إعلان قبل الفوتر -->
+    <div class="fazza-ad-unit">
+        <script type="text/javascript">atOptions = { 'key' : 'abae43c3093c7f7459553dac34caad9a', 'format' : 'iframe', 'height' : 90, 'width' : 320, 'params' : {} };</script>
+        <script type="text/javascript" src="https://charmingpoliteinjunction.com/abae43c3093c7f7459553dac34caad9a/invoke.js"></script>
+    </div>
+
+
+    <main class="tool-page tool-pdf-converter">
+        <section class="tool-hero">
+            <div class="container">
+                <h1>محول PDF أونلاين</h1>
+                <p>حوّل النصوص أو أكواد HTML إلى ملفات PDF جاهزة للطباعة والتنزيل.</p>
+                <ul class="tool-highlights">
+                    <li><i class="fas fa-file-pdf"></i> يدعم A4/Letter/Legal</li>
+                    <li><i class="fas fa-language"></i> يدعم العربية واللغات الثنائية الاتجاه</li>
+                    <li><i class="fas fa-shield-alt"></i> يعمل محلياً بدون رفع ملفات</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="tool-content container">
+            <h2><i class="fas fa-file-pdf"></i> محول PDF</h2>
+            <div class="tool-interface">
+                <div class="conversion-options">
+                    <h3><i class="fas fa-cogs"></i> خيارات التحويل</h3>
+                    <div class="option-group">
+                        <label>نوع التحويل:</label>
+                        <select id="conversionType">
+                            <option value="text-to-pdf">نص إلى PDF</option>
+                            <option value="html-to-pdf">HTML إلى PDF</option>
+                            <option value="file-to-pdf">ملف إلى PDF</option>
+                        </select>
+                    </div>
+                    <div class="option-group" id="textInputGroup">
+                        <label>أدخل النص:</label>
+                        <textarea id="textInput" rows="8" placeholder="اكتب النص الذي تريد تحويله إلى PDF هنا..."></textarea>
+                    </div>
+                    <div class="option-group" id="fileInputGroup" style="display: none;">
+                        <label>اختر الملف:</label>
+                        <input type="file" id="pdfFile" accept=".txt,.html,.css,.js">
+                        <small>يدعم: ملفات نصية، HTML، CSS، JavaScript</small>
+                    </div>
+                    <div class="option-group">
+                        <label>إعدادات PDF:</label>
+                        <div class="pdf-settings">
+                            <div class="setting-item">
+                                <label for="pageSize">حجم الصفحة:</label>
+                                <select id="pageSize">
+                                    <option value="a4">A4</option>
+                                    <option value="letter">Letter</option>
+                                    <option value="legal">Legal</option>
+                                    <option value="a3">A3</option>
+                                </select>
+                            </div>
+                            <div class="setting-item">
+                                <label for="orientation">الاتجاه:</label>
+                                <select id="orientation">
+                                    <option value="portrait">عمودي</option>
+                                    <option value="landscape">أفقي</option>
+                                </select>
+                            </div>
+                            <div class="setting-item">
+                                <label for="fontSize">حجم الخط:</label>
+                                <select id="fontSize">
+                                    <option value="12">صغير (12)</option>
+                                    <option value="14" selected>متوسط (14)</option>
+                                    <option value="16">كبير (16)</option>
+                                    <option value="18">كبير جداً (18)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="action-buttons">
+                    <button onclick="convertToPdf()" class="convert-btn">
+                        <i class="fas fa-file-pdf"></i>
+                        تحويل إلى PDF
+                    </button>
+                    <button onclick="resetPdfConverter()" class="reset-btn">
+                        <i class="fas fa-redo"></i>
+                        إعادة تعيين
+                    </button>
+                </div>
+                <div class="result-area" id="pdfResult" style="display: none;">
+                    <div class="conversion-results">
+                        <h3><i class="fas fa-check-circle"></i> تم التحويل بنجاح!</h3>
+                        <div class="pdf-info">
+                            <p><i class="fas fa-file-pdf"></i> تم إنشاء ملف PDF</p>
+                            <p><i class="fas fa-download"></i> اضغط على زر التحميل أدناه</p>
+                        </div>
+                        <div class="download-section">
+                            <button onclick="downloadPdf()" class="download-btn">
+                                <i class="fas fa-download"></i>
+                                تحميل PDF
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <article class="tool-article">
+                <h2>دليل سريع | Quick Guide</h2>
+                <ol>
+                    <li>اختر نوع التحويل: نص | HTML | ملف. | Select conversion type: Text | HTML | File.</li>
+                    <li>أدخل النص أو الصق HTML أو اختر ملفك. | Enter text, paste HTML, or pick your file.</li>
+                    <li>حدد الحجم والاتجاه وحجم الخط. | Choose page size, orientation, and font size.</li>
+                    <li>اضغط "تحويل إلى PDF" ثم قم بالتنزيل. | Click "Convert to PDF" and download.</li>
+                </ol>
+
+                <h3>أفضل الممارسات | Best Practices</h3>
+                <ul>
+                    <li>للنصوص الطويلة: استخدم فقرات قصيرة وعناوين فرعية واضحة. | For long text: use short paragraphs and clear subheadings.</li>
+                    <li>لـ HTML: تجنب الأنماط المعقدة؛ التزم بعناصر أساسية مثل p, h1–h3, ul/ol. | For HTML: avoid heavy styling; stick to basic elements like p, h1–h3, ul/ol.</li>
+                    <li>اضبط حجم الخط بما يناسب الطباعة (14–16). | Set a print-friendly font size (14–16).</li>
+                    <li>تحقق من المعاينة النهائية قبل المشاركة. | Review the final PDF before sharing.</li>
+                </ul>
+            </article>
+        </section>
+    </main>
+    <!-- إعلان قبل الفوتر -->
+    <div class="fazza-ad-unit">
+        <script type="text/javascript">atOptions = { 'key' : 'abae43c3093c7f7459553dac34caad9a', 'format' : 'iframe', 'height' : 90, 'width' : 320, 'params' : {} };</script>
+        <script type="text/javascript" src="https://charmingpoliteinjunction.com/abae43c3093c7f7459553dac34caad9a/invoke.js"></script>
+    </div>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 FazzaPlay</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof initializeToolEvents === 'function') {
+                initializeToolEvents('pdf-converter');
+            }
+        });
+    </script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.querySelector('.nav-menu');
+        if (navToggle && navMenu) {
+            navToggle.addEventListener('click', () => {
+                const isVisible = navMenu.style.display === 'flex';
+                navMenu.style.display = isVisible ? 'none' : 'flex';
+            });
+        }
+    });
+    </script>
+</body>
+</html>
+

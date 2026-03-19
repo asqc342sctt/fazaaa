@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>URL Shortener - Free Online Tool | مختصر الروابط مجاناً</title>
+    <meta name="description" content="Shorten long URLs instantly with our free URL shortener. Create short, shareable links for social media, emails, and more. | اختصر الروابط الطويلة مجاناً.">
+    <meta name="keywords" content="URL shortener, shorten URL, link shortener, free URL shortener, short links, URL compressor, مختصر الروابط, تقصير الروابط, رابط قصير">
+    <meta name="author" content="FazzaPlay">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="googlebot" content="index, follow">
+    <meta name="bingbot" content="index, follow">
+    <link rel="canonical" href="https://fazzaplay.com/tools/url-shortener">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="tools.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8571192174854530"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo"><span>FazzaPlay</span></div>
+                <div class="nav-menu">
+                    <a href="../index.html#tools" class="nav-link">Tools</a>
+                    <a href="../index.html#about" class="nav-link">About</a>
+                </div>
+                <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+            </div>
+        </nav>
+    </header>
+    <!-- إعلان قبل الفوتر -->
+    <div class="fazza-ad-unit">
+        <script type="text/javascript">atOptions = { 'key' : 'abae43c3093c7f7459553dac34caad9a', 'format' : 'iframe', 'height' : 90, 'width' : 320, 'params' : {} };</script>
+        <script type="text/javascript" src="https://charmingpoliteinjunction.com/abae43c3093c7f7459553dac34caad9a/invoke.js"></script>
+    </div>
+
+
+    <main class="tool-page tool-url-shortener">
+        <section class="tool-hero">
+            <div class="container">
+                <h1>URL Shortener</h1>
+                <p>Shorten long URLs instantly and create shareable short links for social media, emails, and more.</p>
+                <ul class="tool-highlights">
+                    <li><i class="fas fa-bolt"></i> Instant shortening</li>
+                    <li><i class="fas fa-share-alt"></i> Perfect for social media</li>
+                    <li><i class="fas fa-shield-alt"></i> Safe and secure</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="tool-content container">
+            <h2><i class="fas fa-link"></i> URL Shortener</h2>
+            <div class="tool-interface">
+                <div class="input-section">
+                    <label>Enter long URL:</label>
+                    <input type="url" id="longUrl" placeholder="https://example.com/very-long-url-here...">
+                    <div class="url-stats" id="urlStats" style="font-size:0.9rem;color:#666;margin-top:4px;">
+                        Characters: <span id="urlCharCount">0</span> | Length: <span id="urlLength">0</span>
+                    </div>
+                </div>
+                
+                <div class="action-buttons" style="margin:16px 0;display:flex;gap:10px;flex-wrap:wrap;">
+                    <button class="generate-btn" onclick="shortenUrl()">
+                        <i class="fas fa-compress-alt"></i> Shorten URL
+                    </button>
+                    <button class="copy-btn" id="copyShortUrlBtn">
+                        <i class="fas fa-copy"></i> Copy Short URL
+                    </button>
+                    <button class="reset-btn" id="resetUrlBtn">
+                        <i class="fas fa-redo"></i> Clear All
+                    </button>
+                </div>
+                
+                <div class="result-area" id="urlResult" style="display:none;">
+                    <div class="card" style="padding:12px;">
+                        <h3 style="margin-bottom:8px;"><i class="fas fa-check-circle"></i> Shortened URL:</h3>
+                        <div class="url-comparison" style="display:grid;gap:8px;">
+                            <div class="url-item">
+                                <label style="font-size:0.9rem;color:#666;">Original URL:</label>
+                                <div class="url-display" style="word-break:break-all;padding:8px;background:#f5f5f5;border-radius:4px;">
+                                    <a id="originalLink" href="#" target="_blank" style="color:#667eea;"></a>
+                                </div>
+                            </div>
+                            <div class="url-item">
+                                <label style="font-size:0.9rem;color:#666;">Short URL:</label>
+                                <div class="url-display" style="word-break:break-all;padding:8px;background:#e8f5e8;border-radius:4px;">
+                                    <a id="shortLink" href="#" target="_blank" style="color:#10b981;font-weight:bold;"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="result-actions" style="margin-top:12px;display:flex;gap:8px;">
+                            <button class="copy-btn" id="copyResultUrlBtn">
+                                <i class="fas fa-copy"></i> Copy Short URL
+                            </button>
+                            <button class="download-btn" id="downloadUrlBtn">
+                                <i class="fas fa-download"></i> Save as TXT
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <article class="tool-article">
+                <h2>Why Use URL Shortener?</h2>
+                <p>URL shorteners are essential tools for modern digital communication. Here's why they're useful:</p>
+                <ul>
+                    <li><strong>Social Media:</strong> Twitter, Instagram, and other platforms have character limits</li>
+                    <li><strong>Email Marketing:</strong> Clean, professional-looking links in newsletters</li>
+                    <li><strong>QR Codes:</strong> Shorter URLs create simpler, more scannable QR codes</li>
+                    <li><strong>Analytics:</strong> Track click-through rates and engagement</li>
+                    <li><strong>Branding:</strong> Custom short domains for professional appearance</li>
+                </ul>
+                
+                <h3>How to Use</h3>
+                <ol>
+                    <li>Paste your long URL in the input field above</li>
+                    <li>Click "Shorten URL" to generate a short link</li>
+                    <li>Copy the short URL and share it anywhere</li>
+                    <li>Use the "Save as TXT" option to keep a record</li>
+                </ol>
+            </article>
+        </section>
+    </main>
+    <!-- إعلان قبل الفوتر -->
+    <div class="fazza-ad-unit">
+        <script type="text/javascript">atOptions = { 'key' : 'abae43c3093c7f7459553dac34caad9a', 'format' : 'iframe', 'height' : 90, 'width' : 320, 'params' : {} };</script>
+        <script type="text/javascript" src="https://charmingpoliteinjunction.com/abae43c3093c7f7459553dac34caad9a/invoke.js"></script>
+    </div>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 FazzaPlay</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof initializeToolEvents === 'function') {
+                initializeToolEvents('url-shortener');
+            }
+        });
+    </script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.querySelector('.nav-menu');
+        if (navToggle && navMenu) {
+            navToggle.addEventListener('click', () => {
+                const isVisible = navMenu.style.display === 'flex';
+                navMenu.style.display = isVisible ? 'none' : 'flex';
+            });
+        }
+    });
+    </script>
+</body>
+</html>
+

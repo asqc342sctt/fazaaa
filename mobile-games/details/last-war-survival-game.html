@@ -1,0 +1,259 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>âš¡ï¸Ž تحميل Last War: Survival Game | استراتيجية البناء والقتال التكتيكي - Fazza Play</title>
+    
+    <meta name="description" content="حمّل Last War: Survival Game، لعبة استراتيجية بقاء حيث يجب عليك بناء وتطوير قاعدتك العسكرية (Base Building) والدفاع عنها ضد جحافل الزومبي. قُد الأبطال وخصص الوحدات وحقق الانتصارات في قتال سريع ومباشر.">
+    <meta name="keywords" content="Last War Survival Game تحميل, لعبة استراتيجية زومبي, إدارة قاعدة عسكرية, ألعاب بقاء PvP, بناء القواعد، أبطال Last War، ألعاب أندرويد آيفون">
+    <meta name="author" content="Fazza Play">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Last War: Survival Game - دليل شامل لبناء القاعدة والبقاء">
+    <meta property="og:description" content="شرح آليات البناء، وتجنيد الأبطال، والتحالفات الاستراتيجية في عالم Last War المدمر.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fazzaplay.com/mobile-games/details/last-war-survival-game.html">
+    <link rel="canonical" href="https://fazzaplay.com/mobile-games/details/last-war-survival-game.html">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../../css/style.css"> 
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <style>
+        /* نظام ألوان عسكري قاتم (الأخضر الداكن، الأصفر التكتيكي، الأسود) */
+        :root {
+            --dark-bg: #0F0F0F; 
+            --main-card-bg: #1B1B1B;
+            --text-color: #EAEAEA;
+            --highlight-color: #A0C300; /* أخضر عسكري باهت */
+            --secondary-color: #FFB700; /* أصفر تحذيري/ذهبي */
+            --border-color: #3A3A3A;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-color);
+            font-family: 'Tajawal', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #000;
+            padding: 15px 0;
+            text-align: center;
+        }
+        header h1 a {
+            color: var(--highlight-color);
+            text-decoration: none;
+            font-size: 1.8rem;
+        }
+        .game-detail-container {
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 3rem;
+            background-color: var(--main-card-bg);
+            border-radius: 15px;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+            border: 1px solid var(--border-color); 
+        }
+        .game-detail-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .game-detail-header img {
+            width: 160px; 
+            height: 160px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--secondary-color);
+            box-shadow: 0 0 15px rgba(255, 183, 0, 0.5);
+        }
+        .game-detail-header h1 {
+            font-size: 3.5rem;
+            margin-top: 1.5rem;
+            color: var(--highlight-color);
+            text-shadow: 1px 1px 5px rgba(160, 195, 0, 0.5);
+        }
+        .game-detail-content h2 {
+            font-size: 2.2rem;
+            margin-top: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary-color);
+            border-bottom: 3px solid var(--highlight-color);
+            padding-bottom: 0.8rem;
+        }
+        .game-detail-content h3 {
+            font-size: 1.6rem;
+            margin-top: 2.5rem;
+            color: var(--highlight-color);
+            padding-right: 10px;
+            border-right: 4px solid var(--secondary-color);
+        }
+        .game-detail-content p, .game-detail-content ul, .game-detail-content li {
+            font-size: 1.15rem;
+            line-height: 2;
+            text-align: justify;
+        }
+        .game-detail-content ul {
+            list-style: none;
+            padding-right: 0;
+        }
+        .game-detail-content li {
+            margin-bottom: 1rem;
+            padding-right: 2.5rem;
+            position: relative;
+            background-color: #252525;
+            padding: 12px;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        .game-detail-content li::before {
+            content: 'âš¡ï¸Ž'; /* رمز برق / طاقة */
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--highlight-color);
+            font-size: 1.2rem;
+        }
+        .buttons-container {
+            text-align: center;
+            margin-top: 5rem;
+            padding-top: 2.5rem;
+            border-top: 1px dashed var(--border-color);
+        }
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 15px;
+            padding: 18px 40px;
+            background-color: var(--highlight-color);
+            color: var(--dark-bg);
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 1.3rem;
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+            box-shadow: 0 6px 20px rgba(160, 195, 0, 0.5);
+        }
+        .action-btn:hover {
+            background-color: #83A300;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(160, 195, 0, 0.8);
+        }
+        .back-btn {
+            background-color: var(--secondary-color);
+            color: var(--dark-bg);
+            box-shadow: 0 6px 20px rgba(255, 183, 0, 0.5);
+            padding: 15px 30px;
+            font-size: 1.1rem;
+        }
+        .back-btn:hover {
+            background-color: #E0A800;
+            box-shadow: 0 10px 25px rgba(255, 183, 0, 0.8);
+        }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8571192174854530"
+     crossorigin="anonymous"></script>
+</head>
+<body> <header>
+        <h1><a href="../../index.html">Fazza Play</a></h1>
+    </header>
+    <main>
+        <div class="game-detail-container">
+            <div class="game-detail-header">
+                <img src="../../images/mobile-games/Last War Survival Game.webp" alt="أيقونة Last War: Survival Game">
+                <h1>Last War: Survival Game - إمبراطورية البقاء</h1>
+            </div>
+
+            <div class="game-detail-content">
+                
+                <h2>ðŸ ¡ المفهوم الاستراتيجي: إدارة قاعدتك في عالم الزومبي</h2>
+                <p>
+                    تدمج **Last War: Survival Game** بين جانبين رئيسيين: **البناء الاستراتيجي (SLG)** و **القتال التكتيكي المباشر**. بصفتك القائد الأعلى، مهمتك الأساسية هي تحويل قاعدة عسكرية مدمرة إلى حصن آمن ومركز قوة في عالم اجتاحته جحافل الموتى الأحياء. النجاح لا يعتمد فقط على القتال، بل على **الإدارة الفعالة للموارد**، وتخصيص المباني، والبحث عن التقنيات الجديدة.
+                </p>
+
+                <h2>ðŸš¡ آليات اللعب الرئيسية (عمق القيمة الحقيقية)</h2>
+                
+                <h3>1. نظام البناء والتطوير (Base Building)</h3>
+                <p>
+                    يتطلب البقاء تخطيطاً دقيقاً. يجب عليك بناء وترقية مجموعة من المباني التي تؤدي وظائف حاسمة:
+                </p>
+                <ul>
+                    <li>**مركز القيادة:** النقطة المركزية التي تحدد مستوى قاعدتك وتفتح مبانٍ جديدة.</li>
+                    <li>**مصنع الموارد:** لإنتاج الغذاء والوقود والذخيرة بشكل مستمر لدعم قواتك.</li>
+                    <li>**مختبر الأبحاث:** لتطوير التقنيات التي تزيد من قوة الوحدات وسرعة البناء والحصاد.</li>
+                    <li>**الثكنات والملاجئ:** لتدريب وتجنيد وحدات قتالية جديدة والدفاع عن المدنيين.</li>
+                </ul>
+                
+                <h3>2. القتال السريع وتجنيد الأبطال (Hero Combat)</h3>
+                <p>
+                    القتال في Last War هو قتال تكتيكي سريع يتم التحكم فيه من خلال اختيار الأبطال وتوزيعهم. كل بطل يمتلك مهارات فريدة وفئة محددة:
+                </p>
+                <ul>
+                    <li>**فئات الأبطال:** يتم تصنيفهم إلى مهاجمين (Attackers)، مدافعين (Defenders)، وداعمين (Supporters).</li>
+                    <li>**المزج التكتيكي:** يجب عليك اختيار الأبطال المناسبين لكل مهمة. على سبيل المثال، إرسال مدافعين في المقدمة بينما يقوم المهاجمون بتغطيتهم من الخلف.</li>
+                    <li>**السيطرة على الميدان:** على عكس ألعاب الاستراتيجية التقليدية، تتميز المعارك هنا بوتيرة سريعة تتطلب قرارات فورية لزيادة قوة فرقتك أو اتخاذ مسار مختلف على الخريطة.</li>
+                </ul>
+
+                <h2>ðŸŒ التحالفات والحرب العالمية (PvP & Alliances)</h2>
+                <p>
+                    تتجاوز اللعبة البقاء الفردي لتشمل صراعاً جماعياً على خريطة العالم. الانضمام إلى تحالف أمر حيوي لـ:
+                </p>
+                <ul>
+                    <li>**الدعم المتبادل:** تلقي المساعدة في البناء والتطوير من أعضاء التحالف.</li>
+                    <li>**الحرب على الأعداء:** التنسيق لغزو القواعد المنافسة والاستيلاء على الموارد في مناطق PvP.</li>
+                    <li>**حماية الأراضي:** الدفاع عن منطقة التحالف ضد الهجمات المشتركة.</li>
+                </ul>
+
+                <h2>ðŸ“ متطلبات التشغيل</h2>
+                <p>
+                    تتطلب هذه اللعبة الاستراتيجية اتصالاً مستمراً بالإنترنت لضمان تفاعل التحالفات والمعارك في الوقت الحقيقي.
+                </p>
+                <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+                    <thead>
+                        <tr style="background-color: #333;">
+                            <th style="padding: 10px; border: 1px solid var(--border-color); color: var(--secondary-color);">الميزة</th>
+                            <th style="padding: 10px; border: 1px solid var(--border-color); color: var(--secondary-color);">المتطلب الأدنى</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background-color: #252525;">
+                            <td style="padding: 10px; border: 1px solid var(--border-color);">نظام التشغيل</td>
+                            <td style="padding: 10px; border: 1px solid var(--border-color);">Android 5.0 أو أحدث / iOS 10.0 أو أحدث</td>
+                        </tr>
+                        <tr style="background-color: #1B1B1B;">
+                            <td style="padding: 10px; border: 1px solid var(--border-color);">المساحة التخزينية</td>
+                            <td style="padding: 10px; border: 1px solid var(--border-color);">500MB (مع تزايد المحتوى)</td>
+                        </tr>
+                        <tr style="background-color: #252525;">
+                            <td style="padding: 10px; border: 1px solid var(--border-color);">الذاكرة العشوائية (RAM)</td>
+                            <td style="padding: 10px; border: 1px solid var(--border-color);">2GB على الأقل</td>
+                        </tr>
+                        <tr style="background-color: #1B1B1B;">
+                            <td style="padding: 10px; border: 1px solid var(--border-color);">الاتصال</td>
+                            <td style="padding: 10px; border: 1px solid var(--border-color);">مطلوب (Online Strategy Game)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="buttons-container">
+                <a href="https://play.google.com/store/apps/details?id=com.fun.lastwar.gp" class="action-btn" target="_blank">ðŸ“± تحميل Last War للأندرويد</a>
+                <a href="https://apps.apple.com/us/app/last-war-survival-game/id6449557404" class="action-btn back-btn" target="_blank">ðŸ“± تحميل Last War للآيفون</a>
+                <a href="../index.html" class="action-btn back-btn" style="background-color: #555; color: #fff; box-shadow: none;">â¬… العودة لقائمة الألعاب</a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Fazza Play. جميع الحقوق محفوظة. | <a href="/privacy-policy.html" style="color: var(--highlight-color); text-decoration: none;">سياسة الخصوصية</a> | <a href="/terms-of-use.html" style="color: var(--highlight-color); text-decoration: none;">شروط الاستخدام</a></p>
+        </div>
+    </footer>
+ <script src="ads-fazza.js"></script>
+</body>
+     
+
+</html>

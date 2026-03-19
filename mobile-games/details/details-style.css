@@ -1,0 +1,226 @@
+/*
+====================================
+CSS File: Fazza Play - Game Details
+Language: Arabic (RTL Support)
+====================================
+*/
+
+/* ----------------------------------
+1. Font Imports (الخطوط العربية)
+---------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+
+/* ----------------------------------
+2. Variables (المتغيرات)
+---------------------------------- */
+:root {
+    /* تعريف الخطوط */
+    --font-primary: 'Noto Sans Arabic', 'Almarai', 'Tajawal', sans-serif;
+    --font-heading: 'Tajawal', 'Almarai', 'Noto Sans Arabic', sans-serif;
+    --font-body: 'Noto Sans Arabic', 'Almarai', sans-serif;
+    
+    /* الألوان الأساسية */
+    --color-dark-bg: #121212;
+    --color-card-bg: #1e1e1e;
+    --color-primary-accent: #ffc107; /* اللون الأصفر/الذهبي المميز */
+    --color-secondary-action: #4a9fdf; /* اللون الأزرق لزر العودة */
+    --color-text-light: #e0e0e0;
+    --color-text-medium: #cccccc;
+    --color-text-dark: #121212;
+}
+
+/* ----------------------------------
+3. Base Styling (الأنماط الأساسية للجسم)
+---------------------------------- */
+body {
+    background-color: var(--color-dark-bg);
+    color: var(--color-text-light);
+    font-family: var(--font-body);
+    font-weight: 400;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* ----------------------------------
+4. Main Container (حاوية تفاصيل اللعبة)
+---------------------------------- */
+.game-detail-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--color-card-bg);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+/* ----------------------------------
+5. Header (الرأس وتفاصيل اللعبة الرئيسية)
+---------------------------------- */
+.game-detail-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.game-detail-header img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    /* يمكن إضافة تأثير بسيط للصورة هنا */
+}
+
+.game-detail-header h1 {
+    font-size: 3rem;
+    margin-top: 1rem;
+    color: var(--color-primary-accent);
+    font-family: var(--font-heading);
+    font-weight: 800;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* ----------------------------------
+6. Content & Typography (المحتوى والعناوين)
+---------------------------------- */
+.game-detail-content h2 {
+    font-size: 2rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--color-primary-accent);
+    padding-bottom: 0.5rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: #ffffff; /* عناوين القسم بلون أبيض واضح */
+}
+
+.game-detail-content h3 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--color-primary-accent);
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.game-detail-content p,
+.game-detail-content ul {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    font-family: var(--font-body);
+    font-weight: 400;
+    color: var(--color-text-light);
+}
+
+/* قائمة الميزات */
+.game-detail-content ul {
+    list-style: none;
+    padding-right: 0;
+    margin-bottom: 1.5rem;
+}
+
+.game-detail-content li {
+    margin-bottom: 0.75rem;
+    padding-right: 1.5rem;
+    position: relative;
+    font-family: var(--font-body);
+    font-weight: 400;
+    color: var(--color-text-medium);
+}
+
+.game-detail-content li::before {
+    content: '◆';
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: var(--color-primary-accent);
+    font-size: 0.8rem;
+}
+
+/* تمييز النصوص الهامة */
+.game-detail-content strong {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--color-primary-accent);
+}
+
+/* ----------------------------------
+7. Buttons (أزرار التحميل والعودة)
+---------------------------------- */
+.buttons-container {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.action-btn {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 12px 25px;
+    background-color: var(--color-primary-accent);
+    color: var(--color-text-dark);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    border: none;
+}
+
+.action-btn:hover {
+    background-color: #e0a800;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(255, 193, 7, 0.3);
+}
+
+.back-btn {
+    background-color: var(--color-secondary-action);
+    color: #ffffff;
+}
+
+.back-btn:hover {
+    background-color: #3a8fcf;
+    box-shadow: 0 5px 10px rgba(74, 159, 223, 0.3);
+}
+
+/* ----------------------------------
+8. Responsiveness (تحسين العرض على الهواتف)
+---------------------------------- */
+@media (max-width: 768px) {
+    
+    .game-detail-container {
+        margin: 1rem 0.5rem;
+        padding: 1.5rem;
+    }
+
+    .game-detail-header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .game-detail-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    .game-detail-content h3 {
+        font-size: 1.3rem;
+    }
+    
+    .game-detail-content p,
+    .game-detail-content ul {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+    
+    .game-detail-content li {
+        font-size: 0.95rem;
+    }
+    
+    .action-btn {
+        font-size: 1rem;
+        padding: 10px 20px;
+        margin: 10px 5px; /* تباعد أفضل للأزرار في شاشة صغيرة */
+        display: block; /* جعل الأزرار تأخذ عرض كامل للتسهيل */
+    }
+}

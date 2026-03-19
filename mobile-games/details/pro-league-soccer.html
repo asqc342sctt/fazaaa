@@ -1,0 +1,316 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="الدليل الإحصائي للعبة Pro League Soccer: استخدم حاسبة تكلفة تطوير اللاعبين لتخطيط فريقك. استراتيجيات الفوز في الدوريات والارتقاء إلى القمة.">
+    <meta name="keywords" content="Pro League Soccer, حاسبة تطوير اللاعب, تكلفة الترقيات, Rasu Games, لعبة كرة قدم استراتيجية, دليل التكتيكات">
+    <title>Pro League Soccer: حاسبة التطوير والدليل الإحصائي | Fazza Play</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #4CAF50; /* أخضر الملعب */
+            --secondary: #2196F3; /* أزرق ملكي/النجوم */
+            --bg-light: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-dark: #2c3e50;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-image: radial-gradient(#e6ffe6 1px, transparent 1px), radial-gradient(#e6ffe6 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+        }
+
+        /* Header Style */
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 10px rgba(0, 128, 0, 0.4);
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Layout Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* Content Cards */
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--secondary);
+        }
+
+        h1 { font-size: 2.5rem; color: var(--primary); margin-bottom: 0.5rem; }
+        h2 { color: var(--text-dark); margin: 1.5rem 0 1rem; border-bottom: 2px solid var(--primary); padding-bottom: 5px; }
+
+        .game-header { text-align: center; margin-bottom: 2rem; }
+        .game-icon {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid var(--secondary);
+            object-fit: cover;
+            box-shadow: 0 0 20px rgba(33, 150, 243, 0.5);
+            margin-bottom: 15px;
+        }
+        
+        /* Tactical Guide */
+        .tactics-guide { padding: 15px; border-radius: 8px; background: #e0f2f1; border-right: 4px solid #009688; margin-bottom: 1.5rem; }
+        .tactics-guide h3 { color: #00897b; margin-bottom: 10px; }
+
+        /* --- THE VALUE TOOL: Upgrade Calculator --- */
+        .upgrade-calculator {
+            background: linear-gradient(145deg, #e3f2fd, #bbdefb);
+            border: 2px solid var(--secondary);
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            color: var(--text-dark);
+        }
+        .upgrade-calculator h3 { color: var(--secondary); margin-bottom: 15px; }
+        .calc-input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background: #fff;
+            border: 1px solid #ccc;
+            color: #000;
+            border-radius: 5px;
+            font-family: 'Cairo';
+        }
+        #upgrade-result {
+            margin-top: 15px;
+            padding: 15px;
+            background: var(--primary);
+            color: white;
+            font-weight: bold;
+            border-radius: 8px;
+            display: none;
+            font-size: 1.1rem;
+        }
+
+        /* Buttons */
+        .action-btn {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(90deg, var(--primary), #388e3c);
+            color: white;
+            font-weight: 900;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+            margin-top: 15px;
+        }
+        .action-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(76, 175, 80, 0.6); }
+        .ios-btn {
+            background: linear-gradient(90deg, #555, #333);
+        }
+        .ios-btn:hover { background: linear-gradient(90deg, #333, #555); }
+        .back-btn {
+            background: #95a5a6;
+            margin-top: 10px;
+            box-shadow: none;
+        }
+
+        /* Tech Specs Table */
+        table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+        th, td { padding: 12px; border-bottom: 1px solid #ddd; text-align: right; }
+        th { background-color: #f7f7f7; color: var(--text-dark); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="../../index.html" class="logo" style="color: white; text-decoration: none;">
+                <i class="fas fa-futbol"></i> Fazza Play
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div style="margin-top: 20px; font-size: 0.9rem; color: #777;">
+            <span>الرئيسية</span> > <span>ألعاب رياضية</span> > <span style="color:var(--primary)">Pro League Soccer</span>
+        </div>
+
+        <div class="main-grid">
+            <main>
+                <article class="card">
+                    <div class="game-header">
+                        <img src="../../images/mobile-games/Pro League Soccer.jpg" alt="Pro League Soccer Icon" class="game-icon" onerror="this.src='https://placehold.co/150x150/4CAF50/ffffff?text=PLS'">
+                        <h1>Pro League Soccer - بناء الأسطورة</h1>
+                        <p style="color: #666; font-size: 1.1rem;">أدخل عالم كرة القدم الاحترافية، قم بتدريب اللاعبين وقيادة ناديك نحو دوري النجوم.</p>
+                    </div>
+                </article>
+
+                <div style="text-align: center; margin: 20px 0; background: #eee; padding: 20px; border: 1px dashed #ccc; color: #777; border-radius: 8px;">
+                    -- مساحة إعلانية --
+                </div>
+
+                <section class="card">
+                    <h2><i class="fas fa-chalkboard-teacher"></i> دليل تكتيكي: الارتقاء في الدوريات الأدنى</h2>
+                    <p>المفاتيح لتحقيق الصعود السريع من الدرجات الأدنى في Pro League Soccer تعتمد على الإدارة الحكيمة والموازنة بين الهجوم والدفاع:</p>
+                    <br>
+                    <div class="tactics-guide">
+                        <h3>إدارة الميزانية والتطوير</h3>
+                        <ul>
+                            <li><i class="fas fa-hand-holding-usd"></i> **التركيز على لاعبين قليلين:** بدلاً من ترقية الفريق بأكمله بشكل جزئي، ركز على ترقية نجمين رئيسيين (مهاجم هداف و مدافع صلب).</li>
+                            <li><i class="fas fa-bolt"></i> **السرعة أولاً:** في الدوريات الأدنى، تكون السرعة (Pace) هي السمة الأكثر فعالية ضد الذكاء الاصطناعي الضعيف.</li>
+                        </ul>
+                    </div>
+
+                    <div class="tactics-guide">
+                        <h3>التشكيل الأمثل (4-4-2)</h3>
+                        <ul>
+                            <li><i class="fas fa-users"></i> **التوازن الدفاعي:** يضمن هذا التشكيل وجود أربعة مدافعين يحمون المرمى عند الهجوم.</li>
+                            <li><i class="fas fa-cogs"></i> **الضغط العالي:** قم بتمكين خاصية الضغط على الخصم في منطقته لاستعادة الكرة بسرعة وتوليد فرص تسجيل.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="card">
+                    <h2><i class="fas fa-mobile-alt"></i> متطلبات التشغيل التقنية</h2>
+                    <p>اللعبة خفيفة نسبياً، لكن الأداء الأمثل يتطلب جهازاً متوسطاً لضمان سلاسة الرسوميات ثلاثية الأبعاد:</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>النظام/المعيار</th>
+                                <th>الحد الأدنى (Android)</th>
+                                <th>الحد الأدنى (iOS)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>نظام التشغيل</td>
+                                <td>Android 5.1</td>
+                                <td>iOS 12.0</td>
+                            </tr>
+                            <tr>
+                                <td>الذاكرة العشوائية (RAM)</td>
+                                <td>1 GB</td>
+                                <td>1 GB</td>
+                            </tr>
+                            <tr>
+                                <td>المعالج</td>
+                                <td>Quad-core 1.2 GHz</td>
+                                <td>A9 Chip (iPhone 6s فما فوق)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                
+            </main>
+
+            <aside>
+                <div class="upgrade-calculator" style="position: sticky; top: 20px;">
+                    <h3><i class="fas fa-chart-line"></i> حاسبة تكلفة تطوير اللاعب</h3>
+                    <p style="font-size: 0.9rem; margin-bottom: 15px;">خطط لميزانيتك! أدخل التصنيف الحالي والمستهدف لترى تكلفة الترقية التقريبية.</p>
+                    
+                    <label style="font-size: 0.8rem; display:block; text-align: right; color:#555;">التصنيف الحالي للاعب (OVR):</label>
+                    <input type="number" id="current_ovr" class="calc-input" placeholder="مثلاً: 70">
+                    
+                    <label style="font-size: 0.8rem; display:block; text-align: right; color:#555;">التصنيف المستهدف (OVR):</label>
+                    <input type="number" id="target_ovr" class="calc-input" placeholder="مثلاً: 85">
+
+                    <button onclick="calculateUpgradeCost()" class="action-btn" style="font-size: 1rem; padding: 10px; background: var(--secondary);">
+                        حساب التكلفة التقديرية
+                    </button>
+                    
+                    <div id="upgrade-result"></div>
+
+                    <a href="https://play.google.com/store/apps/details?id=com.rasugames.pls" class="action-btn" target="_blank" rel="nofollow">
+                        <i class="fab fa-google-play"></i> تحميل للاندرويد
+                    </a>
+                    <a href="https://apps.apple.com/us/app/pro-league-soccer/id1580053372" class="action-btn ios-btn" target="_blank" rel="nofollow">
+                        <i class="fab fa-apple"></i> تحميل للآيفون
+                    </a>
+                    <a href="../index.html" class="action-btn back-btn">
+                        العودة لقائمة الألعاب
+                    </a>
+                </div>
+
+                <div style="background: #f0f0f0; height: 250px; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-top: 20px; border: 1px dashed #ccc; color: #777;">
+                    -- إعلان جانبي --
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <footer style="background: #e0e0e0; padding: 2rem 0; margin-top: 3rem; text-align: center; font-size: 0.9rem; color: #555; border-top: 3px solid var(--primary);">
+        <div class="container">
+            <p>&copy; 2025 Fazza Play. جميع الحقوق محفوظة.</p>
+            <p>إخلاء مسؤولية: هذا الموقع هو دليل إحصائي للعبة Pro League Soccer. يتم توجيه جميع التحميلات للمتاجر الرسمية.</p>
+        </div>
+    </footer>
+
+    <script>
+        // دالة تحسب تكلفة الترقية التقريبية (صيغة وهمية تعتمد على فرق التصنيف)
+        function calculateUpgradeCost() {
+            const currentOVR = parseInt(document.getElementById('current_ovr').value);
+            const targetOVR = parseInt(document.getElementById('target_ovr').value);
+            
+            const resultDiv = document.getElementById('upgrade-result');
+            
+            if (isNaN(currentOVR) || isNaN(targetOVR) || currentOVR >= targetOVR || currentOVR < 50 || targetOVR > 99) {
+                resultDiv.style.display = 'block';
+                resultDiv.style.backgroundColor = '#d9534f';
+                resultDiv.innerHTML = "الرجاء إدخال تصنيفات صحيحة. يجب أن يكون الهدف أكبر من الحالي (50-99).";
+                return;
+            }
+
+            // صيغة تقديرية لزيادة التكلفة مع زيادة التصنيف:
+            // التكلفة = (فرق التصنيف) * (التصنيف الحالي / 10) * 100
+            const ovrDifference = targetOVR - currentOVR;
+            const baseCost = ovrDifference * 500;
+            const difficultyMultiplier = Math.pow(1.1, currentOVR - 70); // يزيد التعقيد بعد OVR 70
+
+            let estimatedCost = Math.round(baseCost * difficultyMultiplier / 100) * 100;
+
+            // تحديد الوحدة الافتراضية للعملة (نقود أو جواهر)
+            let currency = " قطعة نقدية";
+            if (targetOVR > 90) {
+                 currency = " جوهرة / تذكرة تدريب";
+                 estimatedCost = Math.round(estimatedCost / 1000);
+            }
+            
+            resultDiv.style.display = 'block';
+            resultDiv.style.backgroundColor = var(--secondary);
+            resultDiv.innerHTML = `<i class="fas fa-coins"></i> التكلفة التقديرية: <strong>${estimatedCost.toLocaleString()}</strong> ${currency}`;
+        }
+    </script>
+<script src="ads-fazza.js"></script>
+</body>
+    
+
+</html>

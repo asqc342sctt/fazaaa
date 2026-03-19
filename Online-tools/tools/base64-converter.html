@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Base64 Encoder/Decoder - Free Online Tool | محول Base64 مجاناً</title>
+    <meta name="description" content="Encode and decode text to/from Base64 instantly. Free online Base64 converter tool for developers and users worldwide. | تشفير وفك تشفير Base64 مجاناً.">
+    <meta name="keywords" content="Base64 encoder, Base64 decoder, encode Base64, decode Base64, free online tool, Base64 converter, محول Base64, تشفير Base64, فك تشفير Base64">
+    <meta name="author" content="FazzaPlay">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="googlebot" content="index, follow">
+    <meta name="bingbot" content="index, follow">
+    <link rel="canonical" href="https://fazzaplay.com/tools/base64-converter">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="tools.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8571192174854530"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo"><span>FazzaPlay</span></div>
+                <div class="nav-menu">
+                    <a href="../index.html#tools" class="nav-link">Tools</a>
+                    <a href="../index.html#about" class="nav-link">About</a>
+                </div>
+                <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+            </div>
+        </nav>
+    </header>
+    <!-- إعلان قبل الفوتر -->
+    <div class="fazza-ad-unit">
+        <script type="text/javascript">atOptions = { 'key' : 'abae43c3093c7f7459553dac34caad9a', 'format' : 'iframe', 'height' : 90, 'width' : 320, 'params' : {} };</script>
+        <script type="text/javascript" src="https://charmingpoliteinjunction.com/abae43c3093c7f7459553dac34caad9a/invoke.js"></script>
+    </div>
+
+    <main class="tool-page tool-base64-converter">
+        <section class="tool-hero">
+            <div class="container">
+                <h1>Base64 Encoder/Decoder</h1>
+                <p>Encode and decode text to/from Base64 instantly. Perfect for developers and data processing.</p>
+                <ul class="tool-highlights">
+                    <li><i class="fas fa-shield-alt"></i> Secure client-side processing</li>
+                    <li><i class="fas fa-globe"></i> Supports all languages and characters</li>
+                    <li><i class="fas fa-bolt"></i> Instant encoding/decoding</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="tool-content container">
+            <h2><i class="fas fa-exchange-alt"></i> Base64 Encoder/Decoder</h2>
+            <div class="tool-interface">
+                <div class="input-section">
+                    <label>Text to encode/decode:</label>
+                    <textarea id="base64Input" rows="6" placeholder="Enter text or Base64 string here..."></textarea>
+                    <div class="input-stats" id="inputStats" style="font-size:0.9rem;color:#666;margin-top:4px;">
+                        Characters: <span id="charCount">0</span> | Bytes: <span id="byteCount">0</span>
+                    </div>
+                </div>
+                
+                <div class="action-buttons" style="margin:16px 0;display:flex;gap:10px;flex-wrap:wrap;">
+                    <button class="generate-btn" onclick="encodeBase64()">
+                        <i class="fas fa-arrow-right"></i> Encode to Base64
+                    </button>
+                    <button class="generate-btn" onclick="decodeBase64()">
+                        <i class="fas fa-arrow-left"></i> Decode from Base64
+                    </button>
+                    <button class="copy-btn" id="copyBase64Btn">
+                        <i class="fas fa-copy"></i> Copy Result
+                    </button>
+                    <button class="reset-btn" id="resetBase64Btn">
+                        <i class="fas fa-redo"></i> Clear All
+                    </button>
+                </div>
+                
+                <div class="result-area" id="base64Result" style="display:none;">
+                    <div class="card" style="padding:12px;">
+                        <h3 style="margin-bottom:8px;"><i class="fas fa-check-circle"></i> Result:</h3>
+                        <textarea id="base64Output" rows="6" readonly style="width:100%;resize:vertical;"></textarea>
+                        <div class="result-actions" style="margin-top:8px;display:flex;gap:8px;">
+                            <button class="copy-btn" id="copyResultBtn">
+                                <i class="fas fa-copy"></i> Copy
+                            </button>
+                            <button class="download-btn" id="downloadResultBtn">
+                                <i class="fas fa-download"></i> Download as TXT
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    <!-- إعلان قبل الفوتر -->
+    <div class="fazza-ad-unit">
+        <script type="text/javascript">atOptions = { 'key' : 'abae43c3093c7f7459553dac34caad9a', 'format' : 'iframe', 'height' : 90, 'width' : 320, 'params' : {} };</script>
+        <script type="text/javascript" src="https://charmingpoliteinjunction.com/abae43c3093c7f7459553dac34caad9a/invoke.js"></script>
+    </div>
+
+            <article class="tool-article">
+                <h2>What is Base64?</h2>
+                <p>Base64 is a binary-to-text encoding scheme that represents binary data in an ASCII string format. It's commonly used for:</p>
+                <ul>
+                    <li>Email attachments and MIME encoding</li>
+                    <li>Data URLs in web development</li>
+                    <li>API authentication and data transmission</li>
+                    <li>Storing binary data in text-based formats</li>
+                </ul>
+                
+                <h3>How to Use</h3>
+                <ol>
+                    <li>Enter your text in the input field above</li>
+                    <li>Click "Encode to Base64" to convert text to Base64</li>
+                    <li>Click "Decode from Base64" to convert Base64 back to text</li>
+                    <li>Copy or download the result as needed</li>
+                </ol>
+            </article>
+        </section>
+    </main>
+    <!-- إعلان قبل الفوتر -->
+    <div class="fazza-ad-unit">
+        <script type="text/javascript">atOptions = { 'key' : 'abae43c3093c7f7459553dac34caad9a', 'format' : 'iframe', 'height' : 90, 'width' : 320, 'params' : {} };</script>
+        <script type="text/javascript" src="https://charmingpoliteinjunction.com/abae43c3093c7f7459553dac34caad9a/invoke.js"></script>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 FazzaPlay</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof initializeToolEvents === 'function') {
+                initializeToolEvents('base64-converter');
+            }
+        });
+    </script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.querySelector('.nav-menu');
+        if (navToggle && navMenu) {
+            navToggle.addEventListener('click', () => {
+                const isVisible = navMenu.style.display === 'flex';
+                navMenu.style.display = isVisible ? 'none' : 'flex';
+            });
+        }
+    });
+    </script>
+</body>
+</html>
+

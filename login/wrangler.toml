@@ -1,0 +1,38 @@
+name = "fazzaplay-auth"
+main = "auth-worker.js"
+compatibility_date = "2024-01-01"
+
+# =====================================================
+# خطوات النشر على Cloudflare Workers:
+# =====================================================
+# 1. npm install -g wrangler
+# 2. wrangler login
+# 3. أنشئ KV namespace:
+#    wrangler kv:namespace create USERS_KV
+#    انسخ الـ ID الناتج وضعه في الأسفل
+# 4. أنشئ Secret للـ JWT:
+#    wrangler secret put JWT_SECRET
+#    (أدخل أي نص طويل عشوائي — مثال: PassWord#2026!FazzaPlay@Secure)
+# 5. انشر:
+#    wrangler deploy
+# 6. ستحصل على URL مثل:
+#    https://fazzaplay-auth.YOUR-SUBDOMAIN.workers.dev
+#    ضع هذا الـ URL في API_BASE داخل auth.html و dashboard.html
+# =====================================================
+
+[[kv_namespaces]]
+binding = "USERS_KV"
+id = "REPLACE_WITH_YOUR_KV_NAMESPACE_ID"
+
+# للتطوير المحلي (wrangler dev)
+# preview_id = "REPLACE_WITH_YOUR_PREVIEW_KV_ID"
+
+[vars]
+ALLOWED_ORIGIN = "https://fazzaplay.com"
+
+# =====================================================
+# OPTIONAL: إضافة Domain مخصص
+# =====================================================
+# [[routes]]
+# pattern = "api.fazzaplay.com/*"
+# zone_name = "fazzaplay.com"

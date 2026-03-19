@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كأس العالم 2026 - الملاعب</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: #f5f7fa;
+            padding: 20px;
+        }
+
+        .stadiums-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .stadium-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .stadium-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stadium-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .stadium-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .stadium-info {
+            padding: 25px;
+        }
+
+        .stadium-info h3 {
+            font-size: 1.5rem;
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+
+        .location {
+            color: #718096;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .capacity {
+            background: #f7fafc;
+            padding: 12px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            color: #e53e3e;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center; margin-bottom: 40px; color: #2d3748;">ملاعب كأس العالم 2026</h1>
+
+    <div class="stadiums-grid">
+        <!-- الولايات المتحدة -->
+        <div class="stadium-card">
+            <div class="stadium-image">
+                <img src="ملاعب كاس العالم/أتلانتا ستيديوم﻿.avif" alt="أتلانتا ستيديوم" loading="lazy">
+            </div>
+            <div class="stadium-info">
+                <h3>أتلانتا ستيديوم</h3>
+                <p class="location">
+                    <span>📍</span>
+                    أتلانتا، الولايات المتحدة
+                </p>
+                <div class="capacity">
+                    <span>👥</span>
+                    السعة: 75,000 متفرج
+                </div>
+            </div>
+        </div>
+
+        <div class="stadium-card">
+            <div class="stadium-image">
+                <img src="ملاعب كاس العالم/بوسطن ستيديوم.avif" alt="بوسطن ستيديوم" loading="lazy">
+            </div>
+            <div class="stadium-info">
+                <h3>بوسطن ستيديوم</h3>
+                <p class="location">
+                    <span>📍</span>
+                    بوسطن، الولايات المتحدة
+                </p>
+                <div class="capacity">
+                    <span>👥</span>
+                    السعة: 70,000 متفرج
+                </div>
+            </div>
+        </div>
+
+        <div class="stadium-card">
+            <div class="stadium-image">
+                <img src="ملاعب كاس العالم/دالاس ستيديوم.avif" alt="دالاس ستيديوم" loading="lazy">
+            </div>
+            <div class="stadium-info">
+                <h3>دالاس ستيديوم</h3>
+                <p class="location">
+                    <span>📍</span>
+                    دالاس، الولايات المتحدة
+                </p>
+                <div class="capacity">
+                    <span>👥</span>
+                    السعة: 80,000 متفرج
+                </div>
+            </div>
+        </div>
+
+        <div class="stadium-card">
+            <div class="stadium-image">
+                <img src="ملاعب كاس العالم/سان فرانسيسكو بي إيريا ستيديوم.avif" alt="سان فرانسيسكو بي إيريا ستيديوم" loading="lazy">
+            </div>
+            <div class="stadium-info">
+                <h3>سان فرانسيسكو باي إيريا</h3>
+                <p class="location">
+                    <span>📍</span>
+                    سان فرانسيسكو، الولايات المتحدة
+                </p>
+                <div class="capacity">
+                    <span>👥</span>
+                    السعة: 68,000 متفرج
+                </div>
+            </div>
+        </div>
+
+        <div class="stadium-card">
+            <div class="stadium-image">
+                <img src="ملاعب كاس العالم/سياتل ستيديوم.avif" alt="سياتل ستيديوم" loading="lazy">
+            </div>
+            <div class="stadium-info">
+                <h3>سياتل ستيديوم</h3>
+                <p class="location">
+                    <span>📍</span>
+                    سياتل، الولايات المتحدة
+                </p>
+                <div class="capacity">
+                    <span>👥</span>
+                    السعة: 72,000 متفرج
+                </div>
+            </div>
+        </div>
+
+        <div class="stadium-card">
+            <div class="stadium-image">
+                <img src="ملاعب كاس العالم/فيلاديلفيا ستيديوم.avif" alt="فيلاديلفيا ستيديوم" loading="lazy">
+            </div>
+            <div class="stadium-info">
+                <h3>فيلاديلفيا ستيديوم</h3>
+                <p class="location">
+                    <span>📍</span>
+                    فيلاديلفيا، الولايات المتحدة
+                </p>
+                <div class="capacity">
+                    <span>👥</span>
+                    السعة: 69,000 متفرج
+                </div>
+            </div>
+        </div>
+
+        <div class="stadium-card">
+            <div class="stadium-image">
+                <img src="ملاعب كاس العالم/كانساس سيتي ستيديوم.avif" alt="كانساس سيتي ستيديوم" loading="lazy">
+            </div>
+            <div class="stadium-info">
+                <h3>كانساس سيتي ستيديوم</h3>
+                <p class="location">
+                    <span>📍</span>
+                    كانساس سيتي، الولايات المتحدة
+                </p>
+                <div class="capacity">
+                    <span>👥</span>
+                    السعة: 76,000 متفرج
+                </div>
+            </div>
+        </div>
+
+        <div class="stadium-card">
+            <div class="stadium-image">
+                <img src="ملاعب كاس العالم/لوس أنجلوس ستيديوم.avif" alt="لوس أنجلوس ستيديوم" loading="lazy">
+            </div>
+            <div class="stadium-info">
+                <h3>لوس أنجلوس ستيديوم</h3>
+                <p class="location">
+                    <span>📍</span>
+                    لوس أنجلوس، الولايات المتحدة
+                </p>
+                <div class="capacity">
+                    <span>👥</span>
+                    السعة: 70,240 متفرج
+                </div>
+            </div>
+        </div>
+
+        <div class="stadium-card">
+            <div class="stadium-image">
+                <img src="ملاعب كاس العالم/ميامي ستيديوم.avif" alt="ميامي ستيديوم" loading="lazy">
+            </div>
+            <div class="stadium-info">
+                <h3>ميامي ستيديوم</h3>
+                <p class="location">
+                    <span>📍</span>
+                    ميامي، الولايات المتحدة
+                </p>
+                <div class="capacity">
+                    <span>👥</span>
+                    السعة: 67,000 متفرج
+                </div>
+            </div>
+        </div>
+
+        <div class="stadium-card">
+            <div class="stadium-image">
+                <img src="ملاعب كاس العالم/نيويوركنيوجيرسي ستيديوم.avif" alt="نيويوركنيوجيرسي ستيديوم" loading="lazy">
+            </div>
+            <div class="stadium-info">
+                <h3>نيويورك/نيوجيرسي</h3>
+                <p class="location">
+                    <span>📍</span>
+                    نيويورك/نيوجيرسي، الولايات المتحدة
+                </p>
+                <div class="capacity">
+                    <span>👥</span>
+                    السعة: 82,500 متفرج
+                </div>
+            </div>
+        </div>
+
+        <div class="stadium-card">
+            <div class="stadium-image">
+                <img src="ملاعب كاس العالم/هيوستن ستيديوم.avif" alt="هيوستن ستيديوم" loading="lazy">
+            </div>
+            <div class="stadium-info">
+                <h3>هيوستن ستيديوم</h3>
+                <p class="location">
+                    <span>📍</span>
+                    هيوستن، الولايات المتحدة
+                </p>
+                <div class="capacity">
+                    <span>👥</span>
+                    السعة: 71,000 متفرج
+                </div>
+            </div>
+        </div>
+
+        <!-- المكسيك -->
+        <div class="stadium-card">
+            <div class="stadium-image">
+                <img src="ملاعب كاس العالم/إستاديو مكسيكو سيتي.avif" alt="إستاديو مكسيكو سيتي" loading="lazy">
+            </div>
+            <div class="stadium-info">
+                <h3>إستاديو مكسيكو سيتي</h3>
+                <p class="location">
+                    <span>📍</span>
+                    مكسيكو سيتي، المكسيك
+                </p>
+                <div class="capacity">
+                    <span>👥</span>
+                    السعة: 87,523 متفرج
+                </div>
+            </div>
+        </div>
+
+        <div class="stadium-card">
+            <div class="stadium-image">
+                <img src="ملاعب كاس العالم/إستاديو مونتيري.avif" alt="إستاديو مونتيري" loading="lazy">
+            </div>
+            <div class="stadium-info">
+                <h3>إستاديو مونتيري</h3>
+                <p class="location">
+                    <span>📍</span>
+                    مونتيري، المكسيك
+                </p>
+                <div class="capacity">
+                    <span>👥</span>
+                    السعة: 53,500 متفرج
+                </div>
+            </div>
+        </div>
+
+        <div class="stadium-card">
+            <div class="stadium-image">
+                <img src="ملاعب كاس العالم/ستاديو غوادالاخارا.avif" alt="ستاديو غوادالاخارا" loading="lazy">
+            </div>
+            <div class="stadium-info">
+                <h3>ستاديو غوادالاخارا</h3>
+                <p class="location">
+                    <span>📍</span>
+                    غوادالاخارا، المكسيك
+                </p>
+                <div class="capacity">
+                    <span>👥</span>
+                    السعة: 54,500 متفرج
+                </div>
+            </div>
+        </div>
+
+        <!-- كندا -->
+        <div class="stadium-card">
+            <div class="stadium-image">
+                <img src="ملاعب كاس العالم/بي سي بليس فانكوفر.avif" alt="بي سي بليس فانكوفر" loading="lazy">
+            </div>
+            <div class="stadium-info">
+                <h3>بي سي بليس</h3>
+                <p class="location">
+                    <span>📍</span>
+                    فانكوفر، كندا
+                </p>
+                <div class="capacity">
+                    <span>👥</span>
+                    السعة: 54,500 متفرج
+                </div>
+            </div>
+        </div>
+
+        <div class="stadium-card">
+            <div class="stadium-image">
+                <img src="ملاعب كاس العالم/تورنتو ستيديوم كندا.avif" alt="تورنتو ستيديوم كندا" loading="lazy" style="max-height: 100%; max-width: 100%; object-fit: cover;">
+            </div>
+            <div class="stadium-info">
+                <h3>تورنتو ستيديوم</h3>
+                <p class="location">
+                    <span>📍</span>
+                    تورنتو، كندا
+                </p>
+                <div class="capacity">
+                    <span>👥</span>
+                    السعة: 45,500 متفرج
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

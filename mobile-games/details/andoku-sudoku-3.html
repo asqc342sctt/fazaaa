@@ -1,0 +1,291 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💡 دليل إتقان Andoku Sudoku 3: من المبتدئ إلى الخبير (استراتيجيات متقدمة) - Fazza Play</title>
+    <meta name="description" content="دليل شامل للعبة Andoku Sudoku 3. شرح لاستراتيجيات حل ألغاز السودوكو المتقدمة (Hidden Singles, X-Wing)، وأنواع الألغاز المختلفة، وميزات التطبيق الضرورية لكل محب للأرقام.">
+    <meta name="keywords" content="Andoku Sudoku 3, استراتيجيات سودوكو, حل ألغاز سودوكو متقدمة, أنواع سودوكو، Hidden Singles, لعبة ذكاء">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <style>
+        /* Base Styles - Clean & Focus Theme */
+        body {
+            background-color: #f0f0f0; /* Light Gray Background */
+            color: #333333; /* Dark Gray Text */
+            font-family: 'Tajawal', Arial, sans-serif;
+            line-height: 1.7;
+        }
+
+        /* Container - Grid Board Frame */
+        .game-detail-container {
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 4rem;
+            background-color: #ffffff; /* White Board */
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 4px solid #00a86b; /* Emerald Green Accent for Focus */
+        }
+
+        /* Header Styles - Puzzle Title */
+        .game-detail-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+            padding: 1.5rem;
+            background-color: #e8f5e9; /* Very Light Green Background */
+            border-radius: 8px;
+        }
+
+        .game-detail-header img {
+            max-width: 100%;
+            width: 150px;
+            border-radius: 10px;
+            border: 3px solid #00a86b;
+        }
+
+        .game-detail-header h1 {
+            font-size: 3.8rem;
+            margin-top: 1.2rem;
+            color: #00796b; /* Dark Teal Title */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Content Headings - Structured Sections */
+        .game-detail-content h2,
+        .article-section h2 {
+            font-size: 2.6rem;
+            margin: 4rem 0 1.2rem;
+            border-bottom: 3px solid #00a86b;
+            padding-bottom: 0.8rem;
+            color: #00796b;
+            position: relative;
+        }
+
+        .article-section h3 {
+            color: #4caf50; /* Green Subheading */
+            font-size: 1.9rem;
+            margin: 2.5rem 0 1rem;
+            position: relative;
+            padding-right: 20px;
+        }
+        
+        .article-section h3::before {
+            content: '⊞'; /* Square Grid Symbol */
+            position: absolute;
+            right: 0;
+            color: #00a86b;
+            font-size: 1em;
+        }
+
+        /* Paragraphs and Lists */
+        .game-detail-content p, 
+        .article-section p {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+        
+        .article-section ul {
+            list-style: none;
+            padding-right: 0;
+        }
+        
+        .article-section li {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            padding-right: 2.5rem;
+            position: relative;
+        }
+        
+        .article-section li::before {
+            content: '◷'; /* Clock/Focus Symbol */
+            color: #00a86b;
+            font-size: 1em;
+            position: absolute;
+            right: 0;
+            top: 5px;
+        }
+
+        /* Strategy Boxes - Highlight Key Techniques */
+        .strategy-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 3.5rem 0;
+        }
+
+        .strategy-box {
+            background-color: #fafafa;
+            border: 2px dashed #00a86b;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .strategy-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 168, 107, 0.3);
+        }
+
+        .strategy-box h4 {
+            font-size: 1.4rem;
+            color: #00796b;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #c8e6c9;
+            padding-bottom: 5px;
+        }
+        
+        .strategy-box p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        /* Expert Tip/Personal Touch */
+        .expert-tip {
+            margin: 3rem 0;
+            padding: 2rem;
+            border-left: 5px solid #4caf50;
+            background-color: #f9f9f9; 
+            color: #555; 
+            font-style: italic;
+            border-radius: 8px;
+        }
+        .expert-tip p {
+             font-size: 1.2rem;
+             line-height: 1.8;
+             margin: 0;
+        }
+
+        /* Buttons - Primary Color */
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0.75rem;
+            padding: 16px 35px;
+            background: linear-gradient(135deg, #00a86b 0%, #00796b 100%); 
+            color: #ffffff;
+            font-weight: 900;
+            font-size: 1.3rem;
+            box-shadow: 0 6px 20px rgba(0, 168, 107, 0.5);
+            border-radius: 8px;
+            min-width: 200px;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(135deg, #4caf50 0%, #00a86b 100%);
+        }
+
+        .back-btn {
+            background: linear-gradient(135deg, #757575 0%, #5d5d5d 100%);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8571192174854530"
+        crossorigin="anonymous"></script>
+</head>
+<body>
+    <header><h1><a href="../../index.html">Fazza Play</a></h1></header>
+    <main>
+        <div class="game-detail-container">
+            <div class="game-detail-header">
+                <img src="../../images/mobile-games/Andoku Sudoku 3.webp" alt="Andoku Sudoku 3 - أفضل لعبة سودوكو للأندرويد">
+                <h1>Andoku Sudoku 3: الألغاز بلمسة احترافية</h1>
+            </div>
+
+            <div class="game-detail-content article-section">
+                
+                <h2>1. لماذا Andoku 3 هو التطبيق المفضل لمحبّي السودوكو؟</h2>
+                <p>
+                    لو كنت تبحث عن تطبيق سودوكو جدي ومحترف، يبتعد عن التصميمات المزدحمة ويركز على جوهر اللعبة، فـ Andoku 3 هو خيارك الأول. هو ليس مجرد تطبيق لحل الألغاز، بل هو **أداة تدريبية** متكاملة. يمنحك آلاف الألغاز بمستويات صعوبة متنوعة، لدرجة أنك ستشعر بأنك تحمل موسوعة ألغاز رقمية في جيبك.
+                </p>
+
+                <h3>⊞ المميزات اللي تخلي التجربة ممتازة:</h3>
+                <ul>
+                    <li>◷ **تنوع الألغاز غير العادي:** لا يقتصر على السودوكو العادي (9x9)، بل يقدم أنواعاً متقدمة مثل **Jigsaw, Hyper, X-Sudoku**، وهذه الأنواع ضرورية إذا شعرت بالملل من النمط التقليدي.</li>
+                    <li>◷ **المزامنة السحابية:** هذه الميزة رائعة، فلو بدأت لغزاً صعباً على هاتفك وتركت اللعب، يمكنك إكماله لاحقاً على جهازك اللوحي دون أن تفقد تقدمك.</li>
+                    <li>◷ **أدوات المساعدة الذكية:** لا يكتفي بإعطائك الحل مباشرة. بل يقدم تلميحات تشرح لك **الاستراتيجية** التي كان يجب عليك تطبيقها في تلك الخطوة، وهذا هو جوهر التعلم.</li>
+                </ul>
+
+                <hr>
+
+                <h2>2. كيف تحل أصعب الألغاز؟ استراتيجيات الخبراء</h2>
+                <p>
+                    الانتقال من حل الألغاز السهلة والمتوسطة إلى الألغاز "الصعبة" يتطلب تجاوز مرحلة إدخال الأرقام الواضحة (Naked Singles) والبدء في تطبيق استراتيجيات متقدمة تعتمد على إزالة الاحتمالات.
+                </p>
+
+                <h3>⊞ استراتيجيات يجب أن تتقنها في Andoku 3:</h3>
+                
+                <div class="strategy-container">
+                    <div class="strategy-box">
+                        <h4>المنفرد الخفي (Hidden Single)</h4>
+                        <p>
+                            هذا هو أساس التقدم. هو رقم يظهر كـ "احتمال" في عدة خلايا داخل صف أو عمود أو مربع، لكنه يكون الرقم **الوحيد المتبقي** لاحتمالات تلك الخلية داخل ذلك الصف أو العمود أو المربع المحدد. ابحث عن الأرقام التي لا يمكن وضعها إلا في مكان واحد.
+                        </p>
+                    </div>
+                    <div class="strategy-box">
+                        <h4>الزوج المجرد (Naked Pair)</h4>
+                        <p>
+                            إذا وجدت خليتين داخل نفس المنطقة (صف/عمود/مربع) تحتويان على نفس الاحتمالين بالضبط (مثل {4, 7} و {4, 7} فقط)، يمكنك إزالة الاحتمالات 4 و 7 من أي خلية أخرى في تلك المنطقة. هذه الخلية ستشغلها الأرقام 4 و 7 بالتأكيد.
+                        </p>
+                    </div>
+                    <div class="strategy-box">
+                        <h4>جناح إكس (X-Wing)</h4>
+                        <p>
+                            هذه استراتيجية متقدمة تحتاجها في مستويات الصعوبة القصوى. ابحث عن احتمال معين (مثلاً الرقم 5) يظهر في صفين فقط، وفي عمودين فقط. هذا يسمح لك بحذف احتمال الرقم 5 من أي خلايا أخرى تتقاطع مع هذه الصفوف والأعمدة.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="expert-tip">
+                    <p>
+                        **نصيحة شخصية:** "أفضل طريقة لاستخدام Andoku 3 هي استخدام أداة **علامات القلم الرصاص (Pencil Marks)**. لا تحاول تخمين الحلول؛ دوّن جميع الاحتمالات في البداية، ثم استخدم استراتيجيات الإزالة (مثل الزوج المجرد) لتنظيف اللوحة. هذا يحول السودوكو إلى متعة منطقية حقيقية."
+                    </p>
+                </div>
+                
+                <hr>
+
+                <h2>3. نظرة سريعة ومعلومات التحميل</h2>
+                <p>
+                    التطبيق مجاني للتنزيل على الأندرويد، مع إمكانية شراء النسخة المدفوعة لإزالة الإعلانات وفتح ميزات إضافية. لكن حتى النسخة المجانية كافية جداً لإبقاء عقلك في حالة نشاط وتركيز لأسابيع طويلة.
+                </p>
+
+                <h3>⊞ متطلبات بسيطة لعقل كبير:</h3>
+                <ul>
+                    <li>◷ **المطور:** Markus Wiederkehr (مطوّر متخصص في الألغاز).</li>
+                    <li>◷ **النوع:** ألغاز، أرقام، منطق.</li>
+                    <li>◷ **نظام التشغيل:** أندرويد 4.1 أو أحدث (يعمل على جميع الأجهزة القديمة والجديدة تقريباً).</li>
+                    <li>◷ **الحجم:** خفيف جداً، لا يستهلك مساحة كبيرة من جهازك.</li>
+                </ul>
+            </div>
+            
+            <div class="buttons-container">
+                <a href="https://play.google.com/store/apps/details?id=com.andoku.three.gp" class="action-btn" target="_blank" rel="noopener noreferrer">احصل على التطبيق الآن (Android)</a>
+                <a href="../index.html" class="action-btn back-btn">العودة لقائمة الألعاب</a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <nav class="footer-nav">
+                <a href="../../about.html" data-translate="footer_about">عن الموقع</a>
+                <a href="../../privacy.html" data-translate="footer_privacy">سياسة الخصوصية</a>
+                <a href="../../terms.html" data-translate="footer_terms">شروط الاستخدام</a>
+                <a href="../../contact.html" data-translate="footer_contact">اتصل بنا</a>
+                <a href="../../cookies.html" data-translate="footer_cookies">سياسة الكوكيز</a>
+            </nav>
+            <p data-translate="footer_copyright">&copy; 2024 Fazza Play. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+    
+    <script src="../ads-fazza.js"></script>
+<script src="ads-fazza.js"></script>
+</body>
+</html>

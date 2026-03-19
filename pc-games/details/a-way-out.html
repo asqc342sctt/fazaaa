@@ -1,0 +1,1721 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Way Out – مراجعة كاملة | Fazza Play</title>
+<meta name="description" content="مراجعة شاملة ومفصلة للعبة A Way Out: القصة، الشخصيات، أسلوب اللعب التعاوني، نقاط القوة والضعف، المقارنة بألعاب مشابهة، وكل ما تحتاج معرفته قبل اللعب.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --gold: #f5c542;
+  --gold-light: #ffd966;
+  --gold-dark: #c9952a;
+  --bg: #0a0a0a;
+  --bg2: #111111;
+  --bg3: #181818;
+  --bg4: #1f1f1f;
+  --text: #e8e8e8;
+  --text-dim: #999;
+  --red: #e74c3c;
+  --green: #2ecc71;
+  --blue: #3498db;
+  --orange: #e67e22;
+  --purple: #9b59b6;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Cairo', sans-serif;
+  line-height: 1.85;
+  overflow-x: hidden;
+}
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(to top, #0a0a0a 30%, transparent 80%),
+    linear-gradient(to left, rgba(0,0,0,0.4) 0%, transparent 60%),
+    url('https://cdn.akamai.steamstatic.com/steam/apps/1222700/ss_fd13e5af9f3ed8f82b20f014dbfb9714b2f8f34f.1920x1080.jpg') center/cover no-repeat;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 70% 50%, rgba(245,197,66,0.05) 0%, transparent 60%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px 80px;
+  width: 100%;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(245,197,66,0.15);
+  border: 1px solid rgba(245,197,66,0.4);
+  color: var(--gold);
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  animation: fadeSlideUp 0.6s ease both;
+}
+
+.hero-title {
+  font-family: 'Tajawal', sans-serif;
+  font-size: clamp(48px, 8vw, 100px);
+  font-weight: 800;
+  line-height: 1;
+  color: #fff;
+  margin-bottom: 10px;
+  animation: fadeSlideUp 0.7s 0.1s ease both;
+}
+
+.hero-title span { color: var(--gold); }
+
+.hero-subtitle {
+  font-size: 20px;
+  color: var(--text-dim);
+  max-width: 600px;
+  margin-bottom: 30px;
+  animation: fadeSlideUp 0.7s 0.2s ease both;
+}
+
+.hero-meta {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin-bottom: 35px;
+  animation: fadeSlideUp 0.7s 0.3s ease both;
+}
+
+.hero-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.hero-meta-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.hero-meta-value {
+  font-size: 15px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.hero-score {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  background: rgba(245,197,66,0.1);
+  border: 2px solid var(--gold);
+  border-radius: 16px;
+  padding: 15px 25px;
+  animation: fadeSlideUp 0.7s 0.4s ease both;
+}
+
+.score-number {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 52px;
+  font-weight: 800;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.score-label {
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+.score-stars {
+  font-size: 22px;
+  letter-spacing: 2px;
+}
+
+/* ===== NAV BAR ===== */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(10,10,10,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(245,197,66,0.15);
+  padding: 14px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-logo {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.site-nav {
+  display: flex;
+  gap: 5px;
+}
+
+.site-nav a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 13px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: all 0.2s;
+}
+
+.site-nav a:hover {
+  color: var(--gold);
+  background: rgba(245,197,66,0.1);
+}
+
+/* ===== SECTION BASE ===== */
+section { padding: 70px 0; }
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+.section-title {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-title::before {
+  content: '';
+  display: block;
+  width: 4px;
+  height: 28px;
+  background: var(--gold);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* ===== QUICK INFO STRIP ===== */
+.quick-strip {
+  background: var(--bg2);
+  border-top: 1px solid #1e1e1e;
+  border-bottom: 1px solid #1e1e1e;
+  padding: 25px 0;
+}
+
+.quick-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0;
+}
+
+.quick-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 15px 20px;
+  border-left: 1px solid #222;
+  gap: 6px;
+}
+
+.quick-item:last-child { border-left: none; }
+
+.quick-icon { font-size: 26px; }
+.quick-label { font-size: 11px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; }
+.quick-value { font-size: 15px; font-weight: 700; color: #fff; }
+
+/* ===== STORY SECTION ===== */
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.story-text p {
+  color: var(--text-dim);
+  line-height: 2;
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.story-quote {
+  border-right: 3px solid var(--gold);
+  padding: 16px 20px;
+  background: rgba(245,197,66,0.05);
+  border-radius: 0 12px 12px 0;
+  font-style: italic;
+  color: var(--gold-light);
+  font-size: 17px;
+  margin: 25px 0;
+}
+
+.story-image-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.story-image-stack img {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid #222;
+}
+
+/* ===== CHARACTERS ===== */
+.chars-section { background: var(--bg2); }
+
+.chars-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.char-card {
+  background: var(--bg3);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #252525;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.char-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold-dark);
+}
+
+.char-header {
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.char-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.char-leo .char-avatar { background: rgba(231,76,60,0.2); border: 2px solid #e74c3c; }
+.char-vincent .char-avatar { background: rgba(52,152,219,0.2); border: 2px solid #3498db; }
+
+.char-name {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.char-role {
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+.char-body {
+  padding: 0 25px 25px;
+}
+
+.char-body p {
+  color: var(--text-dim);
+  font-size: 15px;
+  margin-bottom: 16px;
+  line-height: 2;
+}
+
+.char-traits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.trait-tag {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid;
+}
+
+.char-leo .trait-tag { color: #e74c3c; border-color: rgba(231,76,60,0.4); background: rgba(231,76,60,0.08); }
+.char-vincent .trait-tag { color: #3498db; border-color: rgba(52,152,219,0.4); background: rgba(52,152,219,0.08); }
+
+/* ===== GAMEPLAY ===== */
+.gameplay-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.gameplay-card {
+  background: var(--bg3);
+  border-radius: 14px;
+  padding: 25px;
+  border: 1px solid #222;
+  transition: all 0.3s;
+}
+
+.gameplay-card:hover {
+  border-color: var(--gold-dark);
+  background: var(--bg4);
+}
+
+.gameplay-icon {
+  font-size: 36px;
+  margin-bottom: 14px;
+}
+
+.gameplay-card h3 {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.gameplay-card p {
+  color: var(--text-dim);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+/* ===== SPLITSCREEN INFO ===== */
+.splitscreen-box {
+  background: linear-gradient(135deg, rgba(245,197,66,0.08) 0%, rgba(245,197,66,0.02) 100%);
+  border: 1px solid rgba(245,197,66,0.25);
+  border-radius: 16px;
+  padding: 30px;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.splitscreen-icon {
+  font-size: 60px;
+  flex-shrink: 0;
+}
+
+.splitscreen-text h3 {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.splitscreen-text p {
+  color: var(--text-dim);
+  font-size: 15px;
+  line-height: 2;
+}
+
+/* ===== MINIGAMES ===== */
+.minigames-section { background: var(--bg2); }
+
+.minigames-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.minigame-item {
+  background: var(--bg3);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #222;
+  transition: all 0.25s;
+}
+
+.minigame-item:hover {
+  border-color: var(--gold-dark);
+  transform: scale(1.03);
+}
+
+.minigame-emoji { font-size: 32px; margin-bottom: 10px; }
+
+.minigame-item h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.minigame-item p {
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+/* ===== SCORES ===== */
+.scores-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.score-card {
+  background: var(--bg3);
+  border-radius: 14px;
+  padding: 22px;
+  border: 1px solid #222;
+}
+
+.score-card-label {
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-bottom: 10px;
+}
+
+.score-bar-wrap {
+  position: relative;
+  height: 8px;
+  background: #222;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+
+.score-bar {
+  position: absolute;
+  top: 0; right: 0; bottom: 0;
+  border-radius: 4px;
+  transition: width 1.5s ease;
+}
+
+.score-card-value {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--gold);
+}
+
+.overall-badge {
+  background: linear-gradient(135deg, rgba(245,197,66,0.15), rgba(245,197,66,0.05));
+  border: 2px solid var(--gold);
+  border-radius: 20px;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.overall-num {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 80px;
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.overall-text h3 {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.overall-text p {
+  color: var(--text-dim);
+  font-size: 15px;
+  line-height: 2;
+}
+
+/* ===== PROS/CONS ===== */
+.proscons-section { background: var(--bg2); }
+
+.proscons-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.pros-box, .cons-box {
+  background: var(--bg3);
+  border-radius: 16px;
+  padding: 28px;
+  border: 1px solid;
+}
+
+.pros-box {
+  border-color: rgba(46,204,113,0.3);
+}
+
+.cons-box {
+  border-color: rgba(231,76,60,0.3);
+}
+
+.pros-box h3 {
+  color: var(--green);
+  font-family: 'Tajawal', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cons-box h3 {
+  color: var(--red);
+  font-family: 'Tajawal', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pros-list, .cons-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pros-list li, .cons-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.pros-list li::before {
+  content: '✓';
+  color: var(--green);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.cons-list li::before {
+  content: '✗';
+  color: var(--red);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ===== SYSTEM REQUIREMENTS ===== */
+.req-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.req-box {
+  background: var(--bg3);
+  border-radius: 16px;
+  padding: 28px;
+  border: 1px solid #222;
+}
+
+.req-box h3 {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.req-box h3 span {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-dim);
+  margin-right: 8px;
+}
+
+.req-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #1a1a1a;
+  font-size: 14px;
+}
+
+.req-row:last-child { border-bottom: none; }
+
+.req-key { color: var(--text-dim); }
+.req-val { color: #fff; font-weight: 600; text-align: left; }
+
+/* ===== COMPARISON ===== */
+.comparison-section { background: var(--bg2); }
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.compare-table th {
+  background: var(--bg4);
+  padding: 14px 18px;
+  text-align: center;
+  font-family: 'Tajawal', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  border-bottom: 2px solid var(--gold);
+  color: var(--gold);
+}
+
+.compare-table th:first-child {
+  text-align: right;
+  color: var(--text-dim);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.compare-table td {
+  padding: 12px 18px;
+  text-align: center;
+  border-bottom: 1px solid #1e1e1e;
+  color: var(--text-dim);
+}
+
+.compare-table td:first-child {
+  text-align: right;
+  color: var(--text);
+}
+
+.compare-table tr:hover td {
+  background: rgba(255,255,255,0.02);
+}
+
+.compare-table .highlight-col {
+  background: rgba(245,197,66,0.05);
+  color: var(--gold) !important;
+  font-weight: 700;
+}
+
+.check { color: var(--green); }
+.cross { color: var(--red); }
+.partial { color: var(--orange); }
+
+/* ===== DIRECTOR ===== */
+.director-card {
+  background: var(--bg3);
+  border-radius: 16px;
+  padding: 30px;
+  border: 1px solid #252525;
+  display: flex;
+  gap: 25px;
+  align-items: flex-start;
+}
+
+.director-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  flex-shrink: 0;
+}
+
+.director-info h3 {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.director-title {
+  font-size: 13px;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+
+.director-info p {
+  color: var(--text-dim);
+  font-size: 15px;
+  line-height: 2;
+}
+
+.director-works {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.work-tag {
+  background: var(--bg4);
+  border: 1px solid #333;
+  color: var(--text-dim);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+/* ===== FAQ ===== */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.faq-item {
+  background: var(--bg3);
+  border-radius: 12px;
+  border: 1px solid #222;
+  overflow: hidden;
+  transition: border-color 0.25s;
+}
+
+.faq-item:hover { border-color: rgba(245,197,66,0.3); }
+
+.faq-q {
+  padding: 18px 22px;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+}
+
+.faq-q span { color: var(--gold); font-size: 18px; }
+
+.faq-a {
+  padding: 0 22px 18px;
+  color: var(--text-dim);
+  font-size: 14px;
+  line-height: 2;
+}
+
+/* ===== TIPS ===== */
+.tips-section { background: var(--bg2); }
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.tip-card {
+  background: var(--bg3);
+  border-radius: 14px;
+  padding: 22px;
+  border-right: 4px solid;
+  border-top: 1px solid #222;
+  border-bottom: 1px solid #222;
+  border-left: 1px solid #222;
+}
+
+.tip-card:nth-child(1) { border-right-color: var(--gold); }
+.tip-card:nth-child(2) { border-right-color: var(--blue); }
+.tip-card:nth-child(3) { border-right-color: var(--green); }
+.tip-card:nth-child(4) { border-right-color: var(--purple); }
+.tip-card:nth-child(5) { border-right-color: var(--orange); }
+.tip-card:nth-child(6) { border-right-color: var(--red); }
+
+.tip-num {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 36px;
+  font-weight: 900;
+  opacity: 0.15;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.tip-card h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.tip-card p {
+  color: var(--text-dim);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+/* ===== FINAL VERDICT ===== */
+.verdict-section {
+  background: radial-gradient(ellipse at center, rgba(245,197,66,0.06) 0%, transparent 70%), var(--bg);
+}
+
+.verdict-box {
+  background: var(--bg3);
+  border-radius: 20px;
+  padding: 40px;
+  border: 1px solid rgba(245,197,66,0.25);
+  text-align: center;
+}
+
+.verdict-score {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 100px;
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1;
+  display: block;
+}
+
+.verdict-label {
+  font-size: 24px;
+  color: #fff;
+  font-weight: 700;
+  margin: 10px 0 20px;
+  font-family: 'Tajawal', sans-serif;
+}
+
+.verdict-text {
+  color: var(--text-dim);
+  font-size: 16px;
+  max-width: 700px;
+  margin: 0 auto 30px;
+  line-height: 2;
+}
+
+.verdict-recommend {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(46,204,113,0.12);
+  border: 1px solid rgba(46,204,113,0.4);
+  border-radius: 12px;
+  padding: 14px 24px;
+  color: var(--green);
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 30px;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: #000;
+  padding: 14px 28px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15px;
+  transition: all 0.25s;
+}
+
+.btn-primary:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text);
+  padding: 14px 28px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  border: 1px solid #333;
+  transition: all 0.25s;
+}
+
+.btn-secondary:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: translateY(-2px);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: #000;
+  border-top: 1px solid #1a1a1a;
+  padding: 30px;
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 14px;
+}
+
+footer a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .story-grid, .chars-grid, .req-grid, .proscons-grid { grid-template-columns: 1fr; }
+  .hero-title { font-size: 52px; }
+  .site-nav { display: none; }
+  .quick-grid { grid-template-columns: repeat(3, 1fr); }
+  .splitscreen-box { flex-direction: column; text-align: center; }
+  .director-card { flex-direction: column; }
+  .overall-badge { flex-direction: column; text-align: center; }
+  .compare-table { font-size: 12px; }
+}
+</style>
+</head>
+        <!-- إعلان قبل الفوتر -->
+    <div class="fazza-ad-unit">
+        <script type="text/javascript">atOptions = { 'key' : 'abae43c3093c7f7459553dac34caad9a', 'format' : 'iframe', 'height' : 90, 'width' : 320, 'params' : {} };</script>
+        <script type="text/javascript" src="https://charmingpoliteinjunction.com/abae43c3093c7f7459553dac34caad9a/invoke.js"></script>
+    </div>
+
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <a href="../../index.html" class="site-logo">⚡ Fazza Play</a>
+  <nav class="site-nav">
+    <a href="#story">القصة</a>
+    <a href="#gameplay">أسلوب اللعب</a>
+    <a href="#scores">التقييم</a>
+    <a href="#requirements">المتطلبات</a>
+    <a href="#faq">أسئلة</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">🎮 مراجعة شاملة</div>
+    <div class="hero-title"><span>A Way Out</span></div>
+    <div class="hero-subtitle">تجربة تعاونية سينمائية لا تُنسى — هربٌ من السجن لبداية جديدة</div>
+    
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">المطوّر</span>
+        <span class="hero-meta-value">Hazelight Studios</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">الناشر</span>
+        <span class="hero-meta-value">EA Originals</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">تاريخ الإصدار</span>
+        <span class="hero-meta-value">مارس 2018</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">النوع</span>
+        <span class="hero-meta-value">أكشن / مغامرات تعاونية</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">مدة اللعب</span>
+        <span class="hero-meta-value">6–8 ساعات</span>
+      </div>
+    </div>
+
+    <div class="hero-score">
+      <div>
+        <div class="score-number">9.1</div>
+        <div class="score-label">من 10</div>
+      </div>
+      <div>
+        <div class="score-stars">⭐⭐⭐⭐⭐</div>
+        <div class="score-label">تقييم Fazza Play</div>
+      </div>
+    </div>
+  </div>
+</div>
+        <!-- إعلان قبل الفوتر -->
+    <div class="fazza-ad-unit">
+        <script type="text/javascript">atOptions = { 'key' : 'abae43c3093c7f7459553dac34caad9a', 'format' : 'iframe', 'height' : 90, 'width' : 320, 'params' : {} };</script>
+        <script type="text/javascript" src="https://charmingpoliteinjunction.com/abae43c3093c7f7459553dac34caad9a/invoke.js"></script>
+    </div>
+
+<!-- QUICK STRIP -->
+<div class="quick-strip">
+  <div class="container">
+    <div class="quick-grid">
+      <div class="quick-item">
+        <div class="quick-icon">👥</div>
+        <div class="quick-label">طريقة اللعب</div>
+        <div class="quick-value">Co-op حصري</div>
+      </div>
+      <div class="quick-item">
+        <div class="quick-icon">💻</div>
+        <div class="quick-label">المنصات</div>
+        <div class="quick-value">PC / PS4 / Xbox</div>
+      </div>
+      <div class="quick-item">
+        <div class="quick-icon">🌐</div>
+        <div class="quick-label">اللغات</div>
+        <div class="quick-value">EN / متعدد</div>
+      </div>
+      <div class="quick-item">
+        <div class="quick-icon">💰</div>
+        <div class="quick-label">نسخة مجانية</div>
+        <div class="quick-value">Friend Pass ✓</div>
+      </div>
+      <div class="quick-item">
+        <div class="quick-icon">🏆</div>
+        <div class="quick-label">الجوائز</div>
+        <div class="quick-value">BAFTA 2019</div>
+      </div>
+      <div class="quick-item">
+        <div class="quick-icon">⚡</div>
+        <div class="quick-label">الحجم</div>
+        <div class="quick-value">~25 GB</div>
+      </div>
+      <div class="quick-item">
+        <div class="quick-icon">🎬</div>
+        <div class="quick-label">التصنيف</div>
+        <div class="quick-value">M (18+)</div>
+      </div>
+    </div>
+  </div>
+</div>
+        <!-- إعلان قبل الفوتر -->
+    <div class="fazza-ad-unit">
+        <script type="text/javascript">atOptions = { 'key' : 'abae43c3093c7f7459553dac34caad9a', 'format' : 'iframe', 'height' : 90, 'width' : 320, 'params' : {} };</script>
+        <script type="text/javascript" src="https://charmingpoliteinjunction.com/abae43c3093c7f7459553dac34caad9a/invoke.js"></script>
+    </div>
+
+<!-- STORY SECTION -->
+<section id="story">
+  <div class="container">
+    <h2 class="section-title">📖 قصة اللعبة بالتفصيل</h2>
+    <div class="story-grid">
+      <div class="story-text">
+        <p>
+          تدور أحداث A Way Out في الولايات المتحدة الأمريكية في سبعينيات وثمانينيات القرن الماضي، وتحكي قصة رجلين من طبقتين مختلفتين تجمعهما المصلحة المشتركة داخل أسوار السجن.
+        </p>
+        <p>
+          <strong style="color:#fff;">ليو كارتر</strong> — مجرم محترف يدخل السجن بعد أن نصب عليه شريكه ووشى به للشرطة. شخصية متهورة، تتصرف بغريزتها أكثر من تفكيرها. هدفه الأول والأخير: الانتقام من هارفي، الرجل الذي خانه.
+        </p>
+        <p>
+          <strong style="color:#fff;">فينسنت موريللو</strong> — رجل مسالم لديه عائلة في الخارج، دخل السجن بسبب جريمة طارئة. عقلاني وهادئ، يقدّم حلولاً يتجنب فيها العنف قدر الإمكان. لكن القدر يجمعه بليو في هدف واحد: الهروب.
+        </p>
+        
+        <div class="story-quote">
+          "حين يجتمع عقلان مختلفان تماماً نحو هدف واحد — تولد من ذلك قصص لا تُنسى."
+        </div>
+
+        <p>
+          الرحلة لا تنتهي عند أبواب السجن. ما وراء الأسوار من مطاردات بالسيارات، وتسلل، ومواجهات حقيقية مع الماضي — كل ذلك يجعل من A Way Out أكثر من مجرد لعبة هروب. إنها تجربة صداقة مُزرعة في قلب الأزمات.
+        </p>
+        <p>
+          نهاية اللعبة واحدة من أكثر النهايات إثارة للجدل في تاريخ الألعاب، وتترك أثراً حقيقياً يصعب نسيانه حتى بعد أيام من إنهاء اللعبة.
+        </p>
+      </div>
+      <div class="story-image-stack">
+        <img src="https://cdn.akamai.steamstatic.com/steam/apps/1222700/ss_fd13e5af9f3ed8f82b20f014dbfb9714b2f8f34f.1920x1080.jpg" alt="A Way Out Screenshot 1">
+        <img src="https://cdn.akamai.steamstatic.com/steam/apps/1222700/ss_5a9e8af2e49dcac9e9cfe1a9a7c7f748f6a65a7d.1920x1080.jpg" alt="A Way Out Screenshot 2">
+      </div>
+    </div>
+  </div>
+</section>
+        <!-- إعلان قبل الفوتر -->
+    <div class="fazza-ad-unit">
+        <script type="text/javascript">atOptions = { 'key' : 'abae43c3093c7f7459553dac34caad9a', 'format' : 'iframe', 'height' : 90, 'width' : 320, 'params' : {} };</script>
+        <script type="text/javascript" src="https://charmingpoliteinjunction.com/abae43c3093c7f7459553dac34caad9a/invoke.js"></script>
+    </div>
+
+<!-- CHARACTERS -->
+<section class="chars-section" id="characters">
+  <div class="container">
+    <h2 class="section-title">🎭 الشخصيتان الرئيسيتان</h2>
+    <div class="chars-grid">
+      
+      <div class="char-card char-leo">
+        <div class="char-header">
+          <div class="char-avatar">🔴</div>
+          <div>
+            <div class="char-name">ليو كارتر</div>
+            <div class="char-role">المجرم المحترف — اللاعب الأول</div>
+          </div>
+        </div>
+        <div class="char-body">
+          <p>شخصية تقودها الغريزة والانفعال. ليو ليس شريراً بالكامل — لديه قلب يحب عائلته، لكن الظروف والمال جعلاه يختار طريقاً خاطئاً. حماسه الزائد يضع الثنائي في مواقف صعبة، لكنه في ذات الوقت يكسر التوتر بروح الفكاهة.</p>
+          <p>اختياره ينعكس على أسلوب اللعب: حلوله تميل للمواجهة المباشرة والعنف، مما يجعله مناسباً للاعبين الذين يفضلون الإثارة الآنية.</p>
+          <div class="char-traits">
+            <span class="trait-tag">متهور</span>
+            <span class="trait-tag">محب لعائلته</span>
+            <span class="trait-tag">انتقامي</span>
+            <span class="trait-tag">شجاع</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="char-card char-vincent">
+        <div class="char-header">
+          <div class="char-avatar">🔵</div>
+          <div>
+            <div class="char-name">فينسنت موريللو</div>
+            <div class="char-role">الحالم بالعودة — اللاعب الثاني</div>
+          </div>
+        </div>
+        <div class="char-body">
+          <p>فينسنت هو عقل الثنائي. لا يتسرع ويفكر في العواقب دائماً. يمتلك حضناً دافئاً ودبلوماسية تُفيد في كثير من المواقف. لكن تحت هذا الهدوء تكمن أسرار قد تغير كل شيء في النهاية.</p>
+          <p>اختياراته تميل للتسلل والحل السلمي، مما يمنح اللعبة عمقاً إضافياً عند التعاون الفعلي بين اللاعبين لاختيار الأسلوب الأمثل.</p>
+          <div class="char-traits">
+            <span class="trait-tag">عقلاني</span>
+            <span class="trait-tag">مخلص لعائلته</span>
+            <span class="trait-tag">دبلوماسي</span>
+            <span class="trait-tag">صبور</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+        <!-- إعلان قبل الفوتر -->
+    <div class="fazza-ad-unit">
+        <script type="text/javascript">atOptions = { 'key' : 'abae43c3093c7f7459553dac34caad9a', 'format' : 'iframe', 'height' : 90, 'width' : 320, 'params' : {} };</script>
+        <script type="text/javascript" src="https://charmingpoliteinjunction.com/abae43c3093c7f7459553dac34caad9a/invoke.js"></script>
+    </div>
+
+<!-- GAMEPLAY -->
+<section id="gameplay">
+  <div class="container">
+    <h2 class="section-title">🎮 أسلوب اللعب والميكانيكيات</h2>
+    
+    <div class="gameplay-cards">
+      <div class="gameplay-card">
+        <div class="gameplay-icon">🤝</div>
+        <h3>التعاون الحقيقي</h3>
+        <p>كل مشهد تقريباً يتطلب تنسيقاً بين اللاعبين. من الإلهاء بينما يتسلل الآخر، إلى رفع الأثقال معاً — لا تقدم بدون تعاون.</p>
+      </div>
+      <div class="gameplay-card">
+        <div class="gameplay-icon">🎬</div>
+        <h3>الإخراج السينمائي</h3>
+        <p>الشاشة تنقسم ديناميكياً لتخدم القصة. أحياناً تُركّز على شخصية واحدة بينما تظهر الأخرى صغيرة في الزاوية — كالأفلام تماماً.</p>
+      </div>
+      <div class="gameplay-card">
+        <div class="gameplay-icon">⚡</div>
+        <h3>تنوع المراحل</h3>
+        <p>لا تكرار ممل. كل فصل يقدم نمطاً مختلفاً: تسلل، مطاردة، قتال، ألغاز، ولحظات هادئة عاطفية.</p>
+      </div>
+      <div class="gameplay-card">
+        <div class="gameplay-icon">🔫</div>
+        <h3>الأكشن والقتال</h3>
+        <p>نظام تغطية بسيط وفعال. مشاهد الأكشن مثيرة دون تعقيد، تصبح أكثر متعة حين يتحرك اللاعبان بتنسيق.</p>
+      </div>
+      <div class="gameplay-card">
+        <div class="gameplay-icon">🧩</div>
+        <h3>الألغاز والتسلل</h3>
+        <p>بعض المراحل تتطلب تخطيطاً مشتركاً حقيقياً للتسلل عبر الحراس والكاميرات دون إثارة أي تنبيه.</p>
+      </div>
+      <div class="gameplay-card">
+        <div class="gameplay-icon">💬</div>
+        <h3>الحوار والاختيارات</h3>
+        <p>بعض المواقف تمنحك خيارات حوارية تعكس شخصية ليو أو فينسنت — وتؤثر على كيف يتطور المشهد.</p>
+      </div>
+    </div>
+
+    <div class="splitscreen-box">
+      <div class="splitscreen-icon">🖥️</div>
+      <div class="splitscreen-text">
+        <h3>نظام Split Screen الفريد من نوعه</h3>
+        <p>
+          على عكس معظم ألعاب Co-op التي تستخدم Split Screen ثابتاً، A Way Out تُغيّر شكل الشاشة حسب ما يحدث في القصة. حين يتحدث ليو وفينسنت مع بعضهما، تتوسع شاشة كل منهما تلقائياً لتكشف ردود فعلهما معاً. وحين يفترقا لأداء مهام مختلفة، تصبح الشاشتان متساويتين. إنها تقنية تُعزز الانغماس في القصة بشكل لم يُرَ من قبل.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MINIGAMES -->
+<section class="minigames-section">
+  <div class="container">
+    <h2 class="section-title">🎲 الألعاب الجانبية والأنشطة الإضافية</h2>
+    <p style="color:var(--text-dim);margin-bottom:25px;font-size:15px;">
+      اللعبة لا تأخذك بجدية طوال الوقت — هناك لحظات راحة وترفيه حقيقية بين الفصول:
+    </p>
+    <div class="minigames-grid">
+      <div class="minigame-item">
+        <div class="minigame-emoji">⚾</div>
+        <h4>البيسبول</h4>
+        <p>تحدٍّ سريع مع صديقك داخل الملعب</p>
+      </div>
+      <div class="minigame-item">
+        <div class="minigame-emoji">♟️</div>
+        <h4>الشطرنج</h4>
+        <p>استراحة ذهنية كلاسيكية</p>
+      </div>
+      <div class="minigame-item">
+        <div class="minigame-emoji">🎮</div>
+        <h4>أركيد قديم</h4>
+        <p>ألعاب أركيد حقيقية داخل اللعبة</p>
+      </div>
+      <div class="minigame-item">
+        <div class="minigame-emoji">🎯</div>
+        <h4>رمي السكاكين</h4>
+        <p>منافسة ظريفة بين الشخصيتين</p>
+      </div>
+      <div class="minigame-item">
+        <div class="minigame-emoji">🏋️</div>
+        <h4>رفع الأثقال</h4>
+        <p>تحدٍّ بدني تعاوني</p>
+      </div>
+      <div class="minigame-item">
+        <div class="minigame-emoji">🎸</div>
+        <h4>العزف</h4>
+        <p>أداء موسيقي خفيف يُضحك</p>
+      </div>
+      <div class="minigame-item">
+        <div class="minigame-emoji">🛶</div>
+        <h4>قوارب النهر</h4>
+        <p>مغامرة هادئة ومريحة</p>
+      </div>
+      <div class="minigame-item">
+        <div class="minigame-emoji">🚁</div>
+        <h4>ألعاب الليزر</h4>
+        <p>مرحلة أكشن مع لمسة هزلية</p>
+      </div>
+    </div>
+  </div>
+</section>
+        <!-- إعلان قبل الفوتر -->
+    <div class="fazza-ad-unit">
+        <script type="text/javascript">atOptions = { 'key' : 'abae43c3093c7f7459553dac34caad9a', 'format' : 'iframe', 'height' : 90, 'width' : 320, 'params' : {} };</script>
+        <script type="text/javascript" src="https://charmingpoliteinjunction.com/abae43c3093c7f7459553dac34caad9a/invoke.js"></script>
+    </div>
+
+<!-- SCORES -->
+<section id="scores">
+  <div class="container">
+    <h2 class="section-title">⭐ التقييمات التفصيلية</h2>
+    
+    <div class="scores-grid">
+      <div class="score-card">
+        <div class="score-card-label">القصة والسرد</div>
+        <div class="score-bar-wrap">
+          <div class="score-bar" style="width:95%;background:linear-gradient(90deg,var(--gold-dark),var(--gold));"></div>
+        </div>
+        <div class="score-card-value">9.5 / 10</div>
+      </div>
+      <div class="score-card">
+        <div class="score-card-label">التجربة التعاونية</div>
+        <div class="score-bar-wrap">
+          <div class="score-bar" style="width:97%;background:linear-gradient(90deg,#27ae60,var(--green));"></div>
+        </div>
+        <div class="score-card-value">9.7 / 10</div>
+      </div>
+      <div class="score-card">
+        <div class="score-card-label">الرسومات والإخراج</div>
+        <div class="score-bar-wrap">
+          <div class="score-bar" style="width:88%;background:linear-gradient(90deg,#2980b9,var(--blue));"></div>
+        </div>
+        <div class="score-card-value">8.8 / 10</div>
+      </div>
+      <div class="score-card">
+        <div class="score-card-label">الموسيقى والصوتيات</div>
+        <div class="score-bar-wrap">
+          <div class="score-bar" style="width:87%;background:linear-gradient(90deg,#8e44ad,var(--purple));"></div>
+        </div>
+        <div class="score-card-value">8.7 / 10</div>
+      </div>
+      <div class="score-card">
+        <div class="score-card-label">التنوع في أسلوب اللعب</div>
+        <div class="score-bar-wrap">
+          <div class="score-bar" style="width:90%;background:linear-gradient(90deg,#d35400,var(--orange));"></div>
+        </div>
+        <div class="score-card-value">9.0 / 10</div>
+      </div>
+      <div class="score-card">
+        <div class="score-card-label">القيمة مقابل السعر</div>
+        <div class="score-bar-wrap">
+          <div class="score-bar" style="width:85%;background:linear-gradient(90deg,#c0392b,var(--red));"></div>
+        </div>
+        <div class="score-card-value">8.5 / 10</div>
+      </div>
+    </div>
+
+    <div class="overall-badge">
+      <div class="overall-num">9.1</div>
+      <div class="overall-text">
+        <h3>تقييم Fazza Play الإجمالي</h3>
+        <p>
+          A Way Out واحدة من أنقى التجارب التعاونية في تاريخ الألعاب. تتفوق بقصتها المؤثرة وإخراجها السينمائي الذكي، وتقدّم شيئاً لا تجده في معظم الألعاب: تجربة حقيقية يعيشها اثنان معاً كما لو كانا يشاهدان فيلماً ويتفاعلان معه في آنٍ واحد.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+        <!-- إعلان قبل الفوتر -->
+    <div class="fazza-ad-unit">
+        <script type="text/javascript">atOptions = { 'key' : 'abae43c3093c7f7459553dac34caad9a', 'format' : 'iframe', 'height' : 90, 'width' : 320, 'params' : {} };</script>
+        <script type="text/javascript" src="https://charmingpoliteinjunction.com/abae43c3093c7f7459553dac34caad9a/invoke.js"></script>
+    </div>
+
+<!-- PROS/CONS -->
+<section class="proscons-section">
+  <div class="container">
+    <h2 class="section-title">⚖️ المميزات والعيوب</h2>
+    <div class="proscons-grid">
+      <div class="pros-box">
+        <h3>✅ المميزات</h3>
+        <ul class="pros-list">
+          <li>قصة مؤثرة ومبنية بعناية تحتوي على تطور حقيقي للشخصيات</li>
+          <li>تجربة تعاونية لا نظير لها — لن تجدها في لعبة أخرى بنفس العمق</li>
+          <li>إخراج سينمائي بمستوى أفلام هوليوود</li>
+          <li>نظام Friend Pass يتيح للاعب الثاني اللعب مجاناً</li>
+          <li>تنوع مستمر في الميكانيكيات — لا تكرار ولا ملل</li>
+          <li>نهاية قوية ومفاجئة تُثير الحديث بعد الانتهاء</li>
+          <li>ألعاب جانبية ظريفة تُعزز العلاقة مع رفيقك</li>
+          <li>مدعوم بالعربية في الواجهة (بعض الإصدارات)</li>
+        </ul>
+      </div>
+      <div class="cons-box">
+        <h3>❌ العيوب</h3>
+        <ul class="cons-list">
+          <li>لا يمكن لعبها بدون شريك — لا Solo بأي شكل</li>
+          <li>مدة اللعب قصيرة (6–8 ساعات) بالنسبة لسعرها</li>
+          <li>إعادة اللعب محدودة جداً — الحماس ينتهي بعد المرة الأولى</li>
+          <li>التحكم أحياناً يبدو بسيطاً جداً وغير مُتحدٍّ</li>
+          <li>الرسومات ليست الأفضل مقارنة بعام إصدارها</li>
+          <li>لا يدعم أكثر من لاعبين في نفس الوقت</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SYSTEM REQUIREMENTS -->
+<section id="requirements">
+  <div class="container">
+    <h2 class="section-title">💻 متطلبات التشغيل على PC</h2>
+    <div class="req-grid">
+      <div class="req-box">
+        <h3>الحد الأدنى <span>للتشغيل الأساسي</span></h3>
+        <div class="req-row"><span class="req-key">نظام التشغيل</span><span class="req-val">Windows 7/10 (64-bit)</span></div>
+        <div class="req-row"><span class="req-key">المعالج</span><span class="req-val">Intel i3-4130 / AMD FX-4350</span></div>
+        <div class="req-row"><span class="req-key">الرام</span><span class="req-val">8 GB RAM</span></div>
+        <div class="req-row"><span class="req-key">كرت الشاشة</span><span class="req-val">Nvidia GTX 650 Ti / AMD R9 270</span></div>
+        <div class="req-row"><span class="req-key">DirectX</span><span class="req-val">الإصدار 11</span></div>
+        <div class="req-row"><span class="req-key">مساحة التخزين</span><span class="req-val">25 GB</span></div>
+        <div class="req-row"><span class="req-key">الإنترنت</span><span class="req-val">مطلوب للعب أونلاين</span></div>
+      </div>
+      <div class="req-box">
+        <h3>الموصى بها <span>لأفضل تجربة</span></h3>
+        <div class="req-row"><span class="req-key">نظام التشغيل</span><span class="req-val">Windows 10 (64-bit)</span></div>
+        <div class="req-row"><span class="req-key">المعالج</span><span class="req-val">Intel i5-4670 / AMD Ryzen 3 2300X</span></div>
+        <div class="req-row"><span class="req-key">الرام</span><span class="req-val">16 GB RAM</span></div>
+        <div class="req-row"><span class="req-key">كرت الشاشة</span><span class="req-val">Nvidia GTX 970 / AMD RX 480</span></div>
+        <div class="req-row"><span class="req-key">DirectX</span><span class="req-val">الإصدار 11</span></div>
+        <div class="req-row"><span class="req-key">مساحة التخزين</span><span class="req-val">25 GB SSD مفضل</span></div>
+        <div class="req-row"><span class="req-key">الإطارات</span><span class="req-val">60 FPS ثابت</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="comparison-section">
+  <div class="container">
+    <h2 class="section-title">📊 مقارنة مع ألعاب تعاونية مشابهة</h2>
+    <div style="overflow-x:auto;">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>الميزة</th>
+            <th class="highlight-col">A Way Out</th>
+            <th>It Takes Two</th>
+            <th>We Were Here</th>
+            <th>Portal 2</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>قصة عاطفية</td>
+            <td class="highlight-col check">⭐⭐⭐⭐⭐</td>
+            <td class="check">⭐⭐⭐⭐⭐</td>
+            <td class="partial">⭐⭐⭐</td>
+            <td class="partial">⭐⭐⭐</td>
+          </tr>
+          <tr>
+            <td>إخراج سينمائي</td>
+            <td class="highlight-col check">✓ ممتاز</td>
+            <td class="check">✓ جيد</td>
+            <td class="cross">✗ محدود</td>
+            <td class="partial">⚡ متوسط</td>
+          </tr>
+          <tr>
+            <td>Friend Pass مجاني</td>
+            <td class="highlight-col check">✓ نعم</td>
+            <td class="check">✓ نعم</td>
+            <td class="check">✓ نعم</td>
+            <td class="cross">✗ لا</td>
+          </tr>
+          <tr>
+            <td>لعب محلي (Split Screen)</td>
+            <td class="highlight-col check">✓ نعم</td>
+            <td class="check">✓ نعم</td>
+            <td class="cross">✗ لا</td>
+            <td class="check">✓ نعم</td>
+          </tr>
+          <tr>
+            <td>تنوع الميكانيكيات</td>
+            <td class="highlight-col check">✓ متنوع جداً</td>
+            <td class="check">✓ خيالي</td>
+            <td class="partial">⚡ محدود</td>
+            <td class="check">✓ ألغاز عميقة</td>
+          </tr>
+          <tr>
+            <td>مدة اللعب</td>
+            <td class="highlight-col partial">6–8 ساعات</td>
+            <td class="check">10–12 ساعة</td>
+            <td class="partial">3–5 ساعات</td>
+            <td class="check">8–10 ساعات</td>
+          </tr>
+          <tr>
+            <td>إعادة اللعب</td>
+            <td class="highlight-col cross">✗ محدودة</td>
+            <td class="partial">⚡ محدودة</td>
+            <td class="check">✓ جيدة</td>
+            <td class="check">✓ ممتازة</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+        <!-- إعلان قبل الفوتر -->
+    <div class="fazza-ad-unit">
+        <script type="text/javascript">atOptions = { 'key' : 'abae43c3093c7f7459553dac34caad9a', 'format' : 'iframe', 'height' : 90, 'width' : 320, 'params' : {} };</script>
+        <script type="text/javascript" src="https://charmingpoliteinjunction.com/abae43c3093c7f7459553dac34caad9a/invoke.js"></script>
+    </div>
+
+<!-- DIRECTOR -->
+<section>
+  <div class="container">
+    <h2 class="section-title">🎨 خلف الكواليس — من صنع A Way Out؟</h2>
+    <div class="director-card">
+      <div class="director-avatar">🎬</div>
+      <div class="director-info">
+        <h3>يوسف فارس</h3>
+        <div class="director-title">المدير الإبداعي — مؤسس Hazelight Studios</div>
+        <p>
+          يوسف فارس هو العقل المدبّر خلف A Way Out وIt Takes Two. مؤلف ومخرج سويدي من أصول إيرانية، يؤمن بعمق بأن الألعاب يمكنها رواية قصص لا تستطيع الأفلام أن تفعلها. رفض في TGA 2021 جائزة اللعبة العالمية قبل إعلان الفائز — وهو موقف أثار جدلاً واسعاً كشف عن شخصيته الصريحة والجريئة.
+        </p>
+        <p>
+          فارس يصف A Way Out بأنها كانت "تجربة إثبات" — رغبة في إثبات أن لعبة Co-op حصرية يمكنها النجاح تجارياً وفنياً، في وقت كان فيه الناشرون يتشككون. باعت اللعبة أكثر من 4 مليون نسخة خلال العامين الأولين.
+        </p>
+        <div class="director-works">
+          <span class="work-tag">A Way Out (2018)</span>
+          <span class="work-tag">It Takes Two (2021)</span>
+          <span class="work-tag">Brothers: A Tale of Two Sons</span>
+          <span class="work-tag">Split Fiction (2025)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIPS -->
+<section class="tips-section">
+  <div class="container">
+    <h2 class="section-title">💡 نصائح قبل وأثناء اللعب</h2>
+    <div class="tips-grid">
+      <div class="tip-card">
+        <div class="tip-num">01</div>
+        <h4>اختر رفيقك بعناية</h4>
+        <p>اللعبة تحتاج تواصلاً حقيقياً — شخص تعرفه ويشاركك الوقت سيجعل التجربة أعمق وأكثر متعة.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">02</div>
+        <h4>استمتع بالأنشطة الجانبية</h4>
+        <p>لا تتسرع نحو المهام الرئيسية. الألعاب الجانبية والتفاعلات العفوية جزء أساسي من الجمال.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">03</div>
+        <h4>استخدم الميكروفون</h4>
+        <p>التواصل الصوتي يرفع التجربة لمستوى آخر. الأوامر والضحك المشترك يصنع ذكريات حقيقية.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">04</div>
+        <h4>لاعب واحد فقط يشتري</h4>
+        <p>بفضل Friend Pass، يكفي أن يمتلك أحدكم اللعبة ليلعبا معاً أونلاين — وفّر النصف.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">05</div>
+        <h4>لا تبحث عن spoilers</h4>
+        <p>النهاية والمفاجآت جزء كبير من التجربة. أكمل اللعبة بدون أن يخبرك أحد بما سيحدث.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">06</div>
+        <h4>خطط لجلسة كاملة</h4>
+        <p>بما أن اللعبة 6–8 ساعات، يُستحسن تقسيمها على جلستين حتى تستوعبا القصة بعمق.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <h2 class="section-title">❓ أسئلة شائعة</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">هل يمكن لعب A Way Out بشكل فردي (Solo)؟ <span>›</span></div>
+        <div class="faq-a">لا، اللعبة مصممة بالكامل للعب الثنائي فقط. لا يوجد وضع Solo بأي شكل، وهذا قرار مقصود من المطورين لأن التجربة مبنية على التفاعل بين شخصيتين.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">كيف يعمل نظام Friend Pass؟ <span>›</span></div>
+        <div class="faq-a">يكفي أن يمتلك أحد اللاعبين نسخة اللعبة. يمكنه دعوة صديقه الذي لا يملك اللعبة ليلعبا معاً عبر الإنترنت مجاناً تماماً. هذا يجعل الحصول على تجربة كاملة بنصف السعر أمراً ممكناً.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">هل تدعم اللعبة اللغة العربية؟ <span>›</span></div>
+        <div class="faq-a">الواجهة تدعم عدة لغات، لكن الأصوات والحوارات بالإنجليزية حصرياً. للعربية يتوفر ترجمة مجتمعية غير رسمية في بعض الإصدارات.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">هل اللعبة تستحق سعرها بالنظر إلى قِصَر مدتها؟ <span>›</span></div>
+        <div class="faq-a">6–8 ساعات قد تبدو قصيرة، لكن جودة كل دقيقة فيها تفوق ألعاباً مطوّلة. مع نظام Friend Pass الذي يجعل كل لاعب يدفع نصف السعر، يصبح العرض ممتازاً جداً مقارنة بالتجربة المقدَّمة.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">هل هناك اختلافات في اللعب بحسب اختيار الشخصية؟ <span>›</span></div>
+        <div class="faq-a">نعم، بعض المشاهد تُقدم طريقتين مختلفتين حسب ما يختاره اللاعبان. ليو يميل للحلول العنيفة، بينما فينسنت يجد طرقاً أكثر سلاسة. التنسيق بينهما يُثري التجربة.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">هل اللعبة متاحة على PS5 و Xbox Series X؟ <span>›</span></div>
+        <div class="faq-a">نعم، اللعبة تعمل على الأجهزة الجديدة عبر التوافق الخلفي (Backward Compatibility) مع تحسينات في الأداء وسرعة التحميل.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VERDICT -->
+<section class="verdict-section">
+  <div class="container">
+    <h2 class="section-title">🏆 الحكم النهائي</h2>
+    <div class="verdict-box">
+      <span class="verdict-score">9.1</span>
+      <div class="verdict-label">تجربة لا تُنسى</div>
+      <p class="verdict-text">
+        A Way Out ليست مجرد لعبة — إنها تجربة إنسانية مشتركة. حين تجلس مع صديق حقيقي وتدخل معه عالم ليو وفينسنت، ستعيش لحظات من الضحك، التوتر، الدهشة، وربما الحزن. وهذا بالضبط ما تسعى إليه الألعاب العظيمة: أن تُوجِد مشاعر حقيقية. للاعبين الذين يبحثون عن تجربة Co-op أصيلة، هذه اللعبة إلزامية.
+      </p>
+      <div class="verdict-recommend">
+        ✅ موصى بها بشدة — مع صديق
+      </div>
+      <div class="cta-buttons">
+        <a class="btn-primary" href="https://store.steampowered.com/app/1222700/A_Way_Out/" target="_blank">🛒 احصل عليها من Steam</a>
+        <a class="btn-secondary" href="https://www.ea.com/games/a-way-out" target="_blank">🎮 الموقع الرسمي</a>
+        <a class="btn-secondary" href="../index.html">← العودة للألعاب</a>
+      </div>
+    </div>
+  </div>
+</section>
+        <!-- إعلان قبل الفوتر -->
+    <div class="fazza-ad-unit">
+        <script type="text/javascript">atOptions = { 'key' : 'abae43c3093c7f7459553dac34caad9a', 'format' : 'iframe', 'height' : 90, 'width' : 320, 'params' : {} };</script>
+        <script type="text/javascript" src="https://charmingpoliteinjunction.com/abae43c3093c7f7459553dac34caad9a/invoke.js"></script>
+    </div>
+
+<footer>
+  <p>© 2025 <a href="../../index.html">Fazza Play</a> – جميع الحقوق محفوظة | مراجعات ألعاب عربية باحترافية</p>
+</footer>
+
+<script>
+// Smooth FAQ toggle
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    const a = item.querySelector('.faq-a');
+    const isOpen = a.style.display === 'block';
+    document.querySelectorAll('.faq-a').forEach(el => el.style.display = 'none');
+    document.querySelectorAll('.faq-q span').forEach(el => el.textContent = '›');
+    if (!isOpen) {
+      a.style.display = 'block';
+      q.querySelector('span').textContent = '‹';
+    }
+  });
+});
+
+// Close FAQ answers by default
+document.querySelectorAll('.faq-a').forEach(a => a.style.display = 'none');
+
+// Animate score bars on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.width = e.target.getAttribute('data-width') || e.target.style.width;
+    }
+  });
+}, { threshold: 0.3 });
+
+document.querySelectorAll('.score-bar').forEach(bar => {
+  const w = bar.style.width;
+  bar.setAttribute('data-width', w);
+  bar.style.width = '0%';
+  observer.observe(bar);
+});
+
+// Header scroll effect
+window.addEventListener('scroll', () => {
+  const header = document.querySelector('.site-header');
+  if (window.scrollY > 50) {
+    header.style.borderBottomColor = 'rgba(245,197,66,0.3)';
+  } else {
+    header.style.borderBottomColor = 'rgba(245,197,66,0.15)';
+  }
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://fazzaplay.com/tik-tok/sitemap.xml
+
+# Crawl delay for better server performance
+Crawl-delay: 1
+
+# Allow all search engines to index the content
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Block access to sensitive files
+Disallow: /node_modules/
+Disallow: /.env
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /server.js
+Disallow: /.git/
+Disallow: /.gitignore

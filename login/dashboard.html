@@ -1,0 +1,1969 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>لوحة التحكم – Fazza Play</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Exo+2:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="dash.css">
+<script src="../js/version-checker.js"></script>
+</head>
+<body>
+
+<div class="toast" id="toast"></div>
+<div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+
+<!-- ==============================
+     SIDEBAR
+============================== -->
+<aside class="sidebar" id="sidebar">
+  <div class="sb-top">
+    <a href="../index.html" class="sb-logo">⚡ FAZZA PLAY</a>
+    <div class="user-mini" onclick="navigate('profile')">
+      <div class="user-ava" id="sb-ava">🎮</div>
+      <div>
+        <div class="user-mini-name" id="sb-name">...</div>
+        <div class="user-mini-level">⭐ <span id="sb-level">المستوى 1</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="xp-wrap">
+    <div class="xp-row">
+      <span>XP</span>
+      <span id="sb-xp">0 / 500</span>
+    </div>
+    <div class="xp-bar-bg">
+      <div class="xp-bar" id="sb-xp-bar" style="width:0%"></div>
+    </div>
+  </div>
+
+  <nav class="sb-nav">
+    <div class="nav-section-label">الرئيسية</div>
+    <a class="nav-item" href="../index.html">
+      <span class="ni-icon">🏠</span> الصفحة الرئيسية
+    </a>
+    <a class="nav-item active" onclick="navigate('overview')" href="#">
+      <span class="ni-icon">📊</span> نظرة عامة
+    </a>
+    <a class="nav-item" onclick="navigate('profile')" href="#">
+      <span class="ni-icon">👤</span> ملفي الشخصي
+    </a>
+
+    <div class="nav-section-label">الألعاب</div>
+    <a class="nav-item" onclick="navigate('favorites')" href="#">
+      <span class="ni-icon">❤️</span> المفضلة
+      <span class="ni-badge" id="fav-count-badge">0</span>
+    </a>
+    <a class="nav-item" onclick="navigate('reviews')" href="#">
+      <span class="ni-icon">⭐</span> مراجعاتي
+    </a>
+
+    <div class="nav-section-label">الحساب</div>
+    <a class="nav-item" onclick="navigate('notifications')" href="#">
+      <span class="ni-icon">🔔</span> الإشعارات
+      <span class="ni-badge" id="notif-badge">3</span>
+    </a>
+    <a class="nav-item" onclick="navigate('settings')" href="#">
+      <span class="ni-icon">⚙️</span> الإعدادات
+    </a>
+    <a class="nav-item" onclick="logout()" href="#">
+      <span class="ni-icon">🚪</span> تسجيل الخروج
+    </a>
+  </nav>
+
+  <div class="sb-bottom">
+    <button class="logout-btn" onclick="logout()">
+      🚪 تسجيل الخروج
+    </button>
+  </div>
+</aside>
+
+<!-- ==============================
+     MAIN
+============================== -->
+<div class="main">
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <button class="hamburger" id="hamburger" onclick="openSidebar()" aria-label="فتح القائمة">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <h1 class="page-title" id="page-title">النظرة العامة</h1>
+    </div>
+
+    <div class="topbar-right">
+      <a href="../index.html" class="topbar-btn" title="العودة للموقع الرئيسي">
+        <span class="tb-icon">🏠</span>
+      </a>
+      
+      <div class="notif-wrap">
+        <button class="topbar-btn" onclick="navigate('notifications')" title="الإشعارات">
+          <span class="tb-icon">🔔</span>
+          <div class="notif-dot" id="notif-dot"></div>
+        </button>
+      </div>
+      
+      <div class="user-ava topbar-ava" id="top-ava" onclick="navigate('profile')" title="الملف الشخصي">
+        🎮
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE BODY -->
+  <div class="page-body">
+
+    <!-- ====== OVERVIEW VIEW ====== -->
+    <div class="view active" id="view-overview">
+      
+      <div class="welcome-banner">
+        <div class="wb-text">
+          <h2>مرحباً، <span id="welcome-name">لاعب</span>! 👋</h2>
+          <p>تابع نشاطك وآخر تحديثاتك من هنا</p>
+        </div>
+        <div class="wb-score">
+          <span class="wb-num" id="wb-xp">0</span>
+          <div class="wb-sub">نقطة XP</div>
+        </div>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-icon">❤️</div>
+          <div class="stat-num" id="stat-fav">0</div>
+          <div class="stat-label">ألعاب مفضلة</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">⭐</div>
+          <div class="stat-num" id="stat-reviews">0</div>
+          <div class="stat-label">مراجعة نشرتها</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🏆</div>
+          <div class="stat-num" id="stat-badges">0</div>
+          <div class="stat-label">شارة حصلت عليها</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">📅</div>
+          <div class="stat-num" id="stat-days">0</div>
+          <div class="stat-label">يوم عضويتك</div>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="card">
+          <div class="card-head">
+            <span class="card-title">⚡ آخر النشاطات</span>
+            <span class="card-action" onclick="navigate('reviews')">عرض الكل</span>
+          </div>
+          <div class="card-body">
+            <div class="activity-list" id="activity-list">
+              <div style="color:var(--dim);font-size:13px;padding:10px">لا توجد نشاطات بعد. ابدأ بإضافة ألعاب للمفضلة! 🎮</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <span class="card-title">🏅 شاراتي</span>
+            <span class="card-action" onclick="navigate('profile')">عرض الكل</span>
+          </div>
+          <div class="card-body">
+            <div class="badges-grid" id="overview-badges">
+              <div class="badge-item earned"><div class="badge-emoji">🎮</div><div class="badge-name">لاعب جديد</div></div>
+              <div class="badge-item locked"><div class="badge-emoji">⭐</div><div class="badge-name">مراجع</div></div>
+              <div class="badge-item locked"><div class="badge-emoji">🔥</div><div class="badge-name">متحمس</div></div>
+              <div class="badge-item locked"><div class="badge-emoji">💎</div><div class="badge-name">نخبة</div></div>
+              <div class="badge-item locked"><div class="badge-emoji">🏆</div><div class="badge-name">بطل</div></div>
+              <div class="badge-item locked"><div class="badge-emoji">⚡</div><div class="badge-name">سريع</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card one-col">
+        <div class="card-head">
+          <span class="card-title">🚀 إجراءات سريعة</span>
+        </div>
+        <div class="card-body">
+          <div class="quick-actions">
+            <a href="../index.html" class="qa-btn">
+              <div class="qa-icon">🏠</div>
+              <div class="qa-label">الرئيسية</div>
+            </a>
+            <div class="qa-btn" onclick="navigate('favorites')">
+              <div class="qa-icon">❤️</div>
+              <div class="qa-label">المفضلة</div>
+            </div>
+            <div class="qa-btn" onclick="navigate('reviews')">
+              <div class="qa-icon">✍️</div>
+              <div class="qa-label">كتابة مراجعة</div>
+            </div>
+            <div class="qa-btn" onclick="navigate('profile')">
+              <div class="qa-icon">✏️</div>
+              <div class="qa-label">تعديل الملف</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====== PROFILE VIEW ====== -->
+    <div class="view" id="view-profile">
+      <div class="profile-hero">
+        <div class="p-ava-wrap">
+          <div class="p-ava" id="p-ava-icon">🎮</div>
+          <div class="p-ava-edit" title="تغيير الأفاتار">✏️</div>
+        </div>
+        <div class="p-info">
+          <div class="p-name" id="p-name">...</div>
+          <div class="p-email" id="p-email">...</div>
+          <div class="p-badges-row">
+            <span class="p-badge badge-gold">⭐ المستوى <span id="p-level-badge">1</span></span>
+            <span class="p-badge badge-green" id="p-joined-badge">عضو جديد</span>
+            <span class="p-badge badge-blue">✅ حساب نشط</span>
+          </div>
+        </div>
+        <div class="p-stats">
+          <div class="p-stat">
+            <div class="p-stat-num" id="ps-fav">0</div>
+            <div class="p-stat-label">مفضلة</div>
+          </div>
+          <div class="p-stat">
+            <div class="p-stat-num" id="ps-rev">0</div>
+            <div class="p-stat-label">مراجعات</div>
+          </div>
+          <div class="p-stat">
+            <div class="p-stat-num" id="ps-xp">0</div>
+            <div class="p-stat-label">نقاط XP</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <span class="card-title">✏️ تعديل المعلومات</span>
+        </div>
+        <div class="card-body">
+          <div class="edit-grid">
+            <div class="form-field">
+              <label>اسم المستخدم</label>
+              <input type="text" id="edit-username" placeholder="اسم المستخدم">
+            </div>
+            <div class="form-field">
+              <label>الاسم الكامل</label>
+              <input type="text" id="edit-fullname" placeholder="الاسم الكامل (اختياري)">
+            </div>
+            <div class="form-field">
+              <label>البريد الإلكتروني</label>
+              <input type="email" id="edit-email" placeholder="البريد الإلكتروني">
+            </div>
+            <div class="form-field">
+              <label>الدولة</label>
+              <select id="edit-country" title="اختر الدولة">
+                <option value="">اختر الدولة</option>
+                <option value="eg">🇪🇬 مصر</option>
+                <option value="sa">🇸🇦 السعودية</option>
+                <option value="ae">🇦🇪 الإمارات</option>
+                <option value="kw">🇰🇼 الكويت</option>
+                <option value="qa">🇶🇦 قطر</option>
+                <option value="bh">🇧🇭 البحرين</option>
+                <option value="om">🇴🇲 عُمان</option>
+                <option value="jo">🇯🇴 الأردن</option>
+                <option value="lb">🇱🇧 لبنان</option>
+                <option value="iq">🇮🇶 العراق</option>
+                <option value="ma">🇲🇦 المغرب</option>
+                <option value="tn">🇹🇳 تونس</option>
+                <option value="dz">🇩🇿 الجزائر</option>
+                <option value="other">🌍 أخرى</option>
+              </select>
+            </div>
+            <div class="form-field full-span">
+              <label>نبذة شخصية</label>
+              <textarea id="edit-bio" placeholder="أخبر المجتمع عن نفسك وألعابك المفضلة..."></textarea>
+            </div>
+            <div class="form-field full-span">
+              <label>اختر أفاتار</label>
+              <div class="ava-selection">
+                <div class="ava-opt selected" data-ava="🎮" onclick="selectEditAva(this,'edit-ava-hidden')">🎮</div>
+                <div class="ava-opt" data-ava="⚡" onclick="selectEditAva(this,'edit-ava-hidden')">⚡</div>
+                <div class="ava-opt" data-ava="🔥" onclick="selectEditAva(this,'edit-ava-hidden')">🔥</div>
+                <div class="ava-opt" data-ava="👾" onclick="selectEditAva(this,'edit-ava-hidden')">👾</div>
+                <div class="ava-opt" data-ava="🏆" onclick="selectEditAva(this,'edit-ava-hidden')">🏆</div>
+                <div class="ava-opt" data-ava="🚀" onclick="selectEditAva(this,'edit-ava-hidden')">�</div>
+                <div class="ava-opt" data-ava="⚽" onclick="selectEditAva(this,'edit-ava-hidden')">⚽</div>
+                <div class="ava-opt" data-ava="🎯" onclick="selectEditAva(this,'edit-ava-hidden')">🎯</div>
+                <div class="ava-opt" data-ava="�" onclick="selectEditAva(this,'edit-ava-hidden')">🎪</div>
+                <div class="ava-opt" data-ava="🎨" onclick="selectEditAva(this,'edit-ava-hidden')">�</div>
+                <div class="ava-opt" data-ava="�" onclick="selectEditAva(this,'edit-ava-hidden')">🎭</div>
+                <div class="ava-opt" data-ava="🎪" onclick="selectEditAva(this,'edit-ava-hidden')">�</div>
+                <div class="ava-opt" data-ava="🌟" onclick="selectEditAva(this,'edit-ava-hidden')">🌟</div>
+                <div class="ava-opt" data-ava="💎" onclick="selectEditAva(this,'edit-ava-hidden')">💎</div>
+              </div>
+              <input type="hidden" id="edit-ava-hidden">
+            </div>
+          </div>
+          <div style="margin-top:20px;display:flex;gap:10px">
+            <button class="save-btn" onclick="saveProfile()">💾 حفظ التغييرات</button>
+            <button class="save-btn" style="background:transparent;border:1px solid var(--border);color:var(--dim)" onclick="loadUserData()">↺ إعادة تعيين</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====== FAVORITES VIEW ====== -->
+    <div class="view" id="view-favorites">
+      <div class="card">
+        <div class="card-head">
+          <span class="card-title">❤️ الألعاب المفضلة</span>
+          <div class="card-actions">
+            <span class="card-action" onclick="refreshFavorites()">🔄 تحديث</span>
+            <span class="card-action" onclick="clearAllFavorites()">🗑️ مسح الكل</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div id="favorites-empty" class="empty-state">
+            <div class="empty-icon">🎮</div>
+            <div class="empty-title">لا توجد ألعاب مفضلة</div>
+            <div class="empty-text">لم تضف أي ألعاب للمفضلة بعد. تصفح الألعاب وأضف مفضلاتك!</div>
+            <a href="../index.html" class="btn btn-primary empty-btn">
+              <span>🔍 استعرض الألعاب</span>
+            </a>
+          </div>
+
+          <div id="favorites-content" class="favorites-content" style="display: none;">
+            <div class="favorites-stats">
+              <div class="stat-item">
+                <span class="stat-number" id="favorites-count">0</span>
+                <span class="stat-label">لعبة مفضلة</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number" id="favorites-categories">0</span>
+                <span class="stat-label">فئة مختلفة</span>
+              </div>
+            </div>
+
+            <div class="favorites-grid" id="favorites-grid">
+              <!-- Favorite games will be loaded here -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====== REVIEWS VIEW ====== -->
+    <div class="view" id="view-reviews">
+      <div class="card">
+        <div class="card-head">
+          <span class="card-title">⭐ مراجعاتي</span>
+          <div class="card-actions">
+            <span class="card-action" onclick="refreshReviews()">🔄 تحديث</span>
+ اديل            <select id="review-filter" onchange="filterReviews()" class="filter-select" title="فلترة المراجعات">
+              <option value="all">جميع المراجعات</option>
+              <option value="recent">الأحدث</option>
+              <option value="highest">أعلى تقييم</option>
+              <option value="lowest">أقل تقييم</option>
+            </select>
+          </div>
+        </div>
+        <div class="card-body">
+          <div id="reviews-empty" class="empty-state">
+            <div class="empty-icon">✍️</div>
+            <div class="empty-title">لا توجد مراجعات</div>
+            <div class="empty-text">لم تكتب أي مراجعات بعد. شارك رأيك في الألعاب المفضلة!</div>
+            <a href="../index.html" class="btn btn-primary empty-btn">
+              <span>🎮 استعرض الألعاب</span>
+            </a>
+          </div>
+
+          <div id="reviews-content" class="reviews-content" style="display: none;">
+            <div class="reviews-stats">
+              <div class="stat-item">
+                <span class="stat-number" id="reviews-count">0</span>
+                <span class="stat-label">مراجعة</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number" id="reviews-avg-rating">0</span>
+                <span class="stat-label">متوسط التقييم</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number" id="reviews-games">0</span>
+                <span class="stat-label">لعبة مختلفة</span>
+              </div>
+            </div>
+
+            <div class="reviews-list" id="reviews-list">
+              <!-- Reviews will be loaded here -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====== NOTIFICATIONS VIEW ====== -->
+    <div class="view" id="view-notifications">
+      <div class="card">
+        <div class="card-head">
+          <span class="card-title">🔔 الإشعارات</span>
+          <div class="card-actions">
+            <span class="card-action" onclick="refreshNotifications()">🔄 تحديث</span>
+            <select id="notif-filter" onchange="filterNotifications()" class="filter-select" title="فلترة الإشعارات">
+              <option value="all">جميع الإشعارات</option>
+              <option value="unread">غير المقروءة فقط</option>
+              <option value="recent">الأحدث</option>
+            </select>
+          </div>
+        </div>
+        <div class="card-body">
+          <div id="notifications-empty" class="empty-state">
+            <div class="empty-icon">🔔</div>
+            <div class="empty-title">لا توجد إشعارات</div>
+            <div class="empty-text">ستصلك الإشعارات هنا عند حدوث أنشطة مهمة في حسابك</div>
+          </div>
+
+          <div id="notifications-content" class="notifications-content" style="display: none;">
+            <div class="notifications-stats">
+              <div class="stat-item">
+                <span class="stat-number" id="notifications-count">0</span>
+                <span class="stat-label">إشعار</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number" id="notifications-unread">0</span>
+                <span class="stat-label">غير مقروء</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number" id="notifications-today">0</span>
+                <span class="stat-label">اليوم</span>
+              </div>
+            </div>
+            <div class="notif-list" id="notif-list">
+              <!-- Notifications will be loaded here -->
+            </div>
+          </div>
+          <div class="notifications-actions">
+            <button class="btn btn-secondary" onclick="markAllRead()">
+              <span>✓ تحديد الكل كمقروء</span>
+            </button>
+            <button class="btn btn-secondary danger" onclick="clearAllNotifications()">
+              <span>🗑️ مسح الكل</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====== SETTINGS VIEW ====== -->
+    <div class="view" id="view-settings">
+      <div class="settings-sections">
+
+        <div class="setting-group">
+          <div class="sg-head">🔔 الإشعارات</div>
+          <div class="setting-row">
+            <div class="sr-left">
+              <h4>إشعارات الألعاب الجديدة</h4>
+              <p>استقبل إشعاراً عند نشر مراجعة لعبة جديدة</p>
+            </div>
+            <label class="toggle"><input type="checkbox" id="notif-games" checked aria-label="إشعارات الألعاب الجديدة"><span class="toggle-slider"></span></label>
+          </div>
+          <div class="setting-row">
+            <div class="sr-left">
+              <h4>إشعارات التعليقات</h4>
+              <p>عند الرد على مراجعاتك</p>
+            </div>
+            <label class="toggle"><input type="checkbox" id="notif-comments" checked aria-label="إشعارات التعليقات"><span class="toggle-slider"></span></label>
+          </div>
+          <div class="setting-row">
+            <div class="sr-left">
+              <h4>النشرة البريدية الأسبوعية</h4>
+              <p>ملخص أسبوعي بأفضل الألعاب والمراجعات</p>
+            </div>
+            <label class="toggle"><input type="checkbox" id="notif-newsletter" aria-label="النشرة البريدية الأسبوعية"><span class="toggle-slider"></span></label>
+          </div>
+        </div>
+
+        <div class="setting-group">
+          <div class="sg-head">🎨 التخصيص</div>
+          <div class="setting-row">
+            <div class="sr-left">
+              <h4>الوضع الليلي</h4>
+              <p>تفعيل الوضع الداكن (مفعّل حالياً)</p>
+            </div>
+            <label class="toggle"><input type="checkbox" id="dark-mode" checked aria-label="الوضع الليلي"><span class="toggle-slider"></span></label>
+          </div>
+          <div class="setting-row">
+            <div class="sr-left">
+              <h4>الرسوم المتحركة</h4>
+              <p>تفعيل التأثيرات البصرية والانتقالات</p>
+            </div>
+            <label class="toggle"><input type="checkbox" id="animations" checked aria-label="الرسوم المتحركة"><span class="toggle-slider"></span></label>
+          </div>
+        </div>
+
+        <div class="setting-group">
+          <div class="sg-head">🔒 الأمان والخصوصية</div>
+          <div class="setting-row">
+            <div class="sr-left">
+              <h4>الملف العام</h4>
+              <p>السماح للآخرين برؤية ملفك الشخصي</p>
+            </div>
+            <label class="toggle"><input type="checkbox" id="public-profile" checked aria-label="الملف العام"><span class="toggle-slider"></span></label>
+          </div>
+          <div class="setting-row">
+            <div class="sr-left">
+              <h4>تغيير كلمة المرور</h4>
+              <p>آخر تغيير: عند إنشاء الحساب</p>
+            </div>
+            <button class="save-btn" onclick="showToast('قريباً — تغيير كلمة المرور 🔒','info')">تغيير</button>
+          </div>
+        </div>
+
+        <div class="setting-group danger-group">
+          <div class="sg-head danger-head">
+            <span class="danger-icon">⚠️</span>
+            <span class="danger-title">المنطقة الخطرة</span>
+          </div>
+
+          <div class="danger-content">
+            <div class="danger-warning">
+              <h4 class="danger-subtitle">حذف الحساب نهائياً</h4>
+              <p class="danger-text">
+                سيتم حذف جميع بياناتك بشكل دائم ولا يمكن التراجع. هذا يشمل:
+              </p>
+              <ul class="danger-list">
+                <li>ملفك الشخصي ومعلوماتك</li>
+                <li>جميع المراجعات والتقييمات</li>
+                <li>قائمة الألعاب المفضلة</li>
+                <li>إعداداتك وتفضيلاتك</li>
+                <li>سجل الأنشطة والإشعارات</li>
+              </ul>
+            </div>
+
+            <div class="danger-confirmation">
+              <label for="delete-confirm" class="confirmation-label">
+                اكتب <strong>"DELETE"</strong> لتأكيد الحذف:
+              </label>
+              <input
+                type="text"
+                id="delete-confirm"
+                class="confirmation-input"
+                placeholder="اكتب DELETE هنا"
+                maxlength="6"
+                autocomplete="off"
+              >
+              <p class="confirmation-help">
+                هذه الخطوة مطلوبة لتجنب الحذف العرضي
+              </p>
+            </div>
+
+            <div class="danger-actions">
+              <button
+                class="danger-btn"
+                id="delete-account-btn"
+                onclick="confirmDelete()"
+                disabled
+              >
+                <span class="btn-icon">🗑️</span>
+                <span class="btn-text">حذف الحساب نهائياً</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Settings Management -->
+        <div class="setting-group management-group">
+          <div class="sg-head management-head">
+            <span class="management-icon">⚙️</span>
+            <span class="management-title">إدارة الإعدادات</span>
+          </div>
+
+          <div class="management-content">
+            <div class="management-description">
+              <p>أدوات متقدمة لإدارة إعداداتك ونسخ احتياطي لبياناتك</p>
+            </div>
+
+            <div class="management-grid">
+              <!-- Reset Settings -->
+              <div class="management-card">
+                <div class="card-icon">🔄</div>
+                <div class="card-content">
+                  <h4 class="card-title">إعادة تعيين</h4>
+                  <p class="card-description">استعادة جميع الإعدادات إلى القيم الافتراضية</p>
+                </div>
+                <button class="management-btn reset-btn" onclick="resetSettings()">
+                  <span>إعادة التعيين</span>
+                </button>
+              </div>
+
+              <!-- Export Settings -->
+              <div class="management-card">
+                <div class="card-icon">📤</div>
+                <div class="card-content">
+                  <h4 class="card-title">تصدير الإعدادات</h4>
+                  <p class="card-description">حفظ إعداداتك في ملف JSON للنسخ الاحتياطي</p>
+                </div>
+                <button class="management-btn export-btn" onclick="exportSettings()">
+                  <span>تصدير</span>
+                </button>
+              </div>
+
+              <!-- Import Settings -->
+              <div class="management-card">
+                <div class="card-icon">📥</div>
+                <div class="card-content">
+                  <h4 class="card-title">استيراد الإعدادات</h4>
+                  <p class="card-description">استعادة الإعدادات من ملف JSON محفوظ</p>
+                </div>
+                <button class="management-btn import-btn" onclick="importSettings()">
+                  <span>استيراد</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- File Status -->
+            <div class="file-status" id="file-status" style="display: none;">
+              <div class="status-icon">📄</div>
+              <div class="status-content">
+                <div class="status-title">ملف جاهز للتحميل</div>
+                <div class="status-description">انقر مرة أخرى لحفظ الملف</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end page-body -->
+</div><!-- end main -->
+
+<script>
+// ===== CONFIG =====
+// ===== غيّر هذا بعد نشر الـ Worker =====
+const API_BASE = 'https://fazzaplay-auth.YOUR-SUBDOMAIN.workers.dev';
+
+// ===== STATE =====
+let currentUser = null;
+let userFavorites = [];
+let userReviews = [];
+let userNotifications = [];
+
+// ===== LOAD USER DATA INTO FORM =====
+function loadUserData() {
+  if(!currentUser) return;
+  const u = currentUser;
+  const username = document.getElementById('edit-username');
+  const email = document.getElementById('edit-email');
+  const fullname = document.getElementById('edit-fullname');
+  const country = document.getElementById('edit-country');
+  const bio = document.getElementById('edit-bio');
+  if(username) username.value = u.username || '';
+  if(email) email.value = u.email || '';
+  if(fullname) fullname.value = u.fullname || '';
+  if(country) country.value = u.country || '';
+  if(bio) bio.value = u.bio || '';
+}
+
+// ===== INIT =====
+function init() {
+  try {
+    const token = getToken();
+    const userStr = localStorage.getItem('fp_user') || sessionStorage.getItem('fp_user');
+    
+    if(!token || !userStr) {
+      window.location.href = 'auth.html';
+      return;
+    }
+
+    currentUser = JSON.parse(userStr);
+    if (!currentUser || !currentUser.id) {
+      console.error('Invalid user data');
+      window.location.href = 'auth.html';
+      return;
+    }
+
+    // Initialize data
+    userFavorites = [];
+    userReviews = [];
+    userNotifications = [];
+    
+    // Load all data
+    loadFavorites();
+    loadReviews();
+    loadNotifications();
+    
+    // Sync with server in background
+    syncWithServer();
+    
+    // Set initial view
+    navigate('overview');
+    
+    console.log('Dashboard initialized successfully');
+    
+  } catch (error) {
+    console.error('Dashboard initialization error:', error);
+    window.location.href = 'auth.html';
+  }
+}
+
+// ===== GET TOKEN =====
+function getToken() {
+  return localStorage.getItem('fp_token') || sessionStorage.getItem('fp_token');
+}
+
+// ===== SYNC WITH SERVER =====
+async function syncWithServer() {
+  try {
+    const res = await fetch(`${API_BASE}/user/me`, {
+      headers: { 'Authorization': 'Bearer ' + getToken() }
+    });
+    if(res.ok) {
+      const data = await res.json();
+      currentUser = { ...currentUser, ...data };
+      const store = localStorage.getItem('fp_token') ? localStorage : sessionStorage;
+      store.setItem('fp_user', JSON.stringify(currentUser));
+      renderAll();
+    } else if(res.status === 401) {
+      logout();
+    }
+  } catch(e) {
+    // Offline mode — use local data
+  }
+}
+
+// ===== RENDER ALL =====
+function renderAll() {
+  const u = currentUser;
+  const xp = u.xp || 0;
+  const level = Math.floor(xp / 500) + 1;
+  const xpInLevel = xp % 500;
+  const xpPct = (xpInLevel / 500) * 100;
+
+  // Sidebar
+  document.getElementById('sb-ava').textContent = u.avatar || '🎮';
+  document.getElementById('sb-name').textContent = u.username || 'لاعب';
+  document.getElementById('sb-level').textContent = 'المستوى ' + level;
+  document.getElementById('sb-xp').textContent = xpInLevel + ' / 500';
+  document.getElementById('sb-xp-bar').style.width = xpPct + '%';
+
+  // Top bar
+  document.getElementById('top-ava').textContent = u.avatar || '🎮';
+
+  // Welcome
+  document.getElementById('welcome-name').textContent = u.username || 'لاعب';
+  document.getElementById('wb-xp').textContent = xp;
+
+  // Stats
+  document.getElementById('stat-fav').textContent = userFavorites.length;
+  document.getElementById('stat-reviews').textContent = userReviews.length;
+  document.getElementById('stat-badges').textContent = (u.badges||['🎮']).length;
+
+  // Days since joined
+  if(u.joined) {
+    const days = Math.floor((Date.now() - new Date(u.joined)) / 86400000);
+    document.getElementById('stat-days').textContent = Math.max(days, 1);
+  }
+
+  // Profile
+  document.getElementById('p-ava-icon').textContent = u.avatar || '🎮';
+  document.getElementById('p-name').textContent = u.username || 'لاعب';
+  document.getElementById('p-email').textContent = u.email || '';
+  document.getElementById('p-level-badge').textContent = level;
+  document.getElementById('ps-fav').textContent = userFavorites.length;
+  document.getElementById('ps-rev').textContent = userReviews.length;
+  document.getElementById('ps-xp').textContent = xp;
+
+  if(u.joined) {
+    const d = new Date(u.joined);
+    document.getElementById('p-joined-badge').textContent = 
+      'عضو منذ ' + d.toLocaleDateString('ar-EG', {year:'numeric',month:'short'});
+  }
+
+  // Edit form
+  document.getElementById('edit-username').value = u.username || '';
+  document.getElementById('edit-email').value = u.email || '';
+  document.getElementById('edit-fullname').value = u.fullname || '';
+  document.getElementById('edit-country').value = u.country || '';
+  document.getElementById('edit-bio').value = u.bio || '';
+  document.getElementById('edit-ava-hidden').value = u.avatar || '🎮';
+
+  // Avatar in edit form
+  document.querySelectorAll('[onclick*="edit-ava-hidden"]').forEach(el => {
+    el.style.border = el.dataset.ava === (u.avatar||'🎮') 
+      ? '2px solid var(--gold)' : '2px solid transparent';
+    el.style.boxShadow = el.dataset.ava === (u.avatar||'🎮')
+      ? '0 0 10px rgba(245,197,66,0.3)' : 'none';
+  });
+
+  // Favorites badge
+  document.getElementById('fav-count-badge').textContent = userFavorites.length;
+
+  // Update favorites badge
+  const favBadge = document.getElementById('fav-count-badge');
+  if(favBadge) favBadge.textContent = userFavorites.length > 0 ? userFavorites.length : '';
+
+  // Render lists
+  updateFavoritesUI();
+  updateReviewsUI();
+  renderActivity();
+}
+
+// ===== ACTIVITY =====
+function renderActivity() {
+  const list = document.getElementById('activity-list');
+  const activities = [];
+  
+  userFavorites.slice(-3).forEach(f => {
+    const name = f.name || f.title || 'لعبة';
+    activities.push({icon:'❤️',title:`أضفت "${name}" للمفضلة`,time:'مؤخراً',pts:'+10 XP'});
+  });
+  userReviews.slice(-3).forEach(r => {
+    const name = r.game || r.gameTitle || 'لعبة';
+    activities.push({icon:'⭐',title:`كتبت مراجعة لـ "${name}"`,time:'مؤخراً',pts:'+25 XP'});
+  });
+
+  if(activities.length === 0) {
+    list.innerHTML = '<div style="color:var(--dim);font-size:13px;padding:10px">لا توجد نشاطات بعد. ابدأ بإضافة ألعاب للمفضلة! 🎮</div>';
+    return;
+  }
+
+  list.innerHTML = activities.map(a => `
+    <div class="act-item">
+      <div class="act-icon">${a.icon}</div>
+      <div class="act-text">
+        <div class="act-title">${a.title}</div>
+        <div class="act-time">${a.time}</div>
+      </div>
+      <div class="act-pts">${a.pts}</div>
+    </div>
+  `).join('');
+}
+
+// renderFavorites → replaced by updateFavoritesUI
+
+function removeFavorite(index) {
+  userFavorites.splice(index, 1);
+  saveFavorites();
+  renderAll();
+  showToast('تم إزالة اللعبة من المفضلة', 'info');
+}
+
+function saveFavorites() {
+  localStorage.setItem('fp_favorites_'+currentUser.id, JSON.stringify(userFavorites));
+}
+
+function addDemoFavorite() {
+  const demos = [
+    {id:'gta6',title:'GTA VI',icon:'🌴',genre:'أكشن عالم مفتوح',rating:4},
+    {id:'away-out',title:'A Way Out',icon:'🏃',genre:'أكشن تعاوني',rating:4},
+    {id:'tlou',title:'The Last of Us',icon:'🌿',genre:'بقاء ورعب',rating:5},
+    {id:'rdr2',title:'Red Dead Redemption 2',icon:'🤠',genre:'غرب أمريكي',rating:5},
+    {id:'gow',title:'God of War',icon:'⚔️',genre:'أكشن مغامرة',rating:5},
+  ];
+  const demo = demos[userFavorites.length % demos.length];
+  if(userFavorites.find(f => f.id === demo.id)) {
+    showToast('اللعبة مضافة بالفعل 🎮', 'info'); return;
+  }
+  userFavorites.push({...demo, addedAt: new Date().toISOString()});
+  currentUser.xp = (currentUser.xp||0) + 10;
+  saveFavorites();
+  saveUser();
+  updateFavoritesUI();
+  renderAll();
+  showToast(`تمت إضافة "${demo.title}" للمفضلة ❤️`, 'success');
+}
+
+// renderReviews → replaced by updateReviewsUI
+
+// removeReview(index) replaced by deleteReview(id)
+
+function addDemoReview() {
+  const demos = [
+    {gameId:'away-out',gameTitle:'A Way Out',rating:5,text:'تجربة رائعة مع صديقي! القصة مؤثرة والإخراج سينمائي بامتياز.'},
+    {gameId:'gta6',gameTitle:'GTA VI',rating:5,text:'لا أستطيع الانتظار — كل ما كُشف عنه يبشر بأعظم لعبة في التاريخ!'},
+    {gameId:'tlou',gameTitle:'The Last of Us',rating:5,text:'تحفة فنية في كل المقاييس. جويل وإيلي من أكثر الشخصيات تأثيراً.'},
+  ];
+  const demo = {...demos[userReviews.length % demos.length]};
+  demo.id = Date.now().toString();
+  demo.date = new Date().toISOString();
+  userReviews.push(demo);
+  currentUser.xp = (currentUser.xp||0) + 25;
+  saveReviews();
+  saveUser();
+  updateReviewsUI();
+  renderAll();
+  showToast(`تمت إضافة مراجعة "${demo.gameTitle}" ⭐`, 'success');
+}
+
+// ===== PROFILE SAVE =====
+function saveProfile() {
+  currentUser.username = document.getElementById('edit-username').value.trim() || currentUser.username;
+  currentUser.fullname = document.getElementById('edit-fullname').value.trim();
+  currentUser.email = document.getElementById('edit-email').value.trim() || currentUser.email;
+  currentUser.country = document.getElementById('edit-country').value;
+  currentUser.bio = document.getElementById('edit-bio').value.trim();
+  const newAva = document.getElementById('edit-ava-hidden').value;
+  if(newAva) currentUser.avatar = newAva;
+  
+  saveUser();
+  
+  // Sync with server
+  fetch(`${API_BASE}/user/update`, {
+    method:'PUT',
+    headers:{'Content-Type':'application/json','Authorization':'Bearer '+getToken()},
+    body: JSON.stringify(currentUser)
+  }).catch(()=>{});
+  
+  renderAll();
+  showToast('تم حفظ التغييرات بنجاح ✅', 'success');
+}
+
+function saveUser() {
+  const store = localStorage.getItem('fp_token') ? localStorage : sessionStorage;
+  store.setItem('fp_user', JSON.stringify(currentUser));
+  localStorage.setItem('fp_registered_user', JSON.stringify(currentUser));
+}
+
+function selectEditAva(el, hiddenId) {
+  document.querySelectorAll('[onclick*="'+hiddenId+'"]').forEach(e => {
+    e.style.border = '2px solid transparent';
+    e.style.boxShadow = 'none';
+  });
+  el.style.border = '2px solid var(--gold)';
+  el.style.boxShadow = '0 0 10px rgba(245,197,66,0.3)';
+  document.getElementById(hiddenId).value = el.dataset.ava;
+}
+
+// ===== NOTIFICATIONS =====
+function markAllRead() {
+  document.querySelectorAll('.notif-item.unread').forEach(el => el.classList.remove('unread'));
+  document.getElementById('notif-badge').style.display = 'none';
+  document.getElementById('notif-dot').style.display = 'none';
+  showToast('تم تحديد الكل كمقروء ✅','success');
+}
+
+function confirmDelete() {
+  const confirmInput = document.getElementById('delete-confirm');
+  const deleteBtn = document.getElementById('delete-account-btn');
+
+  if (!confirmInput || !deleteBtn) return;
+
+  const confirmationText = confirmInput.value.trim().toUpperCase();
+
+  if (confirmationText !== 'DELETE') {
+    showToast('يجب كتابة "DELETE" لتأكيد الحذف ❌', 'error');
+    confirmInput.focus();
+    confirmInput.select();
+    return;
+  }
+
+  // Show additional confirmation dialog
+  const finalConfirm = confirm(`⚠️ تحذير نهائي!
+
+هل أنت متأكد تماماً من حذف حسابك؟
+
+سيتم حذف:
+• جميع بياناتك الشخصية
+• مراجعاتك وتقييماتك
+• قائمة الألعاب المفضلة
+• إعداداتك وتفضيلاتك
+• سجل الأنشطة والإشعارات
+
+هذا الإجراء لا يمكن التراجع عنه!
+
+اكتب "نعم، أريد حذف حسابي" إذا كنت متأكداً:`);
+
+  if (!finalConfirm) {
+    showToast('تم إلغاء حذف الحساب', 'info');
+    return;
+  }
+
+  // Additional text confirmation
+  const finalText = prompt('للتأكيد النهائي، اكتب: "نعم، أريد حذف حسابي"');
+
+  if (finalText !== 'نعم، أريد حذف حسابي') {
+    showToast('تم إلغاء حذف الحساب - تأكيد غير صحيح', 'error');
+    return;
+  }
+
+  // Proceed with account deletion
+  performAccountDeletion();
+}
+
+async function performAccountDeletion() {
+  showToast('جاري حذف الحساب... ⏳', 'info');
+  try {
+    // Try to delete from server
+    await fetch(`${API_BASE}/user/account`, {
+      method: 'DELETE',
+      headers: { 'Authorization': 'Bearer ' + getToken() }
+    });
+  } catch(e) {}
+  
+  // Clear all local data
+  localStorage.clear();
+  sessionStorage.clear();
+  
+  showToast('تم حذف الحساب بنجاح. إلى اللقاء! 👋', 'success');
+  setTimeout(() => { window.location.href = '../index.html'; }, 2000);
+}
+
+// Delete confirmation functionality is now handled in unified initialization
+
+// ===== FAVORITES MANAGEMENT =====
+function loadFavorites() {
+  try {
+    const store = localStorage.getItem('fp_token') ? localStorage : sessionStorage;
+    const stored = store.getItem('fp_favorites_' + currentUser.id);
+    userFavorites = stored ? JSON.parse(stored) : [];
+    updateFavoritesUI();
+  } catch (error) {
+    console.error('Error loading favorites:', error);
+    userFavorites = [];
+    updateFavoritesUI();
+  }
+}
+
+function updateFavoritesUI() {
+  const grid = document.getElementById('favorites-grid');
+  const empty = document.getElementById('favorites-empty');
+  const content = document.getElementById('favorites-content');
+  const count = document.getElementById('favorites-count');
+  const categories = document.getElementById('favorites-categories');
+
+  if (!grid || !empty || !content || !count || !categories) return;
+
+  if (userFavorites.length === 0) {
+    empty.style.display = 'block';
+    content.style.display = 'none';
+  } else {
+    empty.style.display = 'none';
+    content.style.display = 'block';
+    
+    grid.innerHTML = userFavorites.map(game => `
+      <div class="favorite-card">
+        <div class="favorite-image">
+          <img src="${game.image || '../placeholder.jpg'}" alt="${game.title}" onerror="this.src='../placeholder.jpg'">
+        </div>
+        <div class="favorite-info">
+          <h4 class="favorite-title">${game.title}</h4>
+          <div class="favorite-meta">
+            <span class="favorite-rating">⭐ ${game.rating || 'N/A'}</span>
+            <span class="favorite-genre">${game.genre || 'N/A'}</span>
+          </div>
+        </div>
+        <button class="favorite-remove" onclick="removeFavorite('${game.id}')">❌</button>
+      </div>
+    `).join('');
+  }
+
+  count.textContent = userFavorites.length;
+  categories.textContent = new Set(userFavorites.map(g => g.genre)).size;
+}
+
+function createFavoriteCard(fav) {
+  const stars = '⭐'.repeat(fav.rating || 4);
+  const addedDate = new Date(fav.addedAt || Date.now()).toLocaleDateString('ar-SA');
+
+  return `
+    <div class="favorite-card" onclick="openGame('${fav.id}')">
+      <div class="favorite-image">
+        ${fav.image ? `<img src="${fav.image}" alt="${fav.title}" loading="lazy">` : '🎮'}
+        <div class="favorite-remove" onclick="event.stopPropagation(); removeFavorite('${fav.id}')" title="إزالة من المفضلة">×</div>
+      </div>
+      <div class="favorite-info">
+        <span class="favorite-title">${fav.title}</span>
+        <div class="favorite-meta">
+          <span class="favorite-category">${fav.category}</span>
+          <div class="favorite-rating">
+            <span class="favorite-stars">${stars}</span>
+          </div>
+        </div>
+        <div class="favorite-added">أضيفت ${addedDate}</div>
+      </div>
+    </div>
+  `;
+}
+
+function addFavorite(gameId, gameData) {
+  const existing = userFavorites.find(f => f.id === gameId);
+  if (existing) {
+    showToast('اللعبة مضافة بالفعل للمفضلة 🎮', 'info');
+    return;
+  }
+
+  const favorite = {
+    id: gameId,
+    title: gameData.title,
+    category: gameData.category,
+    rating: gameData.rating || 4,
+    image: gameData.image,
+    addedAt: new Date().toISOString()
+  };
+
+  userFavorites.push(favorite);
+  saveFavorites();
+  loadFavorites();
+  showToast('تم إضافة اللعبة للمفضلة ❤️', 'success');
+}
+
+function removeFavorite(gameId) {
+  const index = userFavorites.findIndex(f => f.id === gameId);
+  if (index === -1) return;
+
+  userFavorites.splice(index, 1);
+  saveFavorites();
+  loadFavorites();
+  showToast('تم إزالة اللعبة من المفضلة ❌', 'info');
+}
+
+function saveFavorites() {
+  const store = localStorage.getItem('fp_token') ? localStorage : sessionStorage;
+  store.setItem('fp_favorites_' + currentUser.id, JSON.stringify(userFavorites));
+}
+
+function clearAllFavorites() {
+  if (!confirm('⚠️ هل أنت متأكد من مسح جميع الألعاب المفضلة؟')) return;
+
+  userFavorites = [];
+  saveFavorites();
+  loadFavorites();
+  showToast('تم مسح جميع المفضلة 🗑️', 'info');
+}
+
+function refreshFavorites() {
+  loadFavorites();
+  showToast('تم تحديث المفضلة 🔄', 'info');
+}
+
+function updateFavoritesBadge(count) {
+  const badge = document.getElementById('fav-count-badge');
+  if (count > 0) {
+    badge.textContent = count;
+    badge.style.display = 'inline-flex';
+  } else {
+    badge.style.display = 'none';
+  }
+}
+
+function openGame(gameId) {
+  // Navigate to game page or open in new tab
+  window.open(`../pc-games/details/${gameId}.html`, '_blank');
+}
+
+// ===== REVIEWS MANAGEMENT =====
+function loadReviews() {
+  try {
+    const store = localStorage.getItem('fp_token') ? localStorage : sessionStorage;
+    const stored = store.getItem('fp_reviews_' + currentUser.id);
+    userReviews = stored ? JSON.parse(stored) : [];
+    updateReviewsUI();
+  } catch (error) {
+    console.error('Error loading reviews:', error);
+    userReviews = [];
+    updateReviewsUI();
+  }
+}
+
+function updateReviewsUI() {
+  const reviews = userReviews;
+  const list = document.getElementById('reviews-list');
+  const empty = document.getElementById('reviews-empty');
+  const content = document.getElementById('reviews-content');
+  const count = document.getElementById('reviews-count');
+  const avgRating = document.getElementById('reviews-avg-rating');
+  const gamesCount = document.getElementById('reviews-games');
+
+  // Check if elements exist
+  if (!list || !empty || !content) return;
+
+  if (reviews.length === 0) {
+    empty.style.display = 'block';
+    content.style.display = 'none';
+    if (count) count.textContent = '0';
+    if (avgRating) avgRating.textContent = '0.0';
+    if (gamesCount) gamesCount.textContent = '0';
+    return;
+  }
+
+  empty.style.display = 'none';
+  content.style.display = 'block';
+
+  // Calculate stats
+  const totalRating = reviews.reduce((sum, r) => sum + (r.rating || 0), 0);
+  const averageRating = reviews.length > 0 ? (totalRating / reviews.length).toFixed(1) : 0;
+  const uniqueGames = [...new Set(reviews.map(r => r.gameId))];
+
+  if (count) count.textContent = reviews.length;
+  if (avgRating) avgRating.textContent = averageRating;
+  if (gamesCount) gamesCount.textContent = uniqueGames.length;
+
+  // Sort reviews by selected filter
+  const filter = document.getElementById('review-filter')?.value || 'all';
+  const sortedReviews = sortReviews(reviews, filter);
+
+  list.innerHTML = sortedReviews.map(review => createReviewCard(review)).join('');
+}
+
+function sortReviews(reviews, filter) {
+  const sorted = [...reviews];
+
+  switch (filter) {
+    case 'recent':
+      return sorted.sort((a, b) => new Date(b.date) - new Date(a.date));
+    case 'highest':
+      return sorted.sort((a, b) => (b.rating || 0) - (a.rating || 0));
+    case 'lowest':
+      return sorted.sort((a, b) => (a.rating || 0) - (b.rating || 0));
+    default:
+      return sorted.sort((a, b) => new Date(b.date) - new Date(a.date));
+  }
+}
+
+function createReviewCard(review) {
+  const stars = createStars(review.rating || 0);
+  const date = new Date(review.date).toLocaleDateString('ar-SA');
+
+  return `
+    <div class="review-card">
+      <div class="review-header">
+        <div class="review-game" onclick="openGame('${review.gameId}')">
+          ${review.gameImage ? `<img src="${review.gameImage}" alt="${review.gameTitle}" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">` : '🎮'}
+        </div>
+        <div class="review-meta">
+          <div class="review-game-title" onclick="openGame('${review.gameId}')">${review.gameTitle}</div>
+          <div class="review-game-rating">
+            <div class="review-stars">${stars}</div>
+            <span class="review-rating-number">${review.rating}/5</span>
+          </div>
+          <div class="review-date">${date}</div>
+        </div>
+      </div>
+      <div class="review-text">${review.text}</div>
+      <div class="review-actions">
+        <button class="review-btn" onclick="editReview('${review.id}')">✏️ تعديل</button>
+        <button class="review-btn danger" onclick="deleteReview('${review.id}')">🗑️ حذف</button>
+      </div>
+    </div>
+  `;
+}
+
+function createStars(rating) {
+  let stars = '';
+  for (let i = 1; i <= 5; i++) {
+    stars += `<span class="review-star${i > rating ? ' empty' : ''}">⭐</span>`;
+  }
+  return stars;
+}
+
+function addReview(gameId, gameData, rating, text) {
+  const review = {
+    id: Date.now().toString(),
+    gameId: gameId,
+    gameTitle: gameData.title,
+    gameImage: gameData.image,
+    rating: rating,
+    text: text.trim(),
+    date: new Date().toISOString()
+  };
+
+  userReviews.push(review);
+  saveReviews();
+  loadReviews();
+  showToast('تم إضافة المراجعة بنجاح ⭐', 'success');
+}
+
+function editReview(reviewId) {
+  const review = userReviews.find(r => r.id === reviewId);
+  if (!review) return;
+
+  const newText = prompt('تعديل المراجعة:', review.text);
+  if (newText === null) return;
+
+  const newRating = parseInt(prompt('تقييم جديد (1-5):', review.rating));
+  if (isNaN(newRating) || newRating < 1 || newRating > 5) {
+    showToast('تقييم غير صحيح', 'error');
+    return;
+  }
+
+  review.text = newText.trim();
+  review.rating = newRating;
+  review.date = new Date().toISOString();
+
+  saveReviews();
+  loadReviews();
+  showToast('تم تعديل المراجعة ✅', 'success');
+}
+
+function deleteReview(reviewId) {
+  if (!confirm('هل أنت متأكد من حذف هذه المراجعة؟')) return;
+
+  const index = userReviews.findIndex(r => r.id === reviewId);
+  if (index === -1) return;
+
+  userReviews.splice(index, 1);
+  saveReviews();
+  loadReviews();
+  showToast('تم حذف المراجعة 🗑️', 'info');
+}
+
+function saveReviews() {
+  const store = localStorage.getItem('fp_token') ? localStorage : sessionStorage;
+  store.setItem('fp_reviews_' + currentUser.id, JSON.stringify(userReviews));
+}
+
+function filterReviews() {
+  loadReviews();
+}
+
+function refreshReviews() {
+  loadReviews();
+  showToast('تم تحديث المراجعات 🔄', 'info');
+}
+
+// ===== NOTIFICATIONS MANAGEMENT =====
+function loadNotifications() {
+  // Load from storage
+  try {
+    const store = localStorage.getItem('fp_token') ? localStorage : sessionStorage;
+    const stored = store.getItem('fp_notifications_' + currentUser.id);
+    userNotifications = stored ? JSON.parse(stored) : [];
+  } catch(e) { userNotifications = []; }
+  const notifications = userNotifications;
+  const list = document.getElementById('notif-list');
+  const empty = document.getElementById('notifications-empty');
+  const content = document.getElementById('notifications-content');
+  const count = document.getElementById('notifications-count');
+  const unreadEl = document.getElementById('notifications-unread');
+  const todayEl = document.getElementById('notifications-today');
+  const badge = document.getElementById('notif-badge');
+  const dot = document.getElementById('notif-dot');
+
+  const filterEl = document.getElementById('notif-filter');
+  const filter = filterEl ? filterEl.value : 'all';
+  const filtered = filterNotificationsList(notifications, filter);
+
+  // Count today's notifications
+  const todayCount = notifications.filter(n => {
+    const d = new Date(n.timestamp || n.date);
+    const now = new Date();
+    return d.toDateString() === now.toDateString();
+  }).length;
+  if (todayEl) todayEl.textContent = todayCount;
+
+  if (filtered.length === 0) {
+    empty.style.display = 'block';
+    if (content) content.style.display = 'none';
+    if (count) count.textContent = '0';
+    if (unreadEl) unreadEl.textContent = '0';
+    updateNotificationsBadge(0);
+    return;
+  }
+
+  empty.style.display = 'none';
+  if (content) content.style.display = 'block';
+
+  const unreadCount = filtered.filter(n => !n.read).length;
+  if (count) count.textContent = filtered.length;
+  if (unreadEl) unreadEl.textContent = unreadCount;
+  updateNotificationsBadge(unreadCount);
+
+  list.innerHTML = filtered.map(notif => createNotificationCard(notif)).join('');
+}
+
+function filterNotificationsList(notifications, filter) {
+  const now = new Date();
+
+  switch (filter) {
+    case 'unread':
+      return notifications.filter(n => !n.read);
+    case 'recent':
+      // Show notifications from last 7 days
+      const weekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+      return notifications.filter(n => new Date(n.timestamp) > weekAgo);
+    default:
+      return notifications;
+  }
+}
+
+function createNotificationCard(notification) {
+  const timeAgo = getTimeAgo(new Date(notification.timestamp));
+  const isRead = notification.read ? '' : ' unread';
+
+  return `
+    <div class="notif-item${isRead}" onclick="markNotificationRead('${notification.id}')">
+      <div class="notif-icon">${notification.icon}</div>
+      <div class="notif-content">
+        <div class="notif-title">${notification.title}</div>
+        <div class="notif-text">${notification.message}</div>
+        <div class="notif-time">${timeAgo}</div>
+      </div>
+      <div class="notif-actions">
+        <button class="notif-btn delete" onclick="event.stopPropagation(); deleteNotification('${notification.id}')" title="حذف الإشعار">×</button>
+      </div>
+    </div>
+  `;
+}
+
+function getTimeAgo(date) {
+  const now = new Date();
+  const diffMs = now - date;
+  const diffMins = Math.floor(diffMs / 60000);
+  const diffHours = Math.floor(diffMs / 3600000);
+  const diffDays = Math.floor(diffMs / 86400000);
+
+  if (diffMins < 1) return 'الآن';
+  if (diffMins < 60) return `منذ ${diffMins} دقيقة`;
+  if (diffHours < 24) return `منذ ${diffHours} ساعة`;
+  if (diffDays < 7) return `منذ ${diffDays} يوم`;
+  return date.toLocaleDateString('ar-SA');
+}
+
+function addNotification(title, message, icon = '🔔', type = 'info') {
+  const notification = {
+    id: Date.now().toString(),
+    title: title,
+    message: message,
+    icon: icon,
+    type: type,
+    read: false,
+    timestamp: new Date().toISOString()
+  };
+
+  userNotifications.unshift(notification); // Add to beginning
+  saveNotifications();
+  loadNotifications();
+
+  // Show toast notification
+  showToast('إشعار جديد!', 'info');
+}
+
+function markNotificationRead(notificationId) {
+  const notification = userNotifications.find(n => n.id === notificationId);
+  if (notification && !notification.read) {
+    notification.read = true;
+    saveNotifications();
+    loadNotifications();
+  }
+}
+
+function markAllRead() {
+  userNotifications.forEach(n => n.read = true);
+  saveNotifications();
+  loadNotifications();
+  showToast('تم تحديد جميع الإشعارات كمقروءة ✅', 'success');
+}
+
+function deleteNotification(notificationId) {
+  const index = userNotifications.findIndex(n => n.id === notificationId);
+  if (index === -1) return;
+
+  userNotifications.splice(index, 1);
+  saveNotifications();
+  loadNotifications();
+  showToast('تم حذف الإشعار 🗑️', 'info');
+}
+
+function clearAllNotifications() {
+  if (!confirm('⚠️ هل أنت متأكد من مسح جميع الإشعارات؟')) return;
+
+  userNotifications = [];
+  saveNotifications();
+  loadNotifications();
+  showToast('تم مسح جميع الإشعارات 🗑️', 'info');
+}
+
+function saveNotifications() {
+  const store = localStorage.getItem('fp_token') ? localStorage : sessionStorage;
+  store.setItem('fp_notifications_' + currentUser.id, JSON.stringify(userNotifications));
+}
+
+function filterNotifications() {
+  loadNotifications();
+}
+
+function refreshNotifications() {
+  loadNotifications();
+  showToast('تم تحديث الإشعارات 🔄', 'info');
+}
+
+function updateNotificationsBadge(count) {
+  const badge = document.getElementById('notif-badge');
+  if (count > 0) {
+    badge.textContent = count > 99 ? '99+' : count;
+    badge.style.display = 'inline-flex';
+  } else {
+    badge.style.display = 'none';
+  }
+
+  // Update sidebar badge too
+  const sbBadge = document.querySelector('.nav-item[onclick*="notifications"] .ni-badge');
+  if (sbBadge) {
+    if (count > 0) {
+      sbBadge.textContent = count > 99 ? '99+' : count;
+      sbBadge.style.display = 'inline-flex';
+    } else {
+      sbBadge.style.display = 'none';
+    }
+  }
+}
+
+// Initialize// ===== SETTINGS MANAGEMENT =====
+let userSettings = {
+  notifications: {
+    games: true,
+    comments: true,
+    newsletter: false
+  },
+  appearance: {
+    darkMode: true,
+    animations: true
+  },
+  privacy: {
+    publicProfile: true
+  }
+};
+
+function loadSettings() {
+  try {
+    const stored = localStorage.getItem('fp_settings_' + currentUser.id);
+    if (stored) {
+      userSettings = { ...userSettings, ...JSON.parse(stored) };
+    }
+
+    // Apply settings to UI only if elements exist
+    applySettingsToUI();
+
+    // Apply settings functionality without delay
+    applySettings();
+  } catch (error) {
+    console.error('Error loading settings:', error);
+    // Use default settings if loading fails
+  }
+}
+
+function saveSettings() {
+  const store = localStorage.getItem('fp_token') ? localStorage : sessionStorage;
+  store.setItem('fp_settings_' + currentUser.id, JSON.stringify(userSettings));
+}
+
+function applySettingsToUI() {
+  try {
+    // Notifications - check elements exist before accessing
+    const notifGames = document.getElementById('notif-games');
+    if (notifGames) notifGames.checked = userSettings.notifications.games;
+    
+    const notifComments = document.getElementById('notif-comments');
+    if (notifComments) notifComments.checked = userSettings.notifications.comments;
+    
+    const notifNewsletter = document.getElementById('notif-newsletter');
+    if (notifNewsletter) notifNewsletter.checked = userSettings.notifications.newsletter;
+
+    // Appearance - check elements exist before accessing
+    const darkMode = document.getElementById('dark-mode');
+    if (darkMode) darkMode.checked = userSettings.appearance.darkMode;
+    
+    const animations = document.getElementById('animations');
+    if (animations) animations.checked = userSettings.appearance.animations;
+
+    // Privacy - check elements exist before accessing
+    const publicProfile = document.getElementById('public-profile');
+    if (publicProfile) publicProfile.checked = userSettings.privacy.publicProfile;
+  } catch (error) {
+    console.error('Error applying settings to UI:', error);
+  }
+}
+
+function applySettings() {
+  // Apply settings immediately without delay to prevent shaking
+  try {
+    // Dark mode - apply only if different from current
+    const hasDarkMode = document.body.classList.contains('dark-mode');
+    if (userSettings.appearance.darkMode && !hasDarkMode) {
+      document.body.classList.add('dark-mode');
+    } else if (!userSettings.appearance.darkMode && hasDarkMode) {
+      document.body.classList.remove('dark-mode');
+    }
+
+    // Animations - apply only if different from current
+    const hasNoAnimations = document.body.classList.contains('no-animations');
+    if (!userSettings.appearance.animations && !hasNoAnimations) {
+      document.body.classList.add('no-animations');
+    } else if (userSettings.appearance.animations && hasNoAnimations) {
+      document.body.classList.remove('no-animations');
+    }
+  } catch (error) {
+    console.error('Error applying settings:', error);
+  }
+}
+
+function updateSetting(category, setting, value) {
+  userSettings[category][setting] = value;
+  saveSettings();
+  applySettings();
+
+  // Show feedback
+  let message = '';
+  switch (setting) {
+    case 'games':
+      message = value ? 'تم تفعيل إشعارات الألعاب' : 'تم إلغاء إشعارات الألعاب';
+      break;
+    case 'comments':
+      message = value ? 'تم تفعيل إشعارات التعليقات' : 'تم إلغاء إشعارات التعليقات';
+      break;
+    case 'newsletter':
+      message = value ? 'تم الاشتراك في النشرة البريدية' : 'تم إلغاء الاشتراك في النشرة البريدية';
+      break;
+    case 'darkMode':
+      message = value ? 'تم تفعيل الوضع الليلي' : 'تم إلغاء الوضع الليلي';
+      break;
+    case 'animations':
+      message = value ? 'تم تفعيل الرسوم المتحركة' : 'تم إلغاء الرسوم المتحركة';
+      break;
+    case 'publicProfile':
+      message = value ? 'الملف الشخصي عام الآن' : 'الملف الشخصي خاص الآن';
+      break;
+  }
+
+  showToast(message, value ? 'success' : 'info');
+}
+
+// ===== UNIFIED INITIALIZATION =====
+document.addEventListener('DOMContentLoaded', function() {
+  // Wait for complete page load before initializing settings
+  window.addEventListener('load', function() {
+    // Only load settings if page is stable
+    setTimeout(() => {
+      const sidebar = document.getElementById('sidebar');
+      if (sidebar && !sidebar.classList.contains('open')) {
+        loadSettings();
+      }
+    }, 300);
+  });
+
+  // Add event listeners to toggles
+  const toggles = [
+    { id: 'notif-games', category: 'notifications', setting: 'games' },
+    { id: 'notif-comments', category: 'notifications', setting: 'comments' },
+    { id: 'notif-newsletter', category: 'notifications', setting: 'newsletter' },
+    { id: 'dark-mode', category: 'appearance', setting: 'darkMode' },
+    { id: 'animations', category: 'appearance', setting: 'animations' },
+    { id: 'public-profile', category: 'privacy', setting: 'publicProfile' }
+  ];
+
+  toggles.forEach(toggle => {
+    const element = document.getElementById(toggle.id);
+    if (element) {
+      element.addEventListener('change', function(e) {
+        updateSetting(toggle.category, toggle.setting, e.target.checked);
+      });
+    }
+  });
+
+  // Initialize delete confirmation functionality
+  const confirmInput = document.getElementById('delete-confirm');
+  const deleteBtn = document.getElementById('delete-account-btn');
+
+  if (confirmInput && deleteBtn) {
+    // Initially disable the delete button
+    deleteBtn.disabled = true;
+
+    // Add input event listener to check confirmation text
+    confirmInput.addEventListener('input', function() {
+      const confirmationText = this.value.trim().toUpperCase();
+      const isValid = confirmationText === 'DELETE';
+
+      deleteBtn.disabled = !isValid;
+
+      // Visual feedback
+      if (isValid) {
+        this.style.borderColor = 'var(--red)';
+        this.style.boxShadow = '0 0 0 3px rgba(255, 68, 68, 0.1)';
+        deleteBtn.style.opacity = '1';
+      } else {
+        this.style.borderColor = 'rgba(255, 68, 68, 0.2)';
+        deleteBtn.style.opacity = '0.5';
+      }
+    });
+
+    confirmInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' && !deleteBtn.disabled) {
+        confirmDelete();
+      }
+    });
+  }
+
+
+
+  // Debug code removed
+});
+
+// Settings actions
+function resetSettings() {
+  if (!confirm('⚠️ هل أنت متأكد من إعادة تعيين جميع الإعدادات إلى الافتراضي؟')) return;
+
+  userSettings = {
+    notifications: {
+      games: true,
+      comments: true,
+      newsletter: false
+    },
+    appearance: {
+      darkMode: true,
+      animations: true
+    },
+    privacy: {
+      publicProfile: true
+    }
+  };
+
+  saveSettings();
+  applySettingsToUI();
+  applySettings();
+  showToast('تم إعادة تعيين الإعدادات إلى الافتراضي', 'info');
+}
+
+function exportSettings() {
+  try {
+    const settingsJson = JSON.stringify(userSettings, null, 2);
+    const blob = new Blob([settingsJson], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `fazza-play-settings-${new Date().toISOString().split('T')[0]}.json`;
+    document.body.appendChild(a);
+
+    // Show file status
+    const fileStatus = document.getElementById('file-status');
+    const statusTitle = fileStatus.querySelector('.status-title');
+    const statusDesc = fileStatus.querySelector('.status-description');
+
+    statusTitle.textContent = 'جاري إنشاء الملف...';
+    statusDesc.textContent = 'يرجى الانتظار...';
+    fileStatus.style.display = 'flex';
+
+    // Simulate file creation delay
+    setTimeout(() => {
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+
+      statusTitle.textContent = 'تم تصدير الإعدادات بنجاح 📁';
+      statusDesc.textContent = 'انقر مرة أخرى لحفظ ملف آخر';
+
+      // Hide status after 5 seconds
+      setTimeout(() => {
+        fileStatus.style.display = 'none';
+      }, 5000);
+
+      showToast('تم تصدير الإعدادات بنجاح 📁', 'success');
+    }, 1000);
+
+  } catch (error) {
+    showToast('حدث خطأ في تصدير الإعدادات ❌', 'error');
+  }
+}
+
+function importSettings() {
+  const input = document.createElement('input');
+  input.type = 'file';
+  input.accept = '.json';
+
+  input.onchange = function(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    // Show loading status
+    const fileStatus = document.getElementById('file-status');
+    const statusTitle = fileStatus.querySelector('.status-title');
+    const statusDesc = fileStatus.querySelector('.status-description');
+
+    statusTitle.textContent = 'جاري قراءة الملف...';
+    statusDesc.textContent = 'يرجى الانتظار...';
+    fileStatus.style.display = 'flex';
+
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      try {
+        const importedSettings = JSON.parse(e.target.result);
+
+        // Validate the structure
+        if (importedSettings.notifications && importedSettings.appearance && importedSettings.privacy) {
+          userSettings = importedSettings;
+          saveSettings();
+          applySettingsToUI();
+          applySettings();
+
+          statusTitle.textContent = 'تم استيراد الإعدادات بنجاح 📥';
+          statusDesc.textContent = 'تم تطبيق الإعدادات الجديدة';
+
+          // Hide status after 3 seconds
+          setTimeout(() => {
+            fileStatus.style.display = 'none';
+          }, 3000);
+
+          showToast('تم استيراد الإعدادات بنجاح 📥', 'success');
+        } else {
+          statusTitle.textContent = 'ملف الإعدادات غير صحيح ❌';
+          statusDesc.textContent = 'يرجى التأكد من صحة الملف';
+
+          setTimeout(() => {
+            fileStatus.style.display = 'none';
+          }, 3000);
+
+          showToast('ملف الإعدادات غير صحيح ❌', 'error');
+        }
+      } catch (error) {
+        statusTitle.textContent = 'خطأ في قراءة الملف ❌';
+        statusDesc.textContent = 'يرجى التأكد من صحة تنسيق الملف';
+
+        setTimeout(() => {
+          fileStatus.style.display = 'none';
+        }, 3000);
+
+        showToast('خطأ في قراءة ملف الإعدادات ❌', 'error');
+      }
+    };
+
+    reader.readAsText(file);
+  };
+
+  input.click();
+}
+
+// Demo notifications removed as requested
+
+// ===== NAVIGATION =====
+function navigate(view) {
+  // Override navigate function to load notifications when entering notifications view
+  const originalNavigate = window.navigate;
+  window.navigate = function(view) {
+    originalNavigate.call(this, view);
+    if (view === 'notifications') {
+      loadDemoNotifications();
+    }
+  };
+
+  // Prevent rapid navigation changes
+  if (window.currentNavigating) return;
+  window.currentNavigating = true;
+
+  try {
+    console.log('Navigating to:', view);
+
+    // Hide all views
+    const views = document.querySelectorAll('.view');
+    views.forEach(v => v.classList.remove('active'));
+
+    // Show selected view
+    const targetView = document.getElementById('view-' + view);
+    console.log('Target view element:', targetView);
+
+    if (targetView) {
+      targetView.classList.add('active');
+      console.log('Added active class to:', targetView.id);
+    } else {
+      console.error('Target view not found for:', view);
+    }
+
+    // Update nav items
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(item => item.classList.remove('active'));
+
+    const activeItem = document.querySelector(`[onclick="navigate('${view}')"]`);
+    if (activeItem) {
+      activeItem.classList.add('active');
+    }
+
+    // Update page title
+    const titles = {
+      overview: 'النظرة العامة',
+      profile: 'الملف الشخصي',
+      favorites: 'المفضلة',
+      reviews: 'المراجعات',
+      notifications: 'الإشعارات',
+      settings: 'الإعدادات'
+    };
+
+    const titleElement = document.getElementById('page-title');
+    if (titleElement && titles[view]) {
+      titleElement.textContent = titles[view];
+    }
+
+    // Close sidebar on mobile
+    if (window.innerWidth <= 768) {
+      closeSidebar();
+    }
+
+  } catch (error) {
+    console.error('Navigation error:', error);
+  } finally {
+    // Reset navigation flag after a short delay
+    setTimeout(() => {
+      window.currentNavigating = false;
+    }, 100);
+  }
+}
+
+// ===== SIDEBAR MOBILE =====
+function openSidebar() {
+  try {
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+    if (sidebar && overlay) {
+      sidebar.classList.add('open');
+      overlay.classList.add('show');
+    }
+  } catch (error) {
+    console.error('Error opening sidebar:', error);
+  }
+}
+
+function closeSidebar() {
+  try {
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+    if (sidebar && overlay) {
+      sidebar.classList.remove('open');
+      overlay.classList.remove('show');
+    }
+  } catch (error) {
+    console.error('Error closing sidebar:', error);
+  }
+}
+
+// ===== LOGOUT =====
+function logout() {
+  fetch(`${API_BASE}/auth/logout`, {
+    method:'POST',
+    headers:{'Authorization':'Bearer '+getToken()}
+  }).catch(()=>{});
+  
+  localStorage.removeItem('fp_token');
+  localStorage.removeItem('fp_user');
+  sessionStorage.removeItem('fp_token');
+  sessionStorage.removeItem('fp_user');
+  
+  showToast('تم تسجيل الخروج بنجاح 👋', 'info');
+  setTimeout(()=>window.location.href='../index.html', 1000);
+}
+
+// ===== TOAST =====
+let toastTimer;
+function showToast(msg, type='info') {
+  const t = document.getElementById('toast');
+  const icons = {success:'✅',error:'❌',info:'⚡'};
+  t.className = `toast ${type}`;
+  t.innerHTML = `<span>${icons[type]}</span> ${msg}`;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>t.classList.remove('show'), 3500);
+}
+
+// ===== START =====
+init();
+</script>
+</body>
+</html>

@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>x360ce - محاكي يد Xbox 360 للكمبيوتر</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+            text-align: center;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #667eea;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .image-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 30px auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .image-container:hover img {
+            transform: scale(1.05);
+        }
+
+        .download-section {
+            text-align: center;
+            margin: 40px 0;
+            animation: fadeIn 1s ease-out 0.5s both;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 50px;
+            font-size: 1.4em;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.5s ease;
+        }
+
+        .download-btn:hover:before {
+            left: 100%;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+        }
+
+        .download-btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .content-section {
+            background: rgba(224, 224, 224, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+            animation: fadeIn 1s ease-out 0.7s both;
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            border-right: 5px solid #764ba2;
+            padding-right: 15px;
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 1.6em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .feature-title {
+            font-size: 1.3em;
+            color: #667eea;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .steps-list {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .step {
+            padding: 15px;
+            margin: 15px 0;
+            background: white;
+            border-right: 4px solid #667eea;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .step:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border-right: 5px solid #ffc107;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .info-box {
+            background: #d1ecf1;
+            border-right: 5px solid #17a2b8;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .success-box {
+            background: #d4edda;
+            border-right: 5px solid #28a745;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .specs-table th,
+        .specs-table td {
+            padding: 15px;
+            text-align: right;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .specs-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: bold;
+        }
+
+        .specs-table tr:hover {
+            background: #f5f7fa;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            margin-top: 30px;
+            animation: fadeIn 1s ease-out 0.9s both;
+        }
+
+        .tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.6em;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .download-btn {
+                padding: 15px 30px;
+                font-size: 1.2em;
+            }
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 x360ce</h1>
+            <p class="subtitle">محاكي يد Xbox 360 الاحترافي للكمبيوتر</p>
+            <div class="tags-container">
+                <span class="tag">مجاني 100%</span>
+                <span class="tag">مفتوح المصدر</span>
+                <span class="tag">سهل الاستخدام</span>
+                <span class="tag">يدعم جميع الألعاب</span>
+            </div>
+        </header>
+
+        <div class="content-section">
+            <div class="image-container">
+                <img src="دراعات 365.png" alt="x360ce Interface" id="programImage">
+            </div>
+
+            <div class="download-section">
+                <a href="x360ce_x64 BY fazzaplay.rar" class="download-btn" id="downloadBtn">
+                    <span>⬇️ تحميل البرنامج (نسخة 64 بت)</span>
+                </a>
+                <p style="margin-top: 15px; color: white; font-size: 1.1em;">حجم الملف: ~2 MB | متوافق مع Windows 7/8/10/11</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>📖 ما هو برنامج x360ce؟</h2>
+            <p style="font-size: 1.2em; margin: 20px 0;">
+                <strong>x360ce</strong> (Xbox 360 Controller Emulator) هو برنامج مجاني ومفتوح المصدر يتيح لك استخدام أي يد تحكم (Gamepad) على الكمبيوتر وكأنها يد Xbox 360 الأصلية. هذا يعني أنك تستطيع تشغيل أي لعبة تدعم يد Xbox 360 باستخدام أي يد تحكم أخرى مثل PlayStation، Logitech، أو حتى الأيدي الصينية الرخيصة.
+            </p>
+
+            <div class="info-box">
+                <strong>💡 معلومة هامة:</strong> العديد من الألعاب الحديثة مصممة للعمل مع يد Xbox 360 فقط، ولا تتعرف على الأيدي الأخرى. x360ce يحل هذه المشكلة نهائياً بتحويل أي يد تحكم إلى يد Xbox 360 افتراضية.
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>⭐ المميزات الرئيسية</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <div class="feature-title">توافق شامل</div>
+                    <p>يدعم جميع أنواع أيدي التحكم من جميع الشركات المصنعة</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">⚙️</div>
+                    <div class="feature-title">تخصيص كامل</div>
+                    <p>تخصيص كل زر وعصا تحكم حسب رغبتك بدقة عالية</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <div class="feature-title">أداء ممتاز</div>
+                    <p>استجابة فورية بدون تأخير في الإدخال (Zero Lag)</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💾</div>
+                    <div class="feature-title">حفظ الإعدادات</div>
+                    <p>حفظ إعدادات مختلفة لكل لعبة على حدة</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔧</div>
+                    <div class="feature-title">سهل الإعداد</div>
+                    <p>واجهة بسيطة وسهلة الاستخدام للمبتدئين</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🆓</div>
+                    <div class="feature-title">مجاني ومفتوح</div>
+                    <p>مجاني تماماً ومفتوح المصدر بدون إعلانات</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>📋 متطلبات التشغيل</h2>
+            <table class="specs-table">
+                <thead>
+                    <tr>
+                        <th>المتطلب</th>
+                        <th>المواصفات</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>نظام التشغيل</strong></td>
+                        <td>Windows 7 / 8 / 8.1 / 10 / 11 (32 أو 64 بت)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>المعالج</strong></td>
+                        <td>أي معالج حديث</td>
+                    </tr>
+                    <tr>
+                        <td><strong>الذاكرة العشوائية</strong></td>
+                        <td>512 MB RAM أو أكثر</td>
+                    </tr>
+                    <tr>
+                        <td><strong>المساحة المطلوبة</strong></td>
+                        <td>5 MB فقط</td>
+                    </tr>
+                    <tr>
+                        <td><strong>متطلبات إضافية</strong></td>
+                        <td>.NET Framework 4.0 أو أحدث</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="content-section">
+            <h2>🔧 طريقة التثبيت والاستخدام</h2>
+            
+            <div class="steps-list">
+                <h3>الخطوات التفصيلية:</h3>
+                
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <strong>تحميل البرنامج:</strong> اضغط على زر التحميل أعلاه وقم بفك ضغط ملف ZIP
+                </div>
+
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <strong>نسخ الملفات:</strong> انسخ جميع ملفات x360ce إلى مجلد اللعبة التي تريد استخدام اليد معها (المجلد الذي يحتوي على الملف التنفيذي .exe للعبة)
+                </div>
+
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <strong>تشغيل البرنامج:</strong> قم بتشغيل x360ce.exe من داخل مجلد اللعبة
+                </div>
+
+                <div class="step">
+                    <span class="step-number">4</span>
+                    <strong>اكتشاف اليد:</strong> سيكتشف البرنامج يد التحكم تلقائياً، اضغط على "Create" عندما يُطلب منك ذلك
+                </div>
+
+                <div class="step">
+                    <span class="step-number">5</span>
+                    <strong>تخصيص الأزرار:</strong> اختبر جميع الأزرار وعصي التحكم للتأكد من عملها، وقم بتخصيصها حسب رغبتك
+                </div>
+
+                <div class="step">
+                    <span class="step-number">6</span>
+                    <strong>حفظ الإعدادات:</strong> اضغط على "Save" لحفظ الإعدادات
+                </div>
+
+                <div class="step">
+                    <span class="step-number">7</span>
+                    <strong>تشغيل اللعبة:</strong> أغلق البرنامج وشغّل اللعبة، ستتعرف اللعبة على يد التحكم كأنها يد Xbox 360
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ تنبيه هام:</strong> يجب نسخ ملفات x360ce إلى مجلد كل لعبة بشكل منفصل. لا يمكن تثبيت البرنامج بشكل عام لجميع الألعاب.
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>💡 نصائح وحيل للاستخدام الأمثل</h2>
+            
+            <h3>🎯 تحسين دقة التحكم:</h3>
+            <div class="success-box">
+                <ul style="margin-right: 20px;">
+                    <li><strong>Dead Zone:</strong> قم بضبط المنطقة الميتة (Dead Zone) لعصي التحكم لتجنب الانجراف غير المرغوب فيه</li>
+                    <li><strong>Anti Dead Zone:</strong> استخدم هذه الميزة لتحسين استجابة اليد عند بداية الحركة</li>
+                    <li><strong>Linear:</strong> اختر منحنى الاستجابة المناسب لنوع لعبتك (خطي للألعاب الرياضية، منحني للألعاب القتالية)</li>
+                </ul>
+            </div>
+
+            <h3>🔄 التوافق مع الألعاب المختلفة:</h3>
+            <div class="info-box">
+                <ul style="margin-right: 20px;">
+                    <li>للألعاب القديمة، قد تحتاج لاستخدام DirectInput بدلاً من XInput</li>
+                    <li>بعض الألعاب تتطلب تشغيل x360ce كمسؤول (Run as Administrator)</li>
+                    <li>في حالة عدم التعرف على اليد، جرب تغيير وضع Hook Mode في الإعدادات</li>
+                </ul>
+            </div>
+
+            <h3>💾 إدارة الملفات الشخصية:</h3>
+            <p style="margin: 15px 0;">
+                يمكنك إنشاء ملفات إعدادات مختلفة لكل لعبة عن طريق تصدير الإعدادات (Export) واستيرادها (Import) عند الحاجة. هذا مفيد جداً إذا كنت تستخدم أكثر من يد تحكم.
+            </p>
+        </div>
+
+        <div class="content-section">
+            <h2>❓ الأسئلة الشائعة</h2>
+            
+            <div class="step">
+                <strong>س: هل البرنامج آمن للاستخدام؟</strong>
+                <p style="margin-top: 10px;">ج: نعم، البرنامج مفتوح المصدر وآمن تماماً. قد تعطي بعض برامج الحماية إنذاراً كاذباً لأن البرنامج يعدل إدخالات الأجهزة، لكنه آمن 100%.</p>
+            </div>
+
+            <div class="step">
+                <strong>س: هل يعمل البرنامج مع جميع الألعاب؟</strong>
+                <p style="margin-top: 10px;">ج: يعمل مع معظم الألعاب التي تدعم يد Xbox 360، لكن بعض الألعاب الحديثة جداً قد تتطلب إعدادات خاصة.</p>
+            </div>
+
+            <div class="step">
+                <strong>س: هل يمكن استخدام أكثر من يد تحكم في نفس الوقت؟</strong>
+                <p style="margin-top: 10px;">ج: نعم، يدعم البرنامج حتى 4 أيدي تحكم في نفس الوقت، مثالي للألعاب الجماعية.</p>
+            </div>
+
+            <div class="step">
+                <strong>س: البرنامج لا يتعرف على يد التحكم، ماذا أفعل؟</strong>
+                <p style="margin-top: 10px;">ج: تأكد من تثبيت تعريفات يد التحكم أولاً، وجرب تشغيل البرنامج كمسؤول. إذا استمرت المشكلة، جرب تحديث .NET Framework.</p>
+            </div>
+
+            <div class="step">
+                <strong>س: هل أحتاج لتثبيت البرنامج مع كل لعبة؟</strong>
+                <p style="margin-top: 10px;">ج: نعم، يجب نسخ ملفات x360ce إلى مجلد كل لعبة تريد استخدامها معها بشكل منفصل.</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>🎮 الألعاب المدعومة</h2>
+            <p style="font-size: 1.1em; margin-bottom: 20px;">
+                يعمل x360ce مع آلاف الألعاب التي تدعم يد Xbox 360، بما في ذلك:
+            </p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <strong>ألعاب القتال</strong>
+                    <p>Street Fighter, Mortal Kombat, Tekken</p>
+                </div>
+                <div class="feature-card">
+                    <strong>ألعاب السباقات</strong>
+                    <p>Forza Horizon, Need for Speed, F1</p>
+                </div>
+                <div class="feature-card">
+                    <strong>ألعاب الأكشن</strong>
+                    <p>GTA V, Assassin's Creed, Dark Souls</p>
+                </div>
+                <div class="feature-card">
+                    <strong>ألعاب الرياضة</strong>
+                    <p>FIFA, PES, NBA 2K</p>
+                </div>
+                <div class="feature-card">
+                    <strong>ألعاب المغامرات</strong>
+                    <p>The Witcher, Tomb Raider, Batman</p>
+                </div>
+                <div class="feature-card">
+                    <strong>ألعاب المنصات</strong>
+                    <p>Cuphead, Ori, Rayman</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>🔗 روابط مفيدة</h2>
+            <div class="info-box">
+                <ul style="margin-right: 20px; font-size: 1.1em;">
+                    <li><strong>الموقع الرسمي:</strong> <a href="https://www.x360ce.com" target="_blank" style="color: #667eea;">www.x360ce.com</a></li>
+                    <li><strong>المصدر على GitHub:</strong> <a href="https://github.com/x360ce/x360ce" target="_blank" style="color: #667eea;">github.com/x360ce/x360ce</a></li>
+                    <li><strong>قاعدة بيانات الإعدادات:</strong> توفر إعدادات جاهزة لآلاف الأيدي</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer>
+            <h3 style="color: #667eea; margin-bottom: 15px;">🎯 خلاصة</h3>
+            <p style="font-size: 1.2em; line-height: 2;">
+                برنامج <strong>x360ce</strong> هو الحل الأمثل لمن يريد استخدام أي يد تحكم مع ألعاب الكمبيوتر. بفضل واجهته البسيطة وإمكانياته القوية، يمكنك الآن الاستمتاع بجميع ألعابك المفضلة باستخدام يد التحكم التي تملكها، بدون الحاجة لشراء يد Xbox 360 الأصلية.
+            </p>
+            <div style="margin-top: 30px; padding-top: 20px; border-top: 2px solid #e0e0e0;">
+                <p style="color: #666;">تم تطوير هذه الصفحة لتوفير معلومات شاملة عن برنامج x360ce</p>
+                <p style="color: #999; margin-top: 10px;">جميع الحقوق محفوظة © 2024</p>
+            </div>
+        </footer>
+    </div>
+
+    <div class="scroll-to-top" id="scrollToTop">
+        ↑
+    </div>
+
+    <script>
+        // Smooth scroll to top functionality
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Download button click effect
+        const downloadBtn = document.getElementById('downloadBtn');
+        downloadBtn.addEventListener('click', function(e) {
+            // Add pulse animation
+            this.style.animation = 'pulse 0.5s';
+            setTimeout(() => {
+                this.style.animation = '';
+            }, 500);
+        });
+
+        // Image error handling
+        const programImage = document.getElementById('programImage');
+        programImage.addEventListener('error', function() {
+            this.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="600" height="400"%3E%3Crect width="600" height="400" fill="%23667eea"/%3E%3Ctext x="50%25" y="50%25" font-size="24" fill="white" text-anchor="middle" dominant-baseline="middle"%3Ex360ce Interface%3C/text%3E%3C/svg%3E';
+            this.alt = 'ضع صورة البرنامج هنا';
+        });
+
+        // Add pulse animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes pulse {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.05); }
+                100% { transform: scale(1); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Interactive feature cards
+        const featureCards = document.querySelectorAll('.feature-card');
+        featureCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transition = 'all 0.3s ease';
+            });
+        });
+
+        // Lazy load effect for steps
+        const steps = document.querySelectorAll('.step');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '0';
+                    entry.target.style.transform = 'translateX(50px)';
+                    setTimeout(() => {
+                        entry.target.style.transition = 'all 0.5s ease';
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateX(0)';
+                    }, 100);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        steps.forEach(step => {
+            observer.observe(step);
+        });
+
+        // Console log for developers
+        console.log('%c🎮 x360ce - Xbox 360 Controller Emulator', 'color: #667eea; font-size: 20px; font-weight: bold;');
+        console.log('%cتم تصميم هذه الصفحة بعناية لتوفير أفضل تجربة مستخدم', 'color: #764ba2; font-size: 14px;');
+    </script>
+<script src="ads-fazza.js"></script>
+</body>
+</html>

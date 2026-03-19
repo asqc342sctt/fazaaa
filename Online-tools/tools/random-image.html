@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>مولد الصور العشوائية | صور بجودة عالية</title>
+    <meta name="description" content="احصل على صور عشوائية بمقاسات مختلفة من مصادر متعددة للاستخدام الفوري.">
+    <meta name="keywords" content="صور عشوائية, Random Image, Picsum, Placeholder">
+    <link rel="canonical" href="https://fazzaplay.com/tools/random-image">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="tools.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8571192174854530"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo"><span>FazzaPlay</span></div>
+                <div class="nav-menu">
+                    <a href="../index.html#tools" class="nav-link">الأدوات</a>
+                    <a href="../index.html#about" class="nav-link">حول</a>
+                </div>
+                <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+            </div>
+        </nav>
+    </header>
+    <!-- إعلان قبل الفوتر -->
+    <div class="fazza-ad-unit">
+        <script type="text/javascript">atOptions = { 'key' : 'abae43c3093c7f7459553dac34caad9a', 'format' : 'iframe', 'height' : 90, 'width' : 320, 'params' : {} };</script>
+        <script type="text/javascript" src="https://charmingpoliteinjunction.com/abae43c3093c7f7459553dac34caad9a/invoke.js"></script>
+    </div>
+
+
+    <main class="tool-page tool-random-image">
+        <section class="tool-hero">
+            <div class="container">
+                <h1>مولد الصور العشوائية</h1>
+                <p>صور عشوائية بمقاسات مخصصة من عدة مصادر.</p>
+            </div>
+        </section>
+
+        <section class="tool-content container">
+            <h2><i class="fas fa-image"></i> مولد صور عشوائية</h2>
+            <div class="tool-interface">
+                <div class="image-settings">
+                    <h3><i class="fas fa-cogs"></i> إعدادات الصورة</h3>
+                    <div class="setting-group">
+                        <label for="imageWidth">عرض الصورة:</label>
+                        <input type="number" id="imageWidth" value="400" min="100" max="1200">
+                        <span class="unit">بكسل</span>
+                    </div>
+                    <div class="setting-group">
+                        <label for="imageHeight">ارتفاع الصورة:</label>
+                        <input type="number" id="imageHeight" value="300" min="100" max="1200">
+                        <span class="unit">بكسل</span>
+                    </div>
+                    <div class="setting-group">
+                        <label for="imageSource">مصدر الصورة:</label>
+                        <select id="imageSource">
+                            <option value="picsum">Picsum Photos (صور طبيعية)</option>
+                            <option value="placeholder">Placeholder.com (ألوان عشوائية)</option>
+                            <option value="dummy">Dummy Image (صور تجريبية)</option>
+                        </select>
+                    </div>
+                    <div class="setting-group">
+                        <label for="imageCategory">فئة الصورة:</label>
+                        <select id="imageCategory">
+                            <option value="random">عشوائي</option>
+                            <option value="nature">طبيعة</option>
+                            <option value="city">مدينة</option>
+                            <option value="people">أشخاص</option>
+                            <option value="animals">حيوانات</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="action-buttons">
+                    <button onclick="generateRandomImage()" class="generate-btn">
+                        <i class="fas fa-magic"></i>
+                        توليد صورة عشوائية
+                    </button>
+                    <button onclick="resetImageGenerator()" class="reset-btn">
+                        <i class="fas fa-redo"></i>
+                        إعادة تعيين
+                    </button>
+                </div>
+                <div class="result-area" id="imageResult" style="display: none;">
+                    <div class="loading-container" id="imageLoading" style="display:none;">
+                        <div class="spinner"></div>
+                        <p>يرجى الانتظار...</p>
+                    </div>
+                    <div class="image-results" id="imageResults" style="display:none;">
+                        <h3><i class="fas fa-check-circle"></i> تم توليد الصورة بنجاح!</h3>
+                        <div class="image-container">
+                            <img id="generatedImage" alt="صورة عشوائية">
+                        </div>
+                        <div class="image-info">
+                            <p><i class="fas fa-expand-arrows-alt"></i> الأبعاد: <span id="imageDimensions"></span></p>
+                            <p><i class="fas fa-link"></i> رابط الصورة: <a id="imageLink" href="#" target="_blank"></a></p>
+                        </div>
+                        <div class="download-section">
+                            <button onclick="downloadGeneratedImage()" class="download-btn">
+                                <i class="fas fa-download"></i>
+                                تحميل الصورة
+                            </button>
+                            <button onclick="copyImageLink()" class="copy-btn">
+                                <i class="fas fa-copy"></i>
+                                نسخ الرابط
+                            </button>
+                        </div>
+                    </div>
+                    <div class="error-container" id="imageError" style="display:none;">
+                        <i class="fas fa-times-circle"></i>
+                        <p>حدث خطأ أثناء تحميل الصورة. يرجى المحاولة مرة أخرى.</p>
+                        <button onclick="generateRandomImage()" class="generate-btn">
+                            <i class="fas fa-redo"></i>
+                            إعادة المحاولة
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- إعلان قبل الفوتر -->
+    <div class="fazza-ad-unit">
+        <script type="text/javascript">atOptions = { 'key' : 'abae43c3093c7f7459553dac34caad9a', 'format' : 'iframe', 'height' : 90, 'width' : 320, 'params' : {} };</script>
+        <script type="text/javascript" src="https://charmingpoliteinjunction.com/abae43c3093c7f7459553dac34caad9a/invoke.js"></script>
+    </div>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 FazzaPlay</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof initializeToolEvents === 'function') {
+                initializeToolEvents('random-image');
+            }
+        });
+    </script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.querySelector('.nav-menu');
+        if (navToggle && navMenu) {
+            navToggle.addEventListener('click', () => {
+                const isVisible = navMenu.style.display === 'flex';
+                navMenu.style.display = isVisible ? 'none' : 'flex';
+            });
+        }
+    });
+    </script>
+</body>
+</html>
+

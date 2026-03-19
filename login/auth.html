@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تسجيل الدخول – Fazza Play</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Exo+2:wght@700;900&display=swap" rel="stylesheet">
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics-compat.js"></script>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1408902564262213',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v20.0'
+    });
+      
+    FB.AppEvents.logPageView();   
+      
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+<style>
+:root {
+  --gold: #f5c542;
+  --gold2: #ffd966;
+  --bg: #070707;
+  --bg2: #0f0f0f;
+  --bg3: #161616;
+  --border: rgba(255,255,255,0.07);
+  --text: #e5e5e5;
+  --dim: #888;
+  --green: #00e676;
+  --red: #ff4444;
+  --blue: #4fc3f7;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;overflow:hidden}
+body{
+  font-family:'Cairo',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+
+/* ===== ANIMATED GRID BG ===== */
+.bg-grid{
+  position:fixed;inset:0;z-index:0;
+  background-image:
+    linear-gradient(rgba(245,197,66,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245,197,66,0.04) 1px, transparent 1px);
+  background-size:50px 50px;
+  animation:gridMove 20s linear infinite;
+}
+@keyframes gridMove{from{background-position:0 0}to{background-position:50px 50px}}
+
+.bg-glow{
+  position:fixed;inset:0;z-index:0;
+  background:radial-gradient(ellipse 700px 500px at 50% 50%, rgba(245,197,66,0.04) 0%, transparent 70%);
+}
+
+/* ===== PARTICLES ===== */
+.particles{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.particle{
+  position:absolute;width:2px;height:2px;
+  background:var(--gold);border-radius:50%;
+  opacity:0;
+  animation:float linear infinite;
+}
+@keyframes float{
+  0%{opacity:0;transform:translateY(100vh) scale(0)}
+  10%{opacity:0.6}
+  90%{opacity:0.3}
+  100%{opacity:0;transform:translateY(-10vh) scale(1.5)}
+}
+
+/* ===== AUTH CARD ===== */
+.auth-wrap{
+  position:relative;z-index:10;
+  width:100%;max-width:440px;
+  padding:20px;
+}
+
+.auth-logo{
+  text-align:center;margin-bottom:28px;
+  animation:fadeIn 0.5s ease;
+}
+.auth-logo a{text-decoration:none}
+.logo-text{
+  font-family:'Exo 2',sans-serif;font-size:32px;font-weight:900;
+  background:linear-gradient(135deg,var(--gold),#fff 60%,var(--gold));
+  -webkit-background-clip:text;
+  background-clip:text;-webkit-text-fill-color:transparent;
+  letter-spacing:3px;
+}
+.logo-sub{font-size:12px;color:var(--dim);letter-spacing:2px;text-transform:uppercase;margin-top:4px}
+
+.auth-card{
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 30px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(245,197,66,0.08);
+  animation:slideUp 0.5s cubic-bezier(0.16,1,0.3,1);
+}
+@keyframes slideUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+/* ===== TABS ===== */
+.tabs{
+  display:grid;grid-template-columns:1fr 1fr;
+  border-bottom:1px solid var(--border);
+}
+.tab-btn{
+  background:none;border:none;
+  padding:18px;font-family:'Cairo',sans-serif;
+  font-size:15px;font-weight:700;color:var(--dim);
+  cursor:pointer;transition:all 0.25s;
+  position:relative;
+}
+.tab-btn.active{color:var(--gold)}
+.tab-btn::after{
+  content:'';position:absolute;bottom:0;left:10%;right:10%;
+  height:2px;background:var(--gold);
+  transform:scaleX(0);transition:transform 0.3s;border-radius:2px;
+}
+.tab-btn.active::after{transform:scaleX(1)}
+
+/* ===== FORM PANELS ===== */
+.panel{
+  padding:28px;
+  display:none;
+  animation:panelIn 0.3s ease;
+}
+.panel.active{display:block}
+@keyframes panelIn{from{opacity:0;transform:translateX(10px)}to{opacity:1;transform:translateX(0)}}
+
+/* ===== FIELD ===== */
+.field{margin-bottom:18px}
+.field label{
+  display:block;font-size:12px;font-weight:700;
+  color:var(--dim);letter-spacing:1px;text-transform:uppercase;
+  margin-bottom:8px;
+}
+.field-wrap{position:relative}
+.field-wrap .icon{
+  position:absolute;right:14px;top:50%;transform:translateY(-50%);
+  font-size:17px;pointer-events:none;opacity:0.5;
+}
+.field input{
+  width:100%;background:var(--bg3);border:1px solid var(--border);
+  border-radius:10px;padding:13px 42px 13px 14px;
+  font-family:'Cairo',sans-serif;font-size:14px;color:var(--text);
+  transition:all 0.2s;outline:none;
+}
+.field input:focus{border-color:rgba(245,197,66,0.5);background:#1a1a1a;box-shadow:0 0 0 3px rgba(245,197,66,0.07)}
+.field input::placeholder{color:rgba(255,255,255,0.2)}
+.field input.error{border-color:rgba(255,68,68,0.6);background:rgba(255,68,68,0.04)}
+.field input.success{border-color:rgba(0,230,118,0.5)}
+
+.field-hint{font-size:11px;color:var(--dim);margin-top:5px}
+.field-error{font-size:11px;color:var(--red);margin-top:5px;display:none}
+.field-error.show{display:block}
+
+/* Password toggle */
+.pwd-toggle{
+  position:absolute;left:12px;top:50%;transform:translateY(-50%);
+  background:none;border:none;color:var(--dim);cursor:pointer;
+  font-size:16px;padding:4px;transition:color 0.2s;
+}
+.pwd-toggle:hover{color:var(--gold)}
+
+/* ===== PASSWORD STRENGTH ===== */
+.pwd-strength{margin-top:8px;display:none}
+.pwd-strength.show{display:block}
+.pwd-bars{display:flex;gap:4px;margin-bottom:4px}
+.pwd-bar{flex:1;height:3px;background:var(--bg3);border-radius:2px;transition:background 0.3s}
+.pwd-text{font-size:11px;color:var(--dim)}
+
+/* ===== SOCIAL LOGIN ===== */
+.social-divider{
+  display:flex;align-items:center;gap:12px;margin:20px 0;
+}
+.social-divider span{font-size:12px;color:var(--dim);white-space:nowrap}
+.social-divider::before,.social-divider::after{
+  content:'';flex:1;height:1px;background:var(--border);
+}
+
+.social-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
+.social-btn{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:11px;border-radius:10px;border:1px solid var(--border);
+  background:var(--bg3);color:var(--text);font-family:'Cairo',sans-serif;
+  font-size:13px;font-weight:600;cursor:pointer;text-decoration:none;
+  transition:all 0.2s;
+}
+.social-btn:hover{border-color:rgba(255,255,255,0.2);background:#1e1e1e;transform:translateY(-1px)}
+.social-btn img{width:18px;height:18px;object-fit:contain}
+
+/* ===== SUBMIT BTN ===== */
+.submit-btn{
+  width:100%;padding:14px;border-radius:12px;border:none;
+  background:linear-gradient(135deg,#c9952a,var(--gold),var(--gold2));
+  color:#000;font-family:'Cairo',sans-serif;font-size:15px;font-weight:900;
+  cursor:pointer;transition:all 0.25s;letter-spacing:0.5px;
+  position:relative;overflow:hidden;
+}
+.submit-btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(245,197,66,0.35)}
+.submit-btn:active{transform:translateY(0)}
+.submit-btn:disabled{opacity:0.6;cursor:not-allowed;transform:none}
+.submit-btn .btn-text{transition:opacity 0.2s}
+.submit-btn .btn-loading{
+  position:absolute;inset:0;display:none;
+  align-items:center;justify-content:center;gap:8px;
+}
+.submit-btn.loading .btn-text{opacity:0}
+.submit-btn.loading .btn-loading{display:flex}
+
+.spin{
+  width:18px;height:18px;border-radius:50%;
+  border:2px solid rgba(0,0,0,0.3);
+  border-top-color:#000;
+  animation:spin 0.7s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ===== FOOTER LINKS ===== */
+.auth-footer{text-align:center;padding:0 28px 24px;font-size:13px;color:var(--dim)}
+.auth-footer a{color:var(--gold);text-decoration:none;font-weight:600}
+.auth-footer a:hover{text-decoration:underline}
+
+/* ===== TOAST ===== */
+.toast{
+  position:fixed;top:20px;left:50%;transform:translateX(-50%) translateY(-80px);
+  z-index:999;
+  background:var(--bg3);border:1px solid var(--border);
+  border-radius:12px;padding:12px 20px;
+  display:flex;align-items:center;gap:10px;
+  font-size:14px;font-weight:600;
+  transition:transform 0.4s cubic-bezier(0.16,1,0.3,1);
+  white-space:nowrap;
+  box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.toast.success{border-color:rgba(0,230,118,0.4);color:var(--green)}
+.toast.error{border-color:rgba(255,68,68,0.4);color:var(--red)}
+.toast.info{border-color:rgba(245,197,66,0.4);color:var(--gold)}
+
+/* ===== REMEMBER / FORGOT ===== */
+.row-flex{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.remember{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;color:var(--dim)}
+.remember input[type=checkbox]{
+  width:16px;height:16px;accent-color:var(--gold);cursor:pointer;
+}
+.forgot-link{font-size:13px;color:var(--gold);text-decoration:none;font-weight:600}
+.forgot-link:hover{text-decoration:underline}
+
+/* ===== TERMS ===== */
+.terms-check{display:flex;align-items:flex-start;gap:10px;margin-bottom:18px;cursor:pointer;font-size:13px;color:var(--dim);line-height:1.7}
+.terms-check input{width:16px;height:16px;accent-color:var(--gold);cursor:pointer;flex-shrink:0;margin-top:3px}
+.terms-check a{color:var(--gold);text-decoration:none}
+
+/* ===== AVATAR PICKER ===== */
+.avatar-row{
+  display:flex;gap:10px;flex-wrap:wrap;margin-bottom:4px;
+}
+.ava-opt{
+  width:42px;height:42px;border-radius:50%;font-size:22px;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;border:2px solid transparent;
+  background:var(--bg3);transition:all 0.2s;
+}
+.ava-opt:hover{border-color:rgba(245,197,66,0.5);transform:scale(1.1)}
+.ava-opt.selected{border-color:var(--gold);box-shadow:0 0 10px rgba(245,197,66,0.3)}
+</style>
+</head>
+<body>
+
+<!-- Background -->
+<div class="bg-grid"></div>
+<div class="bg-glow"></div>
+<div class="particles" id="particles"></div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<!-- Auth Wrap -->
+<div class="auth-wrap">
+  
+  <!-- Logo -->
+  <div class="auth-logo">
+    <a href="../index.html">
+      <div class="logo-text">⚡ FAZZA PLAY</div>
+    </a>
+    <p class="logo-sub">منصة الألعاب العربية</p>
+  </div>
+
+  <div class="auth-card">
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab('login')" id="tab-login">تسجيل الدخول</button>
+      <button class="tab-btn" onclick="switchTab('register')" id="tab-register">إنشاء حساب</button>
+    </div>
+
+    <!-- ===== LOGIN PANEL ===== -->
+    <div class="panel active" id="panel-login">
+      
+      <!-- Social Buttons -->
+      <div class="social-btns">
+        <a href="#" class="social-btn" onclick="socialLogin('google')">
+          <img src="https://www.google.com/favicon.ico" alt="Google">
+          Google
+        </a>
+        <a href="#" class="social-btn" onclick="socialLogin('facebook')">
+          <img src="https://www.facebook.com/favicon.ico" alt="Facebook">
+          Facebook
+        </a>
+      </div>
+
+      <div class="social-divider">
+        <span>أو بالبريد الإلكتروني</span>
+      </div>
+
+      <form id="loginForm" onsubmit="handleLogin(event)">
+        <div class="field">
+          <label>البريد الإلكتروني</label>
+          <div class="field-wrap">
+            <span class="icon">📧</span>
+            <input type="email" id="login-email" placeholder="example@email.com" autocomplete="email" required>
+          </div>
+          <div class="field-error" id="login-email-err">بريد إلكتروني غير صحيح</div>
+        </div>
+
+        <div class="field">
+          <label>كلمة المرور</label>
+          <div class="field-wrap">
+            <span class="icon">🔒</span>
+            <input type="password" id="login-password" placeholder="••••••••" autocomplete="current-password" required>
+            <button type="button" class="pwd-toggle" onclick="togglePwd('login-password',this)">👁️</button>
+          </div>
+          <div class="field-error" id="login-pass-err">كلمة المرور غير صحيحة</div>
+        </div>
+
+        <div class="row-flex">
+          <label class="remember">
+            <input type="checkbox" id="rememberMe"> تذكرني
+          </label>
+          <a href="forgot-password.html" class="forgot-link">نسيت كلمة المرور؟</a>
+        </div>
+
+        <button type="submit" class="submit-btn" id="login-btn">
+          <span class="btn-text">🎮 تسجيل الدخول</span>
+          <div class="btn-loading"><div class="spin"></div> جارٍ التحقق...</div>
+        </button>
+      </form>
+
+      <div class="auth-footer">
+        ليس لديك حساب؟ <a href="#" onclick="switchTab('register')">أنشئ حساباً مجانياً</a>
+      </div>
+    </div>
+
+    <!-- ===== REGISTER PANEL ===== -->
+    <div class="panel" id="panel-register">
+      
+      <!-- Social Buttons -->
+      <div class="social-btns">
+        <a href="#" class="social-btn" onclick="socialLogin('google')">
+          <img src="https://www.google.com/favicon.ico" alt="Google">
+          Google
+        </a>
+        <a href="#" class="social-btn" onclick="socialLogin('facebook')">
+          <img src="https://www.facebook.com/favicon.ico" alt="Facebook">
+          Facebook
+        </a>
+      </div>
+
+      <div class="social-divider">
+        <span>أو أنشئ حساباً جديداً</span>
+      </div>
+
+      <form id="registerForm" onsubmit="handleRegister(event)">
+        
+        <div class="field">
+          <label>اختر أفاتار</label>
+          <div class="avatar-row" id="avatarRow">
+            <div class="ava-opt selected" data-ava="🎮" onclick="selectAva(this)">🎮</div>
+            <div class="ava-opt" data-ava="⚡" onclick="selectAva(this)">⚡</div>
+            <div class="ava-opt" data-ava="🔥" onclick="selectAva(this)">🔥</div>
+            <div class="ava-opt" data-ava="👾" onclick="selectAva(this)">👾</div>
+            <div class="ava-opt" data-ava="🏆" onclick="selectAva(this)">🏆</div>
+            <div class="ava-opt" data-ava="🌟" onclick="selectAva(this)">🌟</div>
+            <div class="ava-opt" data-ava="💎" onclick="selectAva(this)">💎</div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>اسم المستخدم</label>
+          <div class="field-wrap">
+            <span class="icon">👤</span>
+            <input type="text" id="reg-username" placeholder="GamerArab_99" autocomplete="username" required minlength="3">
+          </div>
+          <div class="field-hint">3-20 حرف — أحرف وأرقام وشرطة سفلية فقط</div>
+          <div class="field-error" id="reg-username-err">اسم المستخدم مستخدم بالفعل</div>
+        </div>
+
+        <div class="field">
+          <label>البريد الإلكتروني</label>
+          <div class="field-wrap">
+            <span class="icon">📧</span>
+            <input type="email" id="reg-email" placeholder="example@email.com" autocomplete="email" required>
+          </div>
+          <div class="field-error" id="reg-email-err">البريد الإلكتروني مستخدم بالفعل</div>
+        </div>
+
+        <div class="field">
+          <label>كلمة المرور</label>
+          <div class="field-wrap">
+            <span class="icon">🔒</span>
+            <input type="password" id="reg-password" placeholder="8 أحرف على الأقل" autocomplete="new-password" required oninput="checkStrength(this.value)">
+            <button type="button" class="pwd-toggle" onclick="togglePwd('reg-password',this)">👁️</button>
+          </div>
+          <div class="pwd-strength" id="pwd-strength">
+            <div class="pwd-bars">
+              <div class="pwd-bar" id="bar1"></div>
+              <div class="pwd-bar" id="bar2"></div>
+              <div class="pwd-bar" id="bar3"></div>
+              <div class="pwd-bar" id="bar4"></div>
+            </div>
+            <div class="pwd-text" id="pwd-text">أدخل كلمة مرور</div>
+          </div>
+          <div class="field-error" id="reg-pass-err">كلمة المرور ضعيفة جداً (8 أحرف على الأقل)</div>
+        </div>
+
+        <label class="terms-check">
+          <input type="checkbox" id="terms-check" required>
+          أوافق على <a href="#">شروط الاستخدام</a> و<a href="#">سياسة الخصوصية</a> الخاصة بـ Fazza Play
+        </label>
+
+        <button type="submit" class="submit-btn" id="register-btn">
+          <span class="btn-text">🚀 إنشاء الحساب مجاناً</span>
+          <div class="btn-loading"><div class="spin"></div> جارٍ الإنشاء...</div>
+        </button>
+      </form>
+
+      <div class="auth-footer">
+        لديك حساب بالفعل؟ <a href="#" onclick="switchTab('login')">سجّل الدخول</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="user-display" style="display:none; text-align:center; margin-top:20px; color:var(--gold); font-size:16px;">
+    مرحبا, <span id="user-name"></span>! تم تسجيل الدخول بنجاح.
+  </div>
+
+</div>
+
+<script>
+// ===== CONFIG — غيّر هذا الرابط بعنوان Worker الخاص بك =====
+// ===== تغيير هذا الرابط بعد نشر Cloudflare Worker =====
+// بعد تنفيذ: wrangler deploy
+// ستحصل على رابط مثل: https://fazzaplay-auth.yourusername.workers.dev
+const API_BASE = 'https://fazzaplay-auth.YOUR-SUBDOMAIN.workers.dev';
+
+// Firebase config
+const firebaseConfig = {
+  apiKey: "AIzaSyAWPa41E98r0Fhacx57QlEJAgOLLRFmSK4",
+  authDomain: "fazzaplay-14ddc.firebaseapp.com",
+  projectId: "fazzaplay-14ddc",
+  storageBucket: "fazzaplay-14ddc.firebasestorage.app",
+  messagingSenderId: "288892358832",
+  appId: "1:288892358832:web:5340d3aacc33411b166b75",
+  measurementId: "G-JR3R5CW8CT"
+};
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
+
+// ===== PARTICLES =====
+const pc = document.getElementById('particles');
+for(let i=0;i<35;i++){
+  const p=document.createElement('div');
+  p.className='particle';
+  p.style.cssText=`
+    left:${Math.random()*100}%;
+    animation-duration:${6+Math.random()*12}s;
+    animation-delay:${Math.random()*8}s;
+    width:${1+Math.random()*3}px;
+    height:${1+Math.random()*3}px;
+    opacity:${0.2+Math.random()*0.5};
+  `;
+  pc.appendChild(p);
+}
+
+// ===== TABS =====
+let selectedAva = '🎮';
+
+function switchTab(tab) {
+  ['login','register'].forEach(t => {
+    document.getElementById(`panel-${t}`).classList.toggle('active', t===tab);
+    document.getElementById(`tab-${t}`).classList.toggle('active', t===tab);
+  });
+}
+
+function selectAva(el) {
+  document.querySelectorAll('.ava-opt').forEach(e=>e.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedAva = el.dataset.ava;
+}
+
+// ===== PASSWORD TOGGLE =====
+function togglePwd(id, btn) {
+  const inp = document.getElementById(id);
+  inp.type = inp.type === 'password' ? 'text' : 'password';
+  btn.textContent = inp.type === 'password' ? '👁️' : '🙈';
+}
+
+// ===== PASSWORD STRENGTH =====
+function checkStrength(val) {
+  const wrap = document.getElementById('pwd-strength');
+  const txt = document.getElementById('pwd-text');
+  wrap.classList.add('show');
+
+  const bars = [document.getElementById('bar1'),document.getElementById('bar2'),
+                document.getElementById('bar3'),document.getElementById('bar4')];
+  bars.forEach(b=>b.style.background='#222');
+
+  let score = 0;
+  if(val.length >= 8) score++;
+  if(/[A-Z]/.test(val) || /[a-z]/.test(val)) score++;
+  if(/[0-9]/.test(val)) score++;
+  if(/[^A-Za-z0-9]/.test(val)) score++;
+
+  const levels = [
+    {color:'#ff4444',text:'ضعيفة جداً'},
+    {color:'#ff9f1c',text:'ضعيفة'},
+    {color:'#ffd700',text:'متوسطة'},
+    {color:'#00e676',text:'قوية 💪'}
+  ];
+
+  for(let i=0;i<score;i++) bars[i].style.background = levels[score-1].color;
+  txt.textContent = val.length===0 ? 'أدخل كلمة مرور' : levels[score-1].text;
+  txt.style.color = score===0 ? '#888' : levels[score-1].color;
+}
+
+// ===== TOAST =====
+let toastTimer;
+function showToast(msg, type='info') {
+  const t = document.getElementById('toast');
+  const icons = {success:'✅',error:'❌',info:'⚡'};
+  t.className = `toast ${type}`;
+  t.innerHTML = `<span>${icons[type]}</span> ${msg}`;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>t.classList.remove('show'), 3500);
+}
+
+// ===== HELPERS =====
+function setLoading(btnId, loading) {
+  const btn = document.getElementById(btnId);
+  btn.classList.toggle('loading', loading);
+  btn.disabled = loading;
+}
+
+function showErr(id, msg='') {
+  const el = document.getElementById(id);
+  if(msg) el.textContent = msg;
+  el.classList.add('show');
+}
+
+function clearErrs(ids) {
+  ids.forEach(id => document.getElementById(id).classList.remove('show'));
+}
+
+// ===== TOKEN STORAGE =====
+function saveSession(data, remember) {
+  const store = remember ? localStorage : sessionStorage;
+  store.setItem('fp_token', data.token);
+  store.setItem('fp_user', JSON.stringify(data.user));
+}
+
+function getToken() {
+  return localStorage.getItem('fp_token') || sessionStorage.getItem('fp_token');
+}
+
+// ===== LOGIN =====
+async function handleLogin(e) {
+  e.preventDefault();
+  clearErrs(['login-email-err','login-pass-err']);
+
+  const email = document.getElementById('login-email').value.trim();
+  const password = document.getElementById('login-password').value;
+  const remember = document.getElementById('rememberMe').checked;
+
+  if(!email || !/\S+@\S+\.\S+/.test(email)) { showErr('login-email-err'); return; }
+  if(!password) { showErr('login-pass-err'); return; }
+
+  setLoading('login-btn', true);
+
+  // Try Firebase Auth first (Email/Password)
+  try {
+    const userCred = await firebase.auth().signInWithEmailAndPassword(email, password);
+    const user = userCred.user;
+    const idToken = await user.getIdToken();
+    const userData = {
+      id: user.uid,
+      username: user.displayName || email.split('@')[0],
+      email: user.email,
+      avatar: '🎮',
+      xp: 0, level: 1, badges: ['🎮'],
+      favorites: [], reviews: []
+    };
+    // Try to get extra profile from worker
+    try {
+      const res = await fetch(`${API_BASE}/user/me`, {
+        headers: {'Authorization': 'Bearer ' + idToken}
+      });
+      if(res.ok) { const d = await res.json(); Object.assign(userData, d); }
+    } catch(e) {}
+    
+    saveSession({token: idToken, user: userData}, remember);
+    showToast('مرحباً بعودتك! 🎮', 'success');
+    setTimeout(() => window.location.href = 'dashboard.html', 1200);
+    return;
+  } catch(fbErr) {
+    // Firebase failed - try Cloudflare Worker
+  }
+
+  try {
+    const res = await fetch(`${API_BASE}/auth/login`, {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({email, password})
+    });
+
+    const data = await res.json();
+
+    if(res.ok && data.token) {
+      saveSession(data, remember);
+      showToast('مرحباً بعودتك! 🎮', 'success');
+      setTimeout(() => window.location.href = 'dashboard.html', 1200);
+    } else {
+      setLoading('login-btn', false);
+      if(data.code === 'WRONG_PASSWORD') {
+        showErr('login-pass-err', 'كلمة المرور غير صحيحة');
+      } else if(data.code === 'NOT_FOUND') {
+        showErr('login-email-err', 'البريد الإلكتروني غير مسجل');
+      } else {
+        showToast('كلمة السر أو البريد غير صحيحة', 'error');
+      }
+    }
+  } catch(err) {
+    setLoading('login-btn', false);
+    // DEMO MODE — تشغيل بدون API
+    demoLogin(email, password, remember);
+  }
+}
+
+// وضع التجربة — يعمل بدون API
+function demoLogin(email, password, remember) {
+  const stored = localStorage.getItem('fp_registered_user');
+  if(stored) {
+    const user = JSON.parse(stored);
+    if(user.email === email && user.password === password) {
+      const session = { token: 'demo-token-'+Date.now(), user };
+      saveSession(session, remember);
+      showToast('مرحباً بعودتك! 🎮', 'success');
+      setTimeout(()=>window.location.href='dashboard.html', 1200);
+      return;
+    }
+  }
+  showErr('login-pass-err', 'بيانات الدخول غير صحيحة');
+}
+
+// ===== REGISTER =====
+async function handleRegister(e) {
+  e.preventDefault();
+  clearErrs(['reg-username-err','reg-email-err','reg-pass-err']);
+
+  const username = document.getElementById('reg-username').value.trim();
+  const email = document.getElementById('reg-email').value.trim();
+  const password = document.getElementById('reg-password').value;
+  const terms = document.getElementById('terms-check').checked;
+
+  if(!/^[a-zA-Z0-9_\u0600-\u06FF]{3,20}$/.test(username)) {
+    showErr('reg-username-err','اسم المستخدم يجب أن يكون 3-20 حرف'); return;
+  }
+  if(!email || !/\S+@\S+\.\S+/.test(email)) { showErr('reg-email-err','بريد إلكتروني غير صحيح'); return; }
+  if(password.length < 8) { showErr('reg-pass-err'); return; }
+  if(!terms) { showToast('يجب الموافقة على الشروط أولاً', 'error'); return; }
+
+  setLoading('register-btn', true);
+
+  const userData = { username, email, password, avatar: selectedAva };
+
+  // Try Firebase first
+  try {
+    const userCred = await firebase.auth().createUserWithEmailAndPassword(email, password);
+    const fbUser = userCred.user;
+    await fbUser.updateProfile({ displayName: username });
+    const idToken = await fbUser.getIdToken();
+    const fullUser = {
+      id: fbUser.uid, username, email, avatar: selectedAva,
+      joined: new Date().toISOString(), xp: 0, level: 1,
+      badges: ['🎮'], favorites: [], reviews: []
+    };
+    // Also register in worker for extra data
+    try {
+      await fetch(`${API_BASE}/auth/register`, {
+        method:'POST', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({...userData, firebaseUid: fbUser.uid})
+      });
+    } catch(e) {}
+    saveSession({token: idToken, user: fullUser}, true);
+    showToast('تم إنشاء حسابك بنجاح! 🎉', 'success');
+    setTimeout(()=>window.location.href='dashboard.html', 1200);
+    return;
+  } catch(fbErr) {
+    if(fbErr.code === 'auth/email-already-in-use') {
+      setLoading('register-btn', false);
+      showErr('reg-email-err','البريد الإلكتروني مسجل بالفعل');
+      return;
+    }
+    // Firebase failed - try worker only
+  }
+
+  try {
+    const res = await fetch(`${API_BASE}/auth/register`, {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify(userData)
+    });
+    const data = await res.json();
+
+    if(res.ok && data.token) {
+      saveSession(data, true);
+      showToast('تم إنشاء حسابك بنجاح! 🎉', 'success');
+      setTimeout(()=>window.location.href='dashboard.html', 1200);
+    } else {
+      setLoading('register-btn', false);
+      if(data.code==='EMAIL_EXISTS') showErr('reg-email-err','البريد الإلكتروني مسجل بالفعل');
+      else if(data.code==='USERNAME_EXISTS') showErr('reg-username-err','اسم المستخدم مستخدم بالفعل');
+      else showToast(data.message || 'خطأ في إنشاء الحساب', 'error');
+    }
+  } catch(err) {
+    setLoading('register-btn', false);
+    if(err.name==='TypeError' || err.message.includes('fetch')) {
+      demoRegister(userData);
+    } else {
+      showToast('حدث خطأ في الاتصال', 'error');
+    }
+  }
+}
+
+function demoRegister(userData) {
+  const fullUser = {
+    ...userData,
+    id: 'user_'+Date.now(),
+    joined: new Date().toISOString(),
+    level: 1,
+    xp: 0,
+    badges: [],
+    favorites: [],
+    reviews: []
+  };
+  localStorage.setItem('fp_registered_user', JSON.stringify(fullUser));
+  const session = { token:'demo-token-'+Date.now(), user: fullUser };
+  saveSession(session, true);
+  showToast('تم إنشاء حسابك بنجاح! 🎉', 'success');
+  setTimeout(()=>window.location.href='dashboard.html', 1200);
+}
+
+
+// ===== SOCIAL LOGIN =====
+function socialLogin(provider) {
+  if(provider === 'google') {
+    const authProvider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithPopup(authProvider).then((result) => {
+      const user = result.user;
+      const session = { token: 'firebase-' + user.uid, user: { id: user.uid, username: user.displayName || user.email, email: user.email, avatar: user.photoURL || '🎮' } };
+      saveSession(session, true);
+      document.getElementById('user-name').textContent = user.displayName || user.email;
+      document.getElementById('user-display').style.display = 'block';
+      showToast('تم تسجيل الدخول بنجاح! 🎉', 'success');
+      setTimeout(() => window.location.href = 'dashboard.html', 2000);
+    }).catch((error) => {
+      showToast('خطأ في تسجيل الدخول: ' + error.message, 'error');
+    });
+  } else if(provider === 'facebook') {
+    FB.login(function(response) {
+      if (response.authResponse) {
+        const accessToken = response.authResponse.accessToken;
+        fetch(`${API_BASE}/auth/facebook`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ access_token: accessToken })
+        })
+        .then(res => res.json())
+        .then(data => {
+          if (data.token) {
+            const session = { token: data.token, user: data.user };
+            saveSession(session, true);
+            document.getElementById('user-name').textContent = data.user.username || data.user.email;
+            document.getElementById('user-display').style.display = 'block';
+            showToast('تم تسجيل الدخول بنجاح! 🎉', 'success');
+            setTimeout(() => window.location.href = 'dashboard.html', 2000);
+          } else {
+            showToast('خطأ في تسجيل الدخول: ' + data.error, 'error');
+          }
+        })
+        .catch(err => {
+          showToast('خطأ في تسجيل الدخول', 'error');
+        });
+      } else {
+        showToast('تم إلغاء تسجيل الدخول', 'info');
+      }
+    }, {scope: 'email,public_profile'});
+  }
+}
+
+// ===== CHECK ALREADY LOGGED IN =====
+if(getToken() && (localStorage.getItem('fp_user') || sessionStorage.getItem('fp_user'))) {
+  window.location.href = 'dashboard.html';
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>منسق JSON - تنسيق وتحقق من JSON مجاناً | FazzaPlay</title>
+    <meta name="description" content="منسق JSON مجاني ومتقدم. نسّق وضغط وتحقق من صحة ملفات JSON بشكل فوري في المتصفح. مع تلوين الكود وكشف الأخطاء.">
+    <meta name="keywords" content="منسق JSON، تنسيق JSON، JSON validator، تحقق JSON، JSON formatter، JSON beautifier، JSON online">
+    <meta name="author" content="FazzaPlay">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://fazzaplay.com/tools/json-formatter">
+    <meta property="og:title" content="منسق JSON - FazzaPlay">
+    <meta property="og:description" content="نسّق وضغط وتحقق من صحة ملفات JSON بشكل فوري. مجاناً وبدون تسجيل.">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="tools.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .json-layout { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+        .json-panel { background:#fff; border-radius:12px; border:1px solid #e5e7eb; overflow:hidden; }
+        .panel-header { display:flex; justify-content:space-between; align-items:center; padding:12px 16px; background:#f8f9fa; border-bottom:1px solid #e5e7eb; }
+        .panel-header h3 { font-size:1rem; color:#444; margin:0; }
+        .panel-actions { display:flex; gap:8px; }
+        .panel-btn { padding:5px 12px; border:1px solid #d1d5ff; background:#fff; color:#667eea; border-radius:6px; cursor:pointer; font-size:0.8rem; font-family:'Cairo',sans-serif; transition:all 0.2s; }
+        .panel-btn:hover { background:#667eea; color:#fff; border-color:#667eea; }
+        .json-textarea { width:100%; min-height:350px; padding:14px; border:none; outline:none; font-family:'Courier New',monospace; font-size:0.9rem; resize:vertical; line-height:1.6; direction:ltr; }
+        .json-output { width:100%; min-height:350px; padding:14px; font-family:'Courier New',monospace; font-size:0.9rem; overflow:auto; direction:ltr; white-space:pre; }
+        .status-bar { padding:10px 16px; font-size:0.85rem; border-top:1px solid #e5e7eb; }
+        .status-ok { color:#10b981; background:#f0fdf4; }
+        .status-err { color:#ef4444; background:#fef2f2; }
+        .status-info { color:#6b7280; background:#f9fafb; }
+        .action-row { display:flex; gap:10px; flex-wrap:wrap; margin:16px 0; }
+        .json-key { color:#9333ea; }
+        .json-string { color:#16a34a; }
+        .json-number { color:#2563eb; }
+        .json-bool { color:#dc2626; }
+        .json-null { color:#6b7280; }
+        .stats-row { display:flex; gap:20px; padding:12px 16px; background:#f0f4ff; border-radius:8px; margin-top:12px; flex-wrap:wrap; }
+        .stat-item { text-align:center; }
+        .stat-value { font-size:1.3rem; font-weight:700; color:#667eea; display:block; }
+        .stat-label { font-size:0.75rem; color:#888; }
+        @media(max-width:768px){ .json-layout { grid-template-columns:1fr; } }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8571192174854530" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="header">
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo"><span>FazzaPlay</span></div>
+            <div class="nav-menu">
+                <a href="../index.html" class="nav-link">الرئيسية</a>
+                <a href="../index.html#tools" class="nav-link">الأدوات</a>
+            </div>
+            <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+</header>
+
+<main class="tool-page" style="margin-top:80px;">
+    <section class="tool-hero" style="background:linear-gradient(135deg,#f093fb,#f5576c);padding:50px 0;">
+        <div class="container">
+            <h1 style="color:#fff;font-size:2rem;margin-bottom:0.5rem;"><i class="fas fa-code"></i> منسق JSON</h1>
+            <p style="color:rgba(255,255,255,0.9);">نسّق وضغط وتحقق من صحة JSON في ثوانٍ — بالكامل في متصفحك، خصوصية تامة</p>
+            <ul class="tool-highlights">
+                <li><i class="fas fa-check-circle"></i> تحقق من صحة JSON</li>
+                <li><i class="fas fa-paint-brush"></i> تلوين الكود</li>
+                <li><i class="fas fa-compress-alt"></i> ضغط وتوسيع</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="tool-content container">
+        <div class="action-row">
+            <button class="generate-btn" id="formatBtn"><i class="fas fa-indent"></i> تنسيق (Prettify)</button>
+            <button class="reset-btn" id="minifyBtn"><i class="fas fa-compress-alt"></i> ضغط (Minify)</button>
+            <button class="copy-btn" id="copyBtn"><i class="fas fa-copy"></i> نسخ النتيجة</button>
+            <button class="download-btn" id="downloadBtn"><i class="fas fa-download"></i> تحميل</button>
+            <button class="reset-btn" id="clearBtn" style="background:#ef4444;"><i class="fas fa-trash"></i> مسح</button>
+        </div>
+
+        <div class="json-layout">
+            <div class="json-panel">
+                <div class="panel-header">
+                    <h3><i class="fas fa-edit"></i> إدخال JSON</h3>
+                    <div class="panel-actions">
+                        <button class="panel-btn" id="pasteBtn"><i class="fas fa-paste"></i> لصق</button>
+                        <button class="panel-btn" id="sampleBtn">مثال</button>
+                    </div>
+                </div>
+                <textarea class="json-textarea" id="jsonInput" placeholder='الصق JSON هنا...&#10;&#10;مثال:&#10;{"name":"Ahmed","age":25}'></textarea>
+                <div class="status-bar status-info" id="inputStatus">أدخل JSON للبدء</div>
+            </div>
+            <div class="json-panel">
+                <div class="panel-header">
+                    <h3><i class="fas fa-eye"></i> النتيجة</h3>
+                    <div class="panel-actions">
+                        <button class="panel-btn" id="expandAllBtn">توسيع</button>
+                        <button class="panel-btn" id="collapseAllBtn">طي</button>
+                    </div>
+                </div>
+                <pre class="json-output" id="jsonOutput"><span style="color:#aaa;">النتيجة ستظهر هنا...</span></pre>
+                <div class="status-bar status-info" id="outputStatus">–</div>
+            </div>
+        </div>
+
+        <div class="stats-row" id="statsRow" style="display:none;">
+            <div class="stat-item"><span class="stat-value" id="statKeys">0</span><span class="stat-label">مفتاح</span></div>
+            <div class="stat-item"><span class="stat-value" id="statDepth">0</span><span class="stat-label">عمق</span></div>
+            <div class="stat-item"><span class="stat-value" id="statArrays">0</span><span class="stat-label">مصفوفة</span></div>
+            <div class="stat-item"><span class="stat-value" id="statObjects">0</span><span class="stat-label">كائن</span></div>
+            <div class="stat-item"><span class="stat-value" id="statSize">0 B</span><span class="stat-label">الحجم</span></div>
+        </div>
+
+        <article class="tool-article">
+            <h2>ما هو JSON ولماذا تحتاج إلى تنسيقه؟</h2>
+            <p>JSON (JavaScript Object Notation) هو تنسيق لتبادل البيانات خفيف الوزن ومقروء. يُستخدم على نطاق واسع في تطوير الويب، واجهات برمجة التطبيقات (APIs)، وملفات الإعدادات. هذه الأداة تساعدك على تنسيق JSON المضغوط ليصبح مقروءاً، التحقق من صحته، وضغطه لتقليل الحجم.</p>
+        </article>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-bottom"><p>&copy; 2025 FazzaPlay. جميع الحقوق محفوظة.</p></div>
+    </div>
+</footer>
+
+<script src="../script.js"></script>
+<script>
+const input = document.getElementById('jsonInput');
+const output = document.getElementById('jsonOutput');
+const inputStatus = document.getElementById('inputStatus');
+const outputStatus = document.getElementById('outputStatus');
+const statsRow = document.getElementById('statsRow');
+
+const sampleJSON = {
+    "name": "Ahmed Hassan",
+    "age": 28,
+    "email": "ahmed@example.com",
+    "isActive": true,
+    "address": {"city": "Cairo", "country": "Egypt"},
+    "skills": ["JavaScript", "Python", "React"],
+    "scores": [95, 87, 92, null]
+};
+
+function syntaxHighlight(json) {
+    return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, (match) => {
+        let cls = 'json-number';
+        if (/^"/.test(match)) { if (/:$/.test(match)) cls = 'json-key'; else cls = 'json-string'; }
+        else if (/true|false/.test(match)) cls = 'json-bool';
+        else if (/null/.test(match)) cls = 'json-null';
+        return `<span class="${cls}">${match}</span>`;
+    });
+}
+
+function countStats(obj, depth=0) {
+    let keys=0, arrays=0, objects=0, maxDepth=depth;
+    if (Array.isArray(obj)) {
+        arrays++; 
+        obj.forEach(v => { const s = countStats(v, depth+1); keys+=s.keys; arrays+=s.arrays; objects+=s.objects; if (s.maxDepth > maxDepth) maxDepth=s.maxDepth; });
+    } else if (obj && typeof obj === 'object') {
+        objects++;
+        Object.keys(obj).forEach(k => { keys++; const s = countStats(obj[k], depth+1); keys+=s.keys; arrays+=s.arrays; objects+=s.objects; if (s.maxDepth > maxDepth) maxDepth=s.maxDepth; });
+    }
+    return {keys, arrays, objects, maxDepth};
+}
+
+function formatJson(indent=2) {
+    const raw = input.value.trim();
+    if (!raw) { output.innerHTML = '<span style="color:#aaa;">أدخل JSON أولاً...</span>'; inputStatus.textContent='أدخل JSON للبدء'; inputStatus.className='status-bar status-info'; return null; }
+    try {
+        const parsed = JSON.parse(raw);
+        const formatted = JSON.stringify(parsed, null, indent);
+        output.innerHTML = syntaxHighlight(formatted.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'));
+        const stats = countStats(parsed);
+        document.getElementById('statKeys').textContent = stats.keys;
+        document.getElementById('statDepth').textContent = stats.maxDepth;
+        document.getElementById('statArrays').textContent = stats.arrays;
+        document.getElementById('statObjects').textContent = stats.objects;
+        const bytes = new Blob([formatted]).size;
+        document.getElementById('statSize').textContent = bytes < 1024 ? bytes + ' B' : (bytes/1024).toFixed(1) + ' KB';
+        statsRow.style.display = 'flex';
+        inputStatus.textContent = '✓ JSON صالح';
+        inputStatus.className = 'status-bar status-ok';
+        outputStatus.textContent = `${formatted.split('\n').length} سطر، ${Object.keys(stats).length > 0 ? '' : ''}`;
+        outputStatus.className = 'status-bar status-ok';
+        return formatted;
+    } catch (e) {
+        output.innerHTML = `<span style="color:#ef4444;">❌ خطأ: ${e.message}</span>`;
+        inputStatus.textContent = '✗ JSON غير صالح: ' + e.message;
+        inputStatus.className = 'status-bar status-err';
+        statsRow.style.display = 'none';
+        return null;
+    }
+}
+
+document.getElementById('formatBtn').addEventListener('click', () => formatJson(2));
+document.getElementById('minifyBtn').addEventListener('click', () => {
+    const raw = input.value.trim();
+    try {
+        const minified = JSON.stringify(JSON.parse(raw));
+        output.innerHTML = syntaxHighlight(minified.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'));
+        inputStatus.textContent = '✓ تم الضغط';
+        inputStatus.className = 'status-bar status-ok';
+        window._lastJson = minified;
+    } catch(e) { inputStatus.textContent = '✗ ' + e.message; inputStatus.className='status-bar status-err'; }
+});
+document.getElementById('copyBtn').addEventListener('click', () => {
+    const text = output.textContent;
+    if (!text || text === 'النتيجة ستظهر هنا...') { try { showNotification && showNotification('لا يوجد محتوى لنسخه','warning'); } catch(e){} return; }
+    navigator.clipboard.writeText(text).then(() => { try { showNotification && showNotification('تم النسخ!','success'); } catch(e){} });
+});
+document.getElementById('downloadBtn').addEventListener('click', () => {
+    const text = output.textContent;
+    if (!text) return;
+    const blob = new Blob([text], {type:'application/json'});
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'formatted-' + Date.now() + '.json';
+    a.click();
+});
+document.getElementById('clearBtn').addEventListener('click', () => {
+    input.value = '';
+    output.innerHTML = '<span style="color:#aaa;">النتيجة ستظهر هنا...</span>';
+    inputStatus.textContent = 'أدخل JSON للبدء';
+    inputStatus.className = 'status-bar status-info';
+    statsRow.style.display = 'none';
+});
+document.getElementById('sampleBtn').addEventListener('click', () => {
+    input.value = JSON.stringify(sampleJSON);
+    formatJson(2);
+});
+document.getElementById('pasteBtn').addEventListener('click', () => {
+    navigator.clipboard.readText().then(t => { input.value = t; formatJson(2); });
+});
+input.addEventListener('input', () => {
+    if (input.value.trim()) formatJson(2);
+});
+</script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.querySelector('.nav-menu');
+        if (navToggle && navMenu) {
+            navToggle.addEventListener('click', () => {
+                const isVisible = navMenu.style.display === 'flex';
+                navMenu.style.display = isVisible ? 'none' : 'flex';
+            });
+        }
+    });
+    </script>
+</body>
+</html>

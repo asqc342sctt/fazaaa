@@ -1,0 +1,97 @@
+/*=====================================================================
+  [1] Performance Enhancements (GPU & Rendering Optimization)
+=====================================================================*/
+
+/* 1.1 Filter Container Optimization */
+.filter-container {
+    /* Enable subtle backdrop filter with hardware acceleration */
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    
+    /* Layout containment helps the browser limit style and layout calculations */
+    contain: layout style;
+    
+    /* Ensure hardware acceleration */
+    transform: translateZ(0);
+    will-change: transform, backdrop-filter;
+}
+
+/* 1.2 Game Cards Optimization */
+.game-card {
+    /* Containment limits the scope of browser recalculations */
+    contain: layout style paint;
+    
+    /* Suggesting to the browser that this element's transformation will change */
+    will-change: transform; 
+    
+    /* Forcing GPU acceleration (Creating a new compositing layer) */
+    transform: translateZ(0);
+}
+
+/* 1.3 Image Rendering Optimization */
+.game-card img {
+    /* Optimizing image rendering quality, particularly for pixel art/sharp images */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    transform: translateZ(0);
+
+    /* Forcing GPU acceleration for smoother image transitions/scrolling */
+    transform: translateZ(0);
+}
+
+/* 1.4 Interactive Elements Optimization (Buttons) */
+.filter-btn, 
+.btn {
+    /* Suggesting transformations will change for smooth hovers/clicks */
+    will-change: transform;
+    
+    /* Forcing GPU acceleration */
+    transform: translateZ(0);
+}
+
+/* 1.5 Grid Optimization */
+.games-grid {
+    /* Containment limits the scope of layout changes inside the grid */
+    contain: layout style;
+    
+    /* Forcing GPU acceleration for smoother scrolling/layout changes */
+    transform: translateZ(0);
+}
+
+
+/*=====================================================================
+  [2] Mobile Performance Adjustments (Reducing Expensive Effects on Small Screens)
+=====================================================================*/
+
+/* Disabling complex hover/transform effects on smaller devices (often touchscreen) */
+@media (max-width: 768px) {
+    
+    /* Disabling the expensive translateY/Box-Shadow shift on hover for Game Cards */
+    .game-card:hover {
+        transform: none !important; 
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1) !important; /* Lighter shadow */
+    }
+    
+    /* Disabling hover transform on Filter Buttons */
+    .filter-btn:hover {
+        transform: none !important;
+    }
+    
+    /* Disabling hover transform on General Buttons */
+    .btn:hover {
+        transform: none !important;
+    }
+}
+
+/* Adjustments for Very Small Screens */
+@media (max-width: 576px) {
+    /* Removing complex pseudo-elements (assuming the original had one) */
+    .filter-btn::before {
+        display: none !important;
+    }
+    
+    /* Relaxing containment on grid to just layout (less strict than layout style) */
+    .games-grid {
+        contain: layout;
+    }
+}
