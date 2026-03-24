@@ -3,73 +3,692 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تحميل لعبة BattleBit Remastered للكمبيوتر - متطلبات التشغيل - Fazza Play</title>
+    <title>BattleBit Remastered - متطلبات التشغيل | Fazza Play</title>
     <meta name="description" content="خض معارك ضخمة تصل إلى 254 لاعبًا في BattleBit Remastered. تعرف على متطلبات التشغيل لهذه اللعبة ذات الرسوميات البسيطة واللعب المثير.">
-    <meta name="keywords" content="BattleBit Remastered, تحميل لعبة BattleBit Remastered, متطلبات تشغيل BattleBit Remastered, لعبة FPS, Low-Poly, معارك ضخمة, Fazza Play">
-    <meta property="og:title" content="تحميل لعبة BattleBit Remastered للكمبيوتر - Fazza Play">
-    <meta property="og:description" content="خض معارك ضخمة تصل إلى 254 لاعبًا في BattleBit Remastered. تعرف على متطلبات التشغيل لهذه اللعبة ذات الرسوميات البسيطة واللعب المثير.">
+    <meta name="keywords" content="BattleBit Remastered, تحميل BattleBit Remastered, متطلبات تشغيل BattleBit Remastered, لعبة FPS, Low-Poly, معارك ضخمة, Fazza Play">
+    <meta property="og:title" content="BattleBit Remastered - متطلبات التشغيل | Fazza Play">
+    <meta property="og:description" content="خض معارك ضخمة تصل إلى 254 لاعبًا في BattleBit Remastered.">
     <meta property="og:image" content="https://cdn.akamai.steamstatic.com/steam/apps/671860/header.jpg">
     <meta property="og:type" content="article">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="تحميل لعبة BattleBit Remastered للكمبيوتر - Fazza Play">
-    <meta name="twitter:description" content="خض معارك ضخمة تصل إلى 254 لاعبًا في BattleBit Remastered. تعرف على متطلبات التشغيل لهذه اللعبة ذات الرسوميات البسيطة واللعب المثير.">
+    <meta name="twitter:title" content="BattleBit Remastered - متطلبات التشغيل | Fazza Play">
+    <meta name="twitter:description" content="خض معارك ضخمة تصل إلى 254 لاعبًا في BattleBit Remastered.">
     <meta name="twitter:image" content="https://cdn.akamai.steamstatic.com/steam/apps/671860/header.jpg">
-    <link rel="stylesheet" href="../../style.css">
-    <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="details-style.css">
-    <!-- Google AdSense -->
+
+    <!-- Google AdSense - الإعلانات الرسمية الآمنة فقط -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8571192174854530"
      crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-primary: #0a0c12;
+            --bg-secondary: #111420;
+            --bg-card: #161a27;
+            --bg-card-hover: #1c2133;
+            --accent: #e8421a;
+            --accent-dim: #c03512;
+            --accent-glow: rgba(232, 66, 26, 0.25);
+            --gold: #f0a500;
+            --text-primary: #eef0f7;
+            --text-secondary: #8a90a8;
+            --text-muted: #555c78;
+            --border: rgba(255,255,255,0.07);
+            --border-accent: rgba(232, 66, 26, 0.4);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            direction: rtl;
+            overflow-x: hidden;
+        }
+
+        /* ─── خلفية متحركة ─── */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 60% 40% at 80% 10%, rgba(232,66,26,0.08) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 60% at 10% 80%, rgba(20,60,120,0.12) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ─── هيدر ─── */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10,12,18,0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 clamp(1rem, 5vw, 3rem);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .logo {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .logo::before {
+            content: '▶';
+            color: var(--accent);
+            font-size: 0.9rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(0.85); }
+        }
+
+        .back-link {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 600;
+            transition: color 0.2s;
+            padding: 8px 14px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .back-link:hover { color: var(--text-primary); border-color: var(--border-accent); }
+
+        /* ─── المحتوى الرئيسي ─── */
+        main {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 5vw, 2rem);
+        }
+
+        /* ─── Hero Section ─── */
+        .hero {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 2.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .hero-image-wrap {
+            position: relative;
+            width: 100%;
+            height: clamp(220px, 40vw, 420px);
+        }
+
+        .hero-image-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                transparent 30%,
+                rgba(10,12,18,0.5) 60%,
+                var(--bg-primary) 100%
+            );
+        }
+
+        .hero-badge {
+            position: absolute;
+            top: 1.2rem;
+            right: 1.2rem;
+            background: var(--accent);
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 5px 14px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .hero-title-block {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            padding: 1.5rem 2rem;
+        }
+
+        .hero-title-block h1 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: clamp(1.8rem, 5vw, 3.2rem);
+            font-weight: 700;
+            letter-spacing: 1px;
+            line-height: 1;
+            color: #fff;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.8);
+        }
+
+        .hero-title-block .genre-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .tag {
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 3px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: rgba(255,255,255,0.75);
+            backdrop-filter: blur(4px);
+        }
+
+        /* ─── الشبكة الرئيسية ─── */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 900px) {
+            .content-grid {
+                grid-template-columns: 1fr 340px;
+                align-items: start;
+            }
+        }
+
+        /* ─── البطاقات ─── */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.8rem;
+            transition: border-color 0.3s;
+        }
+
+        .card:hover { border-color: rgba(232,66,26,0.2); }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* ─── نبذة ─── */
+        .about-text {
+            line-height: 1.9;
+            color: var(--text-secondary);
+            font-size: 0.97rem;
+        }
+
+        /* ─── إحصائيات سريعة ─── */
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .stat-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        /* ─── متطلبات التشغيل ─── */
+        .req-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 1.2rem;
+        }
+
+        .req-tab {
+            flex: 1;
+            padding: 8px 0;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text-secondary);
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .req-tab.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+        }
+
+        .req-tab:not(.active):hover {
+            border-color: var(--border-accent);
+            color: var(--text-primary);
+        }
+
+        .req-panel { display: none; }
+        .req-panel.active { display: block; }
+
+        .req-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .req-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 10px 14px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            font-size: 0.88rem;
+            transition: border-color 0.2s;
+        }
+
+        .req-list li:hover { border-color: var(--border-accent); }
+
+        .req-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .req-info { flex: 1; }
+        .req-name { color: var(--text-muted); font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+        .req-value { color: var(--text-primary); font-weight: 600; margin-top: 2px; }
+
+        /* ─── CTA ─── */
+        .cta-card {
+            background: linear-gradient(135deg, var(--bg-card) 0%, rgba(232,66,26,0.08) 100%);
+            border: 1px solid var(--border-accent);
+            border-radius: 16px;
+            padding: 1.8rem;
+            text-align: center;
+        }
+
+        .cta-card img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 1.2rem;
+            border: 1px solid var(--border);
+        }
+
+        .cta-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-card p {
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+            line-height: 1.7;
+            margin-bottom: 1.4rem;
+        }
+
+        .btn-steam {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 14px 20px;
+            background: var(--accent);
+            color: #fff;
+            text-decoration: none;
+            font-family: 'Cairo', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.25s;
+            box-shadow: 0 4px 20px var(--accent-glow);
+        }
+
+        .btn-steam:hover {
+            background: var(--accent-dim);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px var(--accent-glow);
+        }
+
+        .btn-steam svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+
+        .btn-back {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 12px 20px;
+            background: transparent;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            margin-top: 10px;
+            transition: all 0.2s;
+        }
+
+        .btn-back:hover { border-color: var(--border-accent); color: var(--text-primary); }
+
+        /* ─── الفوتر ─── */
+        footer {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 2rem 1rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 3rem;
+        }
+
+        /* ─── تأثيرات الدخول ─── */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in:nth-child(1) { animation-delay: 0.1s; }
+        .fade-in:nth-child(2) { animation-delay: 0.2s; }
+        .fade-in:nth-child(3) { animation-delay: 0.3s; }
+        .fade-in:nth-child(4) { animation-delay: 0.4s; }
+
+        /* ─── Responsive ─── */
+        @media (max-width: 600px) {
+            .quick-stats { grid-template-columns: repeat(2, 1fr); }
+            .hero-title-block { padding: 1rem; }
+        }
+    </style>
 </head>
 <body>
+
     <header>
-        <h1><a href="../../index.html">Fazza Play</a></h1>
+        <div class="header-inner">
+            <a href="../../index.html" class="logo">Fazza<span>Play</span></a>
+            <a href="../index.html" class="back-link">← قائمة الألعاب</a>
+        </div>
     </header>
+
     <main>
-        <div class="game-detail-container">
-            <div class="game-detail-header">
-                <img src="../../images/pc-games/battlebit remastered.jpg" alt="BattleBit Remastered">
+
+        <!-- Hero -->
+        <section class="hero fade-in">
+            <div class="hero-image-wrap">
+                <img src="https://cdn.akamai.steamstatic.com/steam/apps/671860/header.jpg"
+                     alt="BattleBit Remastered"
+                     loading="eager">
+                <div class="hero-overlay"></div>
+                <span class="hero-badge">متاحة على Steam</span>
+            </div>
+            <div class="hero-title-block">
                 <h1>BattleBit Remastered</h1>
+                <div class="genre-tags">
+                    <span class="tag">FPS</span>
+                    <span class="tag">متعدد اللاعبين</span>
+                    <span class="tag">Low-Poly</span>
+                    <span class="tag">Battle Royale Style</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Grid -->
+        <div class="content-grid">
+
+            <!-- العمود الأيمن -->
+            <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+
+                <!-- نبذة -->
+                <div class="card fade-in">
+                    <div class="card-title">نبذة عن اللعبة</div>
+                    <p class="about-text">
+                        BattleBit Remastered هي لعبة إطلاق نار من منظور الشخص الأول (FPS) متعددة اللاعبين على نطاق واسع، تتميز برسوميات بسيطة (Low-Poly) وتدعم ما يصل إلى <strong style="color:var(--text-primary)">254 لاعبًا</strong> في الخادم الواحد.
+                        <br><br>
+                        انغمس في معارك فوضوية على خرائط قابلة للتدمير بالكامل تقريبًا، مع استخدام مختلف المركبات. سواء كنت تقتحم مواقع العدو أو تبني دفاعات حيوية، فإن كل دور له أهميته في ساحة المعركة المليئة بالأدرينالين.
+                    </p>
+                    <div class="quick-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">254</span>
+                            <span class="stat-label">لاعب في الخادم</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">2 GB</span>
+                            <span class="stat-label">حجم اللعبة</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">DX11</span>
+                            <span class="stat-label">DirectX</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- متطلبات التشغيل -->
+                <div class="card fade-in">
+                    <div class="card-title">متطلبات التشغيل</div>
+
+                    <div class="req-tabs">
+                        <button class="req-tab active" onclick="switchTab(event, 'min')">الحد الأدنى</button>
+                        <button class="req-tab" onclick="switchTab(event, 'rec')">الموصى به</button>
+                    </div>
+
+                    <!-- أدنى متطلبات -->
+                    <div class="req-panel active" id="tab-min">
+                        <ul class="req-list">
+                            <li>
+                                <div class="req-icon">💻</div>
+                                <div class="req-info">
+                                    <div class="req-name">نظام التشغيل</div>
+                                    <div class="req-value">Windows 10 / 11 (64-bit)</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="req-icon">⚙️</div>
+                                <div class="req-info">
+                                    <div class="req-name">المعالج</div>
+                                    <div class="req-value">Intel Core i5-2310</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="req-icon">🧠</div>
+                                <div class="req-info">
+                                    <div class="req-name">الذاكرة العشوائية</div>
+                                    <div class="req-value">6 GB RAM</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="req-icon">🎮</div>
+                                <div class="req-info">
+                                    <div class="req-name">كرت الشاشة</div>
+                                    <div class="req-value">Geforce GTS 450</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="req-icon">📦</div>
+                                <div class="req-info">
+                                    <div class="req-name">مساحة التخزين</div>
+                                    <div class="req-value">2 GB</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- متطلبات موصى بها -->
+                    <div class="req-panel" id="tab-rec">
+                        <ul class="req-list">
+                            <li>
+                                <div class="req-icon">💻</div>
+                                <div class="req-info">
+                                    <div class="req-name">نظام التشغيل</div>
+                                    <div class="req-value">Windows 10 / 11 (64-bit)</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="req-icon">⚙️</div>
+                                <div class="req-info">
+                                    <div class="req-name">المعالج</div>
+                                    <div class="req-value">Intel Core i5 - الجيل الرابع أو أحدث</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="req-icon">🧠</div>
+                                <div class="req-info">
+                                    <div class="req-name">الذاكرة العشوائية</div>
+                                    <div class="req-value">8 GB RAM</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="req-icon">🎮</div>
+                                <div class="req-info">
+                                    <div class="req-name">كرت الشاشة</div>
+                                    <div class="req-value">Geforce GTX 600 Series أو أفضل</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="req-icon">📦</div>
+                                <div class="req-info">
+                                    <div class="req-name">مساحة التخزين</div>
+                                    <div class="req-value">2 GB</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
             </div>
 
-            <div class="game-detail-content">
-                <h2>نبذة عن اللعبة</h2>
-                <p>
-                    هي لعبة إطلاق نار من منظور الشخص الأول (FPS) متعددة اللاعبين على نطاق واسع، تتميز برسوميات بسيطة (Low-Poly) وتدعم ما يصل إلى 254 لاعبًا في الخادم الواحد. انغمس في معارك فوضوية على خرائط قابلة للتدمير بالكامل تقريبًا، مع استخدام مختلف المركبات. سواء كنت تقتحم مواقع العدو أو تبني دفاعات حيوية، فإن كل دور له أهميته في ساحة المعركة المليئة بالأدرينالين.
-                </p>
-
-                <h2>متطلبات التشغيل</h2>
-                <h3>أدنى المتطلبات:</h3>
-                <ul>
-                    <li><strong>نظام التشغيل:</strong> Windows 10 / 11 (64-bit)</li>
-                    <li><strong>المعالج:</strong> Intel Core i5-2310</li>
-                    <li><strong>الذاكرة:</strong> 6 GB RAM</li>
-                    <li><strong>الرسوميات:</strong> Geforce GTS 450</li>
-                    <li><strong>DirectX:</strong> Version 11</li>
-                    <li><strong>مساحة التخزين:</strong> 2 GB</li>
-                </ul>
-
-                <h3>المتطلبات الموصى بها:</h3>
-                <ul>
-                    <li><strong>نظام التشغيل:</strong> Windows 10 / 11 (64-bit)</li>
-                    <li><strong>المعالج:</strong> Intel Core i5 4th Generation or above</li>
-                    <li><strong>الذاكرة:</strong> 8 GB RAM</li>
-                    <li><strong>الرسوميات:</strong> Geforce GTX 600 Series or better</li>
-                    <li><strong>DirectX:</strong> Version 11</li>
-                    <li><strong>مساحة التخزين:</strong> 2 GB</li>
-                </ul>
+            <!-- العمود الأيسر - CTA -->
+            <div class="fade-in">
+                <div class="cta-card">
+                    <img src="https://cdn.akamai.steamstatic.com/steam/apps/671860/header.jpg"
+                         alt="BattleBit Remastered Cover"
+                         loading="lazy">
+                    <h3>جاهز للمعركة؟</h3>
+                    <p>احصل على اللعبة الآن من Steam وانضم إلى مئات اللاعبين في معارك ملحمية لا تُنسى.</p>
+                    <a href="https://store.steampowered.com/app/671860/BattleBit_Remastered/"
+                       class="btn-steam"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.606 0 11.979 0zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.497 1.009 2.455-.397.957-1.497 1.41-2.455 1.012H7.54zm11.415-9.303c0-1.662-1.353-3.015-3.015-3.015-1.665 0-3.015 1.353-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.253 0-2.265-1.014-2.265-2.265z"/>
+                        </svg>
+                        احصل عليها على Steam
+                    </a>
+                    <a href="../index.html" class="btn-back">
+                        ← العودة لقائمة الألعاب
+                    </a>
+                </div>
             </div>
 
-            <div class="buttons-container">
-                <a href="https://store.steampowered.com/app/671860/BattleBit_Remastered/" class="action-btn" target="_blank" rel="noopener noreferrer">احصل عليها</a>
-                <a href="../index.html" class="action-btn back-btn">العودة لقائمة الألعاب</a>
-            </div>
         </div>
     </main>
-    <footer>
-        <p>&copy; 2025 Fazza Play جميع الحقوق محوظة </p>
 
+    <footer>
+        <p>&copy; 2025 Fazza Play — جميع الحقوق محفوظة</p>
     </footer>
-    <script src="ads-fazza.js"></script>
+
+    <script>
+        // تبديل تابات متطلبات التشغيل
+        function switchTab(e, tabId) {
+            document.querySelectorAll('.req-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.req-panel').forEach(p => p.classList.remove('active'));
+            e.currentTarget.classList.add('active');
+            document.getElementById('tab-' + tabId).classList.add('active');
+        }
+    </script>
+
 </body>
 </html>
