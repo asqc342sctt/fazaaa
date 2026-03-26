@@ -1452,13 +1452,13 @@
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
 <!-- Cache System -->
 <script src="js/firebase-cache.js"></script>
+<!-- RAWG API Manager -->
+<script src="js/rawg-api.js"></script>
 <!-- Ads -->
 <script src="ads-fazza.js"></script>
 <script>
   // ═══════════ STATE ═══════════
-  // 🔑 ضع هنا الـ API Key الخاص بك من: https://rawg.io/apidocs
-  const RAWG_KEY = '63782c9e9d6946a097bf5d4cfcb16aa4';
-  const PAGE_SIZE = 20;
+  const PAGE_SIZE = 50; // Increased to get more games per page
 
   // ═══════════ FALLBACK GAMES (تعمل بدون API) ═══════════
   const FALLBACK_GAMES = [
@@ -1515,7 +1515,10 @@
 
   try { state.wishlist = JSON.parse(localStorage.getItem('fp_wishlist') || '[]'); } catch(e) {}
 
-  // ═══════════ FETCH GAMES (with Firebase Caching) ═══════════
+  // Load fallback games immediately to show content
+  useFallback();
+
+  // ═══════════ FETCH GAMES (with RAWG API Manager) ═══════════
   async function fetchGames(page = 1) {
     state.page = page;
     const container = document.getElementById('gamesContainer');
@@ -1523,28 +1526,74 @@
     container.innerHTML = buildSkeletons(PAGE_SIZE);
     pagination.innerHTML = '';
 
-    // Build API URL
-    let url = `https://api.rawg.io/api/games?key=${RAWG_KEY}&page_size=${PAGE_SIZE}&page=${page}&ordering=${state.sort}`;
-    if (state.genre) url += `&genres=${state.genre}`;
-    if (state.platform) url += `&platforms=${state.platform}`;
-    if (state.search) url += `&search=${encodeURIComponent(state.search)}`;
+    // Check if RAWGAPI is loaded
+    if (!window.RAWGAPI) {
+      console.error('RAWGAPI not loaded! Using fallback games.');
+      useFallback();
+      return;
+    }
 
     try {
-      // Use smart API with caching
-      const d = await window.FazzaAPI.fetch(url);
+      // Use RAWG API Manager
+      console.log('Starting fetchGames with RAWGAPI...');
+      const result = await window.RAWGAPI.fetchGames(page, {
+        genre: state.genre,
+        sort: state.sort,
+        platform: state.platform,
+        search: state.search
+      });
       
-      if (!d.results || !d.results.length) throw new Error('empty');
+      console.log('RAWGAPI result:', result);
       
-      const cnt = document.getElementById('resultsCount');
-      if (cnt) cnt.textContent = `${(d.count || 0).toLocaleString()} نتيجة`;
+      if (result.success) {
+        const d = result.data;
+        
+        // IMPORTANT: Skip FazzaAPI caching to ensure we get fresh API data
+        console.log('Using fresh API data (no caching)');
+        let finalData = d;
+        
+        console.log('Final data to render:', finalData);
+        
+        if (!finalData.results || !finalData.results.length) {
+          console.log('No results found, using fallback');
+          useFallback();
+          return;
+        }
+        
+        // Check if we're getting fallback games by comparing IDs
+        const fallbackIds = FALLBACK_GAMES.map(g => g.id);
+        const apiGameIds = finalData.results.map(g => g.id);
+        const overlappingGames = apiGameIds.filter(id => fallbackIds.includes(id));
+        
+        if (overlappingGames.length > 5) {
+          console.warn('⚠️ API might be returning fallback games! Overlapping IDs:', overlappingGames);
+          console.warn('This suggests API is not working properly or returning cached data');
+        }
+        
+        const cnt = document.getElementById('resultsCount');
+        if (cnt) {
+          const totalCount = finalData.count || finalData.results.length;
+          cnt.textContent = `${totalCount.toLocaleString()} نتيجة`;
+          
+          // Add warning if we suspect fallback data
+          if (overlappingGames.length > 5) {
+            cnt.innerHTML += ' <span style="color: orange; font-size: 0.8em">⚠️ قد تستخدم بيانات احتياطية</span>';
+          }
+        }
+        
+        renderGames(finalData.results);
+        renderPagination(finalData.next, finalData.previous, finalData.count || 0);
+        
+        console.log(`✅ Games loaded successfully using ${result.apiUsed} API`);
+        console.log(`📊 Loaded ${finalData.results.length} games out of ${finalData.count || 0} total`);
+        
+      } else {
+        console.log('API failed, using fallback games');
+        useFallback();
+      }
       
-      renderGames(d.results);
-      renderPagination(d.next, d.previous, d.count || 0);
-      
-      // Show cache status
-      showCacheStatus();
     } catch(err) {
-      console.warn('Failed to load games:', err.message);
+      console.error('Failed to load games:', err);
       useFallback();
     }
   }
@@ -1763,8 +1812,25 @@
     window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(()=>{}));
   }
 
-  // Init
-  fetchGames(1);
+  // Initialize page
+  document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, initializing...');
+    
+    // Wait a bit for all scripts to load, then try API
+    setTimeout(() => {
+      console.log('Checking RAWGAPI availability...');
+      console.log('window.RAWGAPI:', window.RAWGAPI);
+      
+      if (window.RAWGAPI) {
+        console.log('RAWGAPI found, trying API...');
+        // Try API with no filters to get all games
+        fetchGames(1);
+      } else {
+        console.log('RAWGAPI not found, using fallback games...');
+        useFallback();
+      }
+    }, 1000);
+  });
 </script>
 </body>
 </html>
