@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليلك الشامل لجيميناي برو: كيفية التفعيل والاستفادة القصوى</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-MWV6NVT49M"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-MWV6NVT49M');
+    </script>
+    
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #4285f4;
+            --secondary-color: #34a853;
+            --accent-color: #fbbc04;
+            --dark-color: #202124;
+            --light-color: #f8f9fa;
+            --text-primary: #202124;
+            --text-secondary: #5f6368;
+            --border-color: #dadce0;
+            --shadow-light: 0 1px 3px rgba(0,0,0,0.12);
+            --shadow-medium: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-heavy: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            line-height: 1.8;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            box-shadow: var(--shadow-medium);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            padding: 1rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,133.3C960,128,1056,96,1152,90.7C1248,85,1344,107,1392,117.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent-color);
+            color: var(--dark-color);
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            position: relative;
+            z-index: 1;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-heavy);
+            background: #f9ab00;
+        }
+
+        /* Main Content */
+        main {
+            background: white;
+            margin: 2rem auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .article-content {
+            max-width: none;
+        }
+
+        .sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        /* Top Ad Banner */
+        .top-ad-banner {
+            background: linear-gradient(45deg, #f3f4f6, #e5e7eb);
+            border: 2px dashed var(--border-color);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            margin: 2rem 0;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .top-ad-banner::before {
+            content: 'إعلان';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--text-secondary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .ad-placeholder {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* Article Sections */
+        .article-section {
+            margin-bottom: 3rem;
+            scroll-margin-top: 100px;
+        }
+
+        .article-section h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .article-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+
+        .article-section h3 {
+            font-size: 1.6rem;
+            color: var(--dark-color);
+            margin: 2rem 0 1rem 0;
+        }
+
+        .article-section p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .article-section ul, .article-section ol {
+            margin: 1.5rem 0;
+            padding-right: 2rem;
+        }
+
+        .article-section li {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 0.8rem;
+            color: var(--text-primary);
+        }
+
+        /* Feature Cards */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .feature-card i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .feature-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Sidebar Ads */
+        .sidebar-ad {
+            background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+            border: 2px dashed var(--border-color);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .sidebar-ad::before {
+            content: 'إعلان';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--text-secondary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Table of Contents */
+        .table-of-contents {
+            background: var(--light-color);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .table-of-contents h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .table-of-contents ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .table-of-contents li {
+            margin-bottom: 0.5rem;
+        }
+
+        .table-of-contents a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 1rem;
+        }
+
+        .table-of-contents a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Inline Ad */
+        .inline-ad {
+            background: linear-gradient(45deg, #fef3c7, #fde68a);
+            border: 2px dashed var(--accent-color);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            margin: 3rem 0;
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .inline-ad::before {
+            content: 'إعلان ممول';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--accent-color);
+            color: var(--dark-color);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Gemini Link Section */
+        .gemini-link-section {
+            background: linear-gradient(135deg, #4285f4, #34a853);
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            margin: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gemini-link-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .gemini-link-section h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .gemini-link-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        .gemini-button {
+            display: inline-block;
+            background: white;
+            color: var(--primary-color);
+            padding: 18px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            position: relative;
+            z-index: 1;
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .gemini-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .content-wrapper {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .sidebar {
+                position: static;
+            }
+
+            .article-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gemini-link-section {
+                padding: 2rem 1rem;
+            }
+
+            .gemini-link-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .social-links {
+                order: -1;
+            }
+
+            /* Fix ad containers for mobile */
+            .top-ad-banner {
+                min-height: 80px;
+                padding: 1rem;
+            }
+
+            .sidebar-ad {
+                min-height: 200px;
+                margin-bottom: 1rem;
+            }
+
+            .native-ad-features {
+                min-height: 200px;
+                padding: 1.5rem;
+            }
+
+            .inline-ad {
+                min-height: 100px;
+                padding: 1.5rem;
+            }
+
+            /* Ensure ads are visible on mobile */
+            .top-ad-banner::before,
+            .sidebar-ad::before,
+            .native-ad-features::before,
+            .inline-ad::before {
+                font-size: 0.7rem;
+                padding: 3px 8px;
+            }
+
+            /* Adjust iframe ads for mobile */
+            .top-ad-banner iframe,
+            .sidebar-ad iframe,
+            .native-ad-features iframe,
+            .inline-ad iframe,
+            .left-sidebar-ad iframe {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+
+            /* Make sure ad containers don't overflow */
+            .top-ad-banner,
+            .sidebar-ad,
+            .native-ad-features,
+            .inline-ad,
+            .left-sidebar-ad {
+                overflow: hidden;
+            }
+
+            /* Adjust ad scripts for mobile */
+            .top-ad-banner script,
+            .sidebar-ad script,
+            .native-ad-features script,
+            .inline-ad script,
+            .left-sidebar-ad script {
+                display: block;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 10px;
+            }
+
+            .hero {
+                padding: 2rem 0;
+            }
+
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .article-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .article-section p {
+                font-size: 1rem;
+            }
+
+            .cta-button, .gemini-button {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+
+            /* Left sidebar ad mobile adjustments */
+            .left-sidebar-ad {
+                position: static;
+                transform: none;
+                margin: 1rem auto;
+                max-width: 100%;
+            }
+
+            /* Additional mobile optimizations for ads */
+            .top-ad-banner {
+                min-height: 70px;
+                padding: 0.8rem;
+                margin: 1rem 0;
+            }
+
+            .sidebar-ad {
+                min-height: 180px;
+                padding: 1rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .native-ad-features {
+                min-height: 180px;
+                padding: 1rem;
+                margin: 1rem 0;
+            }
+
+            .inline-ad {
+                min-height: 90px;
+                padding: 1rem;
+                margin: 2rem 0;
+            }
+
+            /* Left sidebar ad mobile adjustments for small screens */
+            .left-sidebar-ad {
+                position: static;
+                transform: none;
+                margin: 1rem auto;
+                max-width: 100%;
+            }
+
+            /* Force ad visibility on small screens */
+            .top-ad-banner,
+            .sidebar-ad,
+            .native-ad-features,
+            .inline-ad,
+            .left-sidebar-ad {
+                display: flex !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
+
+            /* Hide visible script text on mobile */
+            script:not([src]):not([type]) {
+                display: none !important;
+            }
+
+            /* Hide script content that appears as text */
+            script[src*="exceedbronzetooth"] + div,
+            script[src*="exceedbronzetooth"] ~ div:not([class]) {
+                display: none !important;
+            }
+
+            /* Fix any visible script tags */
+            .sidebar script:not([src]),
+            .article-content script:not([src]) {
+                display: none !important;
+            }
+
+            /* Hide inline script content */
+            .sidebar script:not([src]):not([type]),
+            .article-content script:not([src]):not([type]) {
+                display: none !important;
+                visibility: hidden !important;
+                height: 0 !important;
+                overflow: hidden !important;
+            }
+
+            /* Ensure ad scripts execute on mobile */
+            script[src] {
+                display: block !important;
+            }
+
+            /* Fix ad container sizes for mobile */
+            .top-ad-banner iframe,
+            .sidebar-ad iframe,
+            .native-ad-features iframe,
+            .inline-ad iframe,
+            .left-sidebar-ad iframe {
+                width: 100% !important;
+                max-width: 100% !important;
+                min-height: 50px !important;
+            }
+
+            /* Make ad divs visible */
+            .top-ad-banner div,
+            .sidebar-ad div,
+            .native-ad-features div,
+            .inline-ad div,
+            .left-sidebar-ad div {
+                display: block !important;
+                min-height: 50px !important;
+            }
+        }
+
+        /* Hide script content globally */
+        script:not([src]):not([type]) {
+            display: none !important;
+            visibility: hidden !important;
+            height: 0 !important;
+            overflow: hidden !important;
+            position: absolute !important;
+            left: -9999px !important;
+        }
+
+        /* Hide inline script content that appears as text */
+        script {
+            color: transparent !important;
+            background: transparent !important;
+            border: none !important;
+            outline: none !important;
+        }
+
+        /* Hide any script content that might be visible */
+        script::before,
+        script::after {
+            display: none !important;
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Native Ad under features */
+        .native-ad-features {
+            background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+            border: 2px dashed var(--border-color);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            margin: 2rem 0;
+            min-height: 250px;
+            position: relative;
+        }
+
+        .native-ad-features::before {
+            content: 'إعلان';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--text-secondary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Left Sidebar Ad */
+        .left-sidebar-ad {
+            position: fixed;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+            border: 2px dashed var(--border-color);
+            border-radius: 15px;
+            padding: 1rem;
+            text-align: center;
+            z-index: 999;
+            box-shadow: var(--shadow-medium);
+            max-width: 160px;
+        }
+
+        .left-sidebar-ad::before {
+            content: 'إعلان';
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: var(--text-secondary);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 1000;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-robot"></i>
+                    <span>جيميناي برو</span>
+                </div>
+                <div class="social-links">
+                    <a href="#" title="فيسبوك"><i class="fab fa-facebook"></i></a>
+                    <a href="#" title="تويتر"><i class="fab fa-twitter"></i></a>
+                    <a href="#" title="انستغرام"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="يوتيوب"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>دليلك الشامل لجيميناي برو</h1>
+            <p>اكتشف كيفية تفعيل جيميناي برو واستخدامه في إنشاء فيديوهات احترافية وتحقيق أقصى استفادة</p>
+            <a href="#gemini-link" class="cta-button">ابدأ الآن مع جيميناي برو</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Top Ad Banner -->
+        <div class="top-ad-banner">
+            <script async="async" data-cfasync="false" src="https://exceedbronzetooth.com/507ab538554c988bb7f0c8a30d4dc31b/invoke.js"></script>
+            <div id="container-507ab538554c988bb7f0c8a30d4dc31b"></div>
+        </div>
+
+        <main>
+            <div class="content-wrapper">
+                <article class="article-content">
+                    <!-- Introduction Section -->
+                    <section class="article-section" id="introduction">
+                        <h2>مقدمة إلى جيميناي برو</h2>
+                        <p>
+                            جيميناي برو هو النسخة المتقدمة من نموذج الذكاء الاصطناعي من جوجل، مصمم لتقديم قدرات فائقة في فهم اللغة الطبيعية، إنشاء المحتوى، وحل المشكلات المعقدة. مع تطور التكنولوجيا، أصبح من الممكن استخدام هذا النموذج المتقدم في إنشاء فيديوهات احترافية ومحتوى رقمي مبتكر.
+                        </p>
+                        <p>
+                            في هذا الدليل الشامل، سنتعرف معاً على كيفية تفعيل جيميناي برو، واستكشاف جميع مميزاته، وكيفية استخدامه لإنشاء فيديوهات عالية الجودة، بالإضافة إلى استراتيجيات تحقيق الأرباح من خلال هذه التقنية المتقدمة.
+                        </p>
+                    </section>
+
+                    <!-- Inline Ad -->
+                    <div class="inline-ad">
+                        <script>
+                          atOptions = {
+                            'key' : '86ad0b65f83e5a69757d4cbd05006855',
+                            'format' : 'iframe',
+                            'height' : 90,
+                            'width' : 728,
+                            'params' : {}
+                          };
+                        </script>
+                        <script src="https://exceedbronzetooth.com/86ad0b65f83e5a69757d4cbd05006855/invoke.js"></script>
+                    </div>
+
+                    <!-- Activation Section -->
+                    <section class="article-section" id="activation">
+                        <h2>كيفية تفعيل جيميناي برو</h2>
+                        <p>
+                            تفعيل جيميناي برو عملية بسيطة ومباشرة، ولكنها تتطلب بعض الخطوات الأساسية لضمان الاستفادة الكاملة من جميع المميزات المتقدمة.
+                        </p>
+                        
+                        <h3>الخطوة الأولى: إنشاء حساب جوجل</h3>
+                        <p>
+                            قبل البدء، تأكد من أن لديك حساب جوجل نشط. إذا لم يكن لديك حساب، يمكنك إنشاء واحد مجاناً من خلال موقع جوجل الرسمي.
+                        </p>
+                        
+                        <h3>الخطوة الثانية: الوصول إلى جيميناي</h3>
+                        <p>
+                            بعد تسجيل الدخول بحساب جوجل، يمكنك الوصول إلى جيميناي برو من خلال الرابط المخصص الذي ستجده في نهاية هذا المقال.
+                        </p>
+                        
+                        <h3>الخطوة الثالثة: ترقية إلى النسخة المدفوعة</h3>
+                        <p>
+                            للحصول على المميزات المتقدمة مثل إنشاء الفيديوهات والقدرات المعززة، ستحاج إلى ترقية حسابك إلى النسخة المدفوعة من جيميناي برو.
+                        </p>
+                        
+                        <h3>الخطوة الرابعة: إعداد التفضيلات</h3>
+                        <p>
+                            بعد التفعيل، قم بإعداد تفضيلاتك الشخصية بما يتناسب مع نوع المحتوى الذي تنوي إنشاؤه، سواء كان فيديوهات تعليمية، محتوى تسويقي، أو مواد إبداعية.
+                        </p>
+                    </section>
+
+                    <!-- Video Creation Section -->
+                    <section class="article-section" id="video-creation">
+                        <h2>إنشاء الفيديوهات باستخدام جيميناي برو</h2>
+                        <p>
+                            واحدة من أقوى مميزات جيميناي برو هي قدرته على مساعدتك في إنشاء فيديوهات احترافية من خلال الأدوات والتقنيات المتقدمة.
+                        </p>
+                        
+                        <h3>كتابة السيناريوهات</h3>
+                        <p>
+                            يمكن لجيميناي برو مساعدتك في كتابة سيناريوهات فيديوهات احترافية من خلال:
+                        </p>
+                        <ul>
+                            <li>تحليل الجمهور المستهدف وتخصيص المحتوى المناسب</li>
+                            <li>إنشاء قصص جذابة ومثيرة للاهتمام</li>
+                            <li>تطوير الحوارات الطبيعية والواقعية</li>
+                            <li>هيكلة المحتوى بطريقة منطقية وسلسة</li>
+                            <li>إضافة العناصر الدرامية والمشوقة</li>
+                        </ul>
+                        
+                        <h3>إنشاء نصوص الفيديوهات</h3>
+                        <p>
+                            باستخدام جيميناي برو، يمكنك إنشاء نصوص فيديوهات متكاملة تشمل:
+                        </p>
+                        <ol>
+                            <li><strong>المقدمة الجذابة:</strong> نصوص افتتاحية تجذب انتباه المشاهد من الثواني الأولى</li>
+                            <li><strong>المحتوى الرئيسي:</strong> معلومات مفصلة ومنظمة بطريقة سهلة الفهم</li>
+                            <li><strong>العناصر البصرية:</strong> اقتراحات للمشاهد والرسوم المتحركة المناسبة</li>
+                            <li><strong>الموسيقى والصوت:</strong> توصيات للمؤثرات الصوتية والموسيقى التصويرية</li>
+                            <li><strong>الخاتمة:</strong> نصوص ختامية قوية تدعو لاتخاذ إجراء</li>
+                        </ol>
+                    </section>
+
+                    <!-- Features Section -->
+                    <section class="article-section" id="features">
+                        <h2>المميزات الرئيسية لجيميناي برو</h2>
+                        
+                        <div class="feature-grid">
+                            <div class="feature-card">
+                                <i class="fas fa-brain"></i>
+                                <h4>ذكاء اصطناعي متقدم</h4>
+                                <p>قدرات فائقة في فهم السياق وتوليد محتوى عالي الجودة</p>
+                            </div>
+                            <div class="feature-card">
+                                <i class="fas fa-video"></i>
+                                <h4>إنشاء فيديوهات</h4>
+                                <p>أدوات متخصصة لإنتاج محتوى فيديو احترافي</p>
+                            </div>
+                            <div class="feature-card">
+                                <i class="fas fa-language"></i>
+                                <h4>دعم متعدد اللغات</h4>
+                                <p>ترجمة وإنتاج محتوى بأكثر من 100 لغة</p>
+                            </div>
+                            <div class="feature-card">
+                                <i class="fas fa-chart-line"></i>
+                                <h4>تحليل الأداء</h4>
+                                <p>أدوات تحليلية متقدمة لقياس نجاح المحتوى</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Native Ad under features -->
+                        <div class="native-ad-features">
+                            <script>
+                              atOptions = {
+                                'key' : '86ad0b65f83e5a69757d4cbd05006855',
+                                'format' : 'iframe',
+                                'height' : 90,
+                                'width' : 728,
+                                'params' : {}
+                              };
+                            </script>
+                            <script src="https://exceedbronzetooth.com/86ad0b65f83e5a69757d4cbd05006855/invoke.js"></script>
+                        </div>
+                        
+                        <h3>مميزات إضافية</h3>
+                        <ul>
+                            <li>القدرة على معالجة النصوص الطويلة والمعقدة</li>
+                            <li>فهم السياق الثقافي والاجتماعي</li>
+                            <li>إنشاء محتوى متوافق مع تحسين محركات البحث</li>
+                            <li>دعم الوسائط المتعددة المتكاملة</li>
+                            <li>إمكانية التخصيص حسب احتياجات المستخدم</li>
+                        </ul>
+                    </section>
+
+                    <!-- Monetization Section -->
+                    <section class="article-section" id="monetization">
+                        <h2>تحقيق الأرباح من جيميناي برو</h2>
+                        <p>
+                            بعد إتقان استخدام جيميناي برو، يمكنك تحقيق أرباح ممتازة من خلال عدة استراتيجيات وطرق مختلفة.
+                        </p>
+                        
+                        <h3>1. إنشاء محتوى للشركات</h3>
+                        <p>
+                            يمكنك تقديم خدمات إنشاء محتوى للشركات والأفراد، بما في ذلك:
+                        </p>
+                        <ul>
+                            <li>فيديوهات تسويقية للمنتجات والخدمات</li>
+                            <li>محتوى تعليمي وتدريبي للموظفين</li>
+                            <li>فيديوهات توضيحية للمنتجات المعقدة</li>
+                            <li>محتوى لسوشيال ميديا مخصص</li>
+                        </ul>
+                        
+                        <!-- Native Ad in monetization -->
+                        <div class="native-ad-features">
+                            <script>
+                              atOptions = {
+                                'key' : '86ad0b65f83e5a69757d4cbd05006855',
+                                'format' : 'iframe',
+                                'height' : 90,
+                                'width' : 728,
+                                'params' : {}
+                              };
+                            </script>
+                            <script src="https://exceedbronzetooth.com/86ad0b65f83e5a69757d4cbd05006855/invoke.js"></script>
+                        </div>
+                        
+                        <h3>2. بناء قناة يوتيوب</h3>
+                        <p>
+                            استخدم جيميناي برو لإنشاء محتوى فيديو متنوع لقناتك على يوتيوب:
+                        </p>
+                        <ul>
+                            <li>فيديوهات تعليمية في مجالات مختلفة</li>
+                            <li>محتوى ترفيهي ومثير للاهتمام</li>
+                            <li>مراجعات وتحليلات للمنتجات</li>
+                            <li>محتوى خبري ومواكبة للأحداث</li>
+                        </ul>
+                        
+                        <h3>3. التسويق بالعمولة</h3>
+                        <p>
+                            أنشئ فيديوهات ترويجية للمنتجات والخدمات واحصل على عمولة من خلال:
+                        </p>
+                        <ul>
+                            <li>مراجعات المنتجات مع روابط شراء</li>
+                            <li>فيديوهات "أفضل 10" مع روابط affiliates</li>
+                            <li>محتوى تعليمي يتطلب أدوات وبرامج مدفوعة</li>
+                            <li>فيديوهات مقارنة بين المنتجات المختلفة</li>
+                        </ul>
+                        
+                        <h3>4. بيع الدورات والمنتجات الرقمية</h3>
+                        <p>
+                            استخدم جيميناي برو لإنشاء وبيع المنتجات الرقمية:
+                        </p>
+                        <ul>
+                            <li>دورات تعليمية مسجلة على شكل فيديو</li>
+                            <li>كتب إلكترونية ومواد تعليمية</li>
+                            <li>قوالب جاهزة للفيديوهات</li>
+                            <li>خدمات استشارية عبر الفيديو</li>
+                        </ul>
+                    </section>
+
+                    <!-- Best Practices Section -->
+                    <section class="article-section" id="best-practices">
+                        <h2>أفضل الممارسات للاستفادة القصوى</h2>
+                        <p>
+                            لتحقيق أفضل النتائج مع جيميناي برو، اتبع هذه الممارسات المثبتة:
+                        </p>
+                        
+                        <h3>فهم الجمهور المستهدف</h3>
+                        <p>
+                            قبل إنشاء أي محتوى، قم ببحث شامل عن جمهورك المستهدف لفهم:
+                        </p>
+                        <ul>
+                            <li>الاهتمامات والاحتياجات الأساسية</li>
+                            <li>المستوى التعليمي والثقافي</li>
+                            <li>المنصات التي يستخدمونها بشكل متكرر</li>
+                            <li>نوع المحتوى الذي يفضلونه</li>
+                            <li>الأوقات المثالية للنشر</li>
+                        </ul>
+                        
+                        <!-- Native Ad in best practices -->
+                        <div class="native-ad-features">
+                            <script>
+                              atOptions = {
+                                'key' : '86ad0b65f83e5a69757d4cbd05006855',
+                                'format' : 'iframe',
+                                'height' : 90,
+                                'width' : 728,
+                                'params' : {}
+                              };
+                            </script>
+                            <script src="https://exceedbronzetooth.com/86ad0b65f83e5a69757d4cbd05006855/invoke.js"></script>
+                        </div>
+                        
+                        <h3>الجودة قبل الكمية</h3>
+                        <p>
+                            ركز على إنتاج محتوى عالي الجودة بدلاً من الكم الكبير:
+                        </p>
+                        <ul>
+                            <li>استثمر الوقت في البحث والتخطيط</li>
+                            <li>استخدم أفضل الأدوات والتقنيات المتاحة</li>
+                            <li>راجع المحتوى جيداً قبل النشر</li>
+                            <li>اطلب آراء وتقييمات من الآخرين</li>
+                            <li>حسّن باستمرار بناءً على النتائج</li>
+                        </ul>
+                        
+                        <h3>الاستمرارية والانتظام</h3>
+                        <p>
+                            حافظ على جدول نشر منتظم للحفاظ على تفاعل الجمهور:
+                        </p>
+                        <ul>
+                            <li>حدد جدولاً زمنياً واقعياً للنشر</li>
+                            <li>جهز المحتوى مسبقاً للفترات المزدحمة</li>
+                            <li>تفاعل مع تعليقات وملاحظات المتابعين</li>
+                            <li>حلل الأداء بانتظام واضبط الاستراتيجية</li>
+                            <li>استخدم أدوات الجدولة لتسهيل العملية</li>
+                        </ul>
+                    </section>
+                    <!-- Sidebar Ad 2 -->
+                    <div class="sidebar-ad">
+                        <script>
+                          atOptions = {
+                            'key' : '86ad0b65f83e5a69757d4cbd05006855',
+                            'format' : 'iframe',
+                            'height' : 90,
+                            'width' : 728,
+                            'params' : {}
+                          };
+                        </script>
+                        <script src="https://exceedbronzetooth.com/86ad0b65f83e5a69757d4cbd05006855/invoke.js"></script>
+                    </div>
+
+
+                    <!-- Gemini Link Section -->
+                    <section class="gemini-link-section" id="gemini-link">
+                        <h2>ابدأ رحلتك مع جيميناي برو الآن</h2>
+                        <p>انقر على الرابط التالي للوصول مباشرة إلى جيميناي برو وبدء استكشاف جميع المميزات المتقدمة</p>
+                        <a href="https://business.gemini.google/home/cid/59ed894f-6d39-41ff-8c52-0ee1de678ee9/r/session/5479133771656145171?csesidx=1005575313" 
+                           target="_blank" 
+                           class="gemini-button">
+                            <i class="fas fa-rocket"></i> اذهب إلى جيميناي برو
+                        </a>
+                    </section>
+
+                    <!-- Conclusion Section -->
+                    <section class="article-section" id="conclusion">
+                        <h2>خاتمة</h2>
+                        <p>
+                            جيميناي برو يمثل نقلة نوعية في عالم الذكاء الاصطناعي وإنشاء المحتوى الرقمي. من خلال اتباع الخطوات والممارسات المذكورة في هذا الدليل، يمكنك تحقيق أقصى استفادة من هذه التقنية المتقدمة وبناء مسيرة مهنية ناجحة في عالم المحتوى الرقمي.
+                        </p>
+                        <p>
+                            تذكر أن النجاح يتطلب المثابرة والتعلم المستمر. استمر في تطوير مهاراتك، ومواكبة التحديثات والتطورات، وستحقق نتائج مذهلة مع جيميناي برو.
+                        </p>
+                        <p>
+                            ابدأ اليوم بتطبيق ما تعلمته، ولا تتردد في التجربة والابتكار. عالم الذكاء الاصطناعي مليء بالفرص الواعدة، وجيميناي برو هو بوابتك لاستكشاف هذا العالم المثير.
+                        </p>
+                    </section>
+                </article>
+
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <!-- Table of Contents -->
+                    <div class="table-of-contents">
+                        <h3>محتويات المقال</h3>
+                        <ul>
+                            <li><a href="#introduction">مقدمة إلى جيميناي برو</a></li>
+                            <li><a href="#activation">كيفية تفعيل جيميناي برو</a></li>
+                            <li><a href="#video-creation">إنشاء الفيديوهات</a></li>
+                            <li><a href="#features">المميزات الرئيسية</a></li>
+                            <li><a href="#monetization">تحقيق الأرباح</a></li>
+                            <li><a href="#best-practices">أفضل الممارسات</a></li>
+                            <li><a href="#conclusion">خاتمة</a></li>
+                        </ul>
+                    </div>
+
+
+                    <!-- Sidebar Ad 2 -->
+                    <div class="sidebar-ad">
+                        <script>
+                          atOptions = {
+                            'key' : '86ad0b65f83e5a69757d4cbd05006855',
+                            'format' : 'iframe',
+                            'height' : 90,
+                            'width' : 728,
+                            'params' : {}
+                          };
+                        </script>
+                        <script src="https://exceedbronzetooth.com/86ad0b65f83e5a69757d4cbd05006855/invoke.js"></script>
+                    </div>
+
+                </aside>
+        </main>
+
+        <!-- Bottom Ad Banner -->
+        <div class="top-ad-banner">
+            <script>
+              atOptions = {
+                'key' : '86ad0b65f83e5a69757d4cbd05006855',
+                'format' : 'iframe',
+                'height' : 90,
+                'width' : 728,
+                'params' : {}
+              };
+            </script>
+            <script src="https://exceedbronzetooth.com/86ad0b65f83e5a69757d4cbd05006855/invoke.js"></script>
+        </div>
+    </div>
+<Script src="ads-fazza.js"></Script>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <p>&copy; 2024 دليل جيميناي برو. جميع الحقوق محفوظة.</p>
+                    <p>مصمم بـ ❤️ للمساعدة في نجاحك</p>
+                </div>
+                <div class="social-links">
+                    <a href="#" title="فيسبوك"><i class="fab fa-facebook"></i></a>
+                    <a href="#" title="تويتر"><i class="fab fa-twitter"></i></a>
+                    <a href="#" title="انستغرام"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="يوتيوب"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Left Sidebar Ad -->
+    <div class="left-sidebar-ad">
+        <script async="async" data-cfasync="false" src="https://exceedbronzetooth.com/507ab538554c988bb7f0c8a30d4dc31b/invoke.js"></script>
+        <div id="container-507ab538554c988bb7f0c8a30d4dc31b"></div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-to-top" id="scrollToTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll to top button functionality
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Track click count for gemini button
+        let geminiClickCount = 0;
+        
+        // Add loading animation to buttons
+        document.querySelectorAll('.cta-button, .gemini-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                if (this.getAttribute('target') === '_blank' && this.classList.contains('gemini-button')) {
+                    // For gemini button, track clicks
+                    e.preventDefault();
+                    geminiClickCount++;
+                    
+                    if (geminiClickCount <= 3) {
+                        // Open ad in new window for first 3 clicks
+                        const adWindow = window.open('https://exceedbronzetooth.com/tmpvskkqt?key=19485795effc8a68161e2f658c5a3f76', '_blank');
+                    } else {
+                        // After 3 clicks, open the main link
+                        window.open(this.getAttribute('href'), '_blank');
+                        geminiClickCount = 0; // Reset counter
+                    }
+                    
+                    return;
+                }
+                
+                if (this.getAttribute('target') === '_blank') {
+                    // For other external links, don't prevent default
+                    return;
+                }
+                
+                e.preventDefault();
+                const originalContent = this.innerHTML;
+                this.innerHTML = '<span class="loading"></span> جاري التحميل...';
+                this.style.pointerEvents = 'none';
+                
+                setTimeout(() => {
+                    this.innerHTML = originalContent;
+                    this.style.pointerEvents = 'auto';
+                    // Navigate to the link
+                    const href = this.getAttribute('href');
+                    if (href) {
+                        window.location.href = href;
+                    }
+                }, 1500);
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply fade-in animation to article sections
+        document.querySelectorAll('.article-section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+
+        // Apply fade-in animation to feature cards
+        document.querySelectorAll('.feature-card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+            observer.observe(card);
+        });
+
+        // Dynamic ad placeholder animation
+        document.querySelectorAll('.ad-placeholder').forEach(ad => {
+            ad.style.animation = 'pulse 2s ease-in-out infinite';
+        });
+
+        // Add hover effect to social links
+        document.querySelectorAll('.social-links a').forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px) scale(1.1)';
+            });
+            
+            link.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Copy link functionality
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showNotification('تم نسخ الرابط بنجاح!');
+            }).catch(() => {
+                showNotification('فشل نسخ الرابط، يرجى المحاولة مرة أخرى', 'error');
+            });
+        }
+
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: ${type === 'success' ? '#10b981' : '#ef4444'};
+                color: white;
+                padding: 15px 25px;
+                border-radius: 10px;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                z-index: 10000;
+                font-weight: 600;
+                animation: slideDown 0.3s ease;
+            `;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideUp 0.3s ease';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+
+        // Add CSS animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideDown {
+                from { transform: translate(-50%, -100%); opacity: 0; }
+                to { transform: translate(-50%, 0); opacity: 1; }
+            }
+            
+            @keyframes slideUp {
+                from { transform: translate(-50%, 0); opacity: 1; }
+                to { transform: translate(-50%, -100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Performance optimization: Lazy load images if any are added later
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.removeAttribute('data-src');
+                            imageObserver.unobserve(img);
+                        }
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+
+        // Initialize page
+        console.log('🚀 Gemini Pro Article Page Loaded Successfully!');
+        console.log('📊 Ready for monetization with multiple ad placements');
+        console.log('📱 Fully responsive design optimized for all devices');
+    </script>
+</body>
+</html>
