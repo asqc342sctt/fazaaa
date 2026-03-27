@@ -50,8 +50,8 @@
   to = "/game.html"
   status = 200
 
-# Catch-all redirect to index
+# 404 page
 [[redirects]]
   from = "/*"
-  to = "/index.html"
-  status = 200
+  to = "/404.html"
+  status = 404

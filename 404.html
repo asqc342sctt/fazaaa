@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - الصفحة غير موجودة | Fazza Play</title>
+    <meta name="description" content="الصفحة التي تبحث عنها غير موجودة. عد إلى الرئيسية واستكشف مكتبة الألعاب.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: #0f0f1a;
+            color: #e0e0e0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .error-code {
+            font-size: 8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: #fff;
+        }
+
+        p {
+            color: #999;
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            max-width: 400px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 0.85rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            font-family: 'Cairo', sans-serif;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        .btn:hover { transform: translateY(-2px); opacity: 0.9; }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #fff;
+        }
+
+        .btn-secondary {
+            background: #1e1e2e;
+            color: #ccc;
+            border: 1px solid #333;
+        }
+
+        .icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="icon">🎮</div>
+    <div class="error-code">404</div>
+    <h1>الصفحة غير موجودة</h1>
+    <p>يبدو إن الصفحة اللي بتدور عليها اتنقلت أو مش موجودة.</p>
+    <div class="buttons">
+        <a href="/" class="btn btn-primary">الرئيسية</a>
+        <a href="/pc-games/" class="btn btn-secondary">ألعاب الكمبيوتر</a>
+    </div>
+</body>
+</html>
